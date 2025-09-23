@@ -1,5 +1,4 @@
 import React from "react";
-import { FaArrowDown, FaShieldAlt, FaGraduationCap } from "react-icons/fa";
 
 import ButtonSideBar from "./ButtonSideBar";
 import StatisticCard from "./StatisticCard";
