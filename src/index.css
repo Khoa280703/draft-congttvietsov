@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@theme {
+  --animate-marquee: marquee 40s linear infinite;
+  --color-primary: #000000;
+  --color-secondary: #000000;
+  --color-tertiary: #000000;
+  --color-quaternary: #000000;
+  --color-quinary: #000000;
+  --color-senary: #000000;
+  --color-septenary: #000000;
+  --color-octonary: #000000;
+  --color-white: #ffffff;
+}
