@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HiSearch, HiMenu, HiX } from "react-icons/hi";
+import { HiMenu, HiX } from "react-icons/hi";
 import {
   AiFillInstagram,
   AiOutlineTwitter,
