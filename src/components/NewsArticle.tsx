@@ -21,7 +21,7 @@ const keyWords = [
 const ArticleHeader = () => (
   <>
     <p className="text-sm text-green-600 font-semibold mb-2">TIN DẦU KHÍ</p>
-    <h1 className="text-3xl font-bold text-gray-900 leading-tight">
+    <h1 className="text-3xl font-medium text-gray-900 leading-tight">
       Đảng bộ Vietsovpetro được vinh danh tại Đại hội đại biểu Đảng bộ Tập đoàn
       Công nghiệp – Năng lượng Quốc gia Việt Nam lần thứ IV, nhiệm kỳ 2025-2030
     </h1>
