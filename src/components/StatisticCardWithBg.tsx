@@ -3,16 +3,12 @@ import { BsFillTriangleFill } from "react-icons/bs";
 import GianKhoanPic from "../assets/Khoan _sua_gieng.png";
 
 interface StatisticCardProps {
-  title: string;
+  title?: string;
   data: StatisticCardData[];
   note?: string;
 }
 
-const StatisticCardWithBg: React.FC<StatisticCardProps> = ({
-  data,
-  title,
-  note,
-}) => {
+const StatisticCardWithBg: React.FC<StatisticCardProps> = ({ data, note }) => {
   const formatNumber = (num: number) => {
     return new Intl.NumberFormat("en-US").format(num);
   };
@@ -20,8 +16,18 @@ const StatisticCardWithBg: React.FC<StatisticCardProps> = ({
   return (
     <div className="relative">
       {/* Title */}
-      <div className="flex items-center mb-3 relative z-20">
-        <h3 className="font-medium uppercase">{title}</h3>
+      <div className="flex items-center mb-3 relative z-20 border-b-1 pb-1 border-green-500">
+        <div className="flex items-center space-x-3">
+          <h3 className="font-medium text-gray-800 uppercase tracking-wide">
+            GIÁ DẦU
+          </h3>
+
+          <span className="border-l-2 border-gray-300 h-5"></span>
+
+          <h4 className="font-light text-gray-500 uppercase tracking-wide">
+            TỶ GIÁ VSP
+          </h4>
+        </div>
       </div>
 
       {/* Table wrapper */}

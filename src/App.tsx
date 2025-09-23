@@ -1,9 +1,10 @@
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
 import NewTicket from "./components/NewTicket";
-import NewsSection from "./components/NewsSection";
+import NewsArticle from "./components/NewsArticle";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
+import PreFooter from "./components/PreFooter";
 import "./App.css";
 import VietsopetroLogo from "./assets/vietsovlogogiulua.png";
 
@@ -28,13 +29,15 @@ function App() {
       <main className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           <div className="lg:col-span-3">
-            <NewsSection />
+            <NewsArticle />
           </div>
           <div className="lg:col-span-1">
             <Sidebar />
           </div>
         </div>
       </main>
+
+      <PreFooter />
 
       <Footer />
     </div>

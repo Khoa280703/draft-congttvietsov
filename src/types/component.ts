@@ -3,3 +3,10 @@ export interface StatisticCardData {
   plan: number;
   actual: number;
 }
+
+export interface TrainingItemData {
+  id: number | string;
+  title: string;
+  duration: string;
+  startDate: string;
+}
