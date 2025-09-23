@@ -5,6 +5,7 @@ import NewsArticle from "./components/NewsArticle";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
 import PreFooter from "./components/PreFooter";
+import LinkCenter from "./components/LinkCenter";
 import "./App.css";
 import VietsopetroLogo from "./assets/vietsovlogogiulua.png";
 
@@ -30,6 +31,7 @@ function App() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           <div className="lg:col-span-3">
             <NewsArticle />
+            <LinkCenter />
           </div>
           <div className="lg:col-span-1">
             <Sidebar />
