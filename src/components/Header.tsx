@@ -47,6 +47,9 @@ const Header: React.FC = () => {
               <button className="hover:text-gray-300 transition-colors">
                 <HiSearch className="w-5 h-5 font-thin" />
               </button>
+              <button className="hover:text-gray-300 transition-colors">
+                <HiMenu className="w-5 h-5 font-thin" />
+              </button>
             </nav>
 
             <div className="md:hidden">

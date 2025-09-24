@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
+
 const menuItems = [
   "TRANG CHỦ",
   "GIỚI THIỆU CHUNG",
@@ -10,10 +11,16 @@ const menuItems = [
   "TRA CỨU",
 ];
 
-const NavigationBar: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+interface NavigationProps {
+  activeItem: string;
+  onItemClick: (item: string) => void;
+}
 
-  const [activeItem, setActiveItem] = useState("TIN TỨC SỰ KIỆN");
+const NavigationBar: React.FC<NavigationProps> = ({
+  activeItem,
+  onItemClick,
+}) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className="bg-white w-full border-t border-gray-200">
@@ -28,7 +35,7 @@ const NavigationBar: React.FC = () => {
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    setActiveItem(item);
+                    onItemClick(item);
                   }}
                   className={`
                     px-4 py-3 text-sm uppercase tracking-wider
@@ -70,7 +77,7 @@ const NavigationBar: React.FC = () => {
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    setActiveItem(item);
+                    onItemClick(item);
                     setIsMenuOpen(false);
                   }}
                   className={`

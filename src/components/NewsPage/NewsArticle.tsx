@@ -8,8 +8,8 @@ import {
   FaCommentAlt,
 } from "react-icons/fa";
 
-import HoiNghiViPetro from "../assets/hoinghipetrovi.jpg";
-import Vietsov44nam from "../assets/44namvietsov.png";
+import HoiNghiViPetro from "../../assets/hoinghipetrovi.jpg";
+import Vietsov44nam from "../../assets/44namvietsov.png";
 
 const keyWords = [
   "Tập đoàn Công nghiệp - Năng lượng Quốc gia Việt Nam",

@@ -1,11 +1,10 @@
+import { useState } from "react";
 import Header from "./components/Header";
 import Navigation from "./components/Navigation";
-import NewTicket from "./components/NewTicket";
-import NewsArticle from "./components/NewsArticle";
-import Sidebar from "./components/Sidebar";
+import NewTicket from "./components/NewsPage/NewTicket";
+import ContentManager from "./components/ContentManager";
 import Footer from "./components/Footer";
 import PreFooter from "./components/PreFooter";
-import LinkCenter from "./components/LinkCenter";
 import "./App.css";
 import VietsopetroLogo from "./assets/vietsovlogogiulua.png";
 
@@ -15,6 +14,12 @@ const newsData = [
 ];
 
 function App() {
+  const [activeNavItem, setActiveNavItem] = useState("TRANG CHỦ");
+
+  const handleNavItemClick = (item: string) => {
+    setActiveNavItem(item);
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -24,24 +29,20 @@ function App() {
         className="w-36 h-24 mx-auto my-4"
       />
       <div className="pb-1">
-        <Navigation />
+        <Navigation
+          activeItem={activeNavItem}
+          onItemClick={handleNavItemClick}
+        />
       </div>
-      <NewTicket items={newsData} />
-      <main className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          <div className="lg:col-span-3">
-            <NewsArticle />
-            <LinkCenter />
-          </div>
-          <div className="lg:col-span-1">
-            <Sidebar />
-          </div>
-        </div>
-      </main>
 
-      <PreFooter />
+      {activeNavItem === "TIN TỨC SỰ KIỆN" && <NewTicket items={newsData} />}
 
-      <Footer />
+      <ContentManager activeItem={activeNavItem} />
+
+      <>
+        <PreFooter />
+        <Footer />
+      </>
     </div>
   );
 }

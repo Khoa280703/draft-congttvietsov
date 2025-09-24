@@ -12,21 +12,21 @@ const StatisticCard: React.FC<StatisticCardProps> = ({ data, title }) => {
   };
 
   return (
-    <div>
+    <div className="h-full flex flex-col">
       <div className="flex items-center mb-3">
         <span className="w-1 h-5 bg-green-500 mr-2"></span>
         <h3 className="font-medium text-gray-800 uppercase">{title}</h3>
       </div>
 
       {/* Table */}
-      <div className="bg-gray-100  text-xs rounded-xl">
-        <div className="flex justify-between bg-gray-200 px-4 py-3 rounded-md font-light text-xs text-gray-500 uppercase tracking-wider">
+      <div className="bg-gray-100 text-xs rounded-xl flex-1 flex flex-col">
+        <div className="flex justify-between bg-gray-200 px-4 py-3 font-light text-xs text-gray-500 uppercase tracking-wider">
           <div className="w-1/3 text-left">TG</div>
           <div className="w-1/3 text-center">KẾ HOẠCH</div>
           <div className="w-1/3 text-center">THỰC TẾ</div>
         </div>
 
-        <div className="divide-y divide-gray-200">
+        <div className="divide-y divide-gray-200 flex-1">
           {data.map((row) => (
             <div
               key={row.period}

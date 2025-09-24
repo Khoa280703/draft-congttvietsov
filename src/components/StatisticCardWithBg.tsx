@@ -14,7 +14,7 @@ const StatisticCardWithBg: React.FC<StatisticCardProps> = ({ data, note }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative h-full flex flex-col">
       {/* Title */}
       <div className="flex items-center mb-3 relative z-20 border-b-1 pb-1 border-green-500">
         <div className="flex items-center space-x-3">
@@ -31,7 +31,7 @@ const StatisticCardWithBg: React.FC<StatisticCardProps> = ({ data, note }) => {
       </div>
 
       {/* Table wrapper */}
-      <div className="text-xs rounded-xl relative overflow-hidden">
+      <div className="text-xs rounded-xl relative overflow-hidden flex-1 flex flex-col">
         {/* Background image */}
         <img
           src={GianKhoanPic}
@@ -41,7 +41,7 @@ const StatisticCardWithBg: React.FC<StatisticCardProps> = ({ data, note }) => {
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#3a3a6e]/80 to-[#4e9a5a]/80 z-10"></div>
 
-        <div className="text-white relative z-20">
+        <div className="text-white relative z-20 flex flex-col flex-1">
           {/* Header */}
           <div className="relative z-20">
             <div className="py-3">
@@ -56,7 +56,7 @@ const StatisticCardWithBg: React.FC<StatisticCardProps> = ({ data, note }) => {
           </div>
 
           {/* Body */}
-          <div className="divide-y divide-gray-600 text-white">
+          <div className="divide-y divide-gray-600 flex-1">
             {data.map((row) => (
               <div
                 key={row.period}
