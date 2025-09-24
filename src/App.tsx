@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Header from "@/components/Header";
+import Header from "@/components/PriviteSystem/Header";
 import Navigation from "@/components/Navigation";
 import ContentManager from "@/components/ContentManager";
 import InternalInterface from "@/components/InternalInterface";

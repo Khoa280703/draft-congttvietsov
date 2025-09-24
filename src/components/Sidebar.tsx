@@ -1,10 +1,10 @@
 import React from "react";
 
-import ButtonSideBar from "./ButtonSideBar";
-import StatisticCard from "./StatisticCard";
-import StatisticCardWithBg from "./StatisticCardWithBg";
-import SafetyInfoCard from "./SafetyInfoCard";
-import TrainingScheduleWidget from "./TrainingScheduleWidget";
+import ButtonSideBar from "./PriviteSystem/NewsPage/ButtonSideBar";
+import StatisticCard from "./PriviteSystem/StatisticCard";
+import StatisticCardWithBg from "./PriviteSystem/StatisticCardWithBg";
+import SafetyInfoCard from "./PriviteSystem/NewsPage/SafetyInfoCard";
+import TrainingScheduleWidget from "./PriviteSystem/NewsPage/TrainingScheduleWidget";
 
 const statisticCardData1: StatisticCardData[] = [
   { period: "Ngày", plan: 8422.4, actual: 8275.0 },

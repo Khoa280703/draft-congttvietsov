@@ -2,9 +2,9 @@ import React from "react";
 import { FiChevronRight } from "react-icons/fi";
 import { IoNotificationsOutline } from "react-icons/io5";
 
-import daiHoiDaiBieu from "../../assets/daihoidaibieuivpvn.jpg";
-import hoiNghiSuKien from "../../assets/hoinghicongtacpvn.jpg";
-import hoiNghiPetro from "../../assets/hoinghipetrovi.jpg";
+import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
+import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
+import hoiNghiPetro from "@/assets/hoinghipetrovi.jpg";
 
 const briefingItems = [
   {

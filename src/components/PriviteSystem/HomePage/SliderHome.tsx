@@ -11,9 +11,9 @@ import "swiper/css/effect-fade";
 import { FaInstagram, FaTwitter } from "react-icons/fa";
 
 // Import ảnh
-import daiHoiDaiBieu from "../../assets/daihoidaibieuivpvn.jpg";
-import hoiNghiSuKien from "../../assets/hoinghicongtacpvn.jpg";
-import hoatDongCongDong from "../../assets/hdcongdongvietsov.jpg";
+import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
+import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
+import hoatDongCongDong from "@/assets/hdcongdongvietsov.jpg";
 
 const slidesData = [
   {

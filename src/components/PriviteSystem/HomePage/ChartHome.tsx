@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FiChevronRight } from "react-icons/fi";
-import ChartImage from "../../assets/bieudokhaithac.png";
+import ChartImage from "@/assets/bieudokhaithac.png";
 
 const ChartHome: React.FC = () => {
   const [activeTab, setActiveTab] = useState("vsp");

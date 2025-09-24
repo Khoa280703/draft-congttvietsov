@@ -1,10 +1,10 @@
 import React from "react";
 import { FiLink, FiBookmark, FiTwitter, FiFacebook } from "react-icons/fi";
-import danKhoanVietsov from "../../assets/dankhoanvietsov.jpg";
-import chuyenTham1996 from "../../assets/1996.jpg";
-import daiHoiDaiBieu from "../../assets/daihoidaibieuivpvn.jpg";
-import hoiNghiSuKien from "../../assets/hoinghicongtacpvn.jpg";
-import hoiNghiPetro from "../../assets/hoinghipetrovi.jpg";
+import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
+import chuyenTham1996 from "@/assets/1996.jpg";
+import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
+import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
+import hoiNghiPetro from "@/assets/hoinghipetrovi.jpg";
 
 const mainVideo = {
   thumbnail: danKhoanVietsov,

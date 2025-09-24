@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FiChevronRight } from "react-icons/fi";
 
-import vietSovMSA1 from "../../assets/vietsovmsa.png";
-import vietSovMSA2 from "../../assets/vietsovge.png";
+import vietSovMSA1 from "@/assets/vietsovmsa.png";
+import vietSovMSA2 from "@/assets/vietsovge.png";
 
 // --- Dữ liệu giả lập ---
 const featuredArticles = [

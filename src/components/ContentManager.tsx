@@ -1,10 +1,10 @@
 import React from "react";
-import NewsArticle from "@/components/NewsPage/NewsArticle";
-import LinkCenter from "@/components/LinkCenter";
+import NewsArticle from "@/components/PriviteSystem/NewsPage/NewsArticle";
+import LinkCenter from "@/components/PriviteSystem/LinkCenter";
 import Sidebar from "@/components/Sidebar";
 import BlankPage from "@/components/BlankPage";
-import HomePage from "@/components/HomePage/HomePage";
-import NewTicket from "@/components/NewsPage/NewTicket";
+import HomePage from "@/components/PriviteSystem/HomePage/HomePage";
+import NewTicket from "@/components/PriviteSystem/NewsPage/NewTicket";
 
 const newsData = [
   "Đoàn sinh viên Trường Đại học Bách khoa - Đại học Quốc gia TP.HCM tham quan thực tế tại Vietsovpetro",

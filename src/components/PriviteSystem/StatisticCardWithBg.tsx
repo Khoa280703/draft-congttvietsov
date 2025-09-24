@@ -1,6 +1,6 @@
 import React from "react";
 import { BsFillTriangleFill } from "react-icons/bs";
-import GianKhoanPic from "../assets/Khoan _sua_gieng.png";
+import GianKhoanPic from "@/assets/Khoan _sua_gieng.png";
 
 interface StatisticCardProps {
   title?: string;
