@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Routes, Route } from "react-router-dom";
 import Header from "@/components/PublicSystem/Header";
 import Navigation from "@/components/PublicSystem/Navigation";
 import SliderHome from "@/components/PublicSystem/SliderHome";
@@ -12,6 +12,15 @@ import OilNewsSection from "@/components/PublicSystem/OilNewsSection";
 import GradientImageOverlay from "@/components/PublicSystem/GradientImageOverlay";
 import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
 import { NAVIGATION_CONFIG, ROUTES } from "@/config/navigation";
+import {
+  AboutPage,
+  UnitsPage,
+  ProductsServicesPage,
+  NewsPage,
+  ResourcesPage,
+  RecruitmentPage,
+  AdmissionPage,
+} from "@/pages/public";
 
 const PublicInterface: React.FC = () => {
   const location = useLocation();
@@ -50,12 +59,30 @@ const PublicInterface: React.FC = () => {
       </button>
       <Header />
       <Navigation activeItem={activeNavItem} onItemClick={handleNavItemClick} />
-      <SliderHome />
-      <IntroductionSection />
-      <ServicesGrid />
-      <FeaturedProjects />
-      <OilNewsSection />
-      <GradientImageOverlay imageUrl={bannerDanKhoan} />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <SliderHome />
+              <IntroductionSection />
+              <ServicesGrid />
+              <FeaturedProjects />
+              <OilNewsSection />
+              <GradientImageOverlay imageUrl={bannerDanKhoan} />
+            </>
+          }
+        />
+        <Route path="/gioithieu" element={<AboutPage />} />
+        <Route path="/donvi" element={<UnitsPage />} />
+        <Route path="/spvadichvu" element={<ProductsServicesPage />} />
+        <Route path="/tintuc" element={<NewsPage />} />
+        <Route path="/nguonluc" element={<ResourcesPage />} />
+        <Route path="/tuyendung" element={<RecruitmentPage />} />
+        <Route path="/tuyensinh" element={<AdmissionPage />} />
+      </Routes>
+
       <PreFooter />
       <Footer />
     </div>

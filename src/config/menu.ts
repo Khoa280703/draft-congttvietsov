@@ -2,9 +2,12 @@
 export const PUBLIC_MENU_ITEMS = [
   { id: "home", label: "TRANG CHỦ", path: "/" },
   { id: "about", label: "GIỚI THIỆU", path: "/gioithieu" },
-  { id: "products", label: "SẢN PHẨM VÀ DỊCH VỤ", path: "/spvadichvu" },
-  { id: "news", label: "TIN TỨC", path: "/tintuc" },
-  { id: "contact", label: "LIÊN HỆ", path: "/lienhe" },
+  { id: "units", label: "ĐƠN VỊ TRỰC THUỘC", path: "/donvi" },
+  { id: "products", label: "SẢN PHẨM-DỊCH VỤ", path: "/spvadichvu" },
+  { id: "news", label: "TIN TỨC-SỰ KIỆN", path: "/tintuc" },
+  { id: "resources", label: "NGUỒN LỰC", path: "/nguonluc" },
+  { id: "recruitment", label: "TUYỂN DỤNG", path: "/tuyendung" },
+  { id: "admission", label: "TUYỂN SINH", path: "/tuyensinh" },
 ] as const;
 
 // Internal menu configuration

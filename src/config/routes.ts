@@ -2,9 +2,12 @@
 export const PUBLIC_ROUTES = {
   HOME: "/",
   ABOUT: "/gioithieu",
+  UNITS: "/donvi",
   PRODUCTS_SERVICES: "/spvadichvu",
   NEWS: "/tintuc",
-  CONTACT: "/lienhe",
+  RESOURCES: "/nguonluc",
+  RECRUITMENT: "/tuyendung",
+  ADMISSION: "/tuyensinh",
 } as const;
 
 // Internal routes configuration

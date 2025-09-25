@@ -1,15 +1,6 @@
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-
-const menuItems = [
-  "TRANG CHỦ",
-  "GIỚI THIỆU CHUNG",
-  "TIN TỨC SỰ KIỆN",
-  "PHÁT TRIỂN BỀN VỮNG",
-  "BÁO CÁO",
-  "ỨNG DỤNG LIÊN KẾT",
-  "TRA CỨU",
-];
+import { NAVIGATION_CONFIG } from "@/config/navigation";
 
 interface NavigationProps {
   activeItem: string;
@@ -21,6 +12,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
   onItemClick,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuItems = NAVIGATION_CONFIG.INTERNAL.MENU_ITEMS;
 
   return (
     <nav className="bg-white w-full border-t border-gray-200">
@@ -30,24 +22,24 @@ const NavigationBar: React.FC<NavigationProps> = ({
 
           <ul className="hidden md:flex justify-center items-center flex-1">
             {menuItems.map((item) => (
-              <li key={item}>
+              <li key={item.id}>
                 <a
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    onItemClick(item);
+                    onItemClick(item.label);
                   }}
                   className={`
                     px-4 py-3 text-sm uppercase tracking-wider
                     border-b-3 transition-all duration-300
                     ${
-                      activeItem === item
+                      activeItem === item.label
                         ? "text-green-600 border-green-600"
                         : "border-transparent hover:text-green-600"
                     }
                   `}
                 >
-                  {item}
+                  {item.label}
                 </a>
               </li>
             ))}
@@ -72,24 +64,24 @@ const NavigationBar: React.FC<NavigationProps> = ({
         <div className="md:hidden border-t border-gray-200">
           <ul className="flex flex-col items-center py-2">
             {menuItems.map((item) => (
-              <li key={item} className="w-full">
+              <li key={item.id} className="w-full">
                 <a
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    onItemClick(item);
+                    onItemClick(item.label);
                     setIsMenuOpen(false);
                   }}
                   className={`
                     block w-full text-center py-3 text-sm uppercase
                     ${
-                      activeItem === item
+                      activeItem === item.label
                         ? "text-green-600 font-bold bg-green-50"
                         : "text-gray-600 hover:bg-gray-100"
                     }
                   `}
                 >
-                  {item}
+                  {item.label}
                 </a>
               </li>
             ))}
