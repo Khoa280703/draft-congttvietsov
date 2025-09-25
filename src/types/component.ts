@@ -10,3 +10,13 @@ export interface TrainingItemData {
   duration: string;
   startDate: string;
 }
+
+export interface NewsArticle {
+  id: number;
+  category: string;
+  categoryColor: string;
+  title: string;
+  timestamp: string;
+  description: string;
+  image: string;
+}
