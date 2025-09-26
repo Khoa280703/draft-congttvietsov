@@ -1,9 +1,15 @@
 import React from "react";
 import { HiChevronRight, HiHome } from "react-icons/hi";
 
+interface ImageModule {
+  src: string;
+  height?: number;
+  width?: number;
+  blurDataURL?: string;
+}
 interface PageHeaderProps {
   title: string;
-  backgroundImage?: string;
+  backgroundImage?: ImageModule | string;
   breadcrumbs?: Array<{
     label: string;
     href?: string;
@@ -12,20 +18,23 @@ interface PageHeaderProps {
 
 const PageHeader: React.FC<PageHeaderProps> = ({
   title,
-  backgroundImage = "/api/placeholder/1920/400",
+  backgroundImage,
   breadcrumbs = [{ label: "Trang chủ", href: "/" }, { label: title }],
 }) => {
+  const bgUrl =
+    typeof backgroundImage === "string"
+      ? backgroundImage
+      : backgroundImage?.src;
   return (
     <div className="relative">
       {/* Background Image */}
       <div
-        className="relative h-64 bg-cover bg-center bg-no-repeat"
+        className="relative h-96 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url(${backgroundImage})`,
+          backgroundImage: `url(${bgUrl})`,
         }}
       >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#3a3a6e]/80 via-[#4e9a5a]/80 to-transparent z-0"></div>
 
         {/* Content */}
         <div className="relative z-10 h-full flex flex-col justify-center">

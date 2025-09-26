@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate, Routes, Route } from "react-router-dom";
-import Header from "@/components/PublicSystem/Header";
-import Navigation from "@/components/PublicSystem/Navigation";
-import SliderHome from "@/components/PublicSystem/SliderHome";
+import { Header, Navigation } from "@/components/PublicSystem";
+import {
+  SliderHome,
+  ServicesGrid,
+  FeaturedProjects,
+  OilNewsSection,
+  GradientImageOverlay,
+} from "@/components/PublicSystem/HomePage";
+import { IntroductionSection } from "@/components/PublicSystem/AboutPage";
 import PreFooter from "@/components/PreFooter";
 import Footer from "@/components/Footer";
-import IntroductionSection from "@/components/PublicSystem/IntroductionSection";
-import ServicesGrid from "@/components/PublicSystem/ServicesGrid";
-import FeaturedProjects from "@/components/PublicSystem/FeaturedProjects";
-import OilNewsSection from "@/components/PublicSystem/OilNewsSection";
-import GradientImageOverlay from "@/components/PublicSystem/GradientImageOverlay";
 import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
 import { NAVIGATION_CONFIG, ROUTES } from "@/config/navigation";
 import {
