@@ -3,6 +3,7 @@ declare global {
   type StatisticCardData = import("./component").StatisticCardData;
   type TrainingItemData = import("./component").TrainingItemData;
   type NewsArticle = import("./component").NewsArticle;
+  type EnterpriseCardProps = import("./component").EnterpriseCardProps;
 }
 
 export {};

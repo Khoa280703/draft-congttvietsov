@@ -20,3 +20,11 @@ export interface NewsArticle {
   description: string;
   image: string;
 }
+
+export interface EnterpriseCardProps {
+  index: string;
+  title: string;
+  description: string;
+  image: string;
+  imagePosition?: "left" | "right";
+}

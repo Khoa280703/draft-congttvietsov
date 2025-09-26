@@ -1,5 +1,4 @@
 import React from "react";
-import achievementsBg from "@/assets/banner-dankhoan.jpg";
 import achievementsGraphic from "@/assets/khaithaccartoon.png";
 
 const achievementsData = [
@@ -38,11 +37,9 @@ const achievementsData = [
 const AchievementsSection: React.FC = () => {
   return (
     <section
-      className="relative font-sans py-16 md:py-24 text-white bg-cover bg-center"
-      style={{ backgroundImage: `url(${achievementsBg})` }}
+      className="relative font-sans py-16 md:py-24 bg-cover bg-center"
+      // style={{ backgroundImage: `url(${achievementsBg})` }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-green-600/80 backdrop-blur-sm"></div>
-
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="flex justify-center">
@@ -55,10 +52,8 @@ const AchievementsSection: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
             {achievementsData.map((item, index) => (
               <div key={index}>
-                <h2 className="text-3xl font-semibold mb-2">{item.value}</h2>
-                <p className="text-white/80 text-sm leading-relaxed">
-                  {item.description}
-                </p>
+                <h2 className="text-xl font-semibold mb-2">{item.value}</h2>
+                <p className="text-xs leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
