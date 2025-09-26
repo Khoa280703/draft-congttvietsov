@@ -67,12 +67,12 @@ const ServiceCard: React.FC<{
   description: string;
 }> = ({ image, title, description }) => {
   return (
-    <div className="bg-white rounded-lg shadow-sm overflow-hidden group">
+    <div className="bg-white rounded-lg shadow-md overflow-hidden group">
       <div className="overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
         />
       </div>
       <div className="p-6">
