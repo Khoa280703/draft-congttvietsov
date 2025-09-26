@@ -34,7 +34,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
           backgroundImage: `url(${bgUrl})`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-[#3a3a6e]/80 via-[#4e9a5a]/80 to-transparent z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#3a3a6e]/80 to-[#4e9a5a]/80 z-0"></div>
 
         {/* Content */}
         <div className="relative z-10 h-full flex flex-col justify-center">

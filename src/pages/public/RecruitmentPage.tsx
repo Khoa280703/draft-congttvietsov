@@ -1,12 +1,14 @@
 import React from "react";
 import PageHeader from "@/components/PublicSystem/PageHeader";
 import { RecruitmentSection } from "@/components/PublicSystem/RecruitmentPage";
+import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
+
 const RecruitmentPage: React.FC = () => {
   return (
     <>
       <PageHeader
         title="Tuyển dụng"
-        backgroundImage="/api/placeholder/1920/400"
+        backgroundImage={bannerDanKhoan}
         breadcrumbs={[
           { label: "Trang chủ", href: "/" },
           { label: "Tuyển dụng" },

@@ -4,13 +4,14 @@ import {
   LandingUnits,
   FacilitiesEquipment,
 } from "@/components/PublicSystem/ResourcesPage";
+import hoinghicongtacpvn from "@/assets/hoinghicongtacpvn.jpg";
 
 const ResourcesPage: React.FC = () => {
   return (
     <>
       <PageHeader
         title="Nguồn lực"
-        backgroundImage="/api/placeholder/1920/400"
+        backgroundImage={hoinghicongtacpvn}
         breadcrumbs={[
           { label: "Trang chủ", href: "/" },
           { label: "Nguồn lực" },

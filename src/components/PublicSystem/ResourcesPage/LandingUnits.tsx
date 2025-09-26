@@ -42,7 +42,6 @@ const enterpriseData = [
 ];
 
 const EnterpriseCard: React.FC<EnterpriseCardProps> = ({
-  index,
   title,
   image,
   description,

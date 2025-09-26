@@ -1,13 +1,14 @@
 import React from "react";
 import PageHeader from "@/components/PublicSystem/PageHeader";
-import { LandingUnits } from "@/components/PublicSystem";
+import { LandingUnits } from "@/components/PublicSystem/UnitsPage";
+import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
 
 const UnitsPage: React.FC = () => {
   return (
     <>
       <PageHeader
         title="Đơn vị trực thuộc"
-        backgroundImage="/api/placeholder/1920/400"
+        backgroundImage={bannerDanKhoan}
         breadcrumbs={[
           { label: "Trang chủ", href: "/" },
           { label: "Đơn vị trực thuộc" },

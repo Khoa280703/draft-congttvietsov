@@ -79,29 +79,37 @@ const EnterpriseCard: React.FC<EnterpriseCardProps> = ({
   description,
   imagePosition = "right",
 }) => {
-  const imageOrder =
-    imagePosition === "left" ? "lg:order-first" : "lg:order-last";
+  const isLeft = imagePosition === "left";
 
   return (
-    <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
-      <div className={imageOrder}>
+    <div className="relative grid grid-cols-1 lg:grid-cols-10 gap-8 md:gap-16 items-center mb-20">
+      <div
+        className={`flex items-center justify-center h-full ${
+          isLeft
+            ? "lg:col-span-6 lg:order-first"
+            : "lg:col-span-6 lg:order-last"
+        }`}
+      >
         <img
           src={image}
           alt={title}
-          className="w-full h-[500px] md:h-[700px] lg:h-[850px] object-cover rounded-2xl shadow-lg"
+          className="w-180 h-[500px] md:h-[700px] lg:h-[850px] object-cover rounded-2xl shadow-lg"
         />
       </div>
 
-      {/* Khối text */}
-      <div className="relative z-10">
-        {/* số background */}
+      <div
+        className={`relative z-10 ${
+          isLeft
+            ? "lg:col-span-4 lg:order-last"
+            : "lg:col-span-4 lg:order-first"
+        }`}
+      >
         <span
           className={`
-      absolute -top-16 
-      ${imagePosition === "left" ? "-left-10" : "-left-10"}
-      text-7xl md:text-8xl lg:text-[10rem]
-      font-bold text-gray-200/80 z-0 select-none pointer-events-none
-    `}
+            absolute -top-16 -left-10
+            text-7xl md:text-8xl lg:text-[10rem]
+            font-bold text-gray-200/80 z-0 select-none pointer-events-none
+          `}
         >
           {index}
         </span>
@@ -129,7 +137,7 @@ const EnterpriseCard: React.FC<EnterpriseCardProps> = ({
 const LandingUnits: React.FC = () => {
   return (
     <section className="bg-white font-sans py-12 md:py-20">
-      <div className="container mx-auto px-4 space-y-20">
+      <div className="container mx-auto px-4">
         {enterpriseData.map((item) => (
           <EnterpriseCard
             key={item.index}
