@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-// Import icon mũi tên từ react-icons
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
-// Import ảnh (hãy thay đổi đường dẫn này)
-import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
+import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg"; // Giả sử đường dẫn này đúng
 
-// --- Dữ liệu giả lập cho các mốc thời gian ---
 const timelineData = [
   {
     year: "2005",
@@ -36,29 +33,20 @@ const timelineData = [
 const HistorySection: React.FC = () => {
   const [selectedYear, setSelectedYear] = useState("2009");
 
-  // Tìm kiếm sự kiện tương ứng với năm đã chọn
   const selectedEvent = timelineData.find(
     (item) => item.year === selectedYear
   )?.event;
 
   return (
-    <section className="bg-white font-sans py-12 md:py-12">
-      <h1 className="text-3xl md:text-4xl font-medium left-1/10 text-gray-800 mb-8 relative">
-        Lịch sử hình thành
-      </h1>
+    <section className="bg-white font-sans py-12 md:py-20">
+      <div className="container mx-auto px-4">
+        <h1 className="text-3xl md:text-4xl font-medium text-gray-800 mb-8">
+          Lịch sử hình thành
+        </h1>
+      </div>
 
-      <div className="relative bg-gradient-to-r from-green-600 to-teal-500 text-white p-8 md:p-12 overflow-hidden">
-        <div className="hidden lg:block absolute right-0 top-0 h-full w-1/2">
-          <img
-            src={hoiNghiSuKien}
-            alt="Lễ đón nhận huân chương"
-            className="w-2/3 h-full object-cover rounded-2xl shadow-lg"
-          />
-        </div>
-
-        {/* Nội dung */}
-        <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Cột timeline + text */}
+      <div className="relative bg-gradient-to-r from-green-600 to-teal-500 text-white">
+        <div className="container mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center py-16">
           <div className="flex items-center">
             <div className="flex flex-col items-center">
               <button className="mb-2 text-white/70 hover:text-white">
@@ -92,6 +80,19 @@ const HistorySection: React.FC = () => {
                 24/03/{selectedYear}
               </p>
               <p className="leading-relaxed">{selectedEvent}</p>
+            </div>
+          </div>
+
+          <div className="hidden lg:block h-full"></div>
+
+          <div className="hidden lg:flex absolute inset-y-0 right-0 w-1/2 my-[-40px] justify-end items-center">
+            <div className="w-[85%] h-full">
+              {" "}
+              <img
+                src={hoiNghiSuKien}
+                alt="Lễ đón nhận huân chương"
+                className="w-full h-full object-cover rounded-2xl shadow-lg"
+              />
             </div>
           </div>
         </div>

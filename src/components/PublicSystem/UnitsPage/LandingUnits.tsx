@@ -4,6 +4,14 @@ import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
 import hoiNghiPetro from "@/assets/hoinghipetrovi.jpg";
 import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
 
+interface EnterpriseCardProps {
+  index: string;
+  title: string;
+  description: string;
+  image: string;
+  imagePosition?: "left" | "right";
+}
+
 const enterpriseData = [
   {
     index: "01",
@@ -124,7 +132,7 @@ const EnterpriseCard: React.FC<EnterpriseCardProps> = ({
           {description}
         </p>
         <a
-          href="#"
+          href="/donvi/xinghiep-khai-thac-cong-trinh"
           className="flex items-center text-sm text-blue-600 font-semibold hover:text-blue-700 relative z-10"
         >
           Xem thêm <FiArrowRight className="w-4 h-4 ml-1" />

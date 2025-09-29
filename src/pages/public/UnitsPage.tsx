@@ -1,22 +1,53 @@
 import React from "react";
-import PageHeader from "@/components/PublicSystem/PageHeader";
-import { LandingUnits } from "@/components/PublicSystem/UnitsPage";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { PageHeader } from "@/components/PublicSystem";
+import {
+  EngineeringExploitationEnterprise,
+  LandingUnits,
+} from "@/components/PublicSystem/UnitsPage";
 import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
 
 const UnitsPage: React.FC = () => {
+  const location = useLocation();
+
+  const getBreadcrumbs = () => {
+    if (location.pathname === "/donvi") {
+      return [
+        { label: "Trang chủ", href: "/" },
+        { label: "Đơn vị trực thuộc" },
+      ];
+    } else if (location.pathname === "/donvi/xinghiep-khai-thac-cong-trinh") {
+      return [
+        { label: "Trang chủ", href: "/" },
+        { label: "Đơn vị trực thuộc", href: "/donvi" },
+        { label: "Xí nghiệp khai thác công trình" },
+      ];
+    }
+    return [{ label: "Trang chủ", href: "/" }, { label: "Đơn vị trực thuộc" }];
+  };
+
+  const getPageTitle = () => {
+    if (location.pathname === "/donvi/xinghiep-khai-thac-cong-trinh") {
+      return "Xí nghiệp khai thác công trình";
+    }
+    return "Đơn vị trực thuộc";
+  };
+
   return (
     <>
       <PageHeader
-        title="Đơn vị trực thuộc"
+        title={getPageTitle()}
         backgroundImage={bannerDanKhoan}
-        breadcrumbs={[
-          { label: "Trang chủ", href: "/" },
-          { label: "Đơn vị trực thuộc" },
-        ]}
+        breadcrumbs={getBreadcrumbs()}
       />
-      <div className="container mx-auto px-4 py-8">
-        <LandingUnits />
-      </div>
+
+      <Routes>
+        <Route path="/" element={<LandingUnits />} />
+        <Route
+          path="/xinghiep-khai-thac-cong-trinh"
+          element={<EngineeringExploitationEnterprise />}
+        />
+      </Routes>
     </>
   );
 };

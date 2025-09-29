@@ -76,7 +76,7 @@ const PublicInterface: React.FC = () => {
           }
         />
         <Route path="/gioithieu" element={<AboutPage />} />
-        <Route path="/donvi" element={<UnitsPage />} />
+        <Route path="/donvi/*" element={<UnitsPage />} />
         <Route path="/spvadichvu" element={<ProductsServicesPage />} />
         <Route path="/tintuc" element={<NewsPage />} />
         <Route path="/nguonluc" element={<ResourcesPage />} />
