@@ -4,13 +4,11 @@ import { SidebarNavigation } from "@/components/PublicSystem";
 interface PageWithSidebarProps {
   children: React.ReactNode;
   activePath?: string;
-  defaultExpanded?: string[];
 }
 
 const PageWithSidebar: React.FC<PageWithSidebarProps> = ({
   children,
   activePath,
-  defaultExpanded,
 }) => {
   return (
     <div className="container mx-auto px-4 py-8">
@@ -18,10 +16,7 @@ const PageWithSidebar: React.FC<PageWithSidebarProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">{children}</div>
           <div className="lg:col-span-1">
-            <SidebarNavigation
-              activePath={activePath}
-              defaultExpanded={defaultExpanded}
-            />
+            <SidebarNavigation activePath={activePath} />
           </div>
         </div>
       </div>
