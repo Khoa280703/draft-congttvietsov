@@ -58,17 +58,6 @@ const jobPostings = [
   },
 ];
 
-const sidebarLinks = [
-  { title: "Giới thiệu", children: [] },
-  { title: "Đơn vị trực thuộc", children: [] },
-  { title: "Sản phẩm - Dịch vụ", children: [] },
-  { title: "Tin tức - Sự kiện", children: [] },
-  { title: "Dự án - Đối tác", children: [] },
-  { title: "Nguồn lực", children: [] },
-  { title: "Tuyển dụng", children: [], active: true },
-  { title: "Tuyển sinh", children: [] },
-];
-
 const JobCard: React.FC<{ job: (typeof jobPostings)[0]; index: number }> = ({
   job,
   index,
