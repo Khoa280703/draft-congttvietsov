@@ -1,5 +1,4 @@
 import React from "react";
-import { FiSearch, FiChevronDown, FiChevronRight } from "react-icons/fi";
 
 const jobPostings = [
   {
@@ -118,47 +117,13 @@ const RecruitmentSection: React.FC = () => {
   return (
     <div className="bg-white font-sans py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-          <main className="lg:col-span-3">
-            <h1 className="text-4xl font-bold text-gray-800 mb-8">
-              Thông tin tuyển dụng
-            </h1>
-            <div>
-              {jobPostings.map((job, i) => (
-                <JobCard key={job.id} job={job} index={i} />
-              ))}
-            </div>
-          </main>
-
-          <aside>
-            <div className="relative mb-6">
-              <input
-                type="text"
-                placeholder="Search for..."
-                className="w-full pb-2 border-b border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
-              />
-              <FiSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" />
-            </div>
-            <nav>
-              <ul className="space-y-1">
-                {sidebarLinks.map((link) => (
-                  <li key={link.title}>
-                    <a
-                      href="#"
-                      className={`flex justify-between items-center p-2 rounded-md hover:bg-gray-100 text-sm ${
-                        link.active
-                          ? "font-bold text-green-600"
-                          : "text-gray-600"
-                      }`}
-                    >
-                      {link.title}
-                      {link.children && <FiChevronDown className="w-4 h-4" />}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </aside>
+        <h1 className="text-4xl font-bold text-gray-800 mb-8">
+          Thông tin tuyển dụng
+        </h1>
+        <div>
+          {jobPostings.map((job, i) => (
+            <JobCard key={job.id} job={job} index={i} />
+          ))}
         </div>
       </div>
     </div>

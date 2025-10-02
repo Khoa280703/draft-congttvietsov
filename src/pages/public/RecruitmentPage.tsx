@@ -2,6 +2,7 @@ import React from "react";
 import PageHeader from "@/components/PublicSystem/PageHeader";
 import { RecruitmentSection } from "@/components/PublicSystem/RecruitmentPage";
 import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
+import { PageWithSidebar } from "@/components/PublicSystem";
 
 const RecruitmentPage: React.FC = () => {
   return (
@@ -14,7 +15,9 @@ const RecruitmentPage: React.FC = () => {
           { label: "Tuyển dụng" },
         ]}
       />
-      <RecruitmentSection />
+      <PageWithSidebar activePath="/tuyendung">
+        <RecruitmentSection />
+      </PageWithSidebar>
     </>
   );
 };
