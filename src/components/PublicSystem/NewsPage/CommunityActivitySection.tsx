@@ -47,7 +47,7 @@ const CommunityActivitySection: React.FC = () => {
               Hoạt động đoàn thể
             </h2>
             <a
-              href="#"
+              href="/tintuc/hoat-dong-doan-the"
               className="flex items-center text-sm hover:text-green-700 font-medium"
             >
               Xem thêm <FiArrowRight className="w-4 h-4 ml-1" />

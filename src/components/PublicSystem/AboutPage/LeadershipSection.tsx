@@ -112,7 +112,7 @@ const LeadershipSection: React.FC = () => {
         {/* Nút Xem thêm ở dưới cùng */}
         <div className="text-center mt-12">
           <a
-            href="#"
+            href="/gioithieu/ban-lanh-dao"
             className="inline-flex items-center px-6 py-3 bg-white text-gray-700 font-semibold rounded-lg border border-gray-300 hover:bg-gray-100 transition-colors"
           >
             Xem thêm <FiArrowRight className="w-5 h-5 ml-2" />

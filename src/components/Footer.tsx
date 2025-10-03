@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <footer className="bg-gradient-to-r from-[#3a3a6e] to-[#4e9a5a] text-white shadow-lg">
+    <footer className="bg-[#098b43] text-white shadow-lg">
       <div className="container mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
           {/* Left Side: Logo/Brand */}
