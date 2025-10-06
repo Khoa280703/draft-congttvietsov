@@ -41,7 +41,7 @@ const NewsHome: React.FC = () => {
   const [activeTab, setActiveTab] = useState("internal");
 
   return (
-    <div className="bg-white p-6 font-sans">
+    <div className="bg-white pb-12 font-sans">
       {/* Header với Tabs */}
       <div className="flex justify-between items-center pb-3 mb-4">
         <div className="flex items-end space-x-6">

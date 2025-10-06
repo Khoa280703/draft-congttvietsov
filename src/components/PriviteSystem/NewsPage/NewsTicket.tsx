@@ -1,9 +1,5 @@
 import React from "react";
 
-interface NewsTickerProps {
-  items: string[];
-}
-
 const StarIcon: React.FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -19,13 +15,16 @@ const StarIcon: React.FC = () => (
   </svg>
 );
 
-const NewsTicker: React.FC<NewsTickerProps> = ({ items }) => {
-  const extendedItems = [...items, ...items];
+const newsData = [
+  "Đoàn sinh viên Trường Đại học Bách khoa - Đại học Quốc gia TP.HCM tham quan thực tế tại Vietsovpetro",
+  "Đảng bộ Vietsovpetro được vinh danh tại Đại hội đại biểu",
+];
 
+const NewsTicker: React.FC = () => {
   return (
     <div className="bg-gray-100 w-full py-2 overflow-hidden">
       <div className="flex animate-marquee whitespace-nowrap">
-        {extendedItems.map((item, index) => (
+        {newsData.map((item, index) => (
           <div
             key={index}
             className="flex items-center mx-4 text-sm text-gray-700"

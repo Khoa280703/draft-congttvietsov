@@ -21,8 +21,6 @@ export const INTERNAL_MENU_ITEMS = [
     path: "/internal/phattrien",
   },
   { id: "reports", label: "BÁO CÁO", path: "/internal/baocao" },
-  { id: "applications", label: "ỨNG DỤNG LIÊN KẾT", path: "/internal/ungdung" },
-  { id: "search", label: "TRA CỨU", path: "/internal/tracuu" },
 ] as const;
 
 // Menu types

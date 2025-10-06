@@ -17,8 +17,6 @@ export const INTERNAL_ROUTES = {
   NEWS: "/internal/tintuc",
   DEVELOPMENT: "/internal/phattrien",
   REPORTS: "/internal/baocao",
-  APPLICATIONS: "/internal/ungdung",
-  SEARCH: "/internal/tracuu",
 } as const;
 
 // All routes

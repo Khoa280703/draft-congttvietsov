@@ -1,5 +1,5 @@
 // Public pages exports
-export { default as AboutPage } from "@/pages/AboutPage/AboutPage";
+export { default as AboutPage } from "@/pages/public/AboutPage/AboutPage";
 export { default as UnitsPage } from "@/pages/public/UnitsPage";
 export { default as ProductsServicesPage } from "./ProductsServicesPage";
 export { default as NewsPage } from "@/pages/public/NewsPage/NewsPage";
