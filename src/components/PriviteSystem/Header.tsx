@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { HiSearch, HiMenu, HiX } from "react-icons/hi";
-import { BsTelephone } from "react-icons/bs";
-import { HiOutlineMapPin } from "react-icons/hi2";
+// import { BsTelephone } from "react-icons/bs";
+// import { HiOutlineMapPin } from "react-icons/hi2";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

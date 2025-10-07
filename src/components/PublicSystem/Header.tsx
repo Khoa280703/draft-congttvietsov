@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { HiSearch, HiMenu, HiX } from "react-icons/hi";
-import { BsTelephone } from "react-icons/bs";
-import { HiOutlineMapPin } from "react-icons/hi2";
+// import { BsTelephone } from "react-icons/bs";
+// import { HiOutlineMapPin } from "react-icons/hi2";
 
 // URL cờ Nga (ví dụ)
 const russianFlagUrl = "https://flagcdn.com/w40/ru.png";
