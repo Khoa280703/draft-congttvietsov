@@ -8,6 +8,7 @@ import {
   HiChevronDown,
   HiChevronRight,
 } from "react-icons/hi";
+import { PUBLIC_MENU_ITEMS_DETAILED, INTERNAL_MENU_ITEMS } from "@/config/menu";
 
 interface DocumentationPageProps {
   onClose: () => void;
@@ -44,93 +45,48 @@ const DocumentationPage: React.FC<DocumentationPageProps> = ({ onClose }) => {
       document.removeEventListener("keydown", handleEscape);
     };
   }, [onClose]);
+  // Generate route sections from centralized configuration
   const routeSections = {
     internal: {
       title: "Đường dẫn Nội bộ",
       color: "red",
-      routes: [
-        { name: "Trang chủ Nội bộ", path: "/internal" },
-        { name: "Giới thiệu Nội bộ", path: "/internal/gioithieu" },
-        { name: "Tin tức Nội bộ", path: "/internal/tintuc" },
-        { name: "Phát triển Nội bộ", path: "/internal/phattrien" },
-        { name: "Báo cáo Nội bộ", path: "/internal/baocao" },
-        { name: "Ứng dụng Nội bộ", path: "/internal/ungdung" },
-        { name: "Tra cứu Nội bộ", path: "/internal/tracuu" },
-      ],
+      routes: INTERNAL_MENU_ITEMS.map((item) => ({
+        name: item.label,
+        path: item.path,
+      })),
     },
     public: {
       title: "Đường dẫn Công khai",
       color: "blue",
-      routes: [
-        { name: "Trang chủ Công khai", path: "/" },
-        { name: "Sản phẩm Dịch vụ", path: "/spvadichvu" },
-        { name: "Nguồn lực", path: "/nguonluc" },
-        { name: "Tuyển dụng", path: "/tuyendung" },
-        { name: "Tuyển sinh", path: "/tuyensinh" },
-      ],
-      children: {
-        about: {
-          title: "Đường dẫn con Giới thiệu",
-          parent: { name: "Giới thiệu", path: "/gioithieu" },
-          routes: [
-            { name: "Lịch sử hình thành", path: "/gioithieu/lich-su-hien-tai" },
-            { name: "Cơ cấu tổ chức", path: "/gioithieu/co-cau-to-chuc" },
-            { name: "Ban lãnh đạo", path: "/gioithieu/ban-lanh-dao" },
-            {
-              name: "Thành tựu nổi bật",
-              path: "/gioithieu/thanh-tuc-noi-bat",
-            },
-          ],
+      routes: PUBLIC_MENU_ITEMS_DETAILED.filter(
+        (item) => !item.children || item.children.length === 0
+      ).map((item) => ({
+        name: item.label,
+        path: item.path,
+      })),
+      children: PUBLIC_MENU_ITEMS_DETAILED.filter(
+        (item) => item.children && item.children.length > 0
+      ).reduce(
+        (acc, item) => {
+          acc[item.id] = {
+            title: `Đường dẫn con ${item.label}`,
+            parent: { name: item.label, path: item.path },
+            routes: item.children!.map((child) => ({
+              name: child.title,
+              path: child.href,
+            })),
+          };
+          return acc;
         },
-        units: {
-          title: "Đường dẫn con Đơn vị",
-          parent: { name: "Đơn vị trực thuộc", path: "/donvi" },
-          routes: [
-            {
-              name: "Xí nghiệp Khai thác Dầu khí",
-              path: "/donvi/xinghiep-khai-thac-dau-khi",
-            },
-            {
-              name: "Xí nghiệp Xây lắp, Khảo sát và Sửa chữa",
-              path: "/donvi/xinghiep-xay-lap-khao-sat-sua-chua",
-            },
-            {
-              name: "Xí nghiệp Khai thác các công trình khí",
-              path: "/donvi/xinghiep-khai-thac-cong-trinh",
-            },
-            { name: "Xí nghiệp Khoan", path: "/donvi/xinghiep-khoan" },
-            {
-              name: "Xí nghiệp Vận tải Biển",
-              path: "/donvi/xinghiep-van-tai-bien",
-            },
-            { name: "Xí nghiệp Cảng", path: "/donvi/xinghiep-cang" },
-            { name: "Xí nghiệp Điện", path: "/donvi/xinghiep-dien" },
-            {
-              name: "Xí nghiệp Nghiên cứu Khoa học",
-              path: "/donvi/xinghiep-nghien-cuu-khoa-hoc",
-            },
-            { name: "Xí nghiệp Y tế", path: "/donvi/xinghiep-y-te" },
-            {
-              name: "Xí nghiệp Công nghệ Thông tin",
-              path: "/donvi/xinghiep-cong-nghe-thong-tin",
-            },
-            { name: "Xí nghiệp Resort", path: "/donvi/xinghiep-resort" },
-            { name: "Xí nghiệp Khách sạn", path: "/donvi/xinghiep-khach-san" },
-            { name: "Xí nghiệp Bảo vệ", path: "/donvi/xinghiep-bao-ve" },
-            { name: "Xí nghiệp Nhà ở", path: "/donvi/xinghiep-nha-o" },
-          ],
-        },
-        news: {
-          title: "Đường dẫn con Tin tức",
-          parent: { name: "Tin tức - Sự kiện", path: "/tintuc" },
-          routes: [
-            {
-              name: "Hoạt động đoàn thể",
-              path: "/tintuc/hoat-dong-doan-the",
-            },
-          ],
-        },
-      },
+        {} as Record<
+          string,
+          {
+            title: string;
+            parent: { name: string; path: string };
+            routes: Array<{ name: string; path: string }>;
+          }
+        >
+      ),
     },
   };
 
@@ -294,19 +250,24 @@ const DocumentationPage: React.FC<DocumentationPageProps> = ({ onClose }) => {
                               {section.parent.path}
                             </code>
                           </div>
-                          {section.routes.map((route, index) => (
-                            <div
-                              key={index}
-                              className="flex justify-between items-center py-1 text-sm border-l-2 border-blue-300 pl-3"
-                            >
-                              <span className="text-gray-600">
-                                {route.name}:
-                              </span>
-                              <code className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
-                                {route.path}
-                              </code>
-                            </div>
-                          ))}
+                          {section.routes.map(
+                            (
+                              route: { name: string; path: string },
+                              index: number
+                            ) => (
+                              <div
+                                key={index}
+                                className="flex justify-between items-center py-1 text-sm border-l-2 border-blue-300 pl-3"
+                              >
+                                <span className="text-gray-600">
+                                  {route.name}:
+                                </span>
+                                <code className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">
+                                  {route.path}
+                                </code>
+                              </div>
+                            )
+                          )}
                         </div>
                       )}
                     </div>
