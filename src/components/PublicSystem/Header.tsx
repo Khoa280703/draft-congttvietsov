@@ -16,7 +16,7 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           {/* Left Side: Contact Info */}
           <div className="hidden md:flex items-center space-x-6">
-            <a
+            {/* <a
               href="tel:44123456789"
               className="flex font-normal items-center space-x-2 hover:text-gray-300 transition-colors text-sm"
             >
@@ -29,14 +29,14 @@ const Header: React.FC = () => {
             >
               <HiOutlineMapPin />
               <span>Liên hệ</span>
-            </a>
+            </a> */}
           </div>
 
           {/* Right Side: Links & Icons */}
           <div className="flex items-center space-x-4">
             {/* Desktop Links - Hidden on Mobile */}
             <nav className="hidden md:flex items-center space-x-4 text-sm">
-              <a
+              {/* <a
                 href="#"
                 className="font-normal hover:text-gray-300 transition-colors"
               >
@@ -47,7 +47,7 @@ const Header: React.FC = () => {
                 className="font-normal hover:text-gray-300 transition-colors"
               >
                 Cẩm nang văn hóa VietsovPetro
-              </a>
+              </a> */}
               <button className="hover:text-gray-300 transition-colors">
                 <img
                   src={russianFlagUrl}

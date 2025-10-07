@@ -8,3 +8,4 @@ export { default as AchievementsSection } from "./AchievementsSection";
 export { default as CapabilitiesSection } from "./CapabilitiesSection";
 export { default as ArchivePhotos } from "./ArchivePhotos";
 export { default as IntroductionSection } from "./IntroductionSection";
+export { default as LeadershipModal } from "./LeadershipModal";

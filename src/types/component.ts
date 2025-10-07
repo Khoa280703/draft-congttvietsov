@@ -28,3 +28,14 @@ export interface EnterpriseCardProps {
   image: string;
   imagePosition?: "left" | "right";
 }
+
+export interface Leader {
+  title: string;
+  name: string;
+  email: string;
+  image: string;
+  position: string;
+  duties: string;
+  qualifications: string;
+  pastPositions: string[];
+}

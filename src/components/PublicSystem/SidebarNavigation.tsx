@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoIosSearch, IoIosArrowDown } from "react-icons/io";
-import { PUBLIC_MENU_ITEMS_DETAILED } from "@/config/menu";
+import { SIDEBAR_NAVIGATION_ITEMS } from "@/config/menu";
 
 interface SidebarNavigationProps {
   activePath?: string;
@@ -9,7 +9,7 @@ interface SidebarNavigationProps {
 const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
   activePath,
 }) => {
-  const menuItems = PUBLIC_MENU_ITEMS_DETAILED.map((item) => ({
+  const menuItems = SIDEBAR_NAVIGATION_ITEMS.map((item) => ({
     title: item.label,
     href: item.path,
     children: item.children || [],

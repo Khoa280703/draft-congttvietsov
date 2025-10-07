@@ -23,6 +23,7 @@ import {
   AdmissionPage,
 } from "@/pages/public";
 import DocumentationPage from "@/pages/DocumentationPage";
+import BlankPage from "@/pages/BlankPage";
 
 const PublicInterface: React.FC = () => {
   const location = useLocation();
@@ -30,12 +31,25 @@ const PublicInterface: React.FC = () => {
   const [activeNavItem, setActiveNavItem] = useState("TRANG CHỦ");
   const [showDocumentation, setShowDocumentation] = useState(false);
 
-  const { URL_TO_NAV_ITEM, NAV_ITEM_TO_URL } = NAVIGATION_CONFIG.PUBLIC;
+  const { URL_TO_NAV_ITEM, NAV_ITEM_TO_URL } = NAVIGATION_CONFIG.MAIN;
 
   // Update active nav item based on current URL
   useEffect(() => {
     const currentPath = location.pathname;
-    const navItem = URL_TO_NAV_ITEM[currentPath];
+    let navItem = URL_TO_NAV_ITEM[currentPath];
+
+    if (!navItem) {
+      const sortedPaths = Object.keys(URL_TO_NAV_ITEM).sort(
+        (a, b) => b.length - a.length
+      );
+      for (const path of sortedPaths) {
+        if (currentPath.startsWith(path) && path !== "/") {
+          navItem = URL_TO_NAV_ITEM[path];
+          break;
+        }
+      }
+    }
+
     if (navItem) {
       setActiveNavItem(navItem);
     }
@@ -46,6 +60,10 @@ const PublicInterface: React.FC = () => {
     if (url) {
       navigate(url);
     }
+  };
+
+  const handleSubItemClick = (href: string) => {
+    navigate(href);
   };
 
   const handleInternalToggle = () => {
@@ -69,7 +87,11 @@ const PublicInterface: React.FC = () => {
         </button>
       </div>
       <Header />
-      <Navigation activeItem={activeNavItem} onItemClick={handleNavItemClick} />
+      <Navigation
+        activeItem={activeNavItem}
+        onItemClick={handleNavItemClick}
+        onSubItemClick={handleSubItemClick}
+      />
 
       <Routes>
         <Route
@@ -92,6 +114,18 @@ const PublicInterface: React.FC = () => {
         <Route path="/nguonluc" element={<ResourcesPage />} />
         <Route path="/tuyendung" element={<RecruitmentPage />} />
         <Route path="/tuyensinh" element={<AdmissionPage />} />
+        <Route
+          path="/linhvuc-nangluc"
+          element={<BlankPage title="Lĩnh vực và Năng lực Hoạt động" />}
+        />
+        <Route
+          path="/doitac-duan"
+          element={<BlankPage title="Đối tác và Dự án" />}
+        />
+        <Route
+          path="/phattrien"
+          element={<BlankPage title="Phát triển Bền vững" />}
+        />
       </Routes>
 
       <PreFooter />

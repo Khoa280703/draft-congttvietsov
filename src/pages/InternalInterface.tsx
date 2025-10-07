@@ -27,7 +27,20 @@ const InternalInterface: React.FC = () => {
 
   useEffect(() => {
     const currentPath = location.pathname;
-    const navItem = URL_TO_NAV_ITEM[currentPath];
+    let navItem = URL_TO_NAV_ITEM[currentPath];
+
+    if (!navItem) {
+      const sortedPaths = Object.keys(URL_TO_NAV_ITEM).sort(
+        (a, b) => b.length - a.length
+      );
+      for (const path of sortedPaths) {
+        if (currentPath.startsWith(path) && path !== "/internal") {
+          navItem = URL_TO_NAV_ITEM[path];
+          break;
+        }
+      }
+    }
+
     if (navItem) {
       setActiveNavItem(navItem);
     }

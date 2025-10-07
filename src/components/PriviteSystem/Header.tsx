@@ -8,50 +8,53 @@ const Header: React.FC = () => {
 
   return (
     <header className="bg-[#098b43] text-white shadow-lg">
-      <div className="container mx-auto px-6 py-3">
+      <div className="container mx-auto px-6 py-2">
         <div className="flex justify-between items-center">
           {/* Left Side: Logo/Brand */}
           <div className="flex items-center space-x-6">
-            <a href="#" className="text-xs">
+            {/* <a href="#" className="text-xs">
               EOFFICE
             </a>
             <a href="#" className="text-xs">
               CẨM NANG VĂN HÓA VIETSOPETRO
-            </a>
+            </a> */}
           </div>
 
-          {/* Right Side: Links & Icons */}
           <div className="flex items-center space-x-4">
-            {/* Desktop Links - Hidden on Mobile */}
-            <nav className="hidden md:flex items-center space-x-4 text-sm">
-              <a
+            <nav className="hidden md:flex items-center space-x-4 text-xs h-8">
+              {/* <a
                 href="tel:+442033693912"
-                className="flex items-center space-x-1 hover:text-gray-300 transition-colors"
+                className="flex items-center space-x-1 h-full hover:text-gray-300 transition-colors"
               >
                 <BsTelephone />
-                <span className="text-xs">+44 (0)20 3369 3912</span>
+                <span>+44 (0)20 3369 3912</span>
+              </a> */}
+              {/* <a
+                href="#"
+                className="flex items-center space-x-1 h-full hover:text-gray-300 transition-colors"
+              >
+                <HiOutlineMapPin />
+                <span>LIÊN HỆ</span>
+              </a> */}
+              <a
+                href="#"
+                className="flex items-center h-full hover:text-gray-300 font-medium"
+              >
+                EN
               </a>
               <a
                 href="#"
-                className="flex items-center space-x-1 hover:text-gray-300 transition-colors"
+                className="flex items-center h-full hover:text-gray-300 font-medium"
               >
-                <HiOutlineMapPin />
-                <span className="text-xs">LIÊN HỆ</span>
-              </a>
-              <a href="#" className="hover:text-gray-300 font-medium">
-                EN
-              </a>
-              <a href="#" className="hover:text-gray-300 font-medium">
                 RUG
               </a>
-              <button className="hover:text-gray-300 transition-colors">
+              <button className="flex items-center h-full hover:text-gray-300 transition-colors">
                 <HiSearch className="w-5 h-5 font-thin" />
               </button>
-              <button className="hover:text-gray-300 transition-colors">
+              <button className="flex items-center h-full hover:text-gray-300 transition-colors">
                 <HiMenu className="w-5 h-5 font-thin" />
               </button>
             </nav>
-
             <div className="md:hidden">
               <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 {isMenuOpen ? (
@@ -64,7 +67,6 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
           <nav className="md:hidden mt-4 text-center space-y-2">
             <a
