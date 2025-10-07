@@ -15,11 +15,13 @@ import {
   InternalApplicationsPage,
   InternalSearchPage,
 } from "@/pages/internal";
+import DocumentationPage from "@/pages/DocumentationPage";
 
 const InternalInterface: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [activeNavItem, setActiveNavItem] = useState("TRANG CHỦ");
+  const [showDocumentation, setShowDocumentation] = useState(false);
 
   const { URL_TO_NAV_ITEM, NAV_ITEM_TO_URL } = NAVIGATION_CONFIG.INTERNAL;
 
@@ -44,12 +46,20 @@ const InternalInterface: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white relative">
-      <button
-        onClick={handleInternalToggle}
-        className="fixed top-4 right-4 z-50 px-4 py-2 bg-gray-800 text-white rounded-md shadow-lg hover:bg-gray-700 transition-colors"
-      >
-        Chuyển giao diện công khai
-      </button>
+      <div className="fixed top-4 right-4 z-50 flex gap-2">
+        <button
+          onClick={() => setShowDocumentation(true)}
+          className="px-4 py-2 bg-blue-600 text-white rounded-md shadow-lg hover:bg-blue-700 transition-colors"
+        >
+          Tài liệu
+        </button>
+        <button
+          onClick={handleInternalToggle}
+          className="px-4 py-2 bg-gray-800 text-white rounded-md shadow-lg hover:bg-gray-700 transition-colors"
+        >
+          Chuyển giao diện công khai
+        </button>
+      </div>
 
       <Header />
 
@@ -78,6 +88,11 @@ const InternalInterface: React.FC = () => {
 
       <PreFooter />
       <Footer />
+
+      {/* Documentation Modal */}
+      {showDocumentation && (
+        <DocumentationPage onClose={() => setShowDocumentation(false)} />
+      )}
     </div>
   );
 };

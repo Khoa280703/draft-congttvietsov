@@ -2,12 +2,12 @@ import HeroSlider from "@/components/PriviteSystem/HomePage/SliderHome";
 import BreakingNewsTicker from "@/components/PriviteSystem/HomePage/BreakingNewsTicker";
 import {
   SpotlightNews,
-  NewsTicket,
   TrainingNews,
 } from "@/components/PriviteSystem/NewsPage";
 import {
   NewsHome,
   VideoNewsSection,
+  ChartHome,
 } from "@/components/PriviteSystem/HomePage";
 import { LinkCenter } from "@/components/PriviteSystem";
 import { Sidebar } from "@/components";
@@ -24,18 +24,24 @@ const InternalNewsDetail: React.FC = () => {
             <>
               <HeroSlider />
               <BreakingNewsTicker />
-              <NewsTicket />
-              <div className="max-w-7xl mx-auto px-4 pb-12">
+              <div className="max-w-7xl mx-auto px-4 pb-12 pt-8">
                 <SpotlightNews />
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
                   <div className="lg:col-span-3">
                     <TrainingNews />
                     <NewsHome />
                     <VideoNewsSection />
-                    <LinkCenter />
                   </div>
                   <div className="lg:col-span-1">
                     <Sidebar />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6 border-t border-gray-300 pt-6">
+                  <div className="lg:col-span-1">
+                    <ChartHome />
+                  </div>
+                  <div className="lg:col-span-1">
+                    <LinkCenter />
                   </div>
                 </div>
               </div>

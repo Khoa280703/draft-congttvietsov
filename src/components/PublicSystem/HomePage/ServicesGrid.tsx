@@ -96,7 +96,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
 const ServicesGrid: React.FC = () => {
   return (
-    <div className="bg-[#F0F7F2] min-h-screen p-4 md:p-16 font-sans">
+    <div className="bg-[#F0F7F2] p-4 md:p-16 font-sans">
       <div className="container mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">

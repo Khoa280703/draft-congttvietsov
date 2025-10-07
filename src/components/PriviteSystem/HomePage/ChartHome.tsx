@@ -6,7 +6,7 @@ const ChartHome: React.FC = () => {
   const [activeTab, setActiveTab] = useState("vsp");
 
   return (
-    <div className="bg-white p-6 font-sans">
+    <div className="bg-white font-sans">
       <div className="flex justify-between items-center pb-3 mb-4">
         <div className="flex items-center space-x-4">
           <button
