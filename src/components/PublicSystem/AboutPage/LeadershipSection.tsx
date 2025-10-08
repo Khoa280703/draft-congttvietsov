@@ -87,7 +87,7 @@ const LeadershipCard: React.FC<LeaderCardProps> = ({
 // --- Component chính ---
 const LeadershipSection: React.FC = () => {
   return (
-    <section className="bg-gray-50 py-12 md:py-16 font-sans">
+    <section id="leadership" className="bg-gray-50 py-12 md:py-16 font-sans">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-12">

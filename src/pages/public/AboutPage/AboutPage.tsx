@@ -16,6 +16,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 const AboutPage: React.FC = () => {
   const location = useLocation();
+
   const getBreadcrumbs = () => {
     switch (location.pathname) {
       case "/gioithieu":

@@ -52,7 +52,10 @@ const ArchivePhotos: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="bg-[#F0F7F2] font-sans py-12 md:py-16">
+    <section
+      id="archive-photos"
+      className="bg-[#F0F7F2] font-sans py-12 md:py-16"
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-medium text-gray-800 mb-8">
           Hình ảnh tư liệu

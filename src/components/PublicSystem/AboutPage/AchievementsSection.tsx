@@ -38,6 +38,7 @@ const achievementsData = [
 const AchievementsSection: React.FC = () => {
   return (
     <section
+      id="achievements"
       className="relative font-sans py-16 md:py-24 text-white bg-cover bg-center"
       style={{ backgroundImage: `url(${achievementsBg})` }}
     >

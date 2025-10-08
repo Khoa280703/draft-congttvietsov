@@ -7,15 +7,21 @@ interface NavigationProps {
   activeItem: string;
   onItemClick: (item: string) => void;
   onSubItemClick?: (href: string) => void;
+  onAboutSectionClick?: (sectionId: string) => void;
 }
 
 const NavigationBar: React.FC<NavigationProps> = ({
   activeItem,
   onItemClick,
   onSubItemClick,
+  onAboutSectionClick,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+  const [aboutHoverTimeout, setAboutHoverTimeout] = useState<number | null>(
+    null
+  );
   const menuItems = NAVIGATION_CONFIG.MAIN.MENU_ITEMS;
 
   // Old menu items for dropdown
@@ -26,11 +32,45 @@ const NavigationBar: React.FC<NavigationProps> = ({
     { id: "admission", label: "TUYỂN SINH", path: "/tuyensinh" },
   ];
 
+  // About page sections for dropdown
+  const aboutSections = [
+    { id: "joint-venture", label: "Giới thiệu Vietsov" },
+    { id: "history", label: "Lịch sử hình thành" },
+    { id: "general-intro", label: "Giới thiệu chung" },
+    { id: "org-structure", label: "Cơ cấu tổ chức" },
+    { id: "leadership", label: "Ban lãnh đạo" },
+    { id: "achievements", label: "Thành tựu nổi bật" },
+    { id: "capabilities", label: "Năng lực hoạt động" },
+    { id: "archive-photos", label: "Ảnh lưu trữ" },
+  ];
+
   const handleSubItemClick = (href: string) => {
     if (onSubItemClick) {
       onSubItemClick(href);
     }
     setIsDropdownOpen(false);
+  };
+
+  const handleAboutSectionClick = (sectionId: string) => {
+    if (onAboutSectionClick) {
+      onAboutSectionClick(sectionId);
+    }
+    setIsAboutDropdownOpen(false);
+  };
+
+  const handleAboutMouseEnter = () => {
+    if (aboutHoverTimeout) {
+      clearTimeout(aboutHoverTimeout);
+      setAboutHoverTimeout(null);
+    }
+    setIsAboutDropdownOpen(true);
+  };
+
+  const handleAboutMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setIsAboutDropdownOpen(false);
+    }, 150); // 150ms delay before closing
+    setAboutHoverTimeout(timeout);
   };
 
   useEffect(() => {
@@ -39,13 +79,25 @@ const NavigationBar: React.FC<NavigationProps> = ({
       if (isDropdownOpen && !target.closest(".dropdown-container")) {
         setIsDropdownOpen(false);
       }
+      if (isAboutDropdownOpen && !target.closest(".about-dropdown-container")) {
+        setIsAboutDropdownOpen(false);
+      }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isDropdownOpen]);
+  }, [isDropdownOpen, isAboutDropdownOpen]);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (aboutHoverTimeout) {
+        clearTimeout(aboutHoverTimeout);
+      }
+    };
+  }, [aboutHoverTimeout]);
 
   return (
     <nav className="bg-white w-full border-t border-gray-200">
@@ -57,28 +109,85 @@ const NavigationBar: React.FC<NavigationProps> = ({
             className="w-26 h-18 "
           />
           <ul className="hidden md:flex justify-center items-center flex-1">
-            {menuItems.map((item) => (
-              <li key={item.id}>
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onItemClick(item.label);
-                  }}
-                  className={`
-                    px-4 py-3 text-sm uppercase tracking-wider
-                    border-b-3 transition-all duration-300
-                    ${
-                      activeItem === item.label
-                        ? "text-green-600 border-green-600"
-                        : "border-transparent hover:text-green-600"
-                    }
-                  `}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
+            {menuItems.map((item) => {
+              if (item.label === "GIỚI THIỆU CHUNG") {
+                return (
+                  <li
+                    key={item.id}
+                    className="relative about-dropdown-container"
+                    onMouseEnter={handleAboutMouseEnter}
+                    onMouseLeave={handleAboutMouseLeave}
+                  >
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        onItemClick(item.label);
+                      }}
+                      className={`
+                        px-4 py-3 text-sm uppercase tracking-wider
+                        border-b-3 transition-all duration-300 flex items-center gap-1
+                        ${
+                          activeItem === item.label
+                            ? "text-green-600 border-green-600"
+                            : "border-transparent hover:text-green-600"
+                        }
+                      `}
+                    >
+                      {item.label}
+                      <HiChevronDown
+                        className={`w-4 h-4 transition-transform ${
+                          isAboutDropdownOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* About sections dropdown */}
+                    {isAboutDropdownOpen && (
+                      <div className="absolute top-full left-0 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50 about-dropdown-container">
+                        <div className="py-2">
+                          {aboutSections.map((section) => (
+                            <button
+                              key={section.id}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handleAboutSectionClick(section.id);
+                              }}
+                              className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-green-600 transition-colors"
+                            >
+                              {section.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </li>
+                );
+              }
+
+              // Regular menu items
+              return (
+                <li key={item.id}>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onItemClick(item.label);
+                    }}
+                    className={`
+                      px-4 py-3 text-sm uppercase tracking-wider
+                      border-b-3 transition-all duration-300
+                      ${
+                        activeItem === item.label
+                          ? "text-green-600 border-green-600"
+                          : "border-transparent hover:text-green-600"
+                      }
+                    `}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
             <li className="relative dropdown-container">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}

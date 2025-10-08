@@ -27,11 +27,10 @@ export const useStatistics = () => {
   return useQuery({
     queryKey: ["statistics"],
     queryFn: () => api.get("/statistics"),
-    refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
+    refetchInterval: 5 * 60 * 1000,
   });
 };
 
-// Simple mutation hooks
 export const useCreateNews = () => {
   const queryClient = useQueryClient();
 

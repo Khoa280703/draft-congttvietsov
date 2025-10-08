@@ -23,7 +23,7 @@ const introCards = [
 
 const GeneralIntro: React.FC = () => {
   return (
-    <section className="bg-white pb-12 md:pb-16 font-sans">
+    <section id="general-intro" className="bg-white pb-12 md:pb-16 font-sans">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="mb-8">

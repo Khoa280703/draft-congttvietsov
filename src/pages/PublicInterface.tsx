@@ -24,10 +24,12 @@ import {
 } from "@/pages/public";
 import DocumentationPage from "@/pages/DocumentationPage";
 import BlankPage from "@/pages/BlankPage";
+import { useScrollToSection } from "@/hooks/useScrollToSection";
 
 const PublicInterface: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { scrollToSection } = useScrollToSection();
   const [activeNavItem, setActiveNavItem] = useState("TRANG CHỦ");
   const [showDocumentation, setShowDocumentation] = useState(false);
 
@@ -66,6 +68,18 @@ const PublicInterface: React.FC = () => {
     navigate(href);
   };
 
+  const handleAboutSectionClick = (sectionId: string) => {
+    // Navigate to About page first if not already there
+    if (location.pathname !== "/gioithieu") {
+      navigate("/gioithieu");
+    }
+
+    // Scroll to section after navigation
+    setTimeout(() => {
+      scrollToSection(sectionId);
+    }, 100);
+  };
+
   const handleInternalToggle = () => {
     navigate(ROUTES.INTERNAL.HOME);
   };
@@ -91,6 +105,7 @@ const PublicInterface: React.FC = () => {
         activeItem={activeNavItem}
         onItemClick={handleNavItemClick}
         onSubItemClick={handleSubItemClick}
+        onAboutSectionClick={handleAboutSectionClick}
       />
 
       <Routes>

@@ -6,7 +6,7 @@ import danKhoan from "@/assets/Khoan _sua_gieng.png";
 
 const JointVentureSection: React.FC = () => {
   return (
-    <section className="bg-gray-50 font-sans py-12 md:py-20">
+    <section id="joint-venture" className="bg-gray-50 font-sans py-12 md:py-20">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl md:text-4xl font-medium text-gray-800 mb-6 leading-tight">
           Liên doanh Vietsovpetro

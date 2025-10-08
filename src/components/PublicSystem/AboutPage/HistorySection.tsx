@@ -38,7 +38,7 @@ const HistorySection: React.FC = () => {
   )?.event;
 
   return (
-    <section className="bg-white font-sans py-12 md:py-20">
+    <section id="history" className="bg-white font-sans py-12 md:py-20">
       <div className="container mx-auto px-4">
         <h1 className="text-3xl md:text-4xl font-medium text-gray-800 mb-8">
           Lịch sử hình thành

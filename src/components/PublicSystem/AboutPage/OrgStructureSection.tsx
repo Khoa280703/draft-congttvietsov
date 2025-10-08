@@ -6,7 +6,10 @@ import orgChartImage from "@/assets/orgtree.jpg";
 
 const OrgStructureSection: React.FC = () => {
   return (
-    <section className="bg-[#F0F7F2] font-sans py-12 md:py-20 relative overflow-hidden">
+    <section
+      id="org-structure"
+      className="bg-[#F0F7F2] font-sans py-12 md:py-20 relative overflow-hidden"
+    >
       <div className="container mx-auto px-4 relative z-10">
         <h1 className="text-4xl md:text-4xl font-medium left-1/10 text-gray-800 mb-6 leading-tight">
           Cơ cấu tổ chức

@@ -13,7 +13,7 @@ const researchItems = [
 
 const CapabilitiesSection: React.FC = () => {
   return (
-    <section className="bg-white font-sans py-12 md:py-20">
+    <section id="capabilities" className="bg-white font-sans py-12 md:py-20">
       <div className="container mx-auto px-4">
         <h1 className="text-4xl md:text-4xl font-medium text-gray-800 mb-6 leading-tight">
           Năng lực hoạt động
