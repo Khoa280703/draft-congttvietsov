@@ -2,51 +2,51 @@ import React from "react";
 import VietsopetroLogo from "../assets/vietsovlogogiulua.png";
 import { RiArrowDownWideFill } from "react-icons/ri";
 
-const preFooterLinks = [
-  {
-    title: "Giới thiệu",
-    links: [
-      "Lịch sử hình thành",
-      "Cơ cấu tổ chức",
-      "Ban lãnh đạo",
-      "Thành tựu nổi bật",
-      "Hình ảnh tư liệu",
-    ],
-  },
-  {
-    title: "Đơn vị trực thuộc",
-    links: [
-      "Xí nghiệp khai thác dầu khí",
-      "Xí nghiệp vận tải biển",
-      "Viện nghiên cứu khoa học",
-      "Xí nghiệp cơ điện",
-      "Xí nghiệp địa vật lý giếng",
-    ],
-  },
-  {
-    title: "Sản phẩm - Dịch vụ",
-    links: [
-      "Thiết kế các công trình dầu khí",
-      "Nghiên cứu thăm dò khai thác",
-      "Dịch vụ vận tải biển",
-      "Đào tạo nâng bậc thợ",
-      "Dịch vụ cung ứng vật tư thiết bị",
-    ],
-  },
-  {
-    title: "Dự án - Đối tác",
-    links: [
-      "Dự án khai thác dầu khí",
-      "Phân tích & Thẩm định Mỏ",
-      "Thiết kế, mua sắm, xây dựng",
-      "Dự án lắp đặt chân đế",
-    ],
-  },
-  {
-    title: "Nguồn lực",
-    links: ["Nguồn lực nhân sự", "Cơ sở vật chất", "Năng lực tài chính"],
-  },
-];
+// const preFooterLinks = [
+//   {
+//     title: "Giới thiệu",
+//     links: [
+//       "Lịch sử hình thành",
+//       "Cơ cấu tổ chức",
+//       "Ban lãnh đạo",
+//       "Thành tựu nổi bật",
+//       "Hình ảnh tư liệu",
+//     ],
+//   },
+//   {
+//     title: "Đơn vị trực thuộc",
+//     links: [
+//       "Xí nghiệp khai thác dầu khí",
+//       "Xí nghiệp vận tải biển",
+//       "Viện nghiên cứu khoa học",
+//       "Xí nghiệp cơ điện",
+//       "Xí nghiệp địa vật lý giếng",
+//     ],
+//   },
+//   {
+//     title: "Sản phẩm - Dịch vụ",
+//     links: [
+//       "Thiết kế các công trình dầu khí",
+//       "Nghiên cứu thăm dò khai thác",
+//       "Dịch vụ vận tải biển",
+//       "Đào tạo nâng bậc thợ",
+//       "Dịch vụ cung ứng vật tư thiết bị",
+//     ],
+//   },
+//   {
+//     title: "Dự án - Đối tác",
+//     links: [
+//       "Dự án khai thác dầu khí",
+//       "Phân tích & Thẩm định Mỏ",
+//       "Thiết kế, mua sắm, xây dựng",
+//       "Dự án lắp đặt chân đế",
+//     ],
+//   },
+//   {
+//     title: "Nguồn lực",
+//     links: ["Nguồn lực nhân sự", "Cơ sở vật chất", "Năng lực tài chính"],
+//   },
+// ];
 
 const PreFooter: React.FC = () => {
   return (
