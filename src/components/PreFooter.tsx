@@ -52,7 +52,7 @@ const PreFooter: React.FC = () => {
   return (
     <footer className="bg-gray-100 py-12 px-4 border-t border-gray-200">
       <div className="container mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {preFooterLinks.map((column) => (
             <div key={column.title}>
               <h3 className="font-semibold text-gray-800 mb-4">
@@ -74,7 +74,7 @@ const PreFooter: React.FC = () => {
           ))}
         </div>
 
-        <div className="border-t border-gray-300 my-8"></div>
+        <div className="border-t border-gray-300 my-8"></div> */}
 
         <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
           <div className="flex flex-col md:flex-row items-center text-center md:text-left space-y-6 md:space-y-0 md:space-x-10">

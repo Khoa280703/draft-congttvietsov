@@ -19,7 +19,7 @@ const StatisticCard: React.FC<StatisticCardProps> = ({ data, title }) => {
       </div>
 
       {/* Table */}
-      <div className="bg-gray-100 text-xs rounded-xl flex-1 flex flex-col">
+      <div className="bg-gray-100 text-xs rounded-xl flex-1 flex flex-col border-1 border-green-500">
         <div className="flex justify-between bg-gray-200 px-4 py-3 font-light text-xs text-gray-500 uppercase tracking-wider">
           <div className="w-1/3 text-left">TG</div>
           <div className="w-1/3 text-center">KẾ HOẠCH</div>

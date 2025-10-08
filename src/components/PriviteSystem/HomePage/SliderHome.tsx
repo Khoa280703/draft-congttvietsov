@@ -18,10 +18,10 @@ import hoatDongCongDong from "@/assets/hdcongdongvietsov.jpg";
 const slidesData = [
   {
     id: 1,
-    preTitle: "Lễ Vinh danh tại",
-    title:
-      "Đại hội đại biểu Đảng bộ Tập đoàn Công nghiệp Năng lượng Quốc gia Việt Nam",
-    subTitle: "lần thứ IV, nhiệm kỳ 2025-2030",
+    preTitle: "CHÚNG TÔI LÀ AI",
+    title: "Liên doanh Vietsovpetro",
+    subTitle:
+      "(gọi tắt là Vietsovpetro) là pháp nhân hợp pháp của nước CHXHCN Việt Nam, được thành lập năm 1981, là đơn vị thành viên của Tập đoàn Dầu khí Quốc gia Việt Nam.",
     image: daiHoiDaiBieu,
   },
   {
