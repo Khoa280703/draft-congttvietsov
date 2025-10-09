@@ -5,14 +5,9 @@ import {
   SliderHome,
   ProductionNews,
   BreakingNewsTicker,
-  CoreValuesSection,
-  ActivitySlider,
-  SpotlightNews,
 } from "@/components/PriviteSystem/HomePage";
 
 import { LinkCenter } from "@/components/PriviteSystem";
-
-import { FeaturedProjects } from "@/components/PublicSystem/HomePage";
 
 const statisticCardData: StatisticCardData[] = [
   { period: "Ngày", plan: 8422.4, actual: 8275.0 },
