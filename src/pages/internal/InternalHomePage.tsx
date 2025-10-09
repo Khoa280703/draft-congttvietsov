@@ -55,7 +55,7 @@ const HomePage: React.FC = () => {
           <ProductionNews />
         </div>
       </div>
-      <CoreValuesSection />
+      {/* <CoreValuesSection />
       <FeaturedProjects />
       <div className="bg-gray-100">
         <ActivitySlider />
@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-4 py-8">
           <SpotlightNews />
         </div>
-      </div>
+      </div> */}
       <div className="bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-4 py-8">
           <LinkCenter />
