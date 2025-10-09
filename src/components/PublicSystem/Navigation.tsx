@@ -124,8 +124,8 @@ const NavigationBar: React.FC<NavigationProps> = ({
                         onItemClick(item.label);
                       }}
                       className={`
-                        px-4 py-3 text-sm uppercase tracking-wider
-                        border-b-3 transition-all duration-300 flex items-center gap-1
+                        px-4 py-3 text-sm uppercase tracking-wider text-center
+                        border-b-3 transition-all duration-300 flex items-center justify-center gap-1
                         ${
                           activeItem === item.label
                             ? "text-green-600 border-green-600"
@@ -133,7 +133,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                         }
                       `}
                     >
-                      {item.label}
+                      <span>{item.label}</span>
                       <HiChevronDown
                         className={`w-4 h-4 transition-transform ${
                           isAboutDropdownOpen ? "rotate-180" : ""
@@ -164,7 +164,6 @@ const NavigationBar: React.FC<NavigationProps> = ({
                 );
               }
 
-              // Regular menu items
               return (
                 <li key={item.id}>
                   <a
@@ -174,7 +173,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       onItemClick(item.label);
                     }}
                     className={`
-                      px-4 py-3 text-sm uppercase tracking-wider
+                      px-4 py-3 text-sm uppercase tracking-wider text-center inline-block
                       border-b-3 transition-all duration-300
                       ${
                         activeItem === item.label

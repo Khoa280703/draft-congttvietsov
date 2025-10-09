@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate, Routes, Route } from "react-router-dom";
 import { Header, Navigation } from "@/components/PublicSystem";
-import {
-  SliderHome,
-  ServicesGrid,
-  FeaturedProjects,
-  OilNewsSection,
-  GradientImageOverlay,
-} from "@/components/PublicSystem/HomePage";
-import { IntroductionSection } from "@/components/PublicSystem/AboutPage";
 import PreFooter from "@/components/PreFooter";
 import Footer from "@/components/Footer";
-import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
 import { NAVIGATION_CONFIG, ROUTES } from "@/config/navigation";
 import {
+  HomePage,
   AboutPage,
   UnitsPage,
   ProductsServicesPage,
@@ -85,7 +77,7 @@ const PublicInterface: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen relative">
       <div className="fixed top-4 right-4 z-50 flex gap-2">
         <button
           onClick={() => setShowDocumentation(true)}
@@ -109,19 +101,7 @@ const PublicInterface: React.FC = () => {
       />
 
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <SliderHome />
-              <IntroductionSection />
-              <ServicesGrid />
-              <FeaturedProjects />
-              <OilNewsSection />
-              <GradientImageOverlay imageUrl={bannerDanKhoan} />
-            </>
-          }
-        />
+        <Route path="/" element={<HomePage />} />
         <Route path="/gioithieu/*" element={<AboutPage />} />
         <Route path="/donvi/*" element={<UnitsPage />} />
         <Route path="/spvadichvu" element={<ProductsServicesPage />} />

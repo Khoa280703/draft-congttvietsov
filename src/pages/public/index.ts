@@ -6,3 +6,4 @@ export { default as NewsPage } from "@/pages/public/NewsPage/NewsPage";
 export { default as ResourcesPage } from "@/pages/public/ResourcesPage";
 export { default as RecruitmentPage } from "@/pages/public/RecruitmentPage";
 export { default as AdmissionPage } from "@/pages/public/AdmissionPage";
+export { default as HomePage } from "@/pages/public/HomePage";
