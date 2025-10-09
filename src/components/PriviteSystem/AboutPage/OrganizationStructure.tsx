@@ -8,10 +8,14 @@ import React, {
   useImperativeHandle,
 } from "react";
 
+import { FiX, FiArrowRight } from "react-icons/fi";
+
 interface OrgNodeData {
   id: string;
   label: string;
   variant?: "blue";
+  detail?: string;
+  url?: string;
   children?: OrgNodeData[];
 }
 
@@ -21,8 +25,14 @@ interface OrgNodeRef {
 
 interface OrgNodeProps {
   data: OrgNodeData;
-  onClick: (nodeId: string) => void;
+  onClick: (nodeId: string, event: React.MouseEvent) => void;
   isActive: boolean;
+}
+
+interface NodeModalProps {
+  node: OrgNodeData | null;
+  position: { x: number; y: number } | null;
+  onClose: () => void;
 }
 
 const OrgNode = forwardRef<OrgNodeRef, OrgNodeProps>(
@@ -38,7 +48,7 @@ const OrgNode = forwardRef<OrgNodeRef, OrgNodeProps>(
     return (
       <div
         ref={nodeRef}
-        onClick={() => onClick(data.id)}
+        onClick={(e) => onClick(data.id, e)}
         className={`
             relative px-6 py-4 rounded-lg cursor-pointer transition-all duration-200
             ${
@@ -65,15 +75,86 @@ const OrgNode = forwardRef<OrgNodeRef, OrgNodeProps>(
 
 OrgNode.displayName = "OrgNode";
 
+const NodeModal: React.FC<NodeModalProps> = ({ node, position, onClose }) => {
+  if (!node || !position) return null;
+
+  return (
+    <div className="fixed inset-0 z-40" onClick={onClose}>
+      <div
+        className="node-modal fixed z-50 bg-white border border-gray-200 rounded-xl shadow-2xl p-6 w-full max-w-sm animate-fade-scale-in"
+        style={{
+          left: position.x + 20,
+          top: position.y,
+          transform: "translateY(-50%)",
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex justify-between items-start pb-3 border-b border-gray-200">
+          <h3 className="text-lg font-bold text-gray-900 pr-4">{node.label}</h3>
+          <button
+            onClick={onClose}
+            className="text-gray-400 hover:text-gray-800 transition-colors"
+            aria-label="Đóng"
+          >
+            <FiX size={22} />
+          </button>
+        </div>
+
+        <div className="mt-4 space-y-4">
+          {node.detail && (
+            <div>
+              <p className="text-sm text-gray-700 leading-relaxed">
+                {node.detail}
+              </p>
+            </div>
+          )}
+
+          {node.children && node.children.length > 0 && (
+            <div>
+              <span className="text-sm font-semibold text-gray-800">
+                Đơn vị trực thuộc:
+              </span>
+              <ul className="mt-2 space-y-1 list-disc list-inside">
+                {node.children.map((child) => (
+                  <li key={child.id} className="text-sm text-gray-600">
+                    {child.label}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {node.url && (
+            <div className="pt-2">
+              <a
+                href={node.url}
+                className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 group"
+              >
+                Xem thêm
+                <FiArrowRight className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:translate-x-1" />
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const orgChartData: OrgNodeData = {
   id: "root",
   label: "Hội đồng liên doanh Vietsovpetro",
   variant: "blue",
+  detail:
+    "Cơ quan quản lý cao nhất của liên doanh Vietsovpetro, chịu trách nhiệm về các quyết định chiến lược và định hướng phát triển của công ty.",
+  url: "/gioithieu/ban-lanh-dao",
   children: [
     {
       id: "ban-tong-giam-doc",
       label: "Ban Tổng Giám đốc",
       variant: "blue",
+      detail:
+        "Ban điều hành cao nhất, chịu trách nhiệm thực hiện các quyết định của Hội đồng liên doanh và quản lý hoạt động hàng ngày của công ty.",
       children: [
         {
           id: "bo-may-dieu-hanh",
@@ -208,7 +289,7 @@ const renderNodes = (
   nodes: OrgNodeData[],
   level: number,
   refs: React.MutableRefObject<Map<string, React.RefObject<OrgNodeRef | null>>>,
-  onNodeClick: (nodeId: string) => void,
+  onNodeClick: (nodeId: string, event: React.MouseEvent) => void,
   activeNodeId: string | null
 ) => {
   if (level === 3 && nodes.length > 1) {
@@ -228,7 +309,7 @@ const renderNodes = (
                 key={node.id}
                 ref={refs.current.get(node.id)!}
                 data={node}
-                onClick={onNodeClick}
+                onClick={(nodeId, event) => onNodeClick(nodeId, event)}
                 isActive={activeNodeId === node.id}
               />
             );
@@ -245,7 +326,7 @@ const renderNodes = (
                 key={node.id}
                 ref={refs.current.get(node.id)!}
                 data={node}
-                onClick={onNodeClick}
+                onClick={(nodeId, event) => onNodeClick(nodeId, event)}
                 isActive={activeNodeId === node.id}
               />
             );
@@ -300,6 +381,11 @@ const OrganizationStructure = () => {
     new Map<string, React.RefObject<OrgNodeRef | null>>()
   );
   const [activeNodeId, setActiveNodeId] = useState<string | null>(null);
+  const [modalNode, setModalNode] = useState<OrgNodeData | null>(null);
+  const [modalPosition, setModalPosition] = useState<{
+    x: number;
+    y: number;
+  } | null>(null);
 
   const calculateConnectorLines = useCallback(() => {
     const svg = chartContainerRef.current?.querySelector("svg");
@@ -397,8 +483,25 @@ const OrganizationStructure = () => {
     });
   }, []);
 
-  const handleNodeClick = (nodeId: string) => {
+  const handleNodeClick = (nodeId: string, event: React.MouseEvent) => {
     setActiveNodeId((prevId) => (prevId === nodeId ? null : nodeId));
+
+    // Find the node data
+    const nodeData = findNodeById(orgChartData, nodeId);
+    if (nodeData) {
+      // Get click position
+      const rect = (event.target as HTMLElement).getBoundingClientRect();
+      setModalPosition({
+        x: rect.right,
+        y: rect.top + rect.height / 2,
+      });
+      setModalNode(nodeData);
+    }
+  };
+
+  const handleCloseModal = () => {
+    setModalNode(null);
+    setModalPosition(null);
   };
 
   useEffect(() => {
@@ -418,6 +521,23 @@ const OrganizationStructure = () => {
     };
   }, [calculateConnectorLines]);
 
+  // Close modal when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (modalNode && !(event.target as Element).closest(".node-modal")) {
+        handleCloseModal();
+      }
+    };
+
+    if (modalNode) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [modalNode]);
+
   return (
     <div className="relative p-8 overflow-x-auto min-h-screen bg-gray-50">
       <div
@@ -436,6 +556,13 @@ const OrganizationStructure = () => {
           activeNodeId
         )}
       </div>
+
+      {/* Node Modal */}
+      <NodeModal
+        node={modalNode}
+        position={modalPosition}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 };

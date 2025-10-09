@@ -74,7 +74,7 @@ const ValueItem: React.FC<{ value: CoreValue }> = ({ value }) => {
 
 const CoreValuesSection: React.FC = () => {
   return (
-    <section className="bg-white py-16 md:py-20 font-sans">
+    <section className="py-16 md:py-20 font-sans">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
