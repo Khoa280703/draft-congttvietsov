@@ -4,6 +4,7 @@ import {
   ProductionActivitySection,
   CommunityActivitySection,
   OilNewsSection,
+  PicVidLibrary,
 } from "@/components/PublicSystem/NewsPage";
 import CommunityActivityPage from "@/pages/public/NewsPage/CommunityActivityPage";
 import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
@@ -48,6 +49,7 @@ const NewsPage: React.FC = () => {
               <ProductionActivitySection />
               <CommunityActivitySection />
               <OilNewsSection />
+              <PicVidLibrary />
             </>
           }
         />
