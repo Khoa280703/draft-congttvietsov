@@ -44,7 +44,7 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
 
   return (
     <div
-      ref={ref}
+      ref={ref as React.RefObject<HTMLDivElement>}
       className={`${getAnimationClasses()} ${className}`}
       style={{
         transitionDelay: `${delay}ms`,
