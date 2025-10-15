@@ -1,22 +1,24 @@
 import React from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-interface AnimatedSectionProps {
+interface AnimatedItemProps {
   children: React.ReactNode;
   className?: string;
   animation?: "fadeInUp" | "fadeInLeft" | "fadeInRight" | "fadeIn" | "scaleIn";
   delay?: number;
   duration?: number;
+  threshold?: number;
 }
 
-const AnimatedSection: React.FC<AnimatedSectionProps> = ({
+const AnimatedItem: React.FC<AnimatedItemProps> = ({
   children,
   className = "",
   animation = "fadeInUp",
   delay = 0,
-  duration = 4000,
+  duration = 600,
+  threshold = 0.1,
 }) => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, isVisible } = useScrollAnimation({ threshold });
 
   const getAnimationClasses = () => {
     const baseClasses = "transition-all ease-out";
@@ -44,7 +46,7 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
 
   return (
     <div
-      ref={ref}
+      ref={ref as React.RefObject<HTMLDivElement>}
       className={`${getAnimationClasses()} ${className}`}
       style={{
         transitionDelay: `${delay}ms`,
@@ -55,4 +57,4 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   );
 };
 
-export default AnimatedSection;
+export default AnimatedItem;

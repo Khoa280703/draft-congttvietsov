@@ -21,31 +21,31 @@ const HomePage: React.FC = () => {
       <SliderHome />
 
       {/* Breaking News - Quick fade in */}
-      <AnimatedSection animation="fadeIn" delay={200}>
+      <AnimatedSection animation="fadeIn" delay={100}>
         <BreakingNewsTicker />
       </AnimatedSection>
 
       {/* Core Values - Slide up from bottom */}
-      <AnimatedSection animation="fadeInUp" delay={400}>
+      <AnimatedSection animation="fadeInUp" delay={100}>
         <CoreValuesSection />
       </AnimatedSection>
 
       {/* Featured Projects - Slide up with slight delay */}
-      <AnimatedSection animation="fadeInUp" delay={400}>
+      <AnimatedSection animation="fadeInUp" delay={100}>
         <div className="bg-red-50">
           <FeaturedProjects />
         </div>
       </AnimatedSection>
 
       {/* Activity Slider - Slide up from bottom */}
-      <AnimatedSection animation="fadeInUp" delay={400}>
+      <AnimatedSection animation="fadeInUp" delay={100}>
         <div className="bg-gray-200">
           <ActivitySlider />
         </div>
       </AnimatedSection>
 
       {/* Spotlight News - Scale in effect */}
-      <AnimatedSection animation="scaleIn" delay={400}>
+      <AnimatedSection animation="scaleIn" delay={100}>
         <div className="bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-4 py-8">
             <SpotlightNews />
@@ -54,7 +54,7 @@ const HomePage: React.FC = () => {
       </AnimatedSection>
 
       {/* Partner Slider - Slide up from bottom */}
-      <AnimatedSection animation="fadeInUp" delay={400}>
+      <AnimatedSection animation="fadeInUp" delay={100}>
         <GradientImageOverlay imageUrl={bannerDanKhoan}>
           <PartnerSlider />
         </GradientImageOverlay>

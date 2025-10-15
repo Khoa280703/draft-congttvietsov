@@ -1,7 +1,6 @@
 import React from "react";
 
 import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
-import chuyenTham1996 from "@/assets/1996.jpg";
 import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
 import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
 import hoiNghiPetro from "@/assets/hoinghipetrovi.jpg";
@@ -23,76 +22,70 @@ const imageData = [
   {
     id: 1,
     src: danKhoanVietsov,
-    alt: "Helicopter landing on oil rig",
+    alt: "Helicopter on oil rig",
     className: "col-span-1 row-span-2",
   },
   {
     id: 2,
-    src: chuyenTham1996,
-    alt: "Oil rig structure",
+    src: daiHoiDaiBieu,
+    alt: "Oil rig reflection in water",
     className: "col-span-1 row-span-2",
   },
   {
     id: 3,
-    src: daiHoiDaiBieu,
-    alt: "Group photo of workers",
+    src: hoiNghiSuKien,
+    alt: "Group of workers in uniform",
     className: "col-span-1 row-span-1",
   },
   {
     id: 4,
-    src: hoiNghiSuKien,
+    src: hoiNghiPetro,
     alt: "Workers in firefighting gear",
     className: "col-span-1 row-span-1",
   },
   {
     id: 5,
-    src: hoiNghiPetro,
-    alt: "Sea rescue training",
+    src: danKhoanVietsov,
+    alt: "Industrial lights on a rig",
     className: "col-span-1 row-span-1",
   },
   {
     id: 6,
-    src: hoiNghiSuKien,
-    alt: "Flare stack burning",
+    src: daiHoiDaiBieu,
+    alt: "Flare stack burning at night",
     className: "col-span-1 row-span-1",
   },
   {
     id: 7,
-    src: hoiNghiPetro,
-    alt: "Another group photo of workers",
+    src: hoiNghiSuKien,
+    alt: "Workers inspecting equipment",
     className: "col-span-1 row-span-1",
   },
   {
     id: 8,
-    src: hoiNghiSuKien,
-    alt: "Industrial pipes",
-    className: "col-span-1 row-span-1",
-  },
-  {
-    id: 9,
     src: hoiNghiPetro,
     alt: "Welder at work",
-    className: "col-span-1 row-span-1",
-  },
-  {
-    id: 10,
-    src: chuyenTham1996,
-    alt: "Drilling machinery on rig",
     className: "col-span-1 row-span-2",
   },
   {
-    id: 11,
+    id: 9,
     src: danKhoanVietsov,
-    alt: "Oil rig at sea during sunset",
+    alt: "Support vessel ship at sea",
+    className: "col-span-1 row-span-2",
+  },
+  {
+    id: 10,
+    src: daiHoiDaiBieu,
+    alt: "Drilling machinery on rig deck",
     className: "col-span-1 row-span-2",
   },
 ];
 
 const ArticleDetail: React.FC = () => {
   return (
-    <div className="min-h-screen sm:p-8">
-      <div className="max-w-4xl mx-auto bg-white overflow-hidden">
-        <article>
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-4xl overflow-hidden">
+        <article className="">
           {/* Article Header */}
           <header>
             <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight">
@@ -104,19 +97,17 @@ const ArticleDetail: React.FC = () => {
             <hr className="my-6 border-gray-200" />
           </header>
 
-          {/* Article Body - Rendered from data using .map() */}
+          {/* Article Body */}
           <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
             {articleData.paragraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
           </div>
 
-          {/* Image Grid Section */}
           <div className="mt-8">
             <p className="text-gray-700">{articleData.imageSectionTitle}</p>
 
-            {/* Image Grid - Rendered from data using .map() */}
-            <div className="mt-4 grid grid-cols-3 auto-rows-fr gap-2 sm:gap-4">
+            <div className="mt-4 grid grid-cols-3 gap-2 auto-rows-fr grid-flow-dense">
               {imageData.map((image) => (
                 <div key={image.id} className={image.className}>
                   <img

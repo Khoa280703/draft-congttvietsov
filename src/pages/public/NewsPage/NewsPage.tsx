@@ -4,9 +4,10 @@ import {
   ProductionActivitySection,
   CommunityActivitySection,
   OilNewsSection,
-  PicVidLibrary,
+  MediaLibrary,
 } from "@/components/PublicSystem/NewsPage";
 import CommunityActivityPage from "@/pages/public/NewsPage/CommunityActivityPage";
+import MediaLibraryPage from "@/pages/public/NewsPage/MediaLibraryPage";
 import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
 import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -25,6 +26,12 @@ const NewsPage: React.FC = () => {
           { label: "Trang chủ", href: "/" },
           { label: "Tin tức - Sự kiện", href: "/tintuc" },
           { label: "Hoạt động đoàn thể" },
+        ];
+      case "/tintuc/thu-vien-anh-video":
+        return [
+          { label: "Trang chủ", href: "/" },
+          { label: "Tin tức - Sự kiện", href: "/tintuc" },
+          { label: "Thư viện hình ảnh và video" },
         ];
       default:
         return [
@@ -49,11 +56,12 @@ const NewsPage: React.FC = () => {
               <ProductionActivitySection />
               <CommunityActivitySection />
               <OilNewsSection />
-              <PicVidLibrary />
+              <MediaLibrary />
             </>
           }
         />
         <Route path="/hoat-dong-doan-the" element={<CommunityActivityPage />} />
+        <Route path="/thu-vien-anh-video" element={<MediaLibraryPage />} />
       </Routes>
     </>
   );

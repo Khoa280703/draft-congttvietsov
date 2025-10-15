@@ -3,6 +3,7 @@ import React from "react";
 import { FaThumbsUp, FaRegComment, FaRegBookmark } from "react-icons/fa";
 import { AiOutlineLike } from "react-icons/ai";
 import { FiLink, FiPrinter } from "react-icons/fi";
+import { useElementAnimation } from "@/hooks/useElementAnimation";
 
 import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
 import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
@@ -67,8 +68,13 @@ interface SidebarArticleCardProps {
 }
 
 const SidebarArticleCard: React.FC<SidebarArticleCardProps> = ({ data }) => {
+  const cardRef = useElementAnimation({ delay: 200 });
+
   return (
-    <div className="bg-white rounded-lg shadow-sm overflow-hidden group">
+    <div
+      ref={cardRef as React.RefObject<HTMLDivElement>}
+      className="bg-white rounded-lg shadow-sm overflow-hidden group"
+    >
       <a href="#" className="block">
         <img
           src={data.image}
@@ -99,13 +105,23 @@ const SidebarArticleCard: React.FC<SidebarArticleCardProps> = ({ data }) => {
 
 // --- Component chính ---
 const SpotlightNews: React.FC = () => {
+  const titleRef = useElementAnimation({ delay: 0 });
+  const mainArticleRef = useElementAnimation({ delay: 200 });
+  const sidebarRef = useElementAnimation({ delay: 400 });
+
   return (
     <div>
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+      <h2
+        ref={titleRef as React.RefObject<HTMLHeadingElement>}
+        className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12"
+      >
         Tin tức và sự kiện
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-6 gap-6 pb-8 md:pb-12">
-        <article className="lg:col-span-4">
+        <article
+          ref={mainArticleRef as React.RefObject<HTMLElement>}
+          className="lg:col-span-4"
+        >
           <a href="tintuc/chi-tiet">
             <img
               src={mainArticleData.image}
@@ -157,7 +173,10 @@ const SpotlightNews: React.FC = () => {
         </article>
 
         {/* Sidebar bên phải */}
-        <aside className="lg:col-span-2">
+        <aside
+          ref={sidebarRef as React.RefObject<HTMLElement>}
+          className="lg:col-span-2"
+        >
           <div className="rounded-lg">
             <div className="flex items-center border-b-2 border-gray-200 pb-2 mb-4">
               <span className="w-1 h-5 bg-green-500 rounded-full mr-3"></span>

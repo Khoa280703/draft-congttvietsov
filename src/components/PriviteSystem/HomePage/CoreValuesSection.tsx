@@ -1,4 +1,5 @@
 import React from "react";
+import AnimatedItem from "@/components/AnimatedItem";
 
 import Frame from "@/assets/icon/Frame.svg";
 import Frame1 from "@/assets/icon/Frame-1.svg";
@@ -55,18 +56,23 @@ const coreValuesData: CoreValue[] = [
 
 // --- 3. COMPONENT CON CHO MỖI MỤC ---
 
-const ValueItem: React.FC<{ value: CoreValue }> = ({ value }) => {
+const ValueItem: React.FC<{ value: CoreValue; index: number }> = ({
+  value,
+  index,
+}) => {
   const { IconComponent, title, description } = value;
   return (
-    <div className="flex flex-col items-center text-center p-4 max-w-sm">
-      <img
-        src={IconComponent}
-        alt={title}
-        className="w-16 h-16 text-green-600 text-4xl flex items-center justify-center"
-      />
-      <h3 className="text-xl font-bold text-gray-900 mt-4 mb-2">{title}</h3>
-      <p className="text-base text-gray-600 leading-relaxed">{description}</p>
-    </div>
+    <AnimatedItem animation="scaleIn" delay={index * 150}>
+      <div className="flex flex-col items-center text-center p-4 max-w-sm">
+        <img
+          src={IconComponent}
+          alt={title}
+          className="w-16 h-16 text-green-600 text-4xl flex items-center justify-center"
+        />
+        <h3 className="text-xl font-bold text-gray-900 mt-4 mb-2">{title}</h3>
+        <p className="text-base text-gray-600 leading-relaxed">{description}</p>
+      </div>
+    </AnimatedItem>
   );
 };
 
@@ -77,14 +83,16 @@ const CoreValuesSection: React.FC = () => {
     <section className="py-16 md:py-20 font-sans">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
-          Giá trị cốt lõi
-        </h2>
+        <AnimatedItem animation="fadeInUp" delay={0}>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+            Giá trị cốt lõi
+          </h2>
+        </AnimatedItem>
 
         {/* Values Grid - Dùng Flexbox để tự động căn chỉnh */}
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-12">
-          {coreValuesData.map((value) => (
-            <ValueItem key={value.id} value={value} />
+          {coreValuesData.map((value, index) => (
+            <ValueItem key={value.id} value={value} index={index} />
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import AnimatedItem from "@/components/AnimatedItem";
 
 import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
 import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
@@ -44,31 +45,34 @@ interface ProjectCardProps {
   image: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ProjectCard: React.FC<ProjectCardProps & { index: number }> = ({
   category,
   title,
   description,
   image,
+  index,
 }) => {
   return (
-    <div className="bg-white overflow-hidden group cursor-pointer">
-      <div className="overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
-        />
+    <AnimatedItem animation="fadeInUp" delay={index * 200}>
+      <div className="bg-white overflow-hidden group cursor-pointer">
+        <div className="overflow-hidden">
+          <img
+            src={image}
+            alt={title}
+            className="object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
+          />
+        </div>
+        <div className="p-6">
+          <p className="text-sm font-semibold text-green-500 uppercase mb-2">
+            {category}
+          </p>
+          <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
+            {title}
+          </h3>
+          <p className="text-sm text-gray-600">{description}</p>
+        </div>
       </div>
-      <div className="p-6">
-        <p className="text-sm font-semibold text-green-500 uppercase mb-2">
-          {category}
-        </p>
-        <h3 className="text-lg font-semibold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors">
-          {title}
-        </h3>
-        <p className="text-sm text-gray-600">{description}</p>
-      </div>
-    </div>
+    </AnimatedItem>
   );
 };
 
@@ -79,9 +83,12 @@ const FeaturedProjects: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
 
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
-          Dự án tiêu biểu
-        </h2>
+        <AnimatedItem animation="fadeInUp" delay={0}>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+            Dự án tiêu biểu
+          </h2>
+        </AnimatedItem>
+
         {/* Lưới các dự án */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projectsData.map((project, index) => (
@@ -91,18 +98,22 @@ const FeaturedProjects: React.FC = () => {
               title={project.title}
               description={project.description}
               image={project.image}
+              index={index}
             />
           ))}
         </div>
-        <div className="flex justify-center items-center space-x-3">
-          <a
-            href="#"
-            className="flex items-center text-sm hover:text-green-700 font-medium border-1 border-green-500 rounded-full px-4 py-2"
-          >
-            Xem thêm
-            <FiArrowRight className="w-4 h-4 ml-1" />
-          </a>
-        </div>
+
+        <AnimatedItem animation="fadeInUp" delay={800}>
+          <div className="flex justify-center items-center space-x-3">
+            <a
+              href="#"
+              className="flex items-center text-sm hover:text-green-700 font-medium border-1 border-green-500 rounded-full px-4 py-2"
+            >
+              Xem thêm
+              <FiArrowRight className="w-4 h-4 ml-1" />
+            </a>
+          </div>
+        </AnimatedItem>
       </div>
     </section>
   );

@@ -99,6 +99,10 @@ export const PUBLIC_MENU_ITEMS_DETAILED: MenuItemWithChildren[] = [
         title: "Hoạt động đoàn thể",
         href: "/tintuc/hoat-dong-doan-the",
       },
+      {
+        title: "Thư viện hình ảnh và video",
+        href: "/tintuc/thu-vien-anh-video",
+      },
     ],
   },
   {
@@ -240,6 +244,10 @@ export const SIDEBAR_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
       {
         title: "Hoạt động đoàn thể",
         href: "/tintuc/hoat-dong-doan-the",
+      },
+      {
+        title: "Thư viện hình ảnh và video",
+        href: "/tintuc/thu-vien-anh-video",
       },
     ],
   },

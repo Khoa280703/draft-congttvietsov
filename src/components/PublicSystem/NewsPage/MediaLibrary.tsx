@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Thumbs } from "swiper/modules";
 import type { Swiper as SwiperCore } from "swiper";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { FiArrowRight, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -47,7 +47,7 @@ const photoData = [
   },
 ];
 
-const PicVidLibrary: React.FC = () => {
+const MediaLibrary: React.FC = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -57,9 +57,17 @@ const PicVidLibrary: React.FC = () => {
       className="bg-[#F0F7F2] font-sans py-12 md:py-16"
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-medium text-gray-800 mb-8">
-          Thư viện hình ảnh và video
-        </h2>
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-medium text-gray-800">
+            Thư viện hình ảnh và video
+          </h2>
+          <a
+            href="/tintuc/thu-vien-anh-video"
+            className="flex items-center text-sm hover:text-blue-700 font-medium"
+          >
+            Xem thêm <FiArrowRight className="w-4 h-4 ml-1 text-blue-600" />
+          </a>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
@@ -153,4 +161,4 @@ const PicVidLibrary: React.FC = () => {
   );
 };
 
-export default PicVidLibrary;
+export default MediaLibrary;

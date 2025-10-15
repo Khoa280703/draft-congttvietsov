@@ -6,4 +6,4 @@ export { default as OilNewsSection } from "./OilNewsSection";
 export { default as RelevantNews } from "./RelevantNews";
 export { default as OtherArticles } from "./OtherArticles";
 export { default as ArticleDetail } from "./ArticleDetail";
-export { default as PicVidLibrary } from "./PicVidLibrary";
+export { default as MediaLibrary } from "./MediaLibrary";
