@@ -1,11 +1,27 @@
 import React from "react";
-import videoIntro from "@/assets/video/vietsovintro.mov";
+import YouTube from "react-youtube";
 
 const CooperationSection: React.FC = () => {
+  const youTubeVideoId = "pOZZdPBLX3g";
+
+  const playerOptions = {
+    playerVars: {
+      autoplay: 1,
+      mute: 1,
+      loop: 1,
+      playlist: youTubeVideoId,
+      controls: 0,
+      showinfo: 0,
+      autohide: 1,
+      modestbranding: 1,
+      rel: 0,
+    },
+  };
+
   return (
     <section className="bg-white font-sans py-16 md:py-20">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
           <div className="text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
               Hợp Tác Với Liên Doanh
@@ -27,14 +43,11 @@ const CooperationSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full h-80 lg:h-full bg-green-200 rounded-2xl">
-            <video
-              src={videoIntro}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover rounded-2xl"
+          <div className="relative w-full h-80 lg:h-full bg-black rounded-2xl overflow-hidden flex items-center justify-center">
+            <YouTube
+              videoId={youTubeVideoId}
+              opts={playerOptions}
+              className="w-full aspect-video "
             />
           </div>
         </div>

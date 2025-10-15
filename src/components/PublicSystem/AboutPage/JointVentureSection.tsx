@@ -1,10 +1,25 @@
 import React from "react";
-// Import icon mũi tên từ react-icons
 import { FiArrowRight } from "react-icons/fi";
-// Import ảnh (hãy thay đổi đường dẫn này)
-import videoIntro from "@/assets/video/vietsovintro.mov";
+import YouTube from "react-youtube";
 
 const JointVentureSection: React.FC = () => {
+  const youTubeVideoId = "pOZZdPBLX3g";
+
+  const playerOptions = {
+    width: "100%",
+    height: "100%",
+    playerVars: {
+      autoplay: 1,
+      mute: 1,
+      loop: 1,
+      playlist: youTubeVideoId,
+      controls: 0,
+      showinfo: 0,
+      modestbranding: 1,
+      rel: 0,
+    },
+  };
+
   return (
     <section id="joint-venture" className="bg-gray-50 font-sans py-12 md:py-20">
       <div className="container mx-auto px-4">
@@ -12,20 +27,20 @@ const JointVentureSection: React.FC = () => {
           Liên doanh Vietsovpetro
         </h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Cột hình ảnh bên trái */}
-          <div className="relative p-2 border-2 border-green-400 rounded-3xl">
-            <video
-              src={videoIntro}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover rounded-2xl"
-            />
+          {/* Cấu trúc lồng 2 div để đảm bảo layout hoàn hảo */}
+          <div className="p-2 border-2 border-green-400 rounded-3xl">
+            <div className="relative w-full aspect-video overflow-hidden rounded-2xl">
+              <YouTube
+                videoId={youTubeVideoId}
+                opts={playerOptions}
+                className="absolute top-0 left-0 w-full h-full pointer-events-none"
+              />
+            </div>
           </div>
 
           {/* Cột nội dung text bên phải */}
           <div className="text-gray-700">
+            {/* ... phần text không thay đổi ... */}
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
                 Liên doanh Vietsovpetro (gọi tắt là Vietsovpetro) là pháp nhân
@@ -47,7 +62,6 @@ const JointVentureSection: React.FC = () => {
                 tác ở Việt Nam và trong khu vực.
               </p>
             </div>
-
             <a
               href="#"
               className="inline-flex items-center font-semibold mt-6 hover:text-green-700 transition-colors"
