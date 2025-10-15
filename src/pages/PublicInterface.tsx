@@ -13,6 +13,7 @@ import {
   ResourcesPage,
   RecruitmentPage,
   AdmissionPage,
+  PartnerProjectPage,
 } from "@/pages/public";
 import DocumentationPage from "@/pages/DocumentationPage";
 import BlankPage from "@/pages/BlankPage";
@@ -113,10 +114,7 @@ const PublicInterface: React.FC = () => {
           path="/linhvuc-nangluc"
           element={<BlankPage title="Lĩnh vực và Năng lực Hoạt động" />}
         />
-        <Route
-          path="/doitac-duan"
-          element={<BlankPage title="Đối tác và Dự án" />}
-        />
+        <Route path="/doitac-duan" element={<PartnerProjectPage />} />
         <Route
           path="/phattrien"
           element={<BlankPage title="Phát triển Bền vững" />}

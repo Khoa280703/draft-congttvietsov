@@ -8,3 +8,4 @@ export { default as RecruitmentPage } from "@/pages/public/RecruitmentPage";
 export { default as AdmissionPage } from "@/pages/public/AdmissionPage";
 export { default as HomePage } from "@/pages/public/HomePage";
 export { default as MediaLibrary } from "@/pages/public/NewsPage/MediaLibraryPage";
+export { default as PartnerProjectPage } from "@/pages/public/PartnerProjectPage";

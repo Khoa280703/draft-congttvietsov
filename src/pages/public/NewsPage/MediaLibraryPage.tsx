@@ -10,6 +10,11 @@ import {
 import { Pagination } from "@/components";
 import { PageWithSidebar } from "@/components/PublicSystem";
 
+import hoiNghiPetro from "@/assets/hoinghipetrovi.jpg";
+import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
+import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
+import chuyenTham1996 from "@/assets/1996.jpg";
+
 // --- INTERFACE ---
 export interface MediaItem {
   id: string;
@@ -27,7 +32,7 @@ const mediaData: MediaItem[] = [
     id: "feat-1",
     type: "video",
     title: "Triển lãm “Sản phẩm công nghệ chiến lược quốc gia”",
-    thumbnail: "https://placehold.co/1200x675/94a3b8/ffffff?text=Video",
+    thumbnail: hoiNghiPetro,
     summary:
       "Sáng ngày 13/10/2025, tại Học viện Cán bộ TP. Hồ Chí Minh, Sở Khoa học và Công nghệ TP.HCM phối hợp cùng các đơn vị tổ chức Triển lãm “Sản phẩm công nghệ chiến lược quốc gia tại TP.HCM”...",
     duration: "02:00",
@@ -37,105 +42,105 @@ const mediaData: MediaItem[] = [
     id: "item-1",
     type: "image",
     title: "Các sự kiện nổi bật của Petrovietnam trong tuần",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+1",
+    thumbnail: hoiNghiSuKien,
     date: "13/10/2024",
   },
   {
     id: "item-2",
     type: "image",
     title: "Hội nghị công tác Đảng bộ và hoạt động sản xuất",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+2",
+    thumbnail: daiHoiDaiBieu,
     date: "12/10/2024",
   },
   {
     id: "item-3",
     type: "image",
     title: "Chương trình thiện nguyện “Chia sẻ yêu thương”",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+3",
+    thumbnail: chuyenTham1996,
     date: "11/10/2024",
   },
   {
     id: "item-4",
     type: "image",
     title: "Chương trình thiện nguyện “Chia sẻ yêu thương”",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+4",
+    thumbnail: hoiNghiPetro,
     date: "11/10/2024",
   },
   {
     id: "item-5",
     type: "image",
     title: "Chương trình thiện nguyện “Chia sẻ yêu thương”",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+5",
+    thumbnail: hoiNghiSuKien,
     date: "11/10/2024",
   },
   {
     id: "item-6",
     type: "image",
     title: "Chương trình thiện nguyện “Chia sẻ yêu thương”",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+6",
+    thumbnail: daiHoiDaiBieu,
     date: "11/10/2024",
   },
   {
     id: "item-7",
     type: "image",
     title: "Chương trình thiện nguyện “Chia sẻ yêu thương”",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+7",
+    thumbnail: chuyenTham1996,
     date: "11/10/2024",
   },
   {
     id: "item-8",
     type: "image",
     title: "Chương trình thiện nguyện “Chia sẻ yêu thương”",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+8",
+    thumbnail: hoiNghiPetro,
     date: "11/10/2024",
   },
   {
     id: "item-9",
     type: "image",
     title: "Chương trình thiện nguyện “Chia sẻ yêu thương”",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+9",
+    thumbnail: hoiNghiSuKien,
     date: "11/10/2024",
   },
   {
     id: "item-10",
     type: "image",
     title: "Chương trình thiện nguyện “Chia sẻ yêu thương”",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+10",
+    thumbnail: daiHoiDaiBieu,
     date: "11/10/2024",
   },
   {
     id: "item-11",
     type: "image",
     title: "Chương trình thiện nguyện “Chia sẻ yêu thương”",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+11",
+    thumbnail: chuyenTham1996,
     date: "11/10/2024",
   },
   {
     id: "item-12",
     type: "image",
     title: "Chương trình thiện nguyện “Chia sẻ yêu thương”",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+12",
+    thumbnail: hoiNghiPetro,
     date: "11/10/2024",
   },
   {
     id: "item-13",
     type: "image",
     title: "Chương trình thiện nguyện “Chia sẻ yêu thương”",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+13",
+    thumbnail: hoiNghiSuKien,
     date: "11/10/2024",
   },
   {
     id: "item-14",
     type: "image",
     title: "Chương trình thiện nguyện “Chia sẻ yêu thương”",
-    thumbnail: "https://placehold.co/600x400/e0f2fe/0c4a6e?text=Image+14",
+    thumbnail: daiHoiDaiBieu,
     date: "11/10/2024",
   },
 ];
 
 const MediaCard: React.FC<{ item: MediaItem }> = ({ item }) => (
-  <a href="#" className="group flex flex-col items-center">
-    <div className="relative aspect-video overflow-hidden rounded-2xl bg-gray-200 w-full">
+  <a href="#" className="group flex flex-col items-center shadow-lg">
+    <div className="relative aspect-video overflow-hidden bg-gray-200 w-full">
       <img
         src={item.thumbnail}
         alt={item.title}
@@ -147,7 +152,7 @@ const MediaCard: React.FC<{ item: MediaItem }> = ({ item }) => (
         </div>
       )}
     </div>
-    <p className="mt-3 text-sm font-normal text-gray-700 leading-snug group-hover:text-blue-600 transition-colors line-clamp-2 text-left w-full">
+    <p className="px-4 pb-4 mt-3 text-sm font-normal text-gray-700 leading-snug group-hover:text-green-500 transition-colors line-clamp-2 text-left w-full">
       {item.title}
     </p>
   </a>
@@ -178,7 +183,7 @@ const MediaLibraryPage: React.FC = () => {
       <div className="">
         {/* Header và Thanh tìm kiếm */}
         <div className="mb-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Thư viện ảnh/video
           </h2>
           <div className="relative w-full">
@@ -194,7 +199,7 @@ const MediaLibraryPage: React.FC = () => {
                 setSearchTerm(e.target.value);
                 setCurrentPage(1);
               }}
-              className="w-full pl-16 pr-6 py-3 bg-slate-100 border border-slate-200 rounded-2xl text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+              className="w-full pl-16 pr-6 py-3 bg-slate-100 border border-slate-200 rounded-xl text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
             />
           </div>
         </div>
@@ -226,7 +231,7 @@ const MediaLibraryPage: React.FC = () => {
 
           <div className="lg:w-1/2 flex flex-col p-4">
             <div>
-              <h3 className="text-2xl font-medium text-gray-800 mb-3 hover:text-blue-700 transition-colors">
+              <h3 className="text-2xl font-medium text-gray-800 mb-3 hover:text-green-500 transition-colors">
                 <a href="#">{featuredItem.title}</a>
               </h3>
               <p className="text-gray-600 font-light leading-relaxed line-clamp-4">
@@ -246,9 +251,8 @@ const MediaLibraryPage: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* ▲▲▲▲▲ KẾT THÚC KHU VỰC SỬA ĐỔI ▲▲▲▲▲ */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8">
           {currentGridItems.map((item) => (
             <MediaCard key={item.id} item={item} />
           ))}

@@ -2,7 +2,7 @@ import React from "react";
 // Import icon mũi tên từ react-icons
 import { FiArrowRight } from "react-icons/fi";
 // Import ảnh (hãy thay đổi đường dẫn này)
-import danKhoan from "@/assets/Khoan _sua_gieng.png";
+import videoIntro from "@/assets/video/vietsovintro.mov";
 
 const JointVentureSection: React.FC = () => {
   return (
@@ -14,9 +14,12 @@ const JointVentureSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Cột hình ảnh bên trái */}
           <div className="relative p-2 border-2 border-green-400 rounded-3xl">
-            <img
-              src={danKhoan}
-              alt="Giàn khoan Vietsovpetro"
+            <video
+              src={videoIntro}
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-full h-full object-cover rounded-2xl"
             />
           </div>
