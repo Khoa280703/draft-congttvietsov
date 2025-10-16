@@ -45,52 +45,6 @@ export const PUBLIC_MENU_ITEMS_DETAILED: MenuItemWithChildren[] = [
     ],
   },
   {
-    id: "units",
-    label: "Đơn Vị Trực Thuộc",
-    path: "/donvi",
-    children: [
-      {
-        title: "Xí nghiệp Khai thác Dầu khí",
-        href: "/donvi/xinghiep-khai-thac-dau-khi",
-      },
-      {
-        title:
-          "Xí nghiệp Xây lắp, Khảo sát và Sửa chữa các công trình khai thác dầu khí",
-        href: "/donvi/xinghiep-xay-lap-khao-sat-sua-chua",
-      },
-      {
-        title: "Xí nghiệp Khai thác các công trình khí",
-        href: "/donvi/xinghiep-khai-thac-cong-trinh",
-      },
-      { title: "Xí nghiệp Khoan", href: "/donvi/xinghiep-khoan" },
-      {
-        title: "Xí nghiệp Vận tải Biển",
-        href: "/donvi/xinghiep-van-tai-bien",
-      },
-      { title: "Xí nghiệp Cảng", href: "/donvi/xinghiep-cang" },
-      { title: "Xí nghiệp Điện", href: "/donvi/xinghiep-dien" },
-      {
-        title: "Xí nghiệp Nghiên cứu Khoa học",
-        href: "/donvi/xinghiep-nghien-cuu-khoa-hoc",
-      },
-      { title: "Xí nghiệp Y tế", href: "/donvi/xinghiep-y-te" },
-      {
-        title: "Xí nghiệp Công nghệ Thông tin",
-        href: "/donvi/xinghiep-cong-nghe-thong-tin",
-      },
-      { title: "Xí nghiệp Resort", href: "/donvi/xinghiep-resort" },
-      { title: "Xí nghiệp Khách sạn", href: "/donvi/xinghiep-khach-san" },
-      { title: "Xí nghiệp Bảo vệ", href: "/donvi/xinghiep-bao-ve" },
-      { title: "Xí nghiệp Nhà ở", href: "/donvi/xinghiep-nha-o" },
-    ],
-  },
-  {
-    id: "products",
-    label: "Sản Phẩm-Dịch Vụ",
-    path: "/spvadichvu",
-    children: [],
-  },
-  {
     id: "news",
     label: "Tin Tức-Sự Kiện",
     path: "/tintuc",
@@ -117,18 +71,6 @@ export const PUBLIC_MENU_ITEMS_DETAILED: MenuItemWithChildren[] = [
     path: "/nguonluc",
     children: [],
   },
-  {
-    id: "recruitment",
-    label: "Tuyển Dụng",
-    path: "/tuyendung",
-    children: [],
-  },
-  {
-    id: "admission",
-    label: "Tuyển Sinh",
-    path: "/tuyensinh",
-    children: [],
-  },
 ];
 
 // Extract basic menu items for navigation
@@ -149,14 +91,10 @@ export const MAIN_NAVIGATION_ITEMS: BaseMenuItem[] = [
     label: "LĨNH VỰC & NĂNG LỰC HOẠT ĐỘNG",
     path: "/linhvuc-nangluc",
   },
-  // { id: "units", label: "ĐƠN VỊ TRỰC THUỘC", path: "/donvi" },
-  // { id: "products", label: "SẢN PHẨM-DỊCH VỤ", path: "/spvadichvu" },
   { id: "projects", label: "ĐỐI TÁC & DỰ ÁN", path: "/doitac-duan" },
   { id: "development", label: "PHÁT TRIỂN BỀN VỮNG", path: "/phattrien" },
   { id: "news", label: "TIN TỨC & SỰ KIỆN", path: "/tintuc" },
   { id: "resources", label: "CÁC NGUỒN LỰC", path: "/nguonluc" },
-  // { id: "recruitment", label: "TUYỂN DỤNG", path: "/tuyendung" },
-  // { id: "admission", label: "TUYỂN SINH", path: "/tuyensinh" },
 ];
 
 // Separate configuration for SidebarNavigation component
@@ -191,52 +129,6 @@ export const SIDEBAR_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     ],
   },
   {
-    id: "units",
-    label: "Đơn vị trực thuộc",
-    path: "/donvi",
-    children: [
-      {
-        title: "Xí nghiệp Khai thác Dầu khí",
-        href: "/donvi/xinghiep-khai-thac-dau-khi",
-      },
-      {
-        title:
-          "Xí nghiệp Xây lắp, Khảo sát và Sửa chữa các công trình khai thác dầu khí",
-        href: "/donvi/xinghiep-xay-lap-khao-sat-sua-chua",
-      },
-      {
-        title: "Xí nghiệp Khai thác các công trình khí",
-        href: "/donvi/xinghiep-khai-thac-cong-trinh",
-      },
-      { title: "Xí nghiệp Khoan", href: "/donvi/xinghiep-khoan" },
-      {
-        title: "Xí nghiệp Vận tải Biển",
-        href: "/donvi/xinghiep-van-tai-bien",
-      },
-      { title: "Xí nghiệp Cảng", href: "/donvi/xinghiep-cang" },
-      { title: "Xí nghiệp Điện", href: "/donvi/xinghiep-dien" },
-      {
-        title: "Xí nghiệp Nghiên cứu Khoa học",
-        href: "/donvi/xinghiep-nghien-cuu-khoa-hoc",
-      },
-      { title: "Xí nghiệp Y tế", href: "/donvi/xinghiep-y-te" },
-      {
-        title: "Xí nghiệp Công nghệ Thông tin",
-        href: "/donvi/xinghiep-cong-nghe-thong-tin",
-      },
-      { title: "Xí nghiệp Resort", href: "/donvi/xinghiep-resort" },
-      { title: "Xí nghiệp Khách sạn", href: "/donvi/xinghiep-khach-san" },
-      { title: "Xí nghiệp Bảo vệ", href: "/donvi/xinghiep-bao-ve" },
-      { title: "Xí nghiệp Nhà ở", href: "/donvi/xinghiep-nha-o" },
-    ],
-  },
-  {
-    id: "products",
-    label: "Sản phẩm – dịch vụ",
-    path: "/spvadichvu",
-    children: [],
-  },
-  {
     id: "news",
     label: "Tin tức - Sự kiện",
     path: "/tintuc",
@@ -261,18 +153,6 @@ export const SIDEBAR_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     id: "resources",
     label: "Nguồn lực",
     path: "/nguonluc",
-    children: [],
-  },
-  {
-    id: "recruitment",
-    label: "Tuyển dụng",
-    path: "/tuyendung",
-    children: [],
-  },
-  {
-    id: "admission",
-    label: "Tuyển sinh",
-    path: "/tuyensinh",
     children: [],
   },
 ];

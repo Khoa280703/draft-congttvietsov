@@ -9,13 +9,6 @@ export const useNews = () => {
   });
 };
 
-export const useUnits = () => {
-  return useQuery({
-    queryKey: ["units"],
-    queryFn: () => api.get("/units"),
-  });
-};
-
 export const useLeadership = () => {
   return useQuery({
     queryKey: ["leadership"],

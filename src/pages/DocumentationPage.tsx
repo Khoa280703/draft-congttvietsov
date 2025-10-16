@@ -21,7 +21,6 @@ const DocumentationPage: React.FC<DocumentationPageProps> = ({ onClose }) => {
     internal: true,
     public: true,
     about: false,
-    units: false,
     news: false,
   });
 
