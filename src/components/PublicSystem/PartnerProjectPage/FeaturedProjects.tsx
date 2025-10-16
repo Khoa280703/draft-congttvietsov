@@ -74,7 +74,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Hoàn thành":
-        return "bg-green-100 text-green-800";
+        return "bg-green-100 text-vietsov-green";
       case "Đang triển khai":
         return "bg-blue-100 text-blue-800";
       case "Sắp triển khai":
@@ -113,7 +113,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
         {/* Category Badge */}
         <div className="absolute top-4 left-4">
-          <span className="bg-white/90 backdrop-blur-sm text-green-600 text-xs font-semibold px-3 py-1 rounded-full">
+          <span className="bg-white/90 backdrop-blur-sm text-vietsov-green text-xs font-semibold px-3 py-1 rounded-full">
             {project.category}
           </span>
         </div>
@@ -122,7 +122,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       {/* Content */}
       <div className="p-6">
         {/* Title */}
-        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">
+        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-vietsov-green transition-colors duration-300">
           {project.title}
         </h3>
 
@@ -134,15 +134,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         {/* Project Details */}
         <div className="space-y-2 mb-4">
           <div className="flex items-center text-sm text-gray-500">
-            <FiCalendar className="w-4 h-4 mr-2 text-green-500" />
+            <FiCalendar className="w-4 h-4 mr-2 text-vietsov-green" />
             <span>{project.date}</span>
           </div>
           <div className="flex items-center text-sm text-gray-500">
-            <FiMapPin className="w-4 h-4 mr-2 text-green-500" />
+            <FiMapPin className="w-4 h-4 mr-2 text-vietsov-green" />
             <span>{project.location}</span>
           </div>
           <div className="flex items-center text-sm text-gray-500">
-            <FiUsers className="w-4 h-4 mr-2 text-green-500" />
+            <FiUsers className="w-4 h-4 mr-2 text-vietsov-green" />
             <span>{project.partners.join(", ")}</span>
           </div>
         </div>

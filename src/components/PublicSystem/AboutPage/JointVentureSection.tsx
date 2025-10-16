@@ -28,7 +28,7 @@ const JointVentureSection: React.FC = () => {
         </h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Cấu trúc lồng 2 div để đảm bảo layout hoàn hảo */}
-          <div className="p-2 border-2 border-green-400 rounded-3xl">
+          <div className="p-2 border-2 border-vietsov-green rounded-3xl">
             <div className="relative w-full aspect-video overflow-hidden rounded-2xl">
               <YouTube
                 videoId={youTubeVideoId}
@@ -64,7 +64,7 @@ const JointVentureSection: React.FC = () => {
             </div>
             <a
               href="#"
-              className="inline-flex items-center font-semibold mt-6 hover:text-green-700 transition-colors"
+              className="inline-flex items-center font-semibold mt-6 hover:text-vietsov-green transition-colors"
             >
               Xem thêm
               <FiArrowRight className="w-5 h-5 ml-2" />

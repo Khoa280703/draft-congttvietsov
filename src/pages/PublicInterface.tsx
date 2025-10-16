@@ -79,21 +79,11 @@ const PublicInterface: React.FC = () => {
 
   return (
     <div className="min-h-screen relative">
-      <div className="fixed top-4 right-4 z-50 flex gap-2">
-        <button
-          onClick={() => setShowDocumentation(true)}
-          className="px-4 py-2 bg-blue-600 text-white rounded-md shadow-lg hover:bg-blue-700 transition-colors"
-        >
-          Tài liệu
-        </button>
-        <button
-          onClick={handleInternalToggle}
-          className="px-4 py-2 bg-gray-800 text-white rounded-md shadow-lg hover:bg-gray-700 transition-colors"
-        >
-          Chuyển giao diện nội bộ
-        </button>
-      </div>
-      <Header />
+      <Header
+        onDocumentationClick={() => setShowDocumentation(true)}
+        onInterfaceToggle={handleInternalToggle}
+        interfaceToggleText="Chuyển giao diện nội bộ"
+      />
       <Navigation
         activeItem={activeNavItem}
         onItemClick={handleNavItemClick}

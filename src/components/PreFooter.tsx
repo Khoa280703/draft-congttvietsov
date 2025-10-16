@@ -1,80 +1,157 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import VietsopetroLogo from "../assets/vietsovlogogiulua.png";
 import { RiArrowDownWideFill } from "react-icons/ri";
 
-// const preFooterLinks = [
-//   {
-//     title: "Giới thiệu",
-//     links: [
-//       "Lịch sử hình thành",
-//       "Cơ cấu tổ chức",
-//       "Ban lãnh đạo",
-//       "Thành tựu nổi bật",
-//       "Hình ảnh tư liệu",
-//     ],
-//   },
-//   {
-//     title: "Đơn vị trực thuộc",
-//     links: [
-//       "Xí nghiệp khai thác dầu khí",
-//       "Xí nghiệp vận tải biển",
-//       "Viện nghiên cứu khoa học",
-//       "Xí nghiệp cơ điện",
-//       "Xí nghiệp địa vật lý giếng",
-//     ],
-//   },
-//   {
-//     title: "Sản phẩm - Dịch vụ",
-//     links: [
-//       "Thiết kế các công trình dầu khí",
-//       "Nghiên cứu thăm dò khai thác",
-//       "Dịch vụ vận tải biển",
-//       "Đào tạo nâng bậc thợ",
-//       "Dịch vụ cung ứng vật tư thiết bị",
-//     ],
-//   },
-//   {
-//     title: "Dự án - Đối tác",
-//     links: [
-//       "Dự án khai thác dầu khí",
-//       "Phân tích & Thẩm định Mỏ",
-//       "Thiết kế, mua sắm, xây dựng",
-//       "Dự án lắp đặt chân đế",
-//     ],
-//   },
-//   {
-//     title: "Nguồn lực",
-//     links: ["Nguồn lực nhân sự", "Cơ sở vật chất", "Năng lực tài chính"],
-//   },
-// ];
+// Public interface menu items
+const publicPreFooterLinks = [
+  {
+    title: "GIỚI THIỆU CHUNG",
+    links: [
+      "Về chúng tôi, lịch sử hình thành",
+      "Tầm nhìn sứ mệnh, giá trị cốt lõi",
+      "Cơ cấu tổ chức, ban tổng giám đốc",
+    ],
+  },
+  {
+    title: "LĨNH VỰC VÀ NĂNG LỰC HOẠT ĐỘNG",
+    links: ["Thăm dò, tìm kiếm và KT dầu khí", "Dịch vụ"],
+  },
+  {
+    title: "ĐỐI TÁC VÀ DỰ ÁN",
+    links: [],
+  },
+  {
+    title: "PHÁT TRIỂN BỀN VỮNG",
+    links: [
+      "ATSKMT",
+      "Truyền thông VHDN - DNXH",
+      "Chuyển đổi số",
+      "ESG",
+      "Ý kiến người lao động",
+    ],
+  },
+  {
+    title: "TIN TỨC SỰ KIỆN",
+    links: [
+      "Hoạt động SX - KD",
+      "Tin Đảng Đoàn thể",
+      "Tin dầu khí",
+      "Thông cáo báo chí",
+      "Thư viện ảnh/video",
+    ],
+  },
+  {
+    title: "CÁC NGUỒN LỰC",
+    links: [
+      "Đào tạo",
+      "KHCN",
+      "Sáng kiến – sáng chế",
+      "Tuyển dụng và tuyển sinh",
+    ],
+  },
+];
+
+// Internal interface menu items
+const internalPreFooterLinks = [
+  {
+    title: "GIỚI THIỆU CHUNG",
+    links: [
+      "Về chúng tôi, lịch sử hình thành",
+      "Tầm nhìn sứ mệnh, giá trị cốt lõi",
+      "Cơ cấu tổ chức, ban tổng giám đốc",
+    ],
+  },
+  {
+    title: "TIN TỨC SỰ KIỆN",
+    links: [
+      "Hoạt động SX - KD",
+      "Tin Đảng Đoàn thể",
+      "Tin dầu khí",
+      "Thông cáo báo chí",
+      "Thư viện ảnh/video",
+    ],
+  },
+  {
+    title: "PHÁT TRIỂN BỀN VỮNG",
+    links: [
+      "ATSKMT",
+      "Truyền thông VHDN - DNXH",
+      "Chuyển đổi số",
+      "ESG",
+      "Ý kiến người lao động",
+    ],
+  },
+  {
+    title: "BÁO CÁO",
+    links: [
+      "Báo cáo tài chính",
+      "Báo cáo thường niên",
+      "Báo cáo phát triển bền vững",
+      "Báo cáo quản trị",
+    ],
+  },
+  {
+    title: "ỨNG DỤNG",
+    links: [
+      "Hệ thống quản lý nội bộ",
+      "Portal nhân viên",
+      "Hệ thống đào tạo",
+      "Quản lý dự án",
+    ],
+  },
+  {
+    title: "TRA CỨU",
+    links: [
+      "Tra cứu thông tin nhân viên",
+      "Tra cứu quy định nội bộ",
+      "Tra cứu tài liệu",
+      "Tra cứu lịch sử hoạt động",
+    ],
+  },
+];
 
 const PreFooter: React.FC = () => {
+  const location = useLocation();
+
+  // Determine if we're in internal interface based on the path
+  const isInternalInterface = location.pathname.startsWith("/internal");
+
+  // Use appropriate menu based on interface
+  const preFooterLinks = isInternalInterface
+    ? internalPreFooterLinks
+    : publicPreFooterLinks;
+
   return (
     <footer className="bg-gray-100 py-12 px-4 border-t border-gray-200">
       <div className="container mx-auto">
-        {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-8">
           {preFooterLinks.map((column) => (
             <div key={column.title}>
-              <h3 className="font-semibold text-gray-800 mb-4">
+              <h3 className="font-bold text-gray-800 mb-4 text-sm uppercase">
                 {column.title}
               </h3>
-              <ul className="space-y-3">
-                {column.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-gray-600 hover:text-green-600 hover:underline"
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              {column.links.length > 0 ? (
+                <ul className="space-y-2">
+                  {column.links.map((link) => (
+                    <li key={link}>
+                      <a
+                        href="#"
+                        className="text-sm text-gray-600 hover:text-vietsov-green hover:underline transition-colors duration-200"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-sm text-gray-500 italic">Đang cập nhật...</p>
+              )}
             </div>
           ))}
         </div>
 
-        <div className="border-t border-gray-300 my-8"></div> */}
+        <div className="border-t border-gray-300 my-8"></div>
 
         <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
           <div className="flex flex-col md:flex-row items-center text-center md:text-left space-y-6 md:space-y-0 md:space-x-10">

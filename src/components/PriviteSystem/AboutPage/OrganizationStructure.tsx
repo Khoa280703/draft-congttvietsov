@@ -81,29 +81,32 @@ const NodeModal: React.FC<NodeModalProps> = ({ node, position, onClose }) => {
   return (
     <div className="fixed inset-0 z-40" onClick={onClose}>
       <div
-        className="node-modal fixed z-50 bg-white border border-gray-200 rounded-xl shadow-2xl p-6 w-full max-w-sm animate-fade-scale-in"
+        className="node-modal fixed z-50 bg-white border border-gray-200 rounded-xl shadow-2xl p-4 sm:p-6 w-80 sm:w-96 animate-fade-scale-in"
         style={{
-          left: position.x + 20,
+          left: position.x,
           top: position.y,
           transform: "translateY(-50%)",
+          maxWidth: "90vw", // Ensure it doesn't exceed viewport width
         }}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-start pb-3 border-b border-gray-200">
-          <h3 className="text-lg font-bold text-gray-900 pr-4">{node.label}</h3>
+          <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 pr-2 sm:pr-4">
+            {node.label}
+          </h3>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-800 transition-colors"
+            className="text-gray-400 hover:text-gray-800 transition-colors flex-shrink-0"
             aria-label="Đóng"
           >
-            <FiX size={22} />
+            <FiX size={18} className="sm:w-5 sm:h-5" />
           </button>
         </div>
 
-        <div className="mt-4 space-y-4">
+        <div className="mt-3 sm:mt-4 space-y-3 sm:space-y-4">
           {node.detail && (
             <div>
-              <p className="text-sm text-gray-700 leading-relaxed">
+              <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
                 {node.detail}
               </p>
             </div>
@@ -111,12 +114,15 @@ const NodeModal: React.FC<NodeModalProps> = ({ node, position, onClose }) => {
 
           {node.children && node.children.length > 0 && (
             <div>
-              <span className="text-sm font-semibold text-gray-800">
+              <span className="text-xs sm:text-sm font-semibold text-gray-800">
                 Đơn vị trực thuộc:
               </span>
-              <ul className="mt-2 space-y-1 list-disc list-inside">
+              <ul className="mt-1 sm:mt-2 space-y-1 list-disc list-inside">
                 {node.children.map((child) => (
-                  <li key={child.id} className="text-sm text-gray-600">
+                  <li
+                    key={child.id}
+                    className="text-xs sm:text-sm text-gray-600"
+                  >
                     {child.label}
                   </li>
                 ))}
@@ -125,13 +131,13 @@ const NodeModal: React.FC<NodeModalProps> = ({ node, position, onClose }) => {
           )}
 
           {node.url && (
-            <div className="pt-2">
+            <div className="pt-1 sm:pt-2">
               <a
                 href={node.url}
-                className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 group"
+                className="inline-flex items-center text-xs sm:text-sm font-semibold text-blue-600 hover:text-blue-800 group"
               >
                 Xem thêm
-                <FiArrowRight className="w-4 h-4 ml-1 transition-transform duration-200 group-hover:translate-x-1" />
+                <FiArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 transition-transform duration-200 group-hover:translate-x-1" />
               </a>
             </div>
           )}
@@ -491,10 +497,49 @@ const OrganizationStructure = () => {
     if (nodeData) {
       // Get click position
       const rect = (event.target as HTMLElement).getBoundingClientRect();
-      setModalPosition({
-        x: rect.right,
-        y: rect.top + rect.height / 2,
-      });
+
+      // Calculate available space
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+
+      // Modal dimensions (approximate)
+      const modalWidth = Math.min(384, viewportWidth * 0.9); // w-96 = 24rem = 384px, but responsive
+      const modalHeight = 200; // approximate height
+      const padding = 20; // padding from screen edge
+
+      // Determine horizontal position
+      let x: number;
+      const spaceOnRight = viewportWidth - rect.right;
+      const spaceOnLeft = rect.left;
+
+      if (spaceOnRight >= modalWidth + padding) {
+        // Enough space on the right
+        x = rect.right + 10;
+      } else if (spaceOnLeft >= modalWidth + padding) {
+        // Not enough space on right, but enough on left
+        x = rect.left - modalWidth - 10;
+      } else {
+        // Not enough space on either side, center horizontally
+        x = Math.max(padding, (viewportWidth - modalWidth) / 2);
+      }
+
+      // Determine vertical position
+      let y: number;
+      const spaceBelow = viewportHeight - rect.top;
+      const spaceAbove = rect.bottom;
+
+      if (spaceBelow >= modalHeight + padding) {
+        // Enough space below
+        y = rect.top + rect.height / 2;
+      } else if (spaceAbove >= modalHeight + padding) {
+        // Not enough space below, but enough above
+        y = rect.top + rect.height / 2;
+      } else {
+        // Not enough space above or below, center vertically
+        y = Math.max(padding, (viewportHeight - modalHeight) / 2);
+      }
+
+      setModalPosition({ x, y });
       setModalNode(nodeData);
     }
   };
@@ -539,7 +584,7 @@ const OrganizationStructure = () => {
   }, [modalNode]);
 
   return (
-    <div className="relative p-8 overflow-x-auto min-h-screen bg-gray-50">
+    <div className="relative p-8 overflow-x-auto min-h-screen">
       <div
         ref={chartContainerRef}
         className="relative flex flex-col items-center"

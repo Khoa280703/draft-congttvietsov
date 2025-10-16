@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 @import "tailwindcss";
 
 @keyframes marquee {
@@ -63,9 +64,17 @@
 }
 
 @theme {
+  /* Font Family */
+  --font-family-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+
+  /* Animations */
   --animate-marquee: marquee 40s linear infinite;
-  --color-primary: #000000;
-  --color-secondary: #000000;
+
+  /* Brand Colors */
+  --color-primary: #10954f;
+  --color-secondary: #242424;
   --color-tertiary: #000000;
   --color-quaternary: #000000;
   --color-quinary: #000000;
@@ -73,4 +82,73 @@
   --color-septenary: #000000;
   --color-octonary: #000000;
   --color-white: #ffffff;
+
+  /* Vietsovpetro Brand Colors */
+  --color-vietsov-green: #10954f;
+  --color-vietsov-black: #242424;
+  --color-vietsov-blue: #2563eb;
+  --color-vietsov-cyan: #06b6d4;
+  --color-vietsov-gray: #6b7280;
+  --color-vietsov-light-gray: #f3f4f6;
+}
+
+/* Global Font Application */
+* {
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif;
+}
+
+/* Custom Utility Classes */
+@layer utilities {
+  /* Brand Color Utilities */
+  .text-vietsov-green {
+    color: #10954f;
+  }
+
+  .text-vietsov-black {
+    color: #242424;
+  }
+
+  .bg-vietsov-green {
+    background-color: #10954f;
+  }
+
+  .bg-vietsov-black {
+    background-color: #242424;
+  }
+
+  .border-vietsov-green {
+    border-color: #10954f;
+  }
+
+  .border-vietsov-black {
+    border-color: #242424;
+  }
+
+  /* Hover States */
+  .hover\:text-vietsov-green:hover {
+    color: #10954f;
+  }
+
+  .hover\:bg-vietsov-green:hover {
+    background-color: #10954f;
+  }
+
+  .hover\:border-vietsov-green:hover {
+    border-color: #10954f;
+  }
+
+  /* Focus States */
+  .focus\:ring-vietsov-green:focus {
+    --tw-ring-color: #10954f;
+  }
+
+  /* Gradient Text */
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #10954f, #242424);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }

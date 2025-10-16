@@ -122,7 +122,10 @@ const SpotlightNews: React.FC = () => {
           ref={mainArticleRef as React.RefObject<HTMLElement>}
           className="lg:col-span-4"
         >
-          <a href="tintuc/chi-tiet">
+          <div
+            className="cursor-pointer"
+            onClick={() => (window.location.href = "tintuc/chi-tiet")}
+          >
             <img
               src={mainArticleData.image}
               alt={mainArticleData.title}
@@ -144,32 +147,41 @@ const SpotlightNews: React.FC = () => {
             <p className="text-base text-gray-600 leading-relaxed">
               {mainArticleData.summary}
             </p>
+          </div>
 
-            <div className="mt-6 pt-4 border-t flex justify-between items-center">
-              {/* Facebook Buttons */}
-              <div className="flex items-center space-x-2">
-                <button className="flex items-center bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded">
-                  <FaThumbsUp className="w-4 h-4 mr-2" /> Thích 1,7K
-                </button>
-                <button className="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded">
-                  Chia sẻ
-                </button>
-              </div>
-
-              {/* Action Icons */}
-              <div className="flex items-center space-x-4 text-gray-500">
-                <a href="#" className="hover:text-blue-600">
-                  <FiLink size={20} />
-                </a>
-                <a href="#" className="hover:text-blue-600">
-                  <FaRegBookmark size={18} />
-                </a>
-                <a href="#" className="hover:text-blue-600">
-                  <FiPrinter size={20} />
-                </a>
-              </div>
+          <div className="mt-6 pt-4 border-t flex justify-between items-center">
+            {/* Facebook Buttons */}
+            <div className="flex items-center space-x-2">
+              <button className="flex items-center bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded">
+                <FaThumbsUp className="w-4 h-4 mr-2" /> Thích 1,7K
+              </button>
+              <button className="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded">
+                Chia sẻ
+              </button>
             </div>
-          </a>
+
+            {/* Action Icons */}
+            <div className="flex items-center space-x-4 text-gray-500">
+              <button
+                className="hover:text-blue-600 transition-colors"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <FiLink size={20} />
+              </button>
+              <button
+                className="hover:text-blue-600 transition-colors"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <FaRegBookmark size={18} />
+              </button>
+              <button
+                className="hover:text-blue-600 transition-colors"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <FiPrinter size={20} />
+              </button>
+            </div>
+          </div>
         </article>
 
         {/* Sidebar bên phải */}

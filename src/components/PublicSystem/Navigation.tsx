@@ -128,8 +128,8 @@ const NavigationBar: React.FC<NavigationProps> = ({
                         border-b-3 transition-all duration-300 flex items-center justify-center gap-1
                         ${
                           activeItem === item.label
-                            ? "text-green-600 border-green-600"
-                            : "border-transparent hover:text-green-600"
+                            ? "text-vietsov-green border-vietsov-green"
+                            : "border-transparent hover:text-vietsov-green"
                         }
                       `}
                     >
@@ -152,7 +152,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                                 e.preventDefault();
                                 handleAboutSectionClick(section.id);
                               }}
-                              className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-green-600 transition-colors"
+                              className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-vietsov-green transition-colors"
                             >
                               {section.label}
                             </button>
@@ -177,8 +177,8 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       border-b-3 transition-all duration-300
                       ${
                         activeItem === item.label
-                          ? "text-green-600 border-green-600"
-                          : "border-transparent hover:text-green-600"
+                          ? "text-vietsov-green border-vietsov-green"
+                          : "border-transparent hover:text-vietsov-green"
                       }
                     `}
                   >
@@ -190,7 +190,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
             <li className="relative dropdown-container">
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="px-4 py-3 text-sm uppercase tracking-wider border-b-3 border-transparent hover:text-green-600 transition-all duration-300 flex items-center gap-1"
+                className="px-4 py-3 text-sm uppercase tracking-wider border-b-3 border-transparent hover:text-vietsov-green transition-all duration-300 flex items-center gap-1"
               >
                 <HiMenu className="w-5 h-5" />
                 <HiChevronDown
@@ -211,7 +211,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                           e.preventDefault();
                           handleSubItemClick(item.path);
                         }}
-                        className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-green-600 transition-colors"
+                        className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-vietsov-green transition-colors"
                       >
                         {item.label}
                       </a>
@@ -253,7 +253,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                     block w-full text-center py-3 text-sm uppercase
                     ${
                       activeItem === item.label
-                        ? "text-green-600 font-bold bg-green-50"
+                        ? "text-vietsov-green font-bold bg-green-50"
                         : "text-gray-600 hover:bg-gray-100"
                     }
                   `}

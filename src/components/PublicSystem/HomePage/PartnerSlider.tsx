@@ -14,17 +14,17 @@ export interface PartnerLogo {
   link?: string;
 }
 
-import petrosetcoLogo from "@/assets/logo_petrosetco.png";
+import petrosetcoLogo from "@/assets/logo/petrosetco_logo.png";
 
 const partnerLogosData: PartnerLogo[] = [
-  { id: "petrosetco", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
+  { id: "petrosetco-1", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
+  { id: "petrosetco-2", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
+  { id: "petrosetco-3", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
+  { id: "petrosetco-4", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
+  { id: "petrosetco-5", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
+  { id: "petrosetco-6", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
+  { id: "petrosetco-7", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
+  { id: "petrosetco-8", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
 ];
 
 const PartnerSlider: React.FC = () => {
@@ -59,7 +59,7 @@ const PartnerSlider: React.FC = () => {
               href={logo.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="block p-4 rounded-xl shadow-lg transition-all duration-300 transform hover:bg-white hover:-translate-y-2 group"
+              className="block p-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 group"
             >
               <img
                 src={logo.src}

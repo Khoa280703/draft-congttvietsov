@@ -36,7 +36,7 @@ const CooperationSection: React.FC = () => {
             <div className="mt-8">
               <a
                 href="#"
-                className="inline-block bg-green-600 text-white font-semibold px-8 py-3 rounded-full shadow-md hover:bg-green-700 transition-colors duration-300 transform hover:scale-105"
+                className="inline-block bg-vietsov-green text-white font-semibold px-8 py-3 rounded-full shadow-md hover:bg-vietsov-green/90 transition-colors duration-300 transform hover:scale-105"
               >
                 Liên hệ chúng tôi
               </a>

@@ -152,7 +152,7 @@ const MediaCard: React.FC<{ item: MediaItem }> = ({ item }) => (
         </div>
       )}
     </div>
-    <p className="px-4 pb-4 mt-3 text-sm font-normal text-gray-700 leading-snug group-hover:text-green-500 transition-colors line-clamp-2 text-left w-full">
+    <p className="px-4 pb-4 mt-3 text-sm font-normal text-gray-700 leading-snug group-hover:text-vietsov-green transition-colors line-clamp-2 text-left w-full">
       {item.title}
     </p>
   </a>
@@ -231,7 +231,7 @@ const MediaLibraryPage: React.FC = () => {
 
           <div className="lg:w-1/2 flex flex-col p-4">
             <div>
-              <h3 className="text-2xl font-medium text-gray-800 mb-3 hover:text-green-500 transition-colors">
+              <h3 className="text-2xl font-medium text-gray-800 mb-3 hover:text-vietsov-green transition-colors">
                 <a href="#">{featuredItem.title}</a>
               </h3>
               <p className="text-gray-600 font-light leading-relaxed line-clamp-4">

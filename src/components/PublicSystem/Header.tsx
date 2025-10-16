@@ -1,113 +1,177 @@
 import React, { useState } from "react";
-import { HiSearch, HiMenu, HiX } from "react-icons/hi";
-// import { BsTelephone } from "react-icons/bs";
-// import { HiOutlineMapPin } from "react-icons/hi2";
+import { HiChatBubbleLeftRight } from "react-icons/hi2";
+import { HiUser } from "react-icons/hi2";
+import { HiDocumentText } from "react-icons/hi2";
+import { HiArrowsRightLeft } from "react-icons/hi2";
+import { HiMenu, HiX } from "react-icons/hi";
 
-// URL cờ Nga (ví dụ)
+// Flag URLs
 const russianFlagUrl = "https://flagcdn.com/w40/ru.png";
 const englishFlagUrl = "https://flagcdn.com/w40/gb.png";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onDocumentationClick?: () => void;
+  onInterfaceToggle?: () => void;
+  interfaceToggleText?: string;
+}
+
+const Header: React.FC<HeaderProps> = ({
+  onDocumentationClick,
+  onInterfaceToggle,
+  interfaceToggleText = "Chuyển giao diện",
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("EN");
 
   return (
-    <header className="bg-[#098b43] text-white shadow-lg">
+    <header className="bg-gradient-to-r from-blue-900 to-vietsov-green text-white shadow-lg">
       <div className="container mx-auto px-6 py-3">
         <div className="flex justify-between items-center">
-          {/* Left Side: Contact Info */}
-          <div className="hidden md:flex items-center space-x-6">
-            {/* <a
-              href="tel:44123456789"
-              className="flex font-normal items-center space-x-2 hover:text-gray-300 transition-colors text-sm"
-            >
-              <BsTelephone />
-              <span>+44 (0)20 3369 3912</span>
-            </a>
-            <a
-              href="#"
-              className="flex font-normal items-center space-x-2 hover:text-gray-300 transition-colors text-sm"
-            >
-              <HiOutlineMapPin />
-              <span>Liên hệ</span>
-            </a> */}
-          </div>
-
-          {/* Right Side: Links & Icons */}
+          {/* Left Section - Language Selection */}
           <div className="flex items-center space-x-4">
-            {/* Desktop Links - Hidden on Mobile */}
-            <nav className="hidden md:flex items-center space-x-4 text-sm">
-              {/* <a
-                href="#"
-                className="font-normal hover:text-gray-300 transition-colors"
+            <span className="text-sm font-normal">Ngôn ngữ</span>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => setSelectedLanguage("EN")}
+                className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors ${
+                  selectedLanguage === "EN"
+                    ? "bg-white/20"
+                    : "hover:bg-white/10"
+                }`}
               >
-                eOffice
-              </a>
-              <a
-                href="#"
-                className="font-normal hover:text-gray-300 transition-colors"
+                <span className="text-sm font-normal">EN</span>
+                <img
+                  src={englishFlagUrl}
+                  alt="English Flag"
+                  className="w-4 h-4 rounded-full object-cover"
+                />
+              </button>
+              <button
+                onClick={() => setSelectedLanguage("RUG")}
+                className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors ${
+                  selectedLanguage === "RUG"
+                    ? "bg-white/20"
+                    : "hover:bg-white/10"
+                }`}
               >
-                Cẩm nang văn hóa VietsovPetro
-              </a> */}
-              <button className="hover:text-gray-300 transition-colors">
+                <span className="text-sm font-normal">RUG</span>
                 <img
                   src={russianFlagUrl}
                   alt="Russian Flag"
-                  className="w-6 h-6 rounded-full object-cover"
+                  className="w-4 h-4 rounded-full object-cover"
                 />
               </button>
-              <button className="hover:text-gray-300 transition-colors">
-                <img
-                  src={englishFlagUrl}
-                  alt="Vietnamese Flag"
-                  className="w-6 h-6 rounded-full object-cover"
-                />
-              </button>
-              <button className="hover:text-gray-300 transition-colors">
-                <HiSearch className="w-5 h-5" />
-              </button>
-              <button className="hover:text-gray-300 transition-colors">
-                <HiMenu className="w-5 h-5" />
-              </button>
-            </nav>
+            </div>
+          </div>
 
-            {/* Hamburger Menu Icon - Only for Mobile */}
-            <div className="md:hidden">
-              {/* Logo/Brand for mobile */}
-              <a href="#" className="font-semibold">
-                VietsovPetro
-              </a>
-            </div>
-            <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                {isMenuOpen ? (
-                  <HiX className="w-6 h-6" />
-                ) : (
-                  <HiMenu className="w-6 h-6" />
-                )}
+          {/* Right Section - Contact, Login, Documentation, and Interface Toggle */}
+          <div className="flex items-center space-x-4">
+            <button className="flex items-center space-x-2 hover:text-gray-300 transition-colors">
+              <HiChatBubbleLeftRight className="w-4 h-4" />
+              <span className="text-sm font-normal">Liên hệ</span>
+            </button>
+            <button className="flex items-center space-x-2 hover:text-gray-300 transition-colors">
+              <HiUser className="w-4 h-4" />
+              <span className="text-sm font-normal">Đăng nhập</span>
+            </button>
+            {onDocumentationClick && (
+              <button
+                onClick={onDocumentationClick}
+                className="flex items-center space-x-2 hover:text-gray-300 transition-colors"
+              >
+                <HiDocumentText className="w-4 h-4" />
+                <span className="text-sm font-normal">Tài liệu</span>
               </button>
-            </div>
+            )}
+            {onInterfaceToggle && (
+              <button
+                onClick={onInterfaceToggle}
+                className="flex items-center space-x-2 hover:text-gray-300 transition-colors"
+              >
+                <HiArrowsRightLeft className="w-4 h-4" />
+                <span className="text-sm font-normal">
+                  {interfaceToggleText}
+                </span>
+              </button>
+            )}
+            {/* Mobile Menu Toggle */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="md:hidden flex items-center space-x-2 hover:text-gray-300 transition-colors"
+            >
+              {isMenuOpen ? (
+                <HiX className="w-5 h-5" />
+              ) : (
+                <HiMenu className="w-5 h-5" />
+              )}
+            </button>
           </div>
         </div>
 
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
           <nav className="md:hidden mt-4 text-left space-y-3">
-            <a href="#" className="block py-2 hover:bg-white/10 rounded px-2">
-              eOffice
-            </a>
-            <a href="#" className="block py-2 hover:bg-white/10 rounded px-2">
-              Cẩm nang văn hóa VietsovPetro
-            </a>
-            <a
-              href="tel:44123456789"
-              className="block py-2 hover:bg-white/10 rounded px-2"
-            >
-              {" "}
-              +44 (0)20 3369 3912
-            </a>
-            <a href="#" className="block py-2 hover:bg-white/10 rounded px-2">
-              Liên hệ
-            </a>
+            <div className="flex items-center space-x-4 mb-4">
+              <span className="text-sm font-medium">Ngôn ngữ:</span>
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => setSelectedLanguage("EN")}
+                  className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors ${
+                    selectedLanguage === "EN"
+                      ? "bg-white/20"
+                      : "hover:bg-white/10"
+                  }`}
+                >
+                  <span className="text-sm">EN</span>
+                  <img
+                    src={englishFlagUrl}
+                    alt="English Flag"
+                    className="w-4 h-4 rounded-full object-cover"
+                  />
+                </button>
+                <button
+                  onClick={() => setSelectedLanguage("RUG")}
+                  className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors ${
+                    selectedLanguage === "RUG"
+                      ? "bg-white/20"
+                      : "hover:bg-white/10"
+                  }`}
+                >
+                  <span className="text-sm">RUG</span>
+                  <img
+                    src={russianFlagUrl}
+                    alt="Russian Flag"
+                    className="w-4 h-4 rounded-full object-cover"
+                  />
+                </button>
+              </div>
+            </div>
+            <button className="flex items-center space-x-2 py-2 hover:bg-white/10 rounded px-2 w-full text-left">
+              <HiChatBubbleLeftRight className="w-4 h-4" />
+              <span className="text-sm">Liên hệ</span>
+            </button>
+            <button className="flex items-center space-x-2 py-2 hover:bg-white/10 rounded px-2 w-full text-left">
+              <HiUser className="w-4 h-4" />
+              <span className="text-sm">Đăng nhập</span>
+            </button>
+            {onDocumentationClick && (
+              <button
+                onClick={onDocumentationClick}
+                className="flex items-center space-x-2 py-2 hover:bg-white/10 rounded px-2 w-full text-left"
+              >
+                <HiDocumentText className="w-4 h-4" />
+                <span className="text-sm">Tài liệu</span>
+              </button>
+            )}
+            {onInterfaceToggle && (
+              <button
+                onClick={onInterfaceToggle}
+                className="flex items-center space-x-2 py-2 hover:bg-white/10 rounded px-2 w-full text-left"
+              >
+                <HiArrowsRightLeft className="w-4 h-4" />
+                <span className="text-sm">{interfaceToggleText}</span>
+              </button>
+            )}
           </nav>
         )}
       </div>
