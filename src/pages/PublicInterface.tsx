@@ -57,10 +57,6 @@ const PublicInterface: React.FC = () => {
     }
   };
 
-  const handleSubItemClick = (href: string) => {
-    navigate(href);
-  };
-
   const handleAboutSectionClick = (sectionId: string) => {
     // Navigate to About page first if not already there
     if (location.pathname !== "/gioithieu") {
@@ -87,8 +83,8 @@ const PublicInterface: React.FC = () => {
       <Navigation
         activeItem={activeNavItem}
         onItemClick={handleNavItemClick}
-        onSubItemClick={handleSubItemClick}
         onAboutSectionClick={handleAboutSectionClick}
+        interfaceType="public"
       />
 
       <Routes>

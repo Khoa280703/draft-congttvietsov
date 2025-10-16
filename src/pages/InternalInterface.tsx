@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate, Routes, Route } from "react-router-dom";
 import Header from "@/components/PriviteSystem/Header";
-import Navigation from "@/components/Navigation";
+import Navigation from "@/components/PublicSystem/Navigation";
 import Footer from "@/components/Footer";
 import PreFooter from "@/components/PreFooter";
-import VietsopetroLogo from "@/assets/vietsovlogogiulua.png";
 import { NAVIGATION_CONFIG, ROUTES } from "@/config/navigation";
 import {
   InternalHomePage,
@@ -65,16 +64,11 @@ const InternalInterface: React.FC = () => {
         interfaceToggleText="Chuyển giao diện công khai"
       />
 
-      <img
-        src={VietsopetroLogo}
-        alt="Vietsopetro Logo"
-        className="w-36 h-24 mx-auto my-4"
-      />
-
       <div className="pb-1">
         <Navigation
           activeItem={activeNavItem}
           onItemClick={handleNavItemClick}
+          interfaceType="internal"
         />
       </div>
 

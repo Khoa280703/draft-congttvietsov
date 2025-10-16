@@ -7,59 +7,43 @@ interface NavigationProps {
   activeItem: string;
   onItemClick: (item: string) => void;
   onAboutSectionClick?: (sectionId: string) => void;
+  interfaceType?: "public" | "internal";
 }
 
 const NavigationBar: React.FC<NavigationProps> = ({
   activeItem,
   onItemClick,
   onAboutSectionClick,
+  interfaceType = "public",
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
-  const [aboutHoverTimeout, setAboutHoverTimeout] = useState<number | null>(
-    null
-  );
-  const menuItems = NAVIGATION_CONFIG.MAIN.MENU_ITEMS;
+  const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
+  const [hoverTimeout, setHoverTimeout] = useState<number | null>(null);
+  const menuItems =
+    interfaceType === "internal"
+      ? NAVIGATION_CONFIG.INTERNAL.MENU_ITEMS
+      : NAVIGATION_CONFIG.MAIN.MENU_ITEMS;
 
-  // About page sections for dropdown
-  const aboutSections = [
-    { id: "joint-venture", label: "Giới thiệu Vietsov" },
-    { id: "history", label: "Lịch sử hình thành" },
-    { id: "general-intro", label: "Giới thiệu chung" },
-    { id: "org-structure", label: "Cơ cấu tổ chức" },
-    { id: "leadership", label: "Ban lãnh đạo" },
-    { id: "achievements", label: "Thành tựu nổi bật" },
-    { id: "capabilities", label: "Năng lực hoạt động" },
-    { id: "archive-photos", label: "Ảnh lưu trữ" },
-  ];
-
-  const handleAboutSectionClick = (sectionId: string) => {
-    if (onAboutSectionClick) {
-      onAboutSectionClick(sectionId);
+  const handleDropdownMouseEnter = (itemId: string) => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
     }
-    setIsAboutDropdownOpen(false);
+    setOpenDropdownId(itemId);
   };
 
-  const handleAboutMouseEnter = () => {
-    if (aboutHoverTimeout) {
-      clearTimeout(aboutHoverTimeout);
-      setAboutHoverTimeout(null);
-    }
-    setIsAboutDropdownOpen(true);
-  };
-
-  const handleAboutMouseLeave = () => {
+  const handleDropdownMouseLeave = () => {
     const timeout = setTimeout(() => {
-      setIsAboutDropdownOpen(false);
+      setOpenDropdownId(null);
     }, 150); // 150ms delay before closing
-    setAboutHoverTimeout(timeout);
+    setHoverTimeout(timeout);
   };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Element;
-      if (isAboutDropdownOpen && !target.closest(".about-dropdown-container")) {
-        setIsAboutDropdownOpen(false);
+      if (openDropdownId && !target.closest(".dropdown-container")) {
+        setOpenDropdownId(null);
       }
     };
 
@@ -67,16 +51,16 @@ const NavigationBar: React.FC<NavigationProps> = ({
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isAboutDropdownOpen]);
+  }, [openDropdownId]);
 
   // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
-      if (aboutHoverTimeout) {
-        clearTimeout(aboutHoverTimeout);
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
       }
     };
-  }, [aboutHoverTimeout]);
+  }, [hoverTimeout]);
 
   return (
     <nav className="bg-white w-full border-t border-gray-200">
@@ -89,13 +73,16 @@ const NavigationBar: React.FC<NavigationProps> = ({
           />
           <ul className="hidden md:flex justify-center items-center flex-1">
             {menuItems.map((item) => {
-              if (item.label === "GIỚI THIỆU CHUNG") {
+              const hasChildren = item.children && item.children.length > 0;
+              const isDropdownOpen = hasChildren && openDropdownId === item.id;
+
+              if (hasChildren) {
                 return (
                   <li
                     key={item.id}
-                    className="relative about-dropdown-container"
-                    onMouseEnter={handleAboutMouseEnter}
-                    onMouseLeave={handleAboutMouseLeave}
+                    className="relative dropdown-container"
+                    onMouseEnter={() => handleDropdownMouseEnter(item.id)}
+                    onMouseLeave={handleDropdownMouseLeave}
                   >
                     <button
                       onClick={(e) => {
@@ -115,25 +102,31 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       <span>{item.label}</span>
                       <HiChevronDown
                         className={`w-4 h-4 transition-transform ${
-                          isAboutDropdownOpen ? "rotate-180" : ""
+                          isDropdownOpen ? "rotate-180" : ""
                         }`}
                       />
                     </button>
 
-                    {/* About sections dropdown */}
-                    {isAboutDropdownOpen && (
-                      <div className="absolute top-full left-0 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50 about-dropdown-container">
+                    {/* Generic dropdown for any menu item with children */}
+                    {isDropdownOpen && (
+                      <div className="absolute top-full left-0 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50 dropdown-container">
                         <div className="py-2">
-                          {aboutSections.map((section) => (
+                          {item.children!.map((child) => (
                             <button
-                              key={section.id}
+                              key={child.href}
                               onClick={(e) => {
                                 e.preventDefault();
-                                handleAboutSectionClick(section.id);
+                                if (onAboutSectionClick) {
+                                  // Extract section ID from href (e.g., "/gioithieu#history" -> "history")
+                                  const sectionId = child.href.split("#")[1];
+                                  if (sectionId) {
+                                    onAboutSectionClick(sectionId);
+                                  }
+                                }
                               }}
                               className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-vietsov-green transition-colors"
                             >
-                              {section.label}
+                              {child.title}
                             </button>
                           ))}
                         </div>
@@ -186,28 +179,55 @@ const NavigationBar: React.FC<NavigationProps> = ({
       {isMenuOpen && (
         <div className="md:hidden border-t border-gray-200">
           <ul className="flex flex-col items-center py-2">
-            {menuItems.map((item) => (
-              <li key={item.id} className="w-full">
-                <a
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    onItemClick(item.label);
-                    setIsMenuOpen(false);
-                  }}
-                  className={`
-                    block w-full text-center py-3 text-sm uppercase
-                    ${
-                      activeItem === item.label
-                        ? "text-vietsov-green font-bold bg-green-50"
-                        : "text-gray-600 hover:bg-gray-100"
-                    }
-                  `}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
+            {menuItems.map((item) => {
+              const hasChildren = item.children && item.children.length > 0;
+
+              return (
+                <li key={item.id} className="w-full">
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onItemClick(item.label);
+                      setIsMenuOpen(false);
+                    }}
+                    className={`
+                      block w-full text-center py-3 text-sm uppercase
+                      ${
+                        activeItem === item.label
+                          ? "text-vietsov-green font-bold bg-green-50"
+                          : "text-gray-600 hover:bg-gray-100"
+                      }
+                    `}
+                  >
+                    {item.label}
+                  </a>
+                  {hasChildren && (
+                    <div className="pl-4 border-l-2 border-gray-200 ml-4">
+                      {item.children!.map((child) => (
+                        <a
+                          key={child.href}
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            if (onAboutSectionClick) {
+                              const sectionId = child.href.split("#")[1];
+                              if (sectionId) {
+                                onAboutSectionClick(sectionId);
+                              }
+                            }
+                            setIsMenuOpen(false);
+                          }}
+                          className="block w-full text-center py-2 text-xs text-gray-500 hover:text-vietsov-green hover:bg-gray-50"
+                        >
+                          {child.title}
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}

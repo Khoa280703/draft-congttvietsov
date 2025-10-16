@@ -8,7 +8,7 @@ import {
   HiChevronDown,
   HiChevronRight,
 } from "react-icons/hi";
-import { PUBLIC_MENU_ITEMS_DETAILED, INTERNAL_MENU_ITEMS } from "@/config/menu";
+import { MAIN_NAVIGATION_ITEMS, INTERNAL_MENU_ITEMS } from "@/config/menu";
 
 interface DocumentationPageProps {
   onClose: () => void;
@@ -57,13 +57,13 @@ const DocumentationPage: React.FC<DocumentationPageProps> = ({ onClose }) => {
     public: {
       title: "Đường dẫn Công khai",
       color: "blue",
-      routes: PUBLIC_MENU_ITEMS_DETAILED.filter(
+      routes: MAIN_NAVIGATION_ITEMS.filter(
         (item) => !item.children || item.children.length === 0
       ).map((item) => ({
         name: item.label,
         path: item.path,
       })),
-      children: PUBLIC_MENU_ITEMS_DETAILED.filter(
+      children: MAIN_NAVIGATION_ITEMS.filter(
         (item) => item.children && item.children.length > 0
       ).reduce(
         (acc, item) => {
