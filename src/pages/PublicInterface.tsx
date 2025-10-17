@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate, Routes, Route } from "react-router-dom";
-import { Header, Navigation } from "@/components/PublicSystem";
+import { Header } from "@/components/Shared";
+import { Navigation } from "@/components/PublicSystem";
 import PreFooter from "@/components/PreFooter";
 import Footer from "@/components/Footer";
 import { NAVIGATION_CONFIG, ROUTES } from "@/config/navigation";
