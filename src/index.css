@@ -72,31 +72,22 @@
   /* Animations */
   --animate-marquee: marquee 40s linear infinite;
 
-  /* Brand Colors */
-  --color-primary: #10954f;
-  --color-secondary: #242424;
-  --color-tertiary: #000000;
-  --color-quaternary: #000000;
-  --color-quinary: #000000;
-  --color-senary: #000000;
-  --color-septenary: #000000;
-  --color-octonary: #000000;
-  --color-white: #ffffff;
-
   /* Vietsovpetro Brand Colors */
   --color-vietsov-green: #10954f;
   --color-vietsov-black: #242424;
   --color-vietsov-blue: #2563eb;
   --color-vietsov-cyan: #06b6d4;
   --color-vietsov-gray: #6b7280;
-  --color-vietsov-light-gray: #f3f4f6;
+  --color-vietsov-light-gray: #919296;
+  --color-vietsov-background: #edf8f2;
 }
 
 /* Global Font Application */
-* {
+body {
   font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
     sans-serif;
+  color: var(--color-vietsov-black);
 }
 
 /* Custom Utility Classes */
@@ -150,5 +141,13 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Line Clamp Utilities */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }

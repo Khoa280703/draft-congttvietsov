@@ -79,43 +79,40 @@ const ProjectCard: React.FC<ProjectCardProps & { index: number }> = ({
 // --- Component chính ---
 const FeaturedProjects: React.FC = () => {
   return (
-    <section className="py-12 md:py-16 font-sans">
-      <div className="container mx-auto px-4">
-        {/* Header */}
+    <div>
+      {/* Header */}
+      <AnimatedItem animation="fadeInUp" delay={0}>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+          Dự án tiêu biểu
+        </h2>
+      </AnimatedItem>
 
-        <AnimatedItem animation="fadeInUp" delay={0}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
-            Dự án tiêu biểu
-          </h2>
-        </AnimatedItem>
-
-        {/* Lưới các dự án */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projectsData.map((project, index) => (
-            <ProjectCard
-              key={index}
-              category={project.category}
-              title={project.title}
-              description={project.description}
-              image={project.image}
-              index={index}
-            />
-          ))}
-        </div>
-
-        <AnimatedItem animation="fadeInUp" delay={800}>
-          <div className="flex justify-center items-center space-x-3">
-            <a
-              href="#"
-              className="flex items-center text-sm hover:text-green-700 font-medium border-1 border-green-500 rounded-full px-4 py-2"
-            >
-              Xem thêm
-              <FiArrowRight className="w-4 h-4 ml-1" />
-            </a>
-          </div>
-        </AnimatedItem>
+      {/* Lưới các dự án */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {projectsData.map((project, index) => (
+          <ProjectCard
+            key={index}
+            category={project.category}
+            title={project.title}
+            description={project.description}
+            image={project.image}
+            index={index}
+          />
+        ))}
       </div>
-    </section>
+
+      <AnimatedItem animation="fadeInUp" delay={800}>
+        <div className="flex justify-center items-center space-x-3">
+          <a
+            href="#"
+            className="flex items-center text-sm hover:text-green-700 font-medium border-1 border-green-500 rounded-full px-4 py-2"
+          >
+            Xem thêm
+            <FiArrowRight className="w-4 h-4 ml-1" />
+          </a>
+        </div>
+      </AnimatedItem>
+    </div>
   );
 };
 

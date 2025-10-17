@@ -1,5 +1,4 @@
-import HeroSlider from "@/components/PriviteSystem/HomePage/SliderHome";
-import BreakingNewsTicker from "@/components/PriviteSystem/HomePage/BreakingNewsTicker";
+import { SliderHome, BreakingNewsSlider } from "@/components/Shared";
 import {
   SpotlightNews,
   TrainingNews,
@@ -22,8 +21,8 @@ const InternalNewsDetail: React.FC = () => {
           path="/"
           element={
             <>
-              <HeroSlider />
-              <BreakingNewsTicker />
+              <SliderHome basePath="internal" />
+              <BreakingNewsSlider />
               <div className="max-w-7xl mx-auto px-4 pb-12 pt-8">
                 <SpotlightNews />
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">

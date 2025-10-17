@@ -29,8 +29,8 @@ const partnerLogosData: PartnerLogo[] = [
 
 const PartnerSlider: React.FC = () => {
   return (
-    <div className="w-full max-w-6xl mx-auto py-12">
-      <h2 className="text-4xl md:text-5xl font-medium text-center text-white mb-10 drop-shadow-lg">
+    <div>
+      <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-10 drop-shadow-lg">
         Đối tác
       </h2>
       <Swiper

@@ -68,6 +68,7 @@ const InternalInterface: React.FC = () => {
         <Navigation
           activeItem={activeNavItem}
           onItemClick={handleNavItemClick}
+          onUrlNavigation={(url) => navigate(url)}
           interfaceType="internal"
         />
       </div>

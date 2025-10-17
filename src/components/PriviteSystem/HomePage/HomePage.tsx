@@ -1,6 +1,5 @@
 import React from "react";
-import HeroSlider from "./SliderHome";
-import BreakingNewsTicker from "./BreakingNewsTicker";
+import { SliderHome, BreakingNewsSlider } from "@/components/Shared";
 import StatisticCard from "../StatisticCard";
 import StatisticCardWithBg from "../StatisticCardWithBg";
 import VideoNewsSection from "./VideoNewsSection";
@@ -20,8 +19,8 @@ const statisticCardData: StatisticCardData[] = [
 const HomePage: React.FC = () => {
   return (
     <div>
-      <HeroSlider />
-      <BreakingNewsTicker />
+      <SliderHome basePath="internal" />
+      <BreakingNewsSlider basePath="internal" />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="container px-4 py-8 bg-gray-200 rounded-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

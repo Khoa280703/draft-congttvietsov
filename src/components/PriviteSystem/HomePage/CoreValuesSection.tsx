@@ -80,23 +80,21 @@ const ValueItem: React.FC<{ value: CoreValue; index: number }> = ({
 
 const CoreValuesSection: React.FC = () => {
   return (
-    <section className="py-16 md:py-20 font-sans">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <AnimatedItem animation="fadeInUp" delay={0}>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
-            Giá trị cốt lõi
-          </h2>
-        </AnimatedItem>
+    <div>
+      {/* Section Header */}
+      <AnimatedItem animation="fadeInUp" delay={0}>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+          Giá trị cốt lõi
+        </h2>
+      </AnimatedItem>
 
-        {/* Values Grid - Dùng Flexbox để tự động căn chỉnh */}
-        <div className="flex flex-wrap justify-center gap-x-8 gap-y-12">
-          {coreValuesData.map((value, index) => (
-            <ValueItem key={value.id} value={value} index={index} />
-          ))}
-        </div>
+      {/* Values Grid - Dùng Flexbox để tự động căn chỉnh */}
+      <div className="flex flex-wrap justify-center gap-x-8 gap-y-12">
+        {coreValuesData.map((value, index) => (
+          <ValueItem key={value.id} value={value} index={index} />
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 

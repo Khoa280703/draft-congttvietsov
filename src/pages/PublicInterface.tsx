@@ -84,6 +84,7 @@ const PublicInterface: React.FC = () => {
         activeItem={activeNavItem}
         onItemClick={handleNavItemClick}
         onAboutSectionClick={handleAboutSectionClick}
+        onUrlNavigation={(url) => navigate(url)}
         interfaceType="public"
       />
 

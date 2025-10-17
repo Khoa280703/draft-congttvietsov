@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
+import { HiMenu, HiX, HiChevronDown, HiArrowRight } from "react-icons/hi";
 import VietsopetroLogo from "@/assets/vietsovlogogiulua.png";
 import { NAVIGATION_CONFIG } from "@/config/navigation";
 
@@ -7,6 +7,7 @@ interface NavigationProps {
   activeItem: string;
   onItemClick: (item: string) => void;
   onAboutSectionClick?: (sectionId: string) => void;
+  onUrlNavigation?: (url: string) => void;
   interfaceType?: "public" | "internal";
 }
 
@@ -14,6 +15,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
   activeItem,
   onItemClick,
   onAboutSectionClick,
+  onUrlNavigation,
   interfaceType = "public",
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,6 +39,22 @@ const NavigationBar: React.FC<NavigationProps> = ({
       setOpenDropdownId(null);
     }, 150); // 150ms delay before closing
     setHoverTimeout(timeout);
+  };
+
+  const handleChildItemClick = (child: { title: string; href: string }) => {
+    // Check if href contains a hash (section ID)
+    if (child.href.includes("#")) {
+      // Extract section ID from href (e.g., "/gioithieu#history" -> "history")
+      const sectionId = child.href.split("#")[1];
+      if (sectionId && onAboutSectionClick) {
+        onAboutSectionClick(sectionId);
+      }
+    } else {
+      // It's a regular URL, navigate to it
+      if (onUrlNavigation) {
+        onUrlNavigation(child.href);
+      }
+    }
   };
 
   useEffect(() => {
@@ -69,7 +87,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
           <img
             src={VietsopetroLogo}
             alt="Vietsopetro Logo"
-            className="w-26 h-18 "
+            className="w-26 h-18"
           />
           <ul className="hidden md:flex justify-center items-center flex-1">
             {menuItems.map((item) => {
@@ -90,7 +108,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                         onItemClick(item.label);
                       }}
                       className={`
-                        px-4 py-3 text-sm uppercase tracking-wider text-center
+                        px-4 py-3 text-sm tracking-wider text-center font-normal
                         border-b-3 transition-all duration-300 flex items-center justify-center gap-1
                         ${
                           activeItem === item.label
@@ -109,25 +127,21 @@ const NavigationBar: React.FC<NavigationProps> = ({
 
                     {/* Generic dropdown for any menu item with children */}
                     {isDropdownOpen && (
-                      <div className="absolute top-full left-0 w-64 bg-white border border-gray-200 rounded-lg shadow-lg z-50 dropdown-container">
-                        <div className="py-2">
+                      <div className="absolute top-full left-0 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50 dropdown-container">
+                        <div className="py-3">
                           {item.children!.map((child) => (
-                            <button
-                              key={child.href}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                if (onAboutSectionClick) {
-                                  // Extract section ID from href (e.g., "/gioithieu#history" -> "history")
-                                  const sectionId = child.href.split("#")[1];
-                                  if (sectionId) {
-                                    onAboutSectionClick(sectionId);
-                                  }
-                                }
-                              }}
-                              className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100 hover:text-vietsov-green transition-colors"
-                            >
-                              {child.title}
-                            </button>
+                            <div key={child.href} className="px-4">
+                              <button
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  handleChildItemClick(child);
+                                }}
+                                className="group block w-full text-left py-3 text-sm text-gray-600 hover:bg-gray-100 hover:px-4 hover:rounded-lg transition-all duration-200 flex items-center justify-between"
+                              >
+                                <span>{child.title}</span>
+                                <HiArrowRight className="w-4 h-4 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                              </button>
+                            </div>
                           ))}
                         </div>
                       </div>
@@ -145,8 +159,8 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       onItemClick(item.label);
                     }}
                     className={`
-                      px-4 py-3 text-sm uppercase tracking-wider text-center inline-block
-                      border-b-3 transition-all duration-300
+                      px-4 py-3 text-sm tracking-wider text-center inline-block
+                      border-b-3 transition-all duration-300 font-normal
                       ${
                         activeItem === item.label
                           ? "text-vietsov-green border-vietsov-green"
@@ -192,7 +206,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       setIsMenuOpen(false);
                     }}
                     className={`
-                      block w-full text-center py-3 text-sm uppercase
+                      block w-full text-center py-3 text-sm font-normal
                       ${
                         activeItem === item.label
                           ? "text-vietsov-green font-bold bg-green-50"
@@ -210,17 +224,13 @@ const NavigationBar: React.FC<NavigationProps> = ({
                           href="#"
                           onClick={(e) => {
                             e.preventDefault();
-                            if (onAboutSectionClick) {
-                              const sectionId = child.href.split("#")[1];
-                              if (sectionId) {
-                                onAboutSectionClick(sectionId);
-                              }
-                            }
+                            handleChildItemClick(child);
                             setIsMenuOpen(false);
                           }}
-                          className="block w-full text-center py-2 text-xs text-gray-500 hover:text-vietsov-green hover:bg-gray-50"
+                          className="group block w-full text-center py-2 text-xs text-gray-500 hover:rounded-xl transition-all duration-200 flex items-center justify-between px-2 hover:m-4"
                         >
-                          {child.title}
+                          <span>{child.title}</span>
+                          <HiArrowRight className="w-3 h-3 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                         </a>
                       ))}
                     </div>

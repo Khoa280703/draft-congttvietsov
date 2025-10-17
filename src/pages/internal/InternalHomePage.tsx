@@ -4,7 +4,7 @@ import StatisticCardWithBg from "@/components/PriviteSystem/StatisticCardWithBg"
 import {
   SliderHome,
   ProductionNews,
-  BreakingNewsTicker,
+  BreakingNewsSlider,
 } from "@/components/PriviteSystem/HomePage";
 
 import { LinkCenter } from "@/components/PriviteSystem";
@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <SliderHome />
-      <BreakingNewsTicker />
+      <BreakingNewsSlider />
       <div className="bg-red-50 py-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">

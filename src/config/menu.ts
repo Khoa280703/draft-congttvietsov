@@ -14,10 +14,10 @@ export interface MenuItemWithChildren extends BaseMenuItem {
 }
 
 export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
-  { id: "home", label: "TRANG CHỦ", path: "/", children: [] },
+  { id: "home", label: "Trang Chủ", path: "/", children: [] },
   {
     id: "about",
-    label: "GIỚI THIỆU CHUNG",
+    label: "Giới Thiệu Chung",
     path: "/gioithieu",
     children: [
       { title: "Giới thiệu Vietsov", href: "/gioithieu#joint-venture" },
@@ -32,25 +32,25 @@ export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
   },
   {
     id: "field",
-    label: "LĨNH VỰC & NĂNG LỰC HOẠT ĐỘNG",
+    label: "Lĩnh Vực & Năng Lực Hoạt Động",
     path: "/linhvuc-nangluc",
     children: [],
   },
   {
     id: "projects",
-    label: "ĐỐI TÁC & DỰ ÁN",
+    label: "Đối Tác & Dự Án",
     path: "/doitac-duan",
     children: [],
   },
   {
     id: "development",
-    label: "PHÁT TRIỂN BỀN VỮNG",
+    label: "Phát Triển Bền Vững",
     path: "/phattrien",
     children: [],
   },
   {
     id: "news",
-    label: "TIN TỨC & SỰ KIỆN",
+    label: "Tin Tức & Sự Kiện",
     path: "/tintuc",
     children: [
       { title: "Hoạt động đoàn thể", href: "/tintuc/hoat-dong-doan-the" },
@@ -60,7 +60,7 @@ export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
       },
     ],
   },
-  { id: "resources", label: "CÁC NGUỒN LỰC", path: "/nguonluc", children: [] },
+  { id: "resources", label: "Các Nguồn Lực", path: "/nguonluc", children: [] },
 ];
 
 export const SIDEBAR_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
@@ -127,23 +127,23 @@ export const INTERNAL_MENU_ITEMS: MenuItemWithChildren[] = [
   { id: "home", label: "Trang Chủ", path: "/internal", children: [] },
   {
     id: "about",
-    label: "GIỚI THIỆU CHUNG",
+    label: "Giới Thiệu Chung",
     path: "/internal/gioithieu",
     children: [],
   },
   {
     id: "news",
-    label: "TIN TỨC SỰ KIỆN",
+    label: "Tin Tức Sự Kiện",
     path: "/internal/tintuc",
     children: [],
   },
   {
     id: "development",
-    label: "PHÁT TRIỂN BỀN VỮNG",
+    label: "Phát Triển Bền Vững",
     path: "/internal/phattrien",
     children: [],
   },
-  { id: "reports", label: "BÁO CÁO", path: "/internal/baocao", children: [] },
+  { id: "reports", label: "Báo Cáo", path: "/internal/baocao", children: [] },
 ] as const;
 
 // Menu types

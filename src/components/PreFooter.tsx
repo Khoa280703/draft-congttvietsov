@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import VietsopetroLogo from "../assets/vietsovlogogiulua.png";
 import { RiArrowDownWideFill } from "react-icons/ri";
+import { HiChevronDown, HiChevronUp } from "react-icons/hi";
 
 // Public interface menu items
 const publicPreFooterLinks = [
@@ -113,6 +114,9 @@ const internalPreFooterLinks = [
 
 const PreFooter: React.FC = () => {
   const location = useLocation();
+  const [expandedSections, setExpandedSections] = useState<
+    Record<string, boolean>
+  >({});
 
   // Determine if we're in internal interface based on the path
   const isInternalInterface = location.pathname.startsWith("/internal");
@@ -122,33 +126,58 @@ const PreFooter: React.FC = () => {
     ? internalPreFooterLinks
     : publicPreFooterLinks;
 
+  const toggleSection = (title: string) => {
+    setExpandedSections((prev) => ({
+      ...prev,
+      [title]: !prev[title],
+    }));
+  };
+
   return (
     <footer className="bg-gray-100 py-12 px-4 border-t border-gray-200">
       <div className="container mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-8">
-          {preFooterLinks.map((column) => (
-            <div key={column.title}>
-              <h3 className="font-bold text-gray-800 mb-4 text-sm uppercase">
-                {column.title}
-              </h3>
-              {column.links.length > 0 ? (
-                <ul className="space-y-2">
-                  {column.links.map((link) => (
-                    <li key={link}>
-                      <a
-                        href="#"
-                        className="text-sm text-gray-600 hover:text-vietsov-green hover:underline transition-colors duration-200"
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-sm text-gray-500 italic">Đang cập nhật...</p>
-              )}
-            </div>
-          ))}
+          {preFooterLinks.map((column) => {
+            const isExpanded = expandedSections[column.title];
+            const hasLinks = column.links.length > 0;
+
+            return (
+              <div key={column.title}>
+                <button
+                  onClick={() => hasLinks && toggleSection(column.title)}
+                  className="font-bold text-gray-800 mb-4 text-sm uppercase flex items-center hover:text-vietsov-green transition-colors duration-200"
+                  disabled={!hasLinks}
+                >
+                  {column.title}
+                  {hasLinks &&
+                    (isExpanded ? (
+                      <HiChevronUp className="w-4 h-4 ml-2 text-gray-500" />
+                    ) : (
+                      <HiChevronDown className="w-4 h-4 ml-2 text-gray-500" />
+                    ))}
+                </button>
+                {hasLinks && isExpanded && (
+                  <ul className="space-y-2">
+                    {column.links.map((link) => (
+                      <li key={link}>
+                        <a
+                          href="#"
+                          className="text-sm text-gray-600 hover:text-vietsov-green hover:underline transition-colors duration-200"
+                        >
+                          {link}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {!hasLinks && (
+                  <p className="text-sm text-gray-500 italic">
+                    Đang cập nhật...
+                  </p>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <div className="border-t border-gray-300 my-8"></div>
