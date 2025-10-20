@@ -18,7 +18,7 @@ const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
           {/* Left: Image Section */}
           <motion.div
             className="relative w-full h-96 lg:h-[32rem] overflow-hidden rounded-2xl shadow-xl"
@@ -44,7 +44,7 @@ const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
             <motion.h3
-              className="text-2xl md:text-3xl font-bold text-vietsov-black"
+              className="text-sm md:text-base font-semibold"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -66,8 +66,8 @@ const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({
                     ease: "easeOut",
                   }}
                 >
-                  <HiCheck className="w-6 h-6 text-vietsov-green flex-shrink-0 mt-1" />
-                  <p className="text-lg text-gray-700 leading-relaxed">
+                  <HiCheck className="w-6 h-6 text-vietsov-green flex-shrink-0 mt-1 bg-vietsov-green/12 rounded-2xl p-1" />
+                  <p className="text-base text-gray-700 leading-relaxed font-normal">
                     {item.description}
                   </p>
                 </motion.li>

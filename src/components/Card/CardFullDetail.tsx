@@ -1,13 +1,16 @@
 import React from "react";
+import { HiArrowRight } from "react-icons/hi";
 
 interface CardFullDetailProps {
   image: string;
   imageAlt: string;
-  category: string;
+  category?: string;
   title: string;
-  timestamp: string;
+  timestamp?: string;
   description: string;
   className?: string;
+  onClick?: () => void;
+  detail?: boolean;
 }
 
 const CardFullDetail: React.FC<CardFullDetailProps> = ({
@@ -18,6 +21,8 @@ const CardFullDetail: React.FC<CardFullDetailProps> = ({
   timestamp,
   description,
   className = "",
+  onClick,
+  detail = false,
 }) => {
   return (
     <div
@@ -26,22 +31,36 @@ const CardFullDetail: React.FC<CardFullDetailProps> = ({
       <img src={image} alt={imageAlt} className="w-full h-56 object-cover" />
 
       <div className="p-6 space-y-4 flex-1 flex flex-col">
-        <div className="text-xs font-bold text-vietsov-green uppercase tracking-wide">
-          {category}
-        </div>
+        {category && (
+          <div className="text-xs font-bold text-vietsov-green uppercase tracking-wide">
+            {category}
+          </div>
+        )}
 
         {/* Title */}
         <h3 className="text-lg font-semibold leading-tight">{title}</h3>
 
-        {/* Timestamp */}
-        <div className="text-sm font-normal text-vietsov-light-gray">
-          {timestamp}
-        </div>
+        {timestamp && (
+          <div className="text-sm font-normal text-vietsov-light-gray">
+            {timestamp}
+          </div>
+        )}
 
-        {/* Description */}
-        <p className="text-base leading-relaxed line-clamp-3 flex-1 text-vietsov-black/80">
-          {description}
-        </p>
+        {description && (
+          <p className="text-base leading-relaxed line-clamp-3 flex-1 text-vietsov-black/80">
+            {description}
+          </p>
+        )}
+
+        {detail && (
+          <div
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={onClick}
+          >
+            <span className="text-sm font-normal">Chi tiết</span>
+            <HiArrowRight className="w-4 h-4 text-vietsov-green" />
+          </div>
+        )}
       </div>
     </div>
   );

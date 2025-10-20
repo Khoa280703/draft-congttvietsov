@@ -79,7 +79,6 @@
   --color-vietsov-cyan: #06b6d4;
   --color-vietsov-gray: #6b7280;
   --color-vietsov-light-gray: #919296;
-  --color-vietsov-background: #edf8f2;
 }
 
 /* Global Font Application */
@@ -95,6 +94,10 @@ body {
   /* Brand Color Utilities */
   .text-vietsov-green {
     color: #10954f;
+  }
+
+  .bg-vietsov-background {
+    background-image: linear-gradient(to bottom, #edf8f2, #ffffff);
   }
 
   .text-vietsov-black {

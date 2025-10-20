@@ -31,24 +31,6 @@ export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     ],
   },
   {
-    id: "field",
-    label: "Lĩnh Vực & Năng Lực Hoạt Động",
-    path: "/linhvuc-nangluc",
-    children: [],
-  },
-  {
-    id: "projects",
-    label: "Đối Tác & Dự Án",
-    path: "/doitac-duan",
-    children: [],
-  },
-  {
-    id: "development",
-    label: "Phát Triển Bền Vững",
-    path: "/phattrien",
-    children: [],
-  },
-  {
     id: "news",
     label: "Tin Tức & Sự Kiện",
     path: "/tintuc",
@@ -59,6 +41,24 @@ export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
         href: "/tintuc/thu-vien-anh-video",
       },
     ],
+  },
+  {
+    id: "development",
+    label: "Phát Triển Bền Vững",
+    path: "/phattrien",
+    children: [],
+  },
+  {
+    id: "field",
+    label: "Lĩnh Vực & Năng Lực Hoạt Động",
+    path: "/linhvuc-nangluc",
+    children: [],
+  },
+  {
+    id: "projects",
+    label: "Đối Tác & Dự Án",
+    path: "/doitac-duan",
+    children: [],
   },
   { id: "resources", label: "Các Nguồn Lực", path: "/nguonluc", children: [] },
 ];

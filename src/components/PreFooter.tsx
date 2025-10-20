@@ -15,12 +15,14 @@ const publicPreFooterLinks = [
     ],
   },
   {
-    title: "LĨNH VỰC VÀ NĂNG LỰC HOẠT ĐỘNG",
-    links: ["Thăm dò, tìm kiếm và KT dầu khí", "Dịch vụ"],
-  },
-  {
-    title: "ĐỐI TÁC VÀ DỰ ÁN",
-    links: [],
+    title: "TIN TỨC SỰ KIỆN",
+    links: [
+      "Hoạt động SX - KD",
+      "Tin Đảng Đoàn thể",
+      "Tin dầu khí",
+      "Thông cáo báo chí",
+      "Thư viện ảnh/video",
+    ],
   },
   {
     title: "PHÁT TRIỂN BỀN VỮNG",
@@ -33,15 +35,14 @@ const publicPreFooterLinks = [
     ],
   },
   {
-    title: "TIN TỨC SỰ KIỆN",
-    links: [
-      "Hoạt động SX - KD",
-      "Tin Đảng Đoàn thể",
-      "Tin dầu khí",
-      "Thông cáo báo chí",
-      "Thư viện ảnh/video",
-    ],
+    title: "LĨNH VỰC VÀ NĂNG LỰC HOẠT ĐỘNG",
+    links: ["Thăm dò, tìm kiếm và KT dầu khí", "Dịch vụ"],
   },
+  {
+    title: "ĐỐI TÁC VÀ DỰ ÁN",
+    links: [],
+  },
+
   {
     title: "CÁC NGUỒN LỰC",
     links: [

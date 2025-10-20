@@ -6,6 +6,7 @@ import {
   TypicalProjects,
   PetroNews,
 } from "@/components/PublicSystem/HomePage";
+import { CapabilitiesSection } from "@/components/PublicSystem/AboutPage";
 import { BreakingNewsSlider } from "@/components/PriviteSystem/HomePage";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -42,11 +43,24 @@ const HomePage: React.FC = () => {
         <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-              Dự án tiêu biểu
+              Lĩnh Vực Hoạt Động
             </h2>
           </div>
-          <TypicalProjects />
+          <CapabilitiesSection />
         </section>
+      </AnimatedSection>
+
+      <AnimatedSection animation="fadeInUp" delay={100}>
+        <div className="bg-white">
+          <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+                Dự án tiêu biểu
+              </h2>
+            </div>
+            <TypicalProjects />
+          </section>
+        </div>
       </AnimatedSection>
 
       {/* Petro News Section */}

@@ -8,9 +8,9 @@ import {
   LeadershipSection,
   AchievementsSection,
   CapabilitiesSection,
-  ArchivePhotos,
   CoreValuesSection,
 } from "@/components/PublicSystem/AboutPage";
+import ArchivePhotosSection from "@/components/PublicSystem/AboutPage/ArchivePhotosSection";
 import LeaderPage from "./LeaderPage";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -103,7 +103,7 @@ const AboutPage: React.FC = () => {
                 <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
                   <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                      Năng lực
+                      Lĩnh Vực Hoạt Động
                     </h2>
                   </div>
                   <CapabilitiesSection />
@@ -113,12 +113,7 @@ const AboutPage: React.FC = () => {
               {/* Archive Photos */}
               <AnimatedSection animation="fadeInUp" delay={100}>
                 <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
-                  <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                      Thư viện ảnh
-                    </h2>
-                  </div>
-                  <ArchivePhotos />
+                  <ArchivePhotosSection />
                 </section>
               </AnimatedSection>
             </div>

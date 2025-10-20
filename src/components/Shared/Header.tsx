@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({
               <HiUser className="w-4 h-4" />
               <span className="text-sm font-normal">Đăng nhập</span>
             </button>
-            {onDocumentationClick && (
+            {/* {onDocumentationClick && (
               <button
                 onClick={onDocumentationClick}
                 className="flex items-center space-x-2 hover:text-gray-300 transition-colors"
@@ -82,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({
                 <HiDocumentText className="w-4 h-4" />
                 <span className="text-sm font-normal">Tài liệu</span>
               </button>
-            )}
+            )} */}
             {onInterfaceToggle && (
               <button
                 onClick={onInterfaceToggle}
