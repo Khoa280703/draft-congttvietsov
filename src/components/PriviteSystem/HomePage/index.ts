@@ -7,6 +7,5 @@ export { default as InternalMovement } from "./InternalMovement";
 export { default as ChartHome } from "./ChartHome";
 export { default as HomeTrainingSchedule } from "./HomeTrainingSchedule";
 export { default as ProductionNews } from "./ProductionNews";
-export { default as CoreValuesSection } from "./CoreValuesSection";
 export { default as ActivitySlider } from "./ActivitySlider/ActivitySlider";
 export { default as SpotlightNews } from "./SpotlightNews";

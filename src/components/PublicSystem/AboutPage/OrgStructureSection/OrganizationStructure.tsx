@@ -584,7 +584,7 @@ const OrganizationStructure = () => {
   }, [modalNode]);
 
   return (
-    <div className="relative p-8 overflow-x-auto min-h-screen">
+    <div className="relative p-8 overflow-x-auto">
       <div
         ref={chartContainerRef}
         className="relative flex flex-col items-center"
