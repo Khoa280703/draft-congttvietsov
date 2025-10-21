@@ -29,7 +29,7 @@ const CardNews: React.FC<CardNewsProps> = ({
 }) => {
   return (
     <motion.article
-      className={`overflow-hidden hover:shadow-md transition-shadow duration-300 ${className}`}
+      className={`overflow-hidden hover:shadow-md transition-shadow duration-300 h-full flex flex-col ${className}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -52,14 +52,14 @@ const CardNews: React.FC<CardNewsProps> = ({
         )}
       </div>
 
-      <div className="py-2 space-y-4">
+      <div className="py-2 space-y-4 flex-1 flex flex-col">
         {/* Title */}
-        <h3 className="text-base font-semibold text-gray-900 leading-tight line-clamp-3">
+        <h3 className="text-base font-semibold text-gray-900 leading-tight line-clamp-3 flex-1">
           {title}
         </h3>
 
         {/* Metadata Footer */}
-        <div className="flex items-center justify-between text-sm text-gray-500">
+        <div className="flex items-center justify-between text-sm text-gray-500 mt-auto">
           <div className="flex items-center space-x-4">
             {/* Likes */}
             <div className="flex items-center space-x-1">

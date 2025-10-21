@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { HiChevronRight, HiHome } from "react-icons/hi";
 
 interface ImageModule {
@@ -8,7 +9,7 @@ interface ImageModule {
   blurDataURL?: string;
 }
 interface PageHeaderProps {
-  title: string;
+  title?: string;
   backgroundImage?: ImageModule | string;
   breadcrumbs?: Array<{
     label: string;
@@ -19,15 +20,40 @@ interface PageHeaderProps {
 const PageHeader: React.FC<PageHeaderProps> = ({
   title,
   backgroundImage,
-  breadcrumbs = [{ label: "Trang chủ", href: "/" }, { label: title }],
+  breadcrumbs,
 }) => {
+  const location = useLocation();
+
+  const getPageName = (pathname: string): string => {
+    const pathMap: { [key: string]: string } = {
+      "/": "Trang chủ",
+      "/gioithieu": "Giới thiệu",
+      "/gioithieu/ban-lanh-dao": "Ban lãnh đạo",
+      "/tintuc": "Tin tức",
+      "/tintuc/hoat-dong-doan-the": "Hoạt động đoàn thể",
+      "/tintuc/tin-dau-khi": "Tin dầu khí",
+      "/tintuc/thong-cao-bao-chi": "Thông cáo báo chí",
+      "/tintuc/thu-vien-anh-video": "Thư viện ảnh/video",
+      "/lienhe": "Liên hệ",
+      "/tuyendung": "Tuyển dụng",
+    };
+
+    return pathMap[pathname] || title || "";
+  };
+
+  const pageName = getPageName(location.pathname);
+  const defaultBreadcrumbs = [
+    { label: "Trang chủ", href: "/" },
+    { label: pageName },
+  ];
+
+  const finalBreadcrumbs = breadcrumbs || defaultBreadcrumbs;
   const bgUrl =
     typeof backgroundImage === "string"
       ? backgroundImage
       : backgroundImage?.src;
   return (
     <div className="relative">
-      {/* Background Image */}
       <div
         className="relative h-96 bg-cover bg-center bg-no-repeat"
         style={{
@@ -42,7 +68,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             {/* Breadcrumbs */}
             <nav className="flex items-center space-x-2 text-sm text-white mb-4">
               <HiHome className="w-4 h-4" />
-              {breadcrumbs.map((crumb, index) => (
+              {finalBreadcrumbs.map((crumb, index) => (
                 <React.Fragment key={index}>
                   {index > 0 && <HiChevronRight className="w-4 h-4" />}
                   {crumb.href ? (
@@ -61,8 +87,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
               ))}
             </nav>
 
-            {/* Page Title */}
-            <h1 className="text-4xl font-bold text-white">{title}</h1>
+            <h1 className="text-4xl font-bold text-white">{pageName}</h1>
           </div>
         </div>
       </div>

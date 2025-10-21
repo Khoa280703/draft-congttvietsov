@@ -20,14 +20,18 @@ export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     label: "Giới Thiệu Chung",
     path: "/gioithieu",
     children: [
-      { title: "Giới thiệu Vietsov", href: "/gioithieu#joint-venture" },
-      { title: "Lịch sử hình thành", href: "/gioithieu#history" },
-      { title: "Giới thiệu chung", href: "/gioithieu#general-intro" },
-      { title: "Cơ cấu tổ chức", href: "/gioithieu#org-structure" },
-      { title: "Ban lãnh đạo", href: "/gioithieu#leadership" },
-      { title: "Thành tựu nổi bật", href: "/gioithieu#achievements" },
-      { title: "Năng lực hoạt động", href: "/gioithieu#capabilities" },
-      { title: "Ảnh lưu trữ", href: "/gioithieu#archive-photos" },
+      {
+        title: "Về chúng tôi, lịch sử hình thành",
+        href: "/gioithieu#introdution",
+      },
+      {
+        title: "Tầm nhìn sứ mệnh, giá trị cốt lõi",
+        href: "/gioithieu#vision-mission",
+      },
+      {
+        title: "Cơ cấu tổ chức, ban tổng giám đốc",
+        href: "/gioithieu#organization-structure",
+      },
     ],
   },
   {

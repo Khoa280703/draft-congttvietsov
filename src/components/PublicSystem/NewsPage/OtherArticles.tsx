@@ -1,6 +1,6 @@
-// src/components/OtherArticlesSection.tsx
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
+import { CardFullDetail } from "@/components/Card";
 
 // Import your images - replace with actual paths
 import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
@@ -60,33 +60,19 @@ const OtherArticles: React.FC = () => {
         {/* Articles Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.map((article) => (
-            <article key={article.id} className="group flex flex-col">
-              <a href={article.link} className="block">
-                <div className="overflow-hidden rounded-md mb-4">
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
-                  />
-                </div>
-              </a>
-              <div className="flex flex-col flex-grow">
-                <a href={article.link} className="block">
-                  <p className="text-xs font-semibold uppercase text-green-600 mb-2">
-                    {article.category}
-                  </p>
-                  <h3 className="text-lg font-bold text-gray-800 mb-2 leading-tight group-hover:text-blue-600 transition-colors">
-                    {article.title}
-                  </h3>
-                </a>
-                <p className="text-xs font-light text-gray-500 mb-3">
-                  {article.timestamp}
-                </p>
-                <p className="text-sm text-gray-600 line-clamp-3 flex-grow">
-                  {article.description}
-                </p>
-              </div>
-            </article>
+            <CardFullDetail
+              key={article.id}
+              image={article.image}
+              imageAlt={article.title}
+              category={article.category}
+              title={article.title}
+              timestamp={article.timestamp}
+              description={article.description}
+              detail={true}
+              onClick={() => {
+                window.location.href = "/tintuc/chi-tiet";
+              }}
+            />
           ))}
         </div>
       </div>

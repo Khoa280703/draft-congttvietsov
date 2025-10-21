@@ -29,6 +29,7 @@ const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({
 }) => {
   return (
     <motion.section
+      id="vision-mission"
       className={`${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}

@@ -1,7 +1,7 @@
 import React from "react";
 import { HiArrowRight } from "react-icons/hi";
 
-interface CardFullDetailProps {
+interface BigCardFullDetailProps {
   image: string;
   imageAlt: string;
   category?: string;
@@ -14,7 +14,7 @@ interface CardFullDetailProps {
   imageHeight?: string;
 }
 
-const CardFullDetail: React.FC<CardFullDetailProps> = ({
+const BigCardFullDetail: React.FC<BigCardFullDetailProps> = ({
   image,
   imageAlt,
   category,
@@ -27,24 +27,22 @@ const CardFullDetail: React.FC<CardFullDetailProps> = ({
   imageHeight = "h-56",
 }) => {
   return (
-    <div
-      className={`rounded-2xl overflow-hidden shadow-sm h-full flex flex-col ${className}`}
-    >
+    <div className={`overflow-hidden h-full flex flex-col ${className}`}>
       <img
         src={image}
         alt={imageAlt}
-        className={`w-full ${imageHeight} object-cover`}
+        className={`w-full ${imageHeight} object-cover rounded-lg`}
       />
 
       <div className="p-6 space-y-4 flex-1 flex flex-col">
         {category && (
-          <div className="text-xs font-bold text-vietsov-green uppercase tracking-wide">
+          <div className="text-sm font-bold text-vietsov-green uppercase tracking-wide">
             {category}
           </div>
         )}
 
         {/* Title */}
-        <h3 className="text-lg font-semibold leading-tight">{title}</h3>
+        <h3 className="text-2xl font-semibold leading-tight">{title}</h3>
 
         {timestamp && (
           <div className="text-sm font-normal text-vietsov-light-gray">
@@ -53,7 +51,7 @@ const CardFullDetail: React.FC<CardFullDetailProps> = ({
         )}
 
         {description && (
-          <p className="text-base leading-relaxed line-clamp-3 flex-1 text-vietsov-black/80">
+          <p className="text-sm leading-relaxed line-clamp-3 flex-1 text-vietsov-black/80">
             {description}
           </p>
         )}
@@ -72,4 +70,4 @@ const CardFullDetail: React.FC<CardFullDetailProps> = ({
   );
 };
 
-export default CardFullDetail;
+export default BigCardFullDetail;

@@ -124,7 +124,7 @@ const SpotlightNews: React.FC = () => {
         >
           <div
             className="cursor-pointer"
-            onClick={() => (window.location.href = "tintuc/chi-tiet")}
+            onClick={() => (window.location.href = "/tintuc/chi-tiet")}
           >
             <img
               src={mainArticleData.image}

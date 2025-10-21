@@ -16,6 +16,7 @@ import {
   AdmissionPage,
   PartnerProjectPage,
 } from "@/pages/public";
+import ContactPage from "@/pages/public/ContactPage/ContactPage";
 import DocumentationPage from "@/pages/DocumentationPage";
 import BlankPage from "@/pages/BlankPage";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
@@ -59,15 +60,20 @@ const PublicInterface: React.FC = () => {
   };
 
   const handleAboutSectionClick = (sectionId: string) => {
-    // Navigate to About page first if not already there
-    if (location.pathname !== "/gioithieu") {
-      navigate("/gioithieu");
-    }
+    const currentPath = location.pathname;
 
-    // Scroll to section after navigation
-    setTimeout(() => {
-      scrollToSection(sectionId);
-    }, 100);
+    // If we're already on the correct page, just scroll to the section
+    if (currentPath === "/gioithieu") {
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 100);
+    } else {
+      // Navigate to the About page first, then scroll to section
+      navigate("/gioithieu");
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 500); // Increased delay to allow page navigation and rendering
+    }
   };
 
   const handleInternalToggle = () => {
@@ -103,6 +109,7 @@ const PublicInterface: React.FC = () => {
           element={<BlankPage title="Lĩnh vực và Năng lực Hoạt động" />}
         />
         <Route path="/doitac-duan" element={<PartnerProjectPage />} />
+        <Route path="/lienhe" element={<ContactPage />} />
         <Route
           path="/phattrien"
           element={<BlankPage title="Phát triển Bền vững" />}

@@ -30,7 +30,7 @@ export const defaultPetroNewsData: PetroNewsItem[] = [
     timestamp: "9/6/2024 9:54:47 AM",
     description:
       "Ngày 13/09/2025 vừa qua tại phường Vũng Tàu, thành phố Hồ Chí Minh đã diễn ra Lễ tổng kết trao giải Hội thi Sáng tạ...",
-    link: "/tintuc/chuong-trinh-hop-tac-vietsovpetro-pvu",
+    link: "/tintuc/chi-tiet",
   },
   {
     id: 2,
@@ -43,7 +43,7 @@ export const defaultPetroNewsData: PetroNewsItem[] = [
     timestamp: "9/6/2024 9:54:47 AM",
     description:
       "Nhiệt liệt chào mừng Đại hội Đại biểu Đảng bộ Chính phủ lần thứ nhất, nhiệm kỳ 2025 - 2030",
-    link: "/tintuc/dai-hoi-dang-bo-chinh-phu",
+    link: "/tintuc/chi-tiet",
   },
   {
     id: 3,
@@ -55,6 +55,6 @@ export const defaultPetroNewsData: PetroNewsItem[] = [
     timestamp: "9/6/2024 9:54:47 AM",
     description:
       'Ngày 23-24/9/2025, tại Tòa nhà Ban Điều hành, Vietsovpetro đã tổ chức khóa đào tạo "Kỹ năng xây dựng..."',
-    link: "/tintuc/khoa-dao-tao-ky-nang-xay-dung",
+    link: "/tintuc/chi-tiet",
   },
 ];

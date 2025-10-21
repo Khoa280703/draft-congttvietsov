@@ -4,12 +4,14 @@ import {
   ProductionActivitySection,
   CommunityActivitySection,
   OilNewsSection,
-  MediaLibrary,
 } from "@/components/PublicSystem/NewsPage";
-import CommunityActivityPage from "@/pages/public/NewsPage/CommunityActivityPage";
+import { ArchivePhotosSection } from "@/components/PublicSystem/AboutPage";
+import DetailPage from "@/pages/public/NewsPage/DetailPage";
 import MediaLibraryPage from "@/pages/public/NewsPage/MediaLibraryPage";
+import CommunityActivityPage from "@/pages/public/NewsPage/CommunityActivityPage";
 import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
 import { Routes, Route, useLocation } from "react-router-dom";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const NewsPage: React.FC = () => {
   const location = useLocation();
@@ -52,14 +54,34 @@ const NewsPage: React.FC = () => {
         <Route
           path="/"
           element={
-            <>
-              <ProductionActivitySection />
-              <CommunityActivitySection />
-              <OilNewsSection />
-              <MediaLibrary />
-            </>
+            <div className="bg-vietsov-background">
+              <AnimatedSection animation="fadeInUp" delay={100}>
+                <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+                  <ProductionActivitySection />
+                </section>
+              </AnimatedSection>
+
+              <AnimatedSection animation="fadeInUp" delay={200}>
+                <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+                  <CommunityActivitySection />
+                </section>
+              </AnimatedSection>
+
+              <AnimatedSection animation="fadeInUp" delay={300}>
+                <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+                  <OilNewsSection />
+                </section>
+              </AnimatedSection>
+
+              <AnimatedSection animation="fadeInUp" delay={400}>
+                <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+                  <ArchivePhotosSection />
+                </section>
+              </AnimatedSection>
+            </div>
           }
         />
+        <Route path="/chi-tiet" element={<DetailPage />} />
         <Route path="/hoat-dong-doan-the" element={<CommunityActivityPage />} />
         <Route path="/thu-vien-anh-video" element={<MediaLibraryPage />} />
       </Routes>

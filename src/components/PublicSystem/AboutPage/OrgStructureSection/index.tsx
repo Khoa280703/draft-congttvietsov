@@ -10,7 +10,7 @@ const OrgStructureSection: React.FC<OrgStructureSectionProps> = ({
 }) => {
   return (
     <motion.section
-      id="org-structure"
+      id="organization-structure"
       className={`${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}

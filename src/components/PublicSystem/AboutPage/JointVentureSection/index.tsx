@@ -26,7 +26,7 @@ const JointVentureSection: React.FC<JointVentureSectionProps> = ({
   return (
     <>
       <motion.section
-        id="joint-venture"
+        id="introdution"
         className={`${className}`}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

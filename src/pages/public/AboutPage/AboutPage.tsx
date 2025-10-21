@@ -9,8 +9,8 @@ import {
   AchievementsSection,
   CapabilitiesSection,
   CoreValuesSection,
+  ArchivePhotosSection,
 } from "@/components/PublicSystem/AboutPage";
-import ArchivePhotosSection from "@/components/PublicSystem/AboutPage/ArchivePhotosSection";
 import LeaderPage from "./LeaderPage";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";

@@ -5,6 +5,8 @@ const CooperationSection: React.FC = () => {
   const youTubeVideoId = "pOZZdPBLX3g";
 
   const playerOptions = {
+    width: "100%",
+    height: "100%",
     playerVars: {
       autoplay: 1,
       mute: 1,
@@ -12,7 +14,6 @@ const CooperationSection: React.FC = () => {
       playlist: youTubeVideoId,
       controls: 0,
       showinfo: 0,
-      autohide: 1,
       modestbranding: 1,
       rel: 0,
     },
@@ -35,7 +36,7 @@ const CooperationSection: React.FC = () => {
             </p>
             <div className="mt-8">
               <a
-                href="#"
+                href="/lienhe"
                 className="inline-block bg-vietsov-green text-white font-semibold px-8 py-3 rounded-full shadow-md hover:bg-vietsov-green/90 transition-colors duration-300 transform hover:scale-105"
               >
                 Liên hệ chúng tôi
@@ -43,11 +44,11 @@ const CooperationSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative w-full h-80 lg:h-full bg-black rounded-2xl overflow-hidden flex items-center justify-center">
+          <div className="relative w-full aspect-video overflow-hidden rounded-2xl">
             <YouTube
               videoId={youTubeVideoId}
               opts={playerOptions}
-              className="w-full aspect-video "
+              className="absolute top-0 left-0 w-full h-full pointer-events-none"
             />
           </div>
         </div>

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { HiChatBubbleLeftRight } from "react-icons/hi2";
-import { HiUser } from "react-icons/hi2";
 import { HiDocumentText } from "react-icons/hi2";
 import { HiArrowsRightLeft } from "react-icons/hi2";
-import { HiMenu, HiX } from "react-icons/hi";
+import { HiMenu, HiX, HiOutlineLocationMarker } from "react-icons/hi";
+import { FaRegCircleUser } from "react-icons/fa6";
+import { ROUTES } from "@/config/navigation";
+import { useNavigate } from "react-router-dom";
 
 // Flag URLs
 const russianFlagUrl = "https://flagcdn.com/w40/ru.png";
@@ -22,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("EN");
-
+  const navigate = useNavigate();
   return (
     <header className="bg-gradient-to-r from-blue-900 to-vietsov-green text-white shadow-lg">
       <div className="container mx-auto px-6 py-3">
@@ -66,12 +67,15 @@ const Header: React.FC<HeaderProps> = ({
 
           {/* Right Section - Contact, Login, Documentation, and Interface Toggle */}
           <div className="flex items-center space-x-4">
-            <button className="flex items-center space-x-2 hover:text-gray-300 transition-colors">
-              <HiChatBubbleLeftRight className="w-4 h-4" />
+            <button
+              className="flex items-center space-x-2 hover:text-gray-300 transition-colors"
+              onClick={() => navigate(ROUTES.PUBLIC.CONTACT)}
+            >
+              <HiOutlineLocationMarker className="w-4 h-4" />
               <span className="text-sm font-normal">Liên hệ</span>
             </button>
             <button className="flex items-center space-x-2 hover:text-gray-300 transition-colors">
-              <HiUser className="w-4 h-4" />
+              <FaRegCircleUser className="w-4 h-4" />
               <span className="text-sm font-normal">Đăng nhập</span>
             </button>
             {/* {onDocumentationClick && (
@@ -146,12 +150,15 @@ const Header: React.FC<HeaderProps> = ({
                 </button>
               </div>
             </div>
-            <button className="flex items-center space-x-2 py-2 hover:bg-white/10 rounded px-2 w-full text-left">
-              <HiChatBubbleLeftRight className="w-4 h-4" />
+            <button
+              className="flex items-center space-x-2 py-2 hover:bg-white/10 rounded px-2 w-full text-left"
+              onClick={() => navigate(ROUTES.PUBLIC.CONTACT)}
+            >
+              <HiOutlineLocationMarker className="w-4 h-4" />
               <span className="text-sm">Liên hệ</span>
             </button>
             <button className="flex items-center space-x-2 py-2 hover:bg-white/10 rounded px-2 w-full text-left">
-              <HiUser className="w-4 h-4" />
+              <FaRegCircleUser className="w-4 h-4" />
               <span className="text-sm">Đăng nhập</span>
             </button>
             {onDocumentationClick && (

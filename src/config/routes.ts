@@ -1,6 +1,7 @@
 // Public routes configuration
 export const PUBLIC_ROUTES = {
   HOME: "/",
+  CONTACT: "/lienhe",
   ABOUT: "/gioithieu",
   UNITS: "/donvi",
   PRODUCTS_SERVICES: "/spvadichvu",

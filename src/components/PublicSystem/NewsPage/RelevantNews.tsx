@@ -1,5 +1,5 @@
-// src/components/RelatedNewsSection.tsx
 import React from "react";
+import { CardFullDetailHori } from "@/components/Card";
 
 import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
 import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
@@ -54,27 +54,16 @@ const RelevantNews: React.FC = () => {
         <div className="space-y-6">
           {relatedArticles.map((article, index) => (
             <React.Fragment key={article.id}>
-              <article className="flex items-start gap-4 group">
-                <div className="flex-shrink-0">
-                  <img
-                    src={article.image}
-                    alt={article.title}
-                    className="w-40 h-24 object-cover rounded-md"
-                  />
-                </div>
-                {/* Text Content */}
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
-                    <a href="#">{article.title}</a>
-                  </h3>
-                  <time className="text-sm text-gray-500 my-1 block">
-                    {article.timestamp}
-                  </time>
-                  <p className="text-gray-600 leading-relaxed text-sm">
-                    {article.description}
-                  </p>
-                </div>
-              </article>
+              <CardFullDetailHori
+                image={article.image}
+                imageAlt={article.title}
+                title={article.title}
+                timestamp={article.timestamp}
+                description={article.description}
+                onClick={() => {
+                  window.location.href = "/tintuc/chi-tiet";
+                }}
+              />
               {/* Add a separator line, but not after the last item */}
               {index < relatedArticles.length - 1 && (
                 <hr className="border-gray-200" />
