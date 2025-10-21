@@ -26,7 +26,9 @@ export interface LinkSection {
 
 // Icon mapping function
 export const getIcon = (iconName: string) => {
-  const iconMap: { [key: string]: React.ComponentType } = {
+  const iconMap: {
+    [key: string]: React.ComponentType<{ className?: string }>;
+  } = {
     FiGlobe,
     FiServer,
     FiDatabase,
