@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FiMapPin, FiNavigation, FiClock, FiPhone } from "react-icons/fi";
+import { FiNavigation } from "react-icons/fi";
 
 const HeadquartersMap: React.FC = () => {
   return (
