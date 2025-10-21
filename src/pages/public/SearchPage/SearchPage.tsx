@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { HiSearch, HiX } from "react-icons/hi";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import { CardFullDetail, CardFullDetailHori } from "@/components/Card";
+import { useSearchParams } from "react-router-dom";
 import { SeeMoreButton } from "@/components/Button";
+import { CardFullDetailHori } from "@/components/Card";
 
 // Mock search results data
 const mockSearchResults = [
@@ -74,7 +74,6 @@ const SearchPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState(mockSearchResults);
   const [isSearching, setIsSearching] = useState(false);
-  const navigate = useNavigate();
 
   // Get search query from URL params
   useEffect(() => {
@@ -215,14 +214,12 @@ const SearchPage: React.FC = () => {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
                     <CardFullDetailHori
-                      imageUrl={result.imageUrl}
+                      image={result.imageUrl}
                       imageAlt={result.title}
                       title={result.title}
                       description={result.description}
                       category={result.category}
-                      date={result.date}
-                      author={result.author}
-                      url={result.url}
+                      timestamp={result.date}
                       maxTitleLines={2}
                       maxDescriptionLines={3}
                     />

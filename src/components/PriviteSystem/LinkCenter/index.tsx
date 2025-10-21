@@ -42,7 +42,7 @@ const LinkCenter: React.FC = () => {
                       {(() => {
                         const IconComponent = getIcon(item.iconName);
                         return IconComponent ? (
-                          <IconComponent size="1.1em" />
+                          <IconComponent className="w-5 h-5" />
                         ) : null;
                       })()}
                     </div>
