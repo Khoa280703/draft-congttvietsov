@@ -20,7 +20,7 @@ const HomePage: React.FC = () => {
     <div>
       <SliderHome />
       <BreakingNewsSlider />
-      <div className="bg-red-50 py-8">
+      <div className="bg-vietsov-background py-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
             Thông tin sản xuất
@@ -60,10 +60,8 @@ const HomePage: React.FC = () => {
           <SpotlightNews />
         </div>
       </div> */}
-      <div className="bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-4 py-8">
-          <LinkCenter />
-        </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-4 py-8">
+        <LinkCenter />
       </div>
     </div>
   );

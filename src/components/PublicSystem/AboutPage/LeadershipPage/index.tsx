@@ -67,7 +67,9 @@ const LeadershipPage: React.FC<LeadershipPageProps> = ({
           >
             <SeeMoreButton
               text="Xem thêm lãnh đạo"
-              onClick={() => console.log("See more leaders clicked")}
+              onClick={() => {
+                // Navigate to leadership page or show more leaders
+              }}
             />
           </motion.div>
         </div>

@@ -7,7 +7,7 @@ import {
   PetroNews,
 } from "@/components/PublicSystem/HomePage";
 import { CapabilitiesSection } from "@/components/PublicSystem/AboutPage";
-import { BreakingNewsSlider } from "@/components/PriviteSystem/HomePage";
+// import { BreakingNewsSlider } from "@/components/PriviteSystem/HomePage";
 import AnimatedSection from "@/components/AnimatedSection";
 
 import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
@@ -17,9 +17,9 @@ const HomePage: React.FC = () => {
     <div className="bg-vietsov-background">
       <SliderHome basePath="public" />
 
-      <AnimatedSection animation="fadeIn" delay={100}>
+      {/* <AnimatedSection animation="fadeIn" delay={100}>
         <BreakingNewsSlider basePath="public" />
-      </AnimatedSection>
+      </AnimatedSection> */}
 
       <AnimatedSection animation="fadeInUp" delay={100}>
         <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">

@@ -130,6 +130,9 @@ const CommunityActivityPage: React.FC = () => {
                   timestamp={news.timestamp}
                   description={news.description}
                   className="h-48"
+                  onClick={() => {
+                    window.location.href = "/tintuc/chi-tiet";
+                  }}
                 />
               </motion.div>
             ))}

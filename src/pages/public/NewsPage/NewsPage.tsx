@@ -56,9 +56,11 @@ const NewsPage: React.FC = () => {
           element={
             <div className="bg-vietsov-background">
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
-                  <ProductionActivitySection />
-                </section>
+                <div className="bg-white">
+                  <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+                    <ProductionActivitySection />
+                  </section>
+                </div>
               </AnimatedSection>
 
               <AnimatedSection animation="fadeInUp" delay={200}>

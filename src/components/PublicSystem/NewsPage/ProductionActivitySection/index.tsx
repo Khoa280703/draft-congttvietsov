@@ -11,7 +11,7 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
   className = "",
 }) => {
   return (
-    <div className={`bg-white font-sans ${className}`}>
+    <div className={`${className}`}>
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-3xl md:text-4xl font-medium text-gray-800">

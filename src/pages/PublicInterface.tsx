@@ -17,6 +17,7 @@ import {
   PartnerProjectPage,
 } from "@/pages/public";
 import ContactPage from "@/pages/public/ContactPage/ContactPage";
+import SearchPage from "@/pages/public/SearchPage/SearchPage";
 import DocumentationPage from "@/pages/DocumentationPage";
 import BlankPage from "@/pages/BlankPage";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
@@ -110,6 +111,7 @@ const PublicInterface: React.FC = () => {
         />
         <Route path="/doitac-duan" element={<PartnerProjectPage />} />
         <Route path="/lienhe" element={<ContactPage />} />
+        <Route path="/tim-kiem" element={<SearchPage />} />
         <Route
           path="/phattrien"
           element={<BlankPage title="Phát triển Bền vững" />}

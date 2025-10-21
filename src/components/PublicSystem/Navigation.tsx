@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { HiMenu, HiX, HiChevronDown, HiArrowRight } from "react-icons/hi";
+import {
+  HiMenu,
+  HiX,
+  HiChevronDown,
+  HiArrowRight,
+  HiSearch,
+} from "react-icons/hi";
 import VietsopetroLogo from "@/assets/vietsovlogogiulua.png";
 import { NAVIGATION_CONFIG } from "@/config/navigation";
 
@@ -175,7 +181,37 @@ const NavigationBar: React.FC<NavigationProps> = ({
             })}
           </ul>
 
-          <div className="md:hidden">
+          {/* Desktop Icons - Search and Menu */}
+          <div className="hidden md:flex items-center space-x-2">
+            <button
+              onClick={() => onUrlNavigation && onUrlNavigation("/tim-kiem")}
+              className="p-2 text-gray-600 hover:text-vietsov-green hover:bg-gray-50 rounded-full transition-colors duration-200"
+              title="Tìm kiếm"
+            >
+              <HiSearch className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="p-2 text-gray-600 hover:text-vietsov-green hover:bg-gray-50 rounded-full transition-colors duration-200"
+              title="Menu"
+            >
+              {isMenuOpen ? (
+                <HiX className="w-5 h-5" />
+              ) : (
+                <HiMenu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
+
+          <div className="md:hidden flex items-center space-x-2">
+            <button
+              onClick={() => onUrlNavigation && onUrlNavigation("/tim-kiem")}
+              className="p-2 text-gray-600 hover:text-vietsov-green hover:bg-gray-100 rounded-full transition-colors duration-200"
+              title="Tìm kiếm"
+            >
+              <HiSearch className="w-5 h-5" />
+            </button>
+
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-md text-gray-600 hover:bg-gray-100 focus:outline-none"
