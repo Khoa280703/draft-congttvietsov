@@ -1,9 +1,6 @@
 import React from "react";
 import PageHeader from "@/components/PublicSystem/PageHeader";
-import {
-  LandingUnits,
-  FacilitiesEquipment,
-} from "@/components/PublicSystem/ResourcesPage";
+import { LandingUnits } from "@/components/PublicSystem/ResourcesPage";
 import hoinghicongtacpvn from "@/assets/hoinghicongtacpvn.jpg";
 
 const ResourcesPage: React.FC = () => {
@@ -18,7 +15,6 @@ const ResourcesPage: React.FC = () => {
         ]}
       />
       <LandingUnits />
-      <FacilitiesEquipment />
     </>
   );
 };

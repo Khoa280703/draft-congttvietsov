@@ -93,7 +93,10 @@ const SpotlightNews: React.FC = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 pb-8 md:pb-12">
       <article className="lg:col-span-3">
-        <a href="tintuc/chi-tiet">
+        <div
+          className="cursor-pointer"
+          onClick={() => (window.location.href = "tintuc/chi-tiet")}
+        >
           <img
             src={mainArticleData.image}
             alt={mainArticleData.title}
@@ -140,7 +143,7 @@ const SpotlightNews: React.FC = () => {
               </a>
             </div>
           </div>
-        </a>
+        </div>
       </article>
 
       {/* Sidebar bên phải */}

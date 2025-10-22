@@ -87,18 +87,6 @@ const JointVentureSection: React.FC<JointVentureSectionProps> = ({
                   </motion.p>
                 ))}
               </div>
-
-              <motion.a
-                href={data.readMoreLink}
-                className="inline-flex items-center font-semibold mt-6 hover:text-vietsov-green transition-colors duration-200"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
-              >
-                {data.readMoreText}
-                <FiArrowRight className="w-5 h-5 ml-2" />
-              </motion.a>
             </motion.div>
           </div>
         </div>

@@ -15,11 +15,12 @@ import {
   RecruitmentPage,
   AdmissionPage,
   PartnerProjectPage,
-} from "@/pages/public";
+  SustainableDevelopmentPage,
+} from "@/pages/public/index";
+import FieldsCapabilitiesPage from "@/pages/public/FieldsCapabilitiesPage";
 import ContactPage from "@/pages/public/ContactPage/ContactPage";
 import SearchPage from "@/pages/public/SearchPage/SearchPage";
 import DocumentationPage from "@/pages/DocumentationPage";
-import BlankPage from "@/pages/BlankPage";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 
 const PublicInterface: React.FC = () => {
@@ -48,8 +49,13 @@ const PublicInterface: React.FC = () => {
       }
     }
 
+    // Only set active nav item if we found a valid match
+    // This ensures pages not in the menu (like /lienhe) won't have any active nav item
     if (navItem) {
       setActiveNavItem(navItem);
+    } else {
+      // Clear active nav item for pages not in the menu
+      setActiveNavItem("");
     }
   }, [location.pathname, URL_TO_NAV_ITEM]);
 
@@ -60,21 +66,29 @@ const PublicInterface: React.FC = () => {
     }
   };
 
-  const handleAboutSectionClick = (sectionId: string) => {
+  const handleSectionClick = (pagePath: string, sectionId: string) => {
     const currentPath = location.pathname;
 
     // If we're already on the correct page, just scroll to the section
-    if (currentPath === "/gioithieu") {
+    if (currentPath === pagePath) {
       setTimeout(() => {
         scrollToSection(sectionId);
       }, 100);
     } else {
-      // Navigate to the About page first, then scroll to section
-      navigate("/gioithieu");
+      // Navigate to the page first, then scroll to section
+      navigate(pagePath);
       setTimeout(() => {
         scrollToSection(sectionId);
       }, 500); // Increased delay to allow page navigation and rendering
     }
+  };
+
+  const handleAboutSectionClick = (sectionId: string) => {
+    handleSectionClick("/gioithieu", sectionId);
+  };
+
+  const handleFieldsSectionClick = (sectionId: string) => {
+    handleSectionClick("/linhvuc-nangluc", sectionId);
   };
 
   const handleInternalToggle = () => {
@@ -92,6 +106,7 @@ const PublicInterface: React.FC = () => {
         activeItem={activeNavItem}
         onItemClick={handleNavItemClick}
         onAboutSectionClick={handleAboutSectionClick}
+        onFieldsSectionClick={handleFieldsSectionClick}
         onUrlNavigation={(url) => navigate(url)}
         interfaceType="public"
       />
@@ -105,17 +120,11 @@ const PublicInterface: React.FC = () => {
         <Route path="/nguonluc" element={<ResourcesPage />} />
         <Route path="/tuyendung" element={<RecruitmentPage />} />
         <Route path="/tuyensinh" element={<AdmissionPage />} />
-        <Route
-          path="/linhvuc-nangluc"
-          element={<BlankPage title="Lĩnh vực và Năng lực Hoạt động" />}
-        />
-        <Route path="/doitac-duan" element={<PartnerProjectPage />} />
+        <Route path="/linhvuc-nangluc" element={<FieldsCapabilitiesPage />} />
+        <Route path="/doitac-duan/*" element={<PartnerProjectPage />} />
+        <Route path="/phattrien" element={<SustainableDevelopmentPage />} />
         <Route path="/lienhe" element={<ContactPage />} />
         <Route path="/tim-kiem" element={<SearchPage />} />
-        <Route
-          path="/phattrien"
-          element={<BlankPage title="Phát triển Bền vững" />}
-        />
       </Routes>
 
       <PreFooter />

@@ -42,6 +42,8 @@ const InternalInterface: React.FC = () => {
 
     if (navItem) {
       setActiveNavItem(navItem);
+    } else {
+      setActiveNavItem("");
     }
   }, [location.pathname, URL_TO_NAV_ITEM]);
 

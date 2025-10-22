@@ -2,8 +2,6 @@ export interface JointVentureData {
   title: string;
   description: string;
   videoId: string;
-  readMoreText: string;
-  readMoreLink: string;
 }
 
 export interface JointVentureSectionProps {
@@ -19,6 +17,4 @@ Doanh nghiệp hàng đầu trong lĩnh vực tìm kiếm, thăm dò địa ch�
 
 Lĩnh vực hoạt động chính của Vietsovpetro là nghiên cứu khoa học, khảo sát, khoan thăm dò địa chất, thiết kế phát triển xây dựng mỏ, khai thác dầu và khí, thu gom xử lý dầu, khí và condensate tại Lô 09-1 và các Lô dầu khí khác ở thềm lục địa Việt Nam; cung cấp các dịch vụ dầu khí chất lượng cho các đối tác ở Việt Nam và trong khu vực.`,
   videoId: "pOZZdPBLX3g",
-  readMoreText: "Xem thêm",
-  readMoreLink: "#",
 };

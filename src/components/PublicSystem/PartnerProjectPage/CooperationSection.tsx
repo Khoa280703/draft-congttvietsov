@@ -20,8 +20,8 @@ const CooperationSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-white font-sans py-16 md:py-20">
-      <div className="container mx-auto px-4">
+    <section className="">
+      <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
           <div className="text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">

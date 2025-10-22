@@ -13,6 +13,7 @@ interface NavigationProps {
   activeItem: string;
   onItemClick: (item: string) => void;
   onAboutSectionClick?: (sectionId: string) => void;
+  onFieldsSectionClick?: (sectionId: string) => void;
   onUrlNavigation?: (url: string) => void;
   interfaceType?: "public" | "internal";
 }
@@ -21,6 +22,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
   activeItem,
   onItemClick,
   onAboutSectionClick,
+  onFieldsSectionClick,
   onUrlNavigation,
   interfaceType = "public",
 }) => {
@@ -52,8 +54,18 @@ const NavigationBar: React.FC<NavigationProps> = ({
     if (child.href.includes("#")) {
       // Extract section ID from href (e.g., "/gioithieu#history" -> "history")
       const sectionId = child.href.split("#")[1];
-      if (sectionId && onAboutSectionClick) {
-        onAboutSectionClick(sectionId);
+      if (sectionId) {
+        // Check if it's an About page section
+        if (child.href.startsWith("/gioithieu") && onAboutSectionClick) {
+          onAboutSectionClick(sectionId);
+        }
+        // Check if it's a Fields page section
+        else if (
+          child.href.startsWith("/linhvuc-nangluc") &&
+          onFieldsSectionClick
+        ) {
+          onFieldsSectionClick(sectionId);
+        }
       }
     } else {
       // It's a regular URL, navigate to it

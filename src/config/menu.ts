@@ -39,7 +39,10 @@ export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     label: "Tin Tức & Sự Kiện",
     path: "/tintuc",
     children: [
+      { title: "Hoạt động SX - KD", href: "/tintuc/hoat-dong-sx-kd" },
       { title: "Hoạt động đoàn thể", href: "/tintuc/hoat-dong-doan-the" },
+      { title: "Tin dầu khí", href: "/tintuc/tin-dau-khi" },
+      { title: "Thông cáo báo chí", href: "/tintuc/thong-cao-bao-chi" },
       {
         title: "Thư viện hình ảnh và video",
         href: "/tintuc/thu-vien-anh-video",
@@ -50,13 +53,31 @@ export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     id: "development",
     label: "Phát Triển Bền Vững",
     path: "/phattrien",
-    children: [],
+    children: [
+      { title: "ATSKMT", href: "/phattrien/atskmt" },
+      {
+        title: "Truyền thông VHDN - DNXH",
+        href: "/phattrien/truyen-thong-vhdn-dnxh",
+      },
+      { title: "Chuyển đổi số", href: "/phattrien/chuyen-doi-so" },
+      { title: "ESG", href: "/phattrien/esg" },
+      {
+        title: "Ý kiến người lao động",
+        href: "/phattrien/y-kien-nguoi-lao-dong",
+      },
+    ],
   },
   {
     id: "field",
     label: "Lĩnh Vực & Năng Lực Hoạt Động",
     path: "/linhvuc-nangluc",
-    children: [],
+    children: [
+      {
+        title: "Thăm dò, tìm kiếm và KT dầu khí",
+        href: "/linhvuc-nangluc#tham-do-tim-kiem-va-kt-dau-khi",
+      },
+      { title: "Dịch vụ", href: "/linhvuc-nangluc#dich-vu" },
+    ],
   },
   {
     id: "projects",
@@ -64,7 +85,20 @@ export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     path: "/doitac-duan",
     children: [],
   },
-  { id: "resources", label: "Các Nguồn Lực", path: "/nguonluc", children: [] },
+  {
+    id: "resources",
+    label: "Các Nguồn Chung",
+    path: "/nguonluc",
+    children: [
+      { title: "Đào tạo", href: "/nguonluc/dao-tao" },
+      { title: "KHCN", href: "/nguonluc/khcn" },
+      { title: "Sáng kiến - sáng chế", href: "/nguonluc/sang-kien-sang-che" },
+      {
+        title: "Tuyển dụng và tuyển sinh",
+        href: "/nguonluc/tuyen-dung-va-tuyen-sinh",
+      },
+    ],
+  },
 ];
 
 export const SIDEBAR_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
@@ -116,7 +150,7 @@ export const SIDEBAR_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     id: "projects",
     label: "Dự án – Đối tác",
     path: "/duan-doitac",
-    children: [],
+    children: [{ title: "Dự án", href: "/doitac-duan/du-an" }],
   },
   {
     id: "resources",

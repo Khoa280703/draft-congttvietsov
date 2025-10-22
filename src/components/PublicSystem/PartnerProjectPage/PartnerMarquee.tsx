@@ -21,8 +21,8 @@ const PartnerMarquee: React.FC = () => {
   const extendedLogos = [...partnerLogos, ...partnerLogos, ...partnerLogos];
 
   return (
-    <section className="bg-white py-12 font-sans">
-      <div className="container mx-auto">
+    <section className="">
+      <div className="">
         <div className="w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
           <motion.div
             className="flex"

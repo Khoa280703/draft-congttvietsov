@@ -171,8 +171,8 @@ const FeaturedProjects: React.FC = () => {
   const subtitleRef = useElementAnimation({ delay: 100 });
 
   return (
-    <section className="bg-gradient-to-br from-gray-50 to-white py-20 font-sans">
-      <div className="container mx-auto px-4">
+    <section className="bg-gradient-to-br from-gray-50">
+      <div className="">
         {/* Header */}
         <div className="text-center mb-16">
           <motion.div
@@ -213,10 +213,13 @@ const FeaturedProjects: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
         >
-          <button className="inline-flex items-center bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+          <a
+            href="/doitac-duan/du-an"
+            className="inline-flex items-center bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+          >
             Xem tất cả dự án
             <FiArrowRight className="w-5 h-5 ml-2" />
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

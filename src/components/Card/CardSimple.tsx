@@ -7,6 +7,7 @@ export interface CardSimpleProps {
   position: string;
   name: string;
   className?: string;
+  onClick?: () => void;
 }
 
 const CardSimple: React.FC<CardSimpleProps> = ({
@@ -15,6 +16,7 @@ const CardSimple: React.FC<CardSimpleProps> = ({
   position,
   name,
   className = "",
+  onClick,
 }) => {
   return (
     <motion.div
@@ -24,6 +26,7 @@ const CardSimple: React.FC<CardSimpleProps> = ({
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      onClick={onClick}
     >
       <div className="relative w-full h-72 overflow-hidden">
         <img

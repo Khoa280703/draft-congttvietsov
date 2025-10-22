@@ -4,7 +4,7 @@ import {
   RelevantNews,
   OtherArticles,
   ArticleDetail,
-  NewsSidebar,
+  MostView,
 } from "@/components/PublicSystem/NewsPage";
 
 import Keywords from "@/components/Keyword";
@@ -14,7 +14,7 @@ const DetailPage: React.FC = () => {
     <>
       <PageWithSidebar
         activePath="/tintuc/hoat-dong-doan-the"
-        sidebarContent={<NewsSidebar activePath="/tintuc/hoat-dong-doan-the" />}
+        sidebarContent={<MostView />}
       >
         <ArticleDetail />
         <Keywords

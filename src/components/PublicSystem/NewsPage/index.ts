@@ -7,5 +7,4 @@ export { default as RelevantNews } from "./RelevantNews";
 export { default as OtherArticles } from "./OtherArticles";
 export { default as ArticleDetail } from "./ArticleDetail";
 export { default as MediaLibrary } from "./MediaLibrary";
-export { default as XemNhieuSection } from "./MostView";
-export { default as NewsSidebar } from "./NewsSidebar";
+export { default as MostView } from "./MostView";
