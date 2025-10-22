@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { PageWithSidebar } from "@/components/PublicSystem";
 import { CardFullDetailHori } from "@/components/Card";
 import { motion } from "framer-motion";

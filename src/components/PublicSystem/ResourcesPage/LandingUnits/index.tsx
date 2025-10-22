@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
 import { FaQuoteLeft } from "react-icons/fa";
-import { enterpriseData, type EnterpriseData } from "./data";
+import { enterpriseData } from "./data";
 
 interface EnterpriseCardProps {
   title: string;

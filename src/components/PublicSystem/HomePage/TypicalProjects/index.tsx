@@ -39,9 +39,8 @@ const TypicalProjects: React.FC<TypicalProjectsProps> = ({
                 imageAlt={project.imageAlt}
                 title={project.title}
                 description={project.description}
-                readMoreLink={project.link}
+                readMoreLink="/doitac-duan/du-an/chi-tiet"
                 className="h-full"
-                onClick={() => navigate("/doitac-duan/du-an/chi-tiet")}
               />
             </div>
           </motion.div>
