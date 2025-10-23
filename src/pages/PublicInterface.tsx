@@ -12,7 +12,6 @@ import {
   ProductsServicesPage,
   NewsPage,
   ResourcesPage,
-  RecruitmentPage,
   PartnerProjectPage,
   SustainableDevelopmentPage,
 } from "@/pages/public/index";

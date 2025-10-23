@@ -22,6 +22,7 @@ const LandingUnits: React.FC = () => {
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             <EnterpriseCard
+              index={item.index}
               title={item.title}
               description={item.description}
               image={item.image}
