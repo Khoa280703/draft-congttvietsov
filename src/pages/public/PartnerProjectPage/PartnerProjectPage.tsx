@@ -12,12 +12,12 @@ import ProjectDetailPage from "./ProjectDetailPage";
 
 const PartnerProjectPage: React.FC = () => {
   const getBreadcrumbs = () => {
-    return [{ label: "Trang chủ", href: "/" }, { label: "Đối tác và dự án" }];
+    return [{ label: "Trang chủ", href: "/" }, { label: "Đối Tác & Dự Án" }];
   };
   return (
     <div>
       <PageHeader
-        title="Đối tác và dự án"
+        title="Đối Tác & Dự Án"
         backgroundImage={bannerDanKhoan}
         breadcrumbs={getBreadcrumbs()}
       />

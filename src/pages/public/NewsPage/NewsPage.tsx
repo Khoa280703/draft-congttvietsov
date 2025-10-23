@@ -21,24 +21,24 @@ const NewsPage: React.FC = () => {
       case "/tintuc":
         return [
           { label: "Trang chủ", href: "/" },
-          { label: "Tin tức - Sự kiện" },
+          { label: "Tin Tức & Sự Kiện" },
         ];
       case "/tintuc/hoat-dong-doan-the":
         return [
           { label: "Trang chủ", href: "/" },
-          { label: "Tin tức - Sự kiện", href: "/tintuc" },
+          { label: "Tin Tức & Sự Kiện", href: "/tintuc" },
           { label: "Hoạt động đoàn thể" },
         ];
       case "/tintuc/thu-vien-anh-video":
         return [
           { label: "Trang chủ", href: "/" },
-          { label: "Tin tức - Sự kiện", href: "/tintuc" },
+          { label: "Tin Tức & Sự Kiện", href: "/tintuc" },
           { label: "Thư viện hình ảnh và video" },
         ];
       default:
         return [
           { label: "Trang chủ", href: "/" },
-          { label: "Tin tức - Sự kiện" },
+          { label: "Tin Tức & Sự Kiện" },
         ];
     }
   };
@@ -46,7 +46,7 @@ const NewsPage: React.FC = () => {
   return (
     <>
       <PageHeader
-        title="Tin tức - Sự kiện"
+        title="Tin Tức & Sự Kiện"
         backgroundImage={bannerDanKhoan}
         breadcrumbs={getBreadcrumbs()}
       />

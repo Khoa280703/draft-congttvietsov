@@ -88,14 +88,17 @@ export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
   {
     id: "resources",
     label: "Các Nguồn Chung",
-    path: "/nguonluc",
+    path: "/cacnguonchung",
     children: [
-      { title: "Đào tạo", href: "/nguonluc/dao-tao" },
-      { title: "KHCN", href: "/nguonluc/khcn" },
-      { title: "Sáng kiến - sáng chế", href: "/nguonluc/sang-kien-sang-che" },
+      { title: "Đào tạo", href: "/cacnguonchung/dao-tao" },
+      { title: "KHCN", href: "/cacnguonchung/khcn" },
+      {
+        title: "Sáng kiến - sáng chế",
+        href: "/cacnguonchung/sang-kien-sang-che",
+      },
       {
         title: "Tuyển dụng và tuyển sinh",
-        href: "/nguonluc/tuyen-dung-va-tuyen-sinh",
+        href: "/cacnguonchung/tuyen-dung-va-tuyen-sinh",
       },
     ],
   },
@@ -110,7 +113,7 @@ export const SIDEBAR_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
   },
   {
     id: "about",
-    label: "Giới thiệu",
+    label: "Giới thiệu chung",
     path: "/gioithieu",
     children: [
       {
@@ -133,13 +136,13 @@ export const SIDEBAR_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
   },
   {
     id: "news",
-    label: "Tin tức - Sự kiện",
+    label: "Tin Tức & Sự Kiện",
     path: "/tintuc",
     children: [
-      {
-        title: "Hoạt động đoàn thể",
-        href: "/tintuc/hoat-dong-doan-the",
-      },
+      { title: "Hoạt động SX - KD", href: "/tintuc/hoat-dong-sx-kd" },
+      { title: "Hoạt động đoàn thể", href: "/tintuc/hoat-dong-doan-the" },
+      { title: "Tin dầu khí", href: "/tintuc/tin-dau-khi" },
+      { title: "Thông cáo báo chí", href: "/tintuc/thong-cao-bao-chi" },
       {
         title: "Thư viện hình ảnh và video",
         href: "/tintuc/thu-vien-anh-video",
@@ -147,16 +150,57 @@ export const SIDEBAR_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     ],
   },
   {
+    id: "development",
+    label: "Phát Triển Bền Vững",
+    path: "/phattrien",
+    children: [
+      { title: "ATSKMT", href: "/phattrien/atskmt" },
+      {
+        title: "Truyền thông VHDN - DNXH",
+        href: "/phattrien/truyen-thong-vhdn-dnxh",
+      },
+      { title: "Chuyển đổi số", href: "/phattrien/chuyen-doi-so" },
+      { title: "ESG", href: "/phattrien/esg" },
+      {
+        title: "Ý kiến người lao động",
+        href: "/phattrien/y-kien-nguoi-lao-dong",
+      },
+    ],
+  },
+  {
+    id: "field",
+    label: "Lĩnh Vực & Năng Lực Hoạt Động",
+    path: "/linhvuc-nangluc",
+    children: [
+      {
+        title: "Thăm dò, tìm kiếm và KT dầu khí",
+        href: "/linhvuc-nangluc",
+      },
+      { title: "Dịch vụ", href: "/linhvuc-nangluc" },
+    ],
+  },
+  {
     id: "projects",
-    label: "Dự án – Đối tác",
-    path: "/duan-doitac",
-    children: [{ title: "Dự án", href: "/doitac-duan/du-an" }],
+    label: "Đối Tác & Dự Án",
+    path: "/doitac-duan",
+    children: [],
   },
   {
     id: "resources",
-    label: "Nguồn lực",
-    path: "/nguonluc",
-    children: [],
+    label: "Các Nguồn Chung",
+    path: "/cacnguonchung",
+    children: [
+      { title: "Đào tạo", href: "/cacnguonchung/dao-tao" },
+      { title: "KHCN", href: "/cacnguonchung/khcn" },
+      {
+        title: "Sáng kiến - sáng chế",
+        href: "/cacnguonchung/sang-kien-sang-che",
+      },
+      {
+        title: "Tuyển dụng và tuyển sinh",
+        href: "/cacnguonchung/tuyen-dung-va-tuyen-sinh",
+      },
+    ],
   },
 ];
 

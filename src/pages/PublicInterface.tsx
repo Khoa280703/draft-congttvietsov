@@ -13,7 +13,6 @@ import {
   NewsPage,
   ResourcesPage,
   RecruitmentPage,
-  AdmissionPage,
   PartnerProjectPage,
   SustainableDevelopmentPage,
 } from "@/pages/public/index";
@@ -117,12 +116,10 @@ const PublicInterface: React.FC = () => {
         <Route path="/donvi/*" element={<UnitsPage />} />
         <Route path="/spvadichvu" element={<ProductsServicesPage />} />
         <Route path="/tintuc/*" element={<NewsPage />} />
-        <Route path="/nguonluc" element={<ResourcesPage />} />
-        <Route path="/tuyendung" element={<RecruitmentPage />} />
-        <Route path="/tuyensinh" element={<AdmissionPage />} />
+        <Route path="/cacnguonchung/*" element={<ResourcesPage />} />
         <Route path="/linhvuc-nangluc" element={<FieldsCapabilitiesPage />} />
         <Route path="/doitac-duan/*" element={<PartnerProjectPage />} />
-        <Route path="/phattrien" element={<SustainableDevelopmentPage />} />
+        <Route path="/phattrien/*" element={<SustainableDevelopmentPage />} />
         <Route path="/lienhe" element={<ContactPage />} />
         <Route path="/tim-kiem" element={<SearchPage />} />
       </Routes>

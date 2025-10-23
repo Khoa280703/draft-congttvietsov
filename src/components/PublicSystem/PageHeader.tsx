@@ -26,18 +26,20 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 
   const getPageName = (pathname: string): string => {
     const pathMap: { [key: string]: string } = {
-      "/": "Trang chủ",
-      "/gioithieu": "Giới thiệu",
       "/gioithieu/ban-lanh-dao": "Ban lãnh đạo",
-      "/tintuc": "Tin tức",
       "/tintuc/hoat-dong-doan-the": "Hoạt động đoàn thể",
       "/tintuc/tin-dau-khi": "Tin dầu khí",
       "/tintuc/thong-cao-bao-chi": "Thông cáo báo chí",
       "/tintuc/thu-vien-anh-video": "Thư viện ảnh/video",
-      "/doitac-duan": "Đối tác và dự án",
       "/doitac-duan/du-an": "Dự án",
-      "/lienhe": "Liên hệ",
-      "/tuyendung": "Tuyển dụng",
+      "/phattrien/y-kien-nguoi-lao-dong": "Ý kiến người lao động",
+      "/phattrien/atskmt": "ATSKMT",
+      "/phattrien/truyen-thong-vhdn-hdxh": "Truyền thông VHDN/HDXH",
+      "/phattrien/chuyen-doi-so": "Chuyển đổi số",
+      "/cacnguonchung/dao-tao": "Đào tạo",
+      "/cacnguonchung/khcn": "KHCN",
+      "/cacnguonchung/sang-kien-sang-che": "Sáng kiến - sáng chế",
+      "/cacnguonchung/tuyen-dung-va-tuyen-sinh": "Tuyển dụng và tuyển sinh",
     };
 
     return pathMap[pathname] || title || "";

@@ -6,7 +6,7 @@ export const PUBLIC_ROUTES = {
   UNITS: "/donvi",
   PRODUCTS_SERVICES: "/spvadichvu",
   NEWS: "/tintuc",
-  RESOURCES: "/nguonluc",
+  RESOURCES: "/cacnguonchung",
   RECRUITMENT: "/tuyendung",
   ADMISSION: "/tuyensinh",
 } as const;
