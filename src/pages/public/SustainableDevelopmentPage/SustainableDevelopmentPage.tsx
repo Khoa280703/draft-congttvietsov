@@ -26,7 +26,7 @@ const SustainableDevelopmentPage: React.FC = () => {
         return [
           { label: "Trang chủ", href: "/" },
           { label: "Phát Triển Bền Vững" },
-          { label: "ATSKMT" },
+          { label: "An toàn sức khoẻ môi trường" },
         ];
       case "/phattrien/truyen-thong-vhdn-hdxh":
         return [
@@ -63,7 +63,7 @@ const SustainableDevelopmentPage: React.FC = () => {
         />
         <Route path="/atskmt" element={<ATSKMTPage />} />
         <Route
-          path="/truyen-thong-vhdn-dnxh"
+          path="/truyen-thong-vhdn-hdxh"
           element={<TruyenThongVHDNHDXHPage />}
         />
         <Route path="/chuyen-doi-so" element={<ChuyenDoiSoPage />} />

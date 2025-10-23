@@ -82,7 +82,7 @@ const TrainingSection: React.FC = () => {
                   category={program.category}
                   timestamp={program.publishDate}
                   maxDescriptionLines={2}
-                  detail={true}
+                  detail={false}
                   onClick={() => {
                     window.location.href = "/tintuc/chi-tiet";
                   }}

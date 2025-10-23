@@ -80,7 +80,7 @@ const ATSKMTSection: React.FC = () => {
                   category={article.category}
                   timestamp={article.publishDate}
                   maxDescriptionLines={2}
-                  detail={true}
+                  detail={false}
                   onClick={() => {
                     window.location.href = "/tintuc/chi-tiet";
                   }}

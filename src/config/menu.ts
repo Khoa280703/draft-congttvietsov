@@ -54,10 +54,10 @@ export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     label: "Phát Triển Bền Vững",
     path: "/phattrien",
     children: [
-      { title: "ATSKMT", href: "/phattrien/atskmt" },
+      { title: "An toàn sức khoẻ môi trường", href: "/phattrien/atskmt" },
       {
         title: "Truyền thông VHDN - DNXH",
-        href: "/phattrien/truyen-thong-vhdn-dnxh",
+        href: "/phattrien/truyen-thong-vhdn-hdxh",
       },
       { title: "Chuyển đổi số", href: "/phattrien/chuyen-doi-so" },
       { title: "ESG", href: "/phattrien/esg" },
@@ -154,10 +154,10 @@ export const SIDEBAR_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     label: "Phát Triển Bền Vững",
     path: "/phattrien",
     children: [
-      { title: "ATSKMT", href: "/phattrien/atskmt" },
+      { title: "An toàn sức khoẻ môi trường", href: "/phattrien/atskmt" },
       {
         title: "Truyền thông VHDN - DNXH",
-        href: "/phattrien/truyen-thong-vhdn-dnxh",
+        href: "/phattrien/truyen-thong-vhdn-hdxh",
       },
       { title: "Chuyển đổi số", href: "/phattrien/chuyen-doi-so" },
       { title: "ESG", href: "/phattrien/esg" },

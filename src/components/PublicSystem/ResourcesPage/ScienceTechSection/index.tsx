@@ -45,7 +45,7 @@ const ScienceTechSection: React.FC = () => {
               description={featuredArticle.content}
               category={featuredArticle.category}
               timestamp={featuredArticle.publishDate}
-              detail={true}
+              detail={false}
               onClick={() => {
                 window.location.href = "/tintuc/chi-tiet";
               }}
@@ -83,7 +83,7 @@ const ScienceTechSection: React.FC = () => {
                   description={article.content}
                   category={article.category}
                   timestamp={article.publishDate}
-                  detail={true}
+                  detail={false}
                   maxDescriptionLines={2}
                   onClick={() => {
                     window.location.href = "/tintuc/chi-tiet";

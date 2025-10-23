@@ -33,7 +33,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       "/tintuc/thu-vien-anh-video": "Thư viện ảnh/video",
       "/doitac-duan/du-an": "Dự án",
       "/phattrien/y-kien-nguoi-lao-dong": "Ý kiến người lao động",
-      "/phattrien/atskmt": "ATSKMT",
+      "/phattrien/atskmt": "An toàn sức khoẻ môi trường",
       "/phattrien/truyen-thong-vhdn-hdxh": "Truyền thông VHDN/HDXH",
       "/phattrien/chuyen-doi-so": "Chuyển đổi số",
       "/cacnguonchung/dao-tao": "Đào tạo",

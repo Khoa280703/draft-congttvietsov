@@ -115,7 +115,7 @@ const InnovationSection: React.FC = () => {
                   category={item.category}
                   timestamp={item.publishDate}
                   maxDescriptionLines={2}
-                  detail={true}
+                  detail={false}
                   onClick={() => {
                     window.location.href = "/tintuc/chi-tiet";
                   }}

@@ -42,11 +42,11 @@ export const sustainableDevelopmentData: SustainableDevelopmentData[] = [
   },
   {
     index: "04",
-    title: "Ý kiến nhân viên",
+    title: "Ý kiến người lao động",
     description:
       "Vietsovpetro không ngừng đổi mới và ứng dụng các công nghệ tiên tiến để nâng cao hiệu quả sản xuất, giảm thiểu tác động môi trường và đảm bảo an toàn lao động. Chúng tôi hợp tác với các viện nghiên cứu và trường đại học để phát triển các giải pháp công nghệ bền vững.",
     image: daiHoiDaiBieu,
     imagePosition: "left",
-    path: "/phattrien/y-kien-nhan-vien",
+    path: "/phattrien/y-kien-nguoi-lao-dong",
   },
 ];

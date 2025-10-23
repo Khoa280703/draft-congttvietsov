@@ -83,7 +83,7 @@ const TruyenThongVHDNHDXHSection: React.FC = () => {
                   description={article.content}
                   category={article.category}
                   timestamp={article.publishDate}
-                  detail={true}
+                  detail={false}
                   maxDescriptionLines={2}
                   onClick={() => {
                     window.location.href = "/tintuc/chi-tiet";
