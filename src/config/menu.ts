@@ -91,7 +91,7 @@ export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     path: "/cacnguonchung",
     children: [
       { title: "Đào tạo", href: "/cacnguonchung/dao-tao" },
-      { title: "KHCN", href: "/cacnguonchung/khcn" },
+      { title: "Khoa học - công nghệ", href: "/cacnguonchung/khcn" },
       {
         title: "Sáng kiến - sáng chế",
         href: "/cacnguonchung/sang-kien-sang-che",
@@ -191,7 +191,7 @@ export const SIDEBAR_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     path: "/cacnguonchung",
     children: [
       { title: "Đào tạo", href: "/cacnguonchung/dao-tao" },
-      { title: "KHCN", href: "/cacnguonchung/khcn" },
+      { title: "Khoa học - công nghệ", href: "/cacnguonchung/khcn" },
       {
         title: "Sáng kiến - sáng chế",
         href: "/cacnguonchung/sang-kien-sang-che",

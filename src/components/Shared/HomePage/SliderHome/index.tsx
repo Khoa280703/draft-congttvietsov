@@ -247,33 +247,35 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
               {/* Left Navigation Arrow */}
               <motion.button
                 onClick={() => handleRigNavigationClick("left")}
-                className="absolute top-1/2 left-8 md:left-16 transform -translate-y-1/2 w-12 h-12 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 z-10 border border-white"
+                className="absolute top-1/2 left-8 md:left-16 transform -translate-y-1/2 w-12 h-12 backdrop-blur-sm rounded-full flex items-center justify-center z-10 border border-white transition-all duration-300 hover:bg-white/30 hover:scale-110 hover:shadow-lg"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 1.2, ease: "easeOut" }}
                 whileHover={{
                   scale: 1.1,
-                  backgroundColor: "rgba(255, 255, 255, 0.3)",
+                  backgroundColor: "rgba(255, 255, 255, 0.4)",
+                  boxShadow: "0 8px 25px rgba(0, 0, 0, 0.3)",
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <HiArrowLeft className="w-6 h-6 text-white" />
+                <HiArrowLeft className="w-6 h-6 text-white transition-transform duration-300 group-hover:scale-110" />
               </motion.button>
 
               {/* Right Navigation Arrow */}
               <motion.button
                 onClick={() => handleRigNavigationClick("right")}
-                className="absolute top-1/2 right-8 md:right-16 transform -translate-y-1/2 w-12 h-12 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 z-10 border border-white"
+                className="absolute top-1/2 right-8 md:right-16 transform -translate-y-1/2 w-12 h-12 backdrop-blur-sm rounded-full flex items-center justify-center z-10 border border-white transition-all duration-300 hover:bg-white/30 hover:scale-110 hover:shadow-lg"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 1.2, ease: "easeOut" }}
                 whileHover={{
                   scale: 1.1,
-                  backgroundColor: "rgba(255, 255, 255, 0.3)",
+                  backgroundColor: "rgba(255, 255, 255, 0.4)",
+                  boxShadow: "0 8px 25px rgba(0, 0, 0, 0.3)",
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <HiArrowRight className="w-6 h-6 text-white" />
+                <HiArrowRight className="w-6 h-6 text-white transition-transform duration-300 group-hover:scale-110" />
               </motion.button>
             </div>
           </SwiperSlide>

@@ -76,11 +76,13 @@ const HomePage: React.FC = () => {
       </AnimatedSection>
 
       <AnimatedSection animation="fadeInUp" delay={100}>
-        <GradientImageOverlay imageUrl={bannerDanKhoan}>
-          <div className="w-full max-w-6xl mx-auto py-12">
-            <PartnerSlider />
-          </div>
-        </GradientImageOverlay>
+        <GradientImageOverlay imageUrl={bannerDanKhoan}></GradientImageOverlay>
+      </AnimatedSection>
+
+      <AnimatedSection animation="fadeInUp" delay={100}>
+        <div className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+          <PartnerSlider />
+        </div>
       </AnimatedSection>
     </div>
   );

@@ -37,7 +37,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
       "/phattrien/truyen-thong-vhdn-hdxh": "Truyền thông VHDN/HDXH",
       "/phattrien/chuyen-doi-so": "Chuyển đổi số",
       "/cacnguonchung/dao-tao": "Đào tạo",
-      "/cacnguonchung/khcn": "KHCN",
+      "/cacnguonchung/khcn": "Khoa học - công nghệ",
       "/cacnguonchung/sang-kien-sang-che": "Sáng kiến - sáng chế",
       "/cacnguonchung/tuyen-dung-va-tuyen-sinh": "Tuyển dụng và tuyển sinh",
     };

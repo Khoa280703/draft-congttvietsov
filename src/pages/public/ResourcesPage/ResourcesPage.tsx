@@ -28,7 +28,7 @@ const ResourcesPage: React.FC = () => {
         return [
           { label: "Trang chủ", href: "/" },
           { label: "Các Nguồn Chung", href: "/cacnguonchung" },
-          { label: "KHCN" },
+          { label: "Khoa học - công nghệ" },
         ];
       case "/cacnguonchung/sang-kien-sang-che":
         return [

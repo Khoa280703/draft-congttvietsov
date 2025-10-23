@@ -128,10 +128,11 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       className={`
                         px-4 py-3 text-sm tracking-wider text-center font-normal
                         border-b-3 transition-all duration-300 flex items-center justify-center gap-1
+                        hover:scale-105 
                         ${
                           activeItem === item.label
-                            ? "text-vietsov-green border-vietsov-green"
-                            : "border-transparent hover:text-vietsov-green"
+                            ? "text-vietsov-green border-vietsov-green "
+                            : "border-transparent hover:text-vietsov-green0"
                         }
                       `}
                     >
@@ -154,7 +155,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                                   e.preventDefault();
                                   handleChildItemClick(child);
                                 }}
-                                className="group block w-full text-left py-3 text-sm text-gray-600 hover:bg-gray-100 hover:px-4 hover:rounded-lg transition-all duration-200 flex items-center justify-between"
+                                className="group block w-full text-left py-3 text-sm text-gray-600 hover:bg-gray-100 hover:px-4 transition-all duration-200 flex items-center justify-between"
                               >
                                 <span>{child.title}</span>
                                 <HiArrowRight className="w-4 h-4 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
@@ -179,9 +180,10 @@ const NavigationBar: React.FC<NavigationProps> = ({
                     className={`
                       px-4 py-3 text-sm tracking-wider text-center inline-block
                       border-b-3 transition-all duration-300 font-normal
+                      hover:hover:scale-105
                       ${
                         activeItem === item.label
-                          ? "text-vietsov-green border-vietsov-green"
+                          ? "text-vietsov-green border-vietsov-green "
                           : "border-transparent hover:text-vietsov-green"
                       }
                     `}
@@ -197,14 +199,14 @@ const NavigationBar: React.FC<NavigationProps> = ({
           <div className="hidden md:flex items-center space-x-2">
             <button
               onClick={() => onUrlNavigation && onUrlNavigation("/tim-kiem")}
-              className="p-2 text-gray-600 hover:text-vietsov-green hover:bg-gray-50 rounded-full transition-colors duration-200"
+              className="p-2 text-gray-600 hover:text-vietsov-green hover:scale-110 rounded-full transition-all duration-200"
               title="Tìm kiếm"
             >
               <HiSearch className="w-5 h-5" />
             </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 text-gray-600 hover:text-vietsov-green hover:bg-gray-50 rounded-full transition-colors duration-200"
+              className="p-2 text-gray-600 hover:text-vietsov-green hover:scale-110 rounded-full transition-all duration-200"
               title="Menu"
             >
               {isMenuOpen ? (
@@ -218,7 +220,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
           <div className="md:hidden flex items-center space-x-2">
             <button
               onClick={() => onUrlNavigation && onUrlNavigation("/tim-kiem")}
-              className="p-2 text-gray-600 hover:text-vietsov-green hover:bg-gray-100 rounded-full transition-colors duration-200"
+              className="p-2 text-gray-600 hover:text-vietsov-green hover:bg-gray-100 hover:scale-110 rounded-full transition-all duration-200"
               title="Tìm kiếm"
             >
               <HiSearch className="w-5 h-5" />
@@ -226,7 +228,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-md text-gray-600 hover:bg-gray-100 focus:outline-none"
+              className="p-2 rounded-md text-gray-600 hover:bg-gray-100 hover:scale-110 focus:outline-none transition-all duration-200"
             >
               {isMenuOpen ? (
                 <HiX className="w-6 h-6" />
@@ -255,10 +257,11 @@ const NavigationBar: React.FC<NavigationProps> = ({
                     }}
                     className={`
                       block w-full text-center py-3 text-sm font-normal
+                      transition-all duration-200 hover:scale-105
                       ${
                         activeItem === item.label
-                          ? "text-vietsov-green font-bold bg-green-50"
-                          : "text-gray-600 hover:bg-gray-100"
+                          ? "text-vietsov-green font-bold "
+                          : "text-gray-600 hover:bg-gray-100 hover:text-vietsov-green"
                       }
                     `}
                   >
@@ -275,7 +278,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                             handleChildItemClick(child);
                             setIsMenuOpen(false);
                           }}
-                          className="group block w-full text-center py-2 text-xs text-gray-500 hover:rounded-xl transition-all duration-200 flex items-center justify-between px-2 hover:m-4"
+                          className="group block w-full text-center py-2 text-xs text-gray-500 hover:text-vietsov-green hover:scale-105 transition-all duration-200 flex items-center justify-between px-2 hover:m-4"
                         >
                           <span>{child.title}</span>
                           <HiArrowRight className="w-3 h-3 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />

@@ -15,42 +15,43 @@ export interface PartnerLogo {
 }
 
 import petrosetcoLogo from "@/assets/logo/petrosetco_logo.png";
+import lm18Logo from "@/assets/logo/lm18_logo.jpeg";
+import ptscLogo from "@/assets/logo/ptsc_logo.png";
+import pvdLogo from "@/assets/logo/pvd_logo.png";
+import schlumbergerLogo from "@/assets/logo/schlumberger_logo.png";
+import petrovietnamLogo from "@/assets/logo/petrovietnam_logo.png";
 
 const partnerLogosData: PartnerLogo[] = [
-  { id: "petrosetco-1", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco-2", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco-3", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco-4", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco-5", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco-6", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco-7", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
-  { id: "petrosetco-8", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
+  { id: "petrosetco", src: petrosetcoLogo, alt: "Petrosetco", link: "#" },
+  { id: "pvd", src: pvdLogo, alt: "PVD", link: "#" },
+  { id: "ptsc", src: ptscLogo, alt: "PT&SC", link: "#" },
+  { id: "schlumberger", src: schlumbergerLogo, alt: "Schlumberger", link: "#" },
+  { id: "petrovietnam", src: petrovietnamLogo, alt: "PetroVietnam", link: "#" },
+  { id: "lm18", src: lm18Logo, alt: "LM18", link: "#" },
 ];
 
 const PartnerSlider: React.FC = () => {
   return (
     <div>
-      <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-10 drop-shadow-lg">
+      <h2 className="text-4xl md:text-5xl font-bold text-center mb-10 drop-shadow-lg">
         Đối tác
       </h2>
       <Swiper
         modules={[Navigation, Autoplay]}
         spaceBetween={30}
-        slidesPerView={4} // Mặc định hiển thị 4 logo trên màn hình lớn
+        slidesPerView={4}
         loop={true}
-        navigation={true} // Bật mũi tên điều hướng
+        navigation={true}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
         }}
-        // Cấu hình responsive
         breakpoints={{
           320: { slidesPerView: 1, spaceBetween: 20 },
           640: { slidesPerView: 2, spaceBetween: 20 },
           768: { slidesPerView: 3, spaceBetween: 30 },
           1024: { slidesPerView: 4, spaceBetween: 30 },
         }}
-        // Thêm class để tùy chỉnh style nếu cần
         className="partner-logo-slider"
       >
         {partnerLogosData.map((logo) => (
@@ -64,7 +65,7 @@ const PartnerSlider: React.FC = () => {
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="w-full h-36 object-contain transition-transform duration-300 group-hover:scale-105"
+                className="w-full  h-36 object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </a>
           </SwiperSlide>

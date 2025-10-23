@@ -22,7 +22,7 @@ export const enterpriseData: EnterpriseData[] = [
   },
   {
     index: "02",
-    title: "KHCN",
+    title: "Khoa học - công nghệ",
     description:
       "Khoa học và Công nghệ là trọng tâm phát triển của Vietsovpetro, tập trung vào nghiên cứu và ứng dụng các công nghệ tiên tiến trong lĩnh vực dầu khí. Chúng tôi đầu tư mạnh mẽ vào R&D, hợp tác với các viện nghiên cứu hàng đầu và phát triển các giải pháp công nghệ mới. Các hoạt động KHCN bao gồm nghiên cứu cơ bản, ứng dụng công nghệ và chuyển giao tri thức.",
     image: hoiNghiSuKien,
