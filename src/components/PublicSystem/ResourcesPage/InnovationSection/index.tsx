@@ -68,12 +68,9 @@ const InnovationSection: React.FC = () => {
               category={featuredItem.category}
               timestamp={featuredItem.publishDate}
               detail={true}
-              onClick={() =>
-                window.open(
-                  `/cacnguonchung/sang-kien-sang-che/chi-tiet/${featuredItem.id}`,
-                  "_blank"
-                )
-              }
+              onClick={() => {
+                window.location.href = "/tintuc/chi-tiet";
+              }}
               className="mb-8"
             />
             <div className="absolute top-4 right-4 bg-white rounded-lg p-2 shadow-md">
@@ -117,13 +114,11 @@ const InnovationSection: React.FC = () => {
                   description={item.content}
                   category={item.category}
                   timestamp={item.publishDate}
+                  maxDescriptionLines={2}
                   detail={true}
-                  onClick={() =>
-                    window.open(
-                      `/cacnguonchung/sang-kien-sang-che/chi-tiet/${item.id}`,
-                      "_blank"
-                    )
-                  }
+                  onClick={() => {
+                    window.location.href = "/tintuc/chi-tiet";
+                  }}
                   className="h-full"
                 />
                 <div className="absolute top-4 right-4 bg-white rounded-lg p-2 shadow-md">

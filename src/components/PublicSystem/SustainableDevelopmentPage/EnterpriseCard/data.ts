@@ -4,4 +4,5 @@ export interface EnterpriseCardData {
   description: string;
   image: string;
   imagePosition: "left" | "right";
+  path?: string;
 }

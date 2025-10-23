@@ -11,6 +11,7 @@ const EnterpriseCard: React.FC<EnterpriseCardProps> = ({
   image,
   description,
   imagePosition = "right",
+  path,
 }) => {
   const imageOrder =
     imagePosition === "left" ? "lg:order-first" : "lg:order-last";
@@ -83,8 +84,14 @@ const EnterpriseCard: React.FC<EnterpriseCardProps> = ({
           {description}
         </motion.p>
         <motion.a
-          href="#"
-          className="flex items-center text-sm text-blue-600 font-semibold hover:text-blue-700 relative z-10"
+          href={path || "#"}
+          onClick={(e) => {
+            if (path) {
+              e.preventDefault();
+              window.location.href = path;
+            }
+          }}
+          className="flex items-center text-sm text-blue-600 font-semibold hover:text-blue-700 relative z-10 cursor-pointer"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}

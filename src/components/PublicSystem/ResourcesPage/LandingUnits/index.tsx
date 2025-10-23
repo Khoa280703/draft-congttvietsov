@@ -1,9 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { EnterpriseCard } from "@/components/PublicSystem/SustainableDevelopmentPage";
 import { enterpriseData } from "./data";
 
 const LandingUnits: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleCardClick = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <motion.section
       className="bg-white font-sans py-12 md:py-20"
@@ -20,6 +27,8 @@ const LandingUnits: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
+            onClick={() => handleCardClick(item.path)}
+            className="cursor-pointer hover:opacity-90 transition-opacity duration-300"
           >
             <EnterpriseCard
               index={item.index}

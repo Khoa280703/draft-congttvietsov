@@ -44,12 +44,9 @@ const TrainingSection: React.FC = () => {
               category={featuredProgram.category}
               timestamp={featuredProgram.publishDate}
               detail={true}
-              onClick={() =>
-                window.open(
-                  `/cacnguonchung/dao-tao/chi-tiet/${featuredProgram.id}`,
-                  "_blank"
-                )
-              }
+              onClick={() => {
+                window.location.href = "/tintuc/chi-tiet";
+              }}
               className="mb-8"
             />
           </div>
@@ -84,13 +81,11 @@ const TrainingSection: React.FC = () => {
                   description={program.content}
                   category={program.category}
                   timestamp={program.publishDate}
+                  maxDescriptionLines={2}
                   detail={true}
-                  onClick={() =>
-                    window.open(
-                      `/cacnguonchung/dao-tao/chi-tiet/${program.id}`,
-                      "_blank"
-                    )
-                  }
+                  onClick={() => {
+                    window.location.href = "/tintuc/chi-tiet";
+                  }}
                   className="h-full"
                 />
               </div>

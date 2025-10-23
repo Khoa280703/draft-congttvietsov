@@ -46,12 +46,9 @@ const ScienceTechSection: React.FC = () => {
               category={featuredArticle.category}
               timestamp={featuredArticle.publishDate}
               detail={true}
-              onClick={() =>
-                window.open(
-                  `/cacnguonchung/khcn/chi-tiet/${featuredArticle.id}`,
-                  "_blank"
-                )
-              }
+              onClick={() => {
+                window.location.href = "/tintuc/chi-tiet";
+              }}
               className="mb-8"
             />
           </div>
@@ -87,12 +84,10 @@ const ScienceTechSection: React.FC = () => {
                   category={article.category}
                   timestamp={article.publishDate}
                   detail={true}
-                  onClick={() =>
-                    window.open(
-                      `/cacnguonchung/khcn/chi-tiet/${article.id}`,
-                      "_blank"
-                    )
-                  }
+                  maxDescriptionLines={2}
+                  onClick={() => {
+                    window.location.href = "/tintuc/chi-tiet";
+                  }}
                   className="h-full"
                 />
               </div>

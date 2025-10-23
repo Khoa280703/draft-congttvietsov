@@ -46,12 +46,9 @@ const TruyenThongVHDNHDXHSection: React.FC = () => {
               category={featuredArticle.category}
               timestamp={featuredArticle.publishDate}
               detail={true}
-              onClick={() =>
-                window.open(
-                  `/phattrien/truyen-thong-vhdn-hdxh/chi-tiet/${featuredArticle.id}`,
-                  "_blank"
-                )
-              }
+              onClick={() => {
+                window.location.href = "/tintuc/chi-tiet";
+              }}
               className="mb-8"
             />
           </div>
@@ -87,12 +84,10 @@ const TruyenThongVHDNHDXHSection: React.FC = () => {
                   category={article.category}
                   timestamp={article.publishDate}
                   detail={true}
-                  onClick={() =>
-                    window.open(
-                      `/phattrien/truyen-thong-vhdn-hdxh/chi-tiet/${article.id}`,
-                      "_blank"
-                    )
-                  }
+                  maxDescriptionLines={2}
+                  onClick={() => {
+                    window.location.href = "/tintuc/chi-tiet";
+                  }}
                   className="h-full"
                 />
               </div>

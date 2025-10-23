@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight, FiCalendar, FiMapPin, FiUsers } from "react-icons/fi";
 import { useElementAnimation } from "@/hooks/useElementAnimation";
+import { useNavigate } from "react-router-dom";
 
 import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
 import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
@@ -66,9 +67,14 @@ const projectsData = [
 interface ProjectCardProps {
   project: (typeof projectsData)[0];
   index: number;
+  onClick: () => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({
+  project,
+  index,
+  onClick,
+}) => {
   const cardRef = useElementAnimation({ delay: index * 200 });
 
   const getStatusColor = (status: string) => {
@@ -92,6 +98,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.2, duration: 0.6 }}
+      onClick={onClick}
     >
       {/* Featured Badge */}
       {project.featured && (
@@ -169,9 +176,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 const FeaturedProjects: React.FC = () => {
   const titleRef = useElementAnimation({ delay: 0 });
   const subtitleRef = useElementAnimation({ delay: 100 });
-
+  const navigate = useNavigate();
   return (
-    <section className="bg-gradient-to-br from-gray-50">
+    <section className="">
       <div className="">
         {/* Header */}
         <div className="text-center mb-16">
@@ -202,7 +209,12 @@ const FeaturedProjects: React.FC = () => {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
           {projectsData.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              onClick={() => navigate(`/doitac-duan/du-an/chi-tiet`)}
+            />
           ))}
         </div>
 

@@ -21,6 +21,7 @@ const SustainableDevelopmentSection: React.FC = () => {
               description={item.description}
               image={item.image}
               imagePosition={item.imagePosition}
+              path={item.path}
             />
           </motion.div>
         ))}

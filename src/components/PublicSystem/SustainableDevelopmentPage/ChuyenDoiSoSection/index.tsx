@@ -46,12 +46,9 @@ const ChuyenDoiSoSection: React.FC = () => {
               category={featuredArticle.category}
               timestamp={featuredArticle.publishDate}
               detail={true}
-              onClick={() =>
-                window.open(
-                  `/phattrien/chuyen-doi-so/chi-tiet/${featuredArticle.id}`,
-                  "_blank"
-                )
-              }
+              onClick={() => {
+                window.location.href = "/tintuc/chi-tiet";
+              }}
               className="mb-8"
             />
           </div>
@@ -86,13 +83,11 @@ const ChuyenDoiSoSection: React.FC = () => {
                   description={article.content}
                   category={article.category}
                   timestamp={article.publishDate}
+                  maxDescriptionLines={2}
                   detail={true}
-                  onClick={() =>
-                    window.open(
-                      `/phattrien/chuyen-doi-so/chi-tiet/${article.id}`,
-                      "_blank"
-                    )
-                  }
+                  onClick={() => {
+                    window.location.href = "/tintuc/chi-tiet";
+                  }}
                   className="h-full"
                 />
               </div>
