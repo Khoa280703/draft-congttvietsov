@@ -20,7 +20,9 @@ const CardSimple: React.FC<CardSimpleProps> = ({
 }) => {
   return (
     <motion.div
-      className={`rounded-xl shadow-sm overflow-hidden ${className}`}
+      className={`rounded-xl shadow-sm overflow-hidden ${
+        onClick ? "cursor-pointer" : ""
+      } ${className}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}

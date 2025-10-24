@@ -2,7 +2,10 @@
 import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
 import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
 import hoatDongCongDong from "@/assets/hdcongdongvietsov.jpg";
-
+import gianKhoan from "@/assets/background-slider/gian-khoan.jpg";
+import resort from "@/assets/background-slider/vietsovpetro-resort-3.jpg";
+import bon4nam from "@/assets/background-slider/44nam.png";
+import kinhNguTrang from "@/assets/background-slider/kinh-ngu-trang.jpg";
 // Types for API integration
 export interface HeroSlideData {
   id: string | number;
@@ -19,6 +22,9 @@ export interface HeroSlideData {
   buttonBackgroundColor?: string;
   buttonTextColor?: string;
   overlayColor?: string;
+  // Video support
+  videoId?: string;
+  isVideo?: boolean;
 }
 
 export interface HeroSliderProps {
@@ -40,7 +46,7 @@ export const defaultPublicSlidesData: HeroSlideData[] = [
       "Liên doanh Vietsovpetro (gọi tắt là Vietsovpetro) là pháp nhân hợp pháp của nước CHXHCN Việt Nam, được thành lập năm 1981, là đơn vị thành viên của Tập đoàn Dầu khí Quốc gia Việt Nam,",
     buttonText: "Chi tiết",
     buttonLink: "/gioithieu",
-    backgroundImageSrc: daiHoiDaiBieu,
+    backgroundImageSrc: gianKhoan,
     showRigNavigationArrow: true,
     rigNavigationArrowDirection: "right",
     textColor: "white",
@@ -51,12 +57,12 @@ export const defaultPublicSlidesData: HeroSlideData[] = [
   {
     id: 2,
     categoryText: "SỰ KIỆN NỔI BẬT",
-    mainTitleLine1: "Hội nghị Sơ kết Công tác",
-    mainTitleLine2: "Truyền thông và Văn hóa Doanh nghiệp",
+    mainTitleLine1: "Vietsovpetro đón dòng dầu",
+    mainTitleLine2: "đầu tiên tại mỏ Kình Ngư Trắng",
     descriptionText: "6 tháng đầu năm 2025",
     buttonText: "Chi tiết",
     buttonLink: "/tintuc",
-    backgroundImageSrc: hoiNghiSuKien,
+    backgroundImageSrc: kinhNguTrang,
     showRigNavigationArrow: true,
     rigNavigationArrowDirection: "right",
     textColor: "white",
@@ -67,12 +73,12 @@ export const defaultPublicSlidesData: HeroSlideData[] = [
   {
     id: 3,
     categoryText: "HOẠT ĐỘNG CỘNG ĐỒNG",
-    mainTitleLine1: "Vietsovpetro Chung tay vì",
-    mainTitleLine2: "Môi trường Xanh, Sạch, Đẹp",
-    descriptionText: "Chiến dịch Mùa hè xanh 2025",
+    mainTitleLine1: "Resort Vietsovpetro",
+    mainTitleLine2: "Hồ Tràm",
+    descriptionText: "Khu du lịch mang nét hoang sơ mà trữ tình",
     buttonText: "Chi tiết",
     buttonLink: "/tintuc",
-    backgroundImageSrc: hoatDongCongDong,
+    backgroundImageSrc: resort,
     showRigNavigationArrow: true,
     rigNavigationArrowDirection: "right",
     textColor: "white",

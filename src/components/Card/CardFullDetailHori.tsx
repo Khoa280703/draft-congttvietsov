@@ -61,7 +61,9 @@ const CardFullDetailHori: React.FC<CardFullDetailHoriProps> = ({
 
   return (
     <div
-      className={`overflow-hidden flex flex-row ${className}`}
+      className={`overflow-hidden flex flex-row ${
+        onClick ? "cursor-pointer" : ""
+      } ${className}`}
       style={{ height: `${cardHeight}px` }}
       onClick={onClick}
     >

@@ -28,7 +28,10 @@ const CardFullDetail: React.FC<CardFullDetailProps> = ({
 }) => {
   return (
     <div
-      className={`rounded-2xl overflow-hidden shadow-sm h-full flex flex-col ${className}`}
+      className={`rounded-2xl overflow-hidden shadow-sm h-full flex flex-col ${
+        onClick ? "cursor-pointer" : ""
+      } ${className}`}
+      onClick={onClick}
     >
       <img
         src={image}

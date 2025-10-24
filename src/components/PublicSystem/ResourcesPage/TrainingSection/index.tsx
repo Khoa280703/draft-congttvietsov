@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 import { CardFullDetail, CardFullDetailHori } from "@/components/Card";
 import { Pagination } from "@/components";
 import { trainingPrograms } from "./data";
+import { useNavigate } from "react-router-dom";
 
 const TrainingSection: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const programsPerPage = 6;
-
+  const navigate = useNavigate();
   const featuredProgram = trainingPrograms.find((program) => program.featured);
   const regularPrograms = trainingPrograms.filter(
     (program) => !program.featured
@@ -45,7 +46,7 @@ const TrainingSection: React.FC = () => {
               timestamp={featuredProgram.publishDate}
               detail={true}
               onClick={() => {
-                window.location.href = "/tintuc/chi-tiet";
+                navigate(`/tintuc/chi-tiet`);
               }}
               className="mb-8"
             />
@@ -84,7 +85,7 @@ const TrainingSection: React.FC = () => {
                   maxDescriptionLines={2}
                   detail={false}
                   onClick={() => {
-                    window.location.href = "/tintuc/chi-tiet";
+                    navigate(`/tintuc/chi-tiet`);
                   }}
                   className="h-full"
                 />

@@ -27,7 +27,12 @@ const BigCardFullDetail: React.FC<BigCardFullDetailProps> = ({
   imageHeight = "h-56",
 }) => {
   return (
-    <div className={`overflow-hidden h-full flex flex-col ${className}`}>
+    <div
+      className={`overflow-hidden h-full flex flex-col ${
+        onClick ? "cursor-pointer" : ""
+      } ${className}`}
+      onClick={onClick}
+    >
       <img
         src={image}
         alt={imageAlt}

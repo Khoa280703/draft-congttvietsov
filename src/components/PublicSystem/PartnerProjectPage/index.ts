@@ -4,4 +4,4 @@ export { default as OtherProjects } from "./OtherProjects";
 export { default as MostView } from "./MostView";
 export { default as CooperationSection } from "./CooperationSection";
 export { default as PartnerMarquee } from "./PartnerMarquee";
-export { default as FeaturedProjects } from "./FeaturedProjects";
+export { FeaturedProjects } from "@/components/Shared";

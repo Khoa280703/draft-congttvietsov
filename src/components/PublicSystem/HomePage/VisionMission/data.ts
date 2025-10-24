@@ -1,4 +1,4 @@
-import danKhoan from "@/assets/dankhoanvietsov.jpg";
+import vietNga from "@/assets/homepage/viet-nga.jpg";
 
 // Types for API integration
 export interface VisionMissionData {
@@ -43,7 +43,7 @@ export const defaultVisionMissionData: VisionMissionData = {
       "Không ngừng nâng cao năng lực tìm kiếm, thăm dò, khai thác dầu khí gắn với bảo vệ môi trường và an ninh năng lượng quốc gia; góp phần củng cố quan hệ hợp tác Việt – Nga và phát triển kinh tế đất nước.",
   },
   image: {
-    src: danKhoan,
+    src: vietNga,
     alt: "Offshore oil and gas platforms",
   },
 };

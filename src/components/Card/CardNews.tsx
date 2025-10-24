@@ -15,6 +15,7 @@ export interface CardNewsProps {
   date: string;
   isVideo?: boolean;
   className?: string;
+  onClick?: () => void;
 }
 
 const CardNews: React.FC<CardNewsProps> = ({
@@ -26,15 +27,19 @@ const CardNews: React.FC<CardNewsProps> = ({
   date,
   isVideo = false,
   className = "",
+  onClick,
 }) => {
   return (
     <motion.article
-      className={`overflow-hidden hover:shadow-md transition-shadow duration-300 h-full flex flex-col ${className}`}
+      className={`overflow-hidden hover:shadow-md transition-shadow duration-300 h-full flex flex-col ${
+        onClick ? "cursor-pointer" : ""
+      } ${className}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       whileHover={{ y: -2, transition: { duration: 0.2 } }}
+      onClick={onClick}
     >
       <div className="relative w-full h-48 overflow-hidden">
         <img

@@ -1,4 +1,4 @@
-import admission from "@/assets/khaithaccartoon.png";
+import gianKhoan from "@/assets/background-slider/gian-khoan.jpg";
 
 export interface AdmissionProgram {
   id: number;
@@ -49,7 +49,7 @@ export const admissionPrograms: AdmissionProgram[] = [
     level: "Đại học",
     scholarship: "Toàn phần",
     status: "open",
-    image: admission,
+    image: gianKhoan,
     category: "Học bổng",
   },
   {
@@ -84,7 +84,7 @@ export const admissionPrograms: AdmissionProgram[] = [
     level: "Sau đại học",
     scholarship: "Có lương",
     status: "open",
-    image: admission,
+    image: gianKhoan,
     category: "Đào tạo",
   },
   {
@@ -119,7 +119,7 @@ export const admissionPrograms: AdmissionProgram[] = [
     level: "Sinh viên",
     scholarship: "Hỗ trợ",
     status: "upcoming",
-    image: admission,
+    image: gianKhoan,
     category: "Thực tập",
   },
   {
@@ -154,7 +154,7 @@ export const admissionPrograms: AdmissionProgram[] = [
     level: "Tiến sĩ",
     scholarship: "Toàn phần",
     status: "open",
-    image: admission,
+    image: gianKhoan,
     category: "Nghiên cứu",
   },
 ];

@@ -4,6 +4,7 @@ import type { Swiper as SwiperCore } from "swiper";
 import { Autoplay, EffectFade } from "swiper/modules";
 import { HiArrowRight, HiArrowLeft } from "react-icons/hi";
 import { motion } from "framer-motion";
+import YouTube from "react-youtube";
 import {
   type HeroSliderProps,
   defaultPublicSlidesData,
@@ -83,15 +84,60 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
         }}
         onSwiper={setSwiperInstance}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="h-[80vh] md:h-[700px] w-full"
+        className="h-[80vh] md:h-[800px] w-full"
       >
         {finalSlides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div
               className="w-full h-full bg-cover bg-center relative"
-              style={{ backgroundImage: `url(${slide.backgroundImageSrc})` }}
+              style={{
+                backgroundImage: slide.isVideo
+                  ? "none"
+                  : `url(${slide.backgroundImageSrc})`,
+              }}
             >
-              {/* Overlay */}
+              {/* YouTube Video Background */}
+              {slide.isVideo && slide.videoId && (
+                <div className="absolute inset-0 w-full h-full overflow-hidden">
+                  <div
+                    className="absolute top-0 left-0 w-full h-full"
+                    style={{
+                      transform: "scale(1)",
+                      transformOrigin: "center center",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  >
+                    <YouTube
+                      videoId={slide.videoId}
+                      opts={{
+                        width: "100%",
+                        height: "100%",
+                        playerVars: {
+                          autoplay: 1,
+                          mute: 1,
+                          loop: 1,
+                          playlist: slide.videoId,
+                          controls: 0,
+                          showinfo: 0,
+                          modestbranding: 1,
+                          rel: 0,
+                          iv_load_policy: 3,
+                          fs: 0,
+                          disablekb: 1,
+                        },
+                      }}
+                      className="absolute top-0 left-0 w-full h-full pointer-events-none"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        minWidth: "100%",
+                        minHeight: "100%",
+                      }}
+                    />
+                  </div>
+                </div>
+              )}
               <div
                 className="w-full h-full flex flex-col justify-between"
                 style={{
