@@ -4,7 +4,6 @@ import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
 import hoatDongCongDong from "@/assets/hdcongdongvietsov.jpg";
 import gianKhoan from "@/assets/background-slider/gian-khoan.jpg";
 import resort from "@/assets/background-slider/vietsovpetro-resort-3.jpg";
-import bon4nam from "@/assets/background-slider/44nam.png";
 import kinhNguTrang from "@/assets/background-slider/kinh-ngu-trang.jpg";
 // Types for API integration
 export interface HeroSlideData {
