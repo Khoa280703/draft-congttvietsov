@@ -1,6 +1,6 @@
 import React from "react";
 import { PageHeader } from "@/components/PublicSystem";
-import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
+import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import { LeadershipSection } from "@/components/PublicSystem/AboutPage";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -15,7 +15,7 @@ const LeaderPage: React.FC = () => {
     <>
       <PageHeader
         title="Ban lãnh đạo"
-        backgroundImage={bannerDanKhoan}
+        backgroundImage={danKhoanBackground}
         breadcrumbs={getBreadcrumbs()}
       />
 

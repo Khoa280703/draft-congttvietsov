@@ -1,7 +1,7 @@
 import React from "react";
 import PageHeader from "@/components/PublicSystem/PageHeader";
 import { FieldsCapabilitiesSection } from "@/components/PublicSystem/FieldsCapabilitiesPage";
-import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
+import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 
 const FieldsCapabilitiesPage: React.FC = () => {
   const getBreadcrumbs = () => {
@@ -15,7 +15,7 @@ const FieldsCapabilitiesPage: React.FC = () => {
     <>
       <PageHeader
         title="Lĩnh Vực & Năng Lực Hoạt Động"
-        backgroundImage={bannerDanKhoan}
+        backgroundImage={danKhoanBackground}
         breadcrumbs={getBreadcrumbs()}
       />
       <FieldsCapabilitiesSection />

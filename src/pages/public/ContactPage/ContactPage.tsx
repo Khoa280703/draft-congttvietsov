@@ -6,7 +6,7 @@ import {
   HeadquartersMap,
 } from "@/components/PublicSystem/ContactPage";
 
-import bannerContact from "@/assets/banner-dankhoan.jpg";
+import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 
 const ContactPage: React.FC = () => {
   const getBreadcrumbs = () => [
@@ -18,7 +18,7 @@ const ContactPage: React.FC = () => {
     <>
       <PageHeader
         title="Liên hệ"
-        backgroundImage={bannerContact}
+        backgroundImage={danKhoanBackground}
         breadcrumbs={getBreadcrumbs()}
       />
 

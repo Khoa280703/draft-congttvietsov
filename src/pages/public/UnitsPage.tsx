@@ -5,7 +5,7 @@ import {
   EngineeringExploitationEnterprise,
   LandingUnits,
 } from "@/components/PublicSystem/UnitsPage";
-import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
+import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 
 const UnitsPage: React.FC = () => {
   const location = useLocation();
@@ -37,7 +37,7 @@ const UnitsPage: React.FC = () => {
     <>
       <PageHeader
         title={getPageTitle()}
-        backgroundImage={bannerDanKhoan}
+        backgroundImage={danKhoanBackground}
         breadcrumbs={getBreadcrumbs()}
       />
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { PageHeader } from "@/components/PublicSystem";
-import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
+import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import {
   JointVentureSection,
   HistorySection,
@@ -34,7 +34,7 @@ const AboutPage: React.FC = () => {
     <>
       <PageHeader
         title="Về chúng tôi"
-        backgroundImage={bannerDanKhoan}
+        backgroundImage={danKhoanBackground}
         breadcrumbs={getBreadcrumbs()}
       />
       <Routes>

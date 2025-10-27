@@ -9,7 +9,8 @@ import {
 import { ArchivePhotosSection } from "@/components/PublicSystem/AboutPage";
 import DetailPage from "@/pages/public/NewsPage/DetailPage";
 import MediaLibraryPage from "@/pages/public/NewsPage/MediaLibraryPage";
-import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
+import CommunityActivityPage from "@/pages/public/NewsPage/CommunityActivityPage";
+import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -59,7 +60,7 @@ const NewsPage: React.FC = () => {
     <>
       <PageHeader
         title="Tin Tức & Sự Kiện"
-        backgroundImage={bannerDanKhoan}
+        backgroundImage={danKhoanBackground}
         breadcrumbs={getBreadcrumbs()}
       />
       <Routes>

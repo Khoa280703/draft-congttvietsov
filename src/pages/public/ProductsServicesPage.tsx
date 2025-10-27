@@ -4,14 +4,14 @@ import {
   AchievementsSection,
   ServicesSection,
 } from "@/components/PublicSystem/ProductsPage";
-import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
+import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 
 const ProductsServicesPage: React.FC = () => {
   return (
     <>
       <PageHeader
         title="Sản phẩm - Dịch vụ"
-        backgroundImage={bannerDanKhoan}
+        backgroundImage={danKhoanBackground}
         breadcrumbs={[
           { label: "Trang chủ", href: "/" },
           { label: "Sản phẩm - Dịch vụ" },

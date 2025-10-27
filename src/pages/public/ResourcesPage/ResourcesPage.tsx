@@ -1,7 +1,7 @@
 import React from "react";
 import PageHeader from "@/components/PublicSystem/PageHeader";
 import { LandingUnits } from "@/components/PublicSystem/ResourcesPage";
-import hoinghicongtacpvn from "@/assets/hoinghicongtacpvn.jpg";
+import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import { Routes, Route, useLocation } from "react-router-dom";
 import RecruitmentPage from "./RecruitmentPage";
 import TrainingPage from "./TrainingPage";
@@ -54,7 +54,7 @@ const ResourcesPage: React.FC = () => {
     <>
       <PageHeader
         title="Các Nguồn Chung"
-        backgroundImage={hoinghicongtacpvn}
+        backgroundImage={danKhoanBackground}
         breadcrumbs={getBreadcrumbs()}
       />
       <Routes>

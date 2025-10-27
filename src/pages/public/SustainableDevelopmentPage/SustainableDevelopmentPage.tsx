@@ -1,7 +1,7 @@
 import React from "react";
 import PageHeader from "@/components/PublicSystem/PageHeader";
 import SustainableDevelopmentSection from "@/components/PublicSystem/SustainableDevelopmentPage/SustainableDevelopmentSection";
-import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
+import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import { Routes, Route } from "react-router-dom";
 import EmployeeOpinionPage from "./EmployeeOpinion";
 import ATSKMTPage from "./ATSKMT";
@@ -52,7 +52,7 @@ const SustainableDevelopmentPage: React.FC = () => {
     <>
       <PageHeader
         title="Phát Triển Bền Vững"
-        backgroundImage={bannerDanKhoan}
+        backgroundImage={danKhoanBackground}
         breadcrumbs={getBreadcrumbs()}
       />
       <Routes>
