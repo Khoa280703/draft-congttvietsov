@@ -2,10 +2,10 @@
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export interface PartnerLogo {
   id: string;
@@ -36,41 +36,46 @@ const PartnerSlider: React.FC = () => {
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-10 drop-shadow-lg">
         Đối tác
       </h2>
-      <Swiper
-        modules={[Navigation, Autoplay]}
-        spaceBetween={30}
-        slidesPerView={4}
-        loop={true}
-        navigation={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        breakpoints={{
-          320: { slidesPerView: 1, spaceBetween: 20 },
-          640: { slidesPerView: 2, spaceBetween: 20 },
-          768: { slidesPerView: 3, spaceBetween: 30 },
-          1024: { slidesPerView: 4, spaceBetween: 30 },
-        }}
-        className="partner-logo-slider"
-      >
-        {partnerLogosData.map((logo) => (
-          <SwiperSlide key={logo.id}>
-            <a
-              href={logo.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block p-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 group"
-            >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                className="w-full  h-36 object-contain transition-transform duration-300 group-hover:scale-105"
-              />
-            </a>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="">
+        <Swiper
+          modules={[Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={4}
+          loop={true}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
+          className="partner-swiper"
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            320: { slidesPerView: 1, spaceBetween: 20 },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            768: { slidesPerView: 3, spaceBetween: 30 },
+            1024: { slidesPerView: 4, spaceBetween: 30 },
+          }}
+        >
+          {partnerLogosData.map((logo) => (
+            <SwiperSlide key={logo.id}>
+              <a
+                href={logo.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 group"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="w-full  h-36 object-contain transition-transform duration-300 group-hover:scale-105"
+                />
+              </a>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };

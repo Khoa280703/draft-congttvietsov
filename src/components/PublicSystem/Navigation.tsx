@@ -146,7 +146,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
 
                     {/* Generic dropdown for any menu item with children */}
                     {isDropdownOpen && (
-                      <div className="absolute top-full left-0 w-80 bg-white border border-gray-200 rounded-lg shadow-lg z-50 dropdown-container">
+                      <div className="absolute top-full left-0 w-80 bg-white border border-gray-200 shadow-lg z-50 dropdown-container">
                         <div className="py-3">
                           {item.children!.map((child) => (
                             <div key={child.href} className="px-4">
@@ -261,7 +261,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       ${
                         activeItem === item.label
                           ? "text-vietsov-green font-bold "
-                          : "text-gray-600 hover:bg-gray-100 hover:text-vietsov-green"
+                          : "text-gray-600 hover:text-vietsov-green"
                       }
                     `}
                   >
