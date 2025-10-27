@@ -1,5 +1,5 @@
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:3000/api";
+  import.meta.env.VITE_API_BASE_URL || "https://vietsovadminapi.sfb.vn/api";
 
 export const api = {
   get: async <T>(endpoint: string): Promise<T> => {

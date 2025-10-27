@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 import { PageWithSidebar } from "@/components/PublicSystem";
 import { CardFullDetailHori } from "@/components/Card";
 import {
-  type ProductionActivitySectionProps,
-  defaultProductionActivityData,
+  type CommunityActivityPageSectionProps,
+  defaultCommunityActivityPageData,
 } from "./data";
 
-const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
-  className = "",
-}) => {
+const CommunityActivityPageSection: React.FC<
+  CommunityActivityPageSectionProps
+> = ({ className = "" }) => {
   return (
-    <PageWithSidebar activePath="/tintuc/hoat-dong-sx-kd">
+    <PageWithSidebar activePath="/tintuc/hoat-dong-doan-the">
       <div className={`min-h-screen bg-gray-50 ${className}`}>
         <div className="container mx-auto px-4 py-8">
           <motion.div
@@ -20,7 +20,7 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            {defaultProductionActivityData.map((news, index) => (
+            {defaultCommunityActivityPageData.map((news, index) => (
               <motion.div
                 key={news.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -48,4 +48,5 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
   );
 };
 
-export default ProductionActivitySection;
+export default CommunityActivityPageSection;
+

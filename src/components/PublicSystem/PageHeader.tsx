@@ -28,6 +28,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
     const pathMap: { [key: string]: string } = {
       "/gioithieu/ban-lanh-dao": "Ban lãnh đạo",
       "/tintuc/hoat-dong-doan-the": "Hoạt động đoàn thể",
+      "/tintuc/hoat-dong-sx-kd": "Hoạt động SX - KD",
       "/tintuc/tin-dau-khi": "Tin dầu khí",
       "/tintuc/thong-cao-bao-chi": "Thông cáo báo chí",
       "/tintuc/thu-vien-anh-video": "Thư viện ảnh/video",

@@ -3,12 +3,12 @@ import { PageHeader } from "@/components/PublicSystem";
 import {
   ProductionActivitySection,
   CommunityActivitySection,
+  CommunityActivityPageSection,
   OilNewsSection,
 } from "@/components/PublicSystem/NewsPage";
 import { ArchivePhotosSection } from "@/components/PublicSystem/AboutPage";
 import DetailPage from "@/pages/public/NewsPage/DetailPage";
 import MediaLibraryPage from "@/pages/public/NewsPage/MediaLibraryPage";
-import CommunityActivityPage from "@/pages/public/NewsPage/CommunityActivityPage";
 import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -23,11 +23,23 @@ const NewsPage: React.FC = () => {
           { label: "Trang chủ", href: "/" },
           { label: "Tin Tức & Sự Kiện" },
         ];
+      case "/tintuc/hoat-dong-sx-kd":
+        return [
+          { label: "Trang chủ", href: "/" },
+          { label: "Tin Tức & Sự Kiện", href: "/tintuc" },
+          { label: "Hoạt động SX - KD" },
+        ];
       case "/tintuc/hoat-dong-doan-the":
         return [
           { label: "Trang chủ", href: "/" },
           { label: "Tin Tức & Sự Kiện", href: "/tintuc" },
           { label: "Hoạt động đoàn thể" },
+        ];
+      case "/tintuc/tin-dau-khi":
+        return [
+          { label: "Trang chủ", href: "/" },
+          { label: "Tin Tức & Sự Kiện", href: "/tintuc" },
+          { label: "Tin dầu khí" },
         ];
       case "/tintuc/thu-vien-anh-video":
         return [
@@ -84,7 +96,15 @@ const NewsPage: React.FC = () => {
           }
         />
         <Route path="/chi-tiet" element={<DetailPage />} />
-        <Route path="/hoat-dong-doan-the" element={<CommunityActivityPage />} />
+        <Route
+          path="/hoat-dong-sx-kd"
+          element={<ProductionActivitySection />}
+        />
+        <Route
+          path="/hoat-dong-doan-the"
+          element={<CommunityActivityPageSection />}
+        />
+        <Route path="/tin-dau-khi" element={<OilNewsSection />} />
         <Route path="/thu-vien-anh-video" element={<MediaLibraryPage />} />
       </Routes>
     </>
