@@ -535,7 +535,7 @@ const OrganizationStructure = () => {
     });
   }, []);
 
-  const handleNodeClick = (nodeId: string, event: React.MouseEvent) => {
+  const handleNodeClick = (nodeId: string) => {
     setActiveNodeId((prevId) => (prevId === nodeId ? null : nodeId));
 
     // Find the node data
@@ -548,7 +548,6 @@ const OrganizationStructure = () => {
       if (!nodeElement) return;
 
       // Get node position relative to viewport
-      const rect = nodeElement.getBoundingClientRect();
 
       setModalNode(nodeData);
     }
