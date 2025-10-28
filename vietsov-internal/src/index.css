@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import "tailwindcss";
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@theme {
+  /* Font Family */
+  --font-family-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui,
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
+
+  /* Animations */
+  --animate-marquee: marquee 40s linear infinite;
+
+  /* Vietsovpetro Brand Colors */
+  --color-vietsov-green: #10954f;
+  --color-vietsov-black: #242424;
+  --color-vietsov-blue: #2563eb;
+  --color-vietsov-cyan: #06b6d4;
+  --color-vietsov-gray: #6b7280;
+  --color-vietsov-light-gray: #919296;
+}
+
+/* Global Font Application */
+body {
+  font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+    sans-serif;
+  color: var(--color-vietsov-black);
+}
+
+/* Custom Utility Classes */
+@layer utilities {
+  /* Brand Color Utilities */
+  .text-vietsov-green {
+    color: #10954f;
+  }
+
+  .bg-vietsov-background {
+    background-image: linear-gradient(to bottom, #edf8f2, #ffffff);
+  }
+
+  .text-vietsov-black {
+    color: #242424;
+  }
+
+  .bg-vietsov-green {
+    background-color: #10954f;
+  }
+
+  .bg-vietsov-black {
+    background-color: #242424;
+  }
+
+  .border-vietsov-green {
+    border-color: #10954f;
+  }
+
+  .border-vietsov-black {
+    border-color: #242424;
+  }
+
+  /* Hover States */
+  .hover\:text-vietsov-green:hover {
+    color: #10954f;
+  }
+
+  .hover\:bg-vietsov-green:hover {
+    background-color: #10954f;
+  }
+
+  .hover\:border-vietsov-green:hover {
+    border-color: #10954f;
+  }
+
+  /* Focus States */
+  .focus\:ring-vietsov-green:focus {
+    --tw-ring-color: #10954f;
+  }
+
+  /* Gradient Text */
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #10954f, #242424);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Line Clamp Utilities */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

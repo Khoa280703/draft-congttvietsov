@@ -1,0 +1,33 @@
+/* Tùy chỉnh các nút điều hướng của Swiper cho component "Lĩnh vực hoạt động" */
+.activity-slider .swiper-button-prev,
+.activity-slider .swiper-button-next {
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.1); /* Nền trắng mờ */
+  backdrop-filter: blur(4px); /* Hiệu ứng kính mờ */
+  border-radius: 50%;
+  color: #ffffff; /* Màu mũi tên */
+  transition: background-color 0.3s ease;
+}
+
+/* Style khi hover */
+.activity-slider .swiper-button-prev:hover,
+.activity-slider .swiper-button-next:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Điều chỉnh kích thước mũi tên bên trong */
+.activity-slider .swiper-button-prev::after,
+.activity-slider .swiper-button-next::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Dịch chuyển vị trí các nút vào trong một chút */
+.activity-slider .swiper-button-prev {
+  left: 16px;
+}
+
+.activity-slider .swiper-button-next {
+  right: 16px;
+}
