@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import VietsopetroLogo from "../assets/vietsovlogogiulua.png";
+import VietsopetroLogo from "@/assets/logo/vsp_logo.png";
 import { RiArrowDownWideFill } from "react-icons/ri";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
 

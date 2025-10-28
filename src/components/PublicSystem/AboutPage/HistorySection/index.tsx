@@ -109,44 +109,44 @@ const HistorySection: React.FC<HistorySectionProps> = ({
               exit={{ opacity: 0, scale: 0.95, y: -30 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              {/* Main white card - positioned to allow image overflow */}
-              <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12 relative z-10 h-96 lg:h-[32rem]">
-                <div className="flex flex-col lg:flex-row gap-">
-                  <div className="w-full lg:w-5/8 space-y-6">
-                    <motion.h3
-                      className={`
-                        text-4xl mb-8 pt-12 md:text-5xl font-bold 
-                        bg-clip-text text-transparent 
-                        bg-[linear-gradient(to_right,_#3b82f6_0%,_#22c55e_50%)]
-                    `}
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{
-                        duration: 0.6,
-                        delay: 0.2,
-                        ease: "easeOut",
-                      }}
-                    >
-                      {currentEvent.date}
-                    </motion.h3>
+              {/* Main white card - responsive layout */}
+              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 lg:p-12 relative z-10 h-[28rem] md:h-[32rem] lg:h-[36rem] xl:h-[40rem]">
+                <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 h-full">
+                  {/* Content Section */}
+                  <div className="w-full lg:w-5/8 flex flex-col justify-between lg:pr-0">
+                    <div className="space-y-4 md:space-y-6">
+                      <motion.h3
+                        className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold bg-clip-text text-transparent bg-[linear-gradient(to_right,_#3b82f6_0%,_#22c55e_50%)]"
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          duration: 0.6,
+                          delay: 0.2,
+                          ease: "easeOut",
+                        }}
+                      >
+                        {currentEvent.date}
+                      </motion.h3>
 
-                    <motion.div
-                      className="space-y-4"
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{
-                        duration: 0.6,
-                        delay: 0.3,
-                        ease: "easeOut",
-                      }}
-                    >
-                      <p className="text-gray-700 text-base md:text-lg leading-relaxed whitespace-pre-line">
-                        {currentEvent.description}
-                      </p>
-                    </motion.div>
+                      <motion.div
+                        className="space-y-4"
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          duration: 0.6,
+                          delay: 0.3,
+                          ease: "easeOut",
+                        }}
+                      >
+                        <p className="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+                          {currentEvent.description}
+                        </p>
+                      </motion.div>
+                    </div>
 
+                    {/* Navigation buttons - hidden on mobile, shown on desktop */}
                     <motion.div
-                      className="absolute bottom-8 left-8 md:bottom-12 md:left-12 flex space-x-4" // <-- POSITIONING CLASSES
+                      className="hidden lg:flex space-x-4 pt-4"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{
@@ -157,14 +157,14 @@ const HistorySection: React.FC<HistorySectionProps> = ({
                     >
                       <button
                         onClick={() => navigateEvent("left")}
-                        className="p-2 text-gray-600 rounded-full hover:bg-gray-100 hover:text-green-600 transition-colors duration-200" // Added rounded-full, hover:bg-gray-100
+                        className="p-2 text-gray-600 rounded-full hover:bg-gray-100 hover:text-green-600 transition-colors duration-200"
                         aria-label="Previous"
                       >
                         <HiArrowLeft className="w-5 h-5" />
                       </button>
                       <button
                         onClick={() => navigateEvent("right")}
-                        className="p-2 text-gray-600 rounded-full hover:bg-gray-100 hover:text-green-600 transition-colors duration-200" // Added rounded-full, hover:bg-gray-100
+                        className="p-2 text-gray-600 rounded-full hover:bg-gray-100 hover:text-green-600 transition-colors duration-200"
                         aria-label="Next"
                       >
                         <HiArrowRight className="w-5 h-5" />
@@ -172,27 +172,60 @@ const HistorySection: React.FC<HistorySectionProps> = ({
                     </motion.div>
                   </div>
 
+                  {/* Image Section */}
                   <motion.div
-                    className="w-full lg:w-4/9 flex-shrink-0 relative"
+                    className="w-full lg:w-3/8 flex-shrink-0 mt-6 lg:mt-0"
                     initial={{ opacity: 0, x: 30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
                   >
-                    <div className="absolute -top-50 -right-4 w-130 h-96 lg:h-[40rem]">
+                    {/* Mobile & Tablet: Image inside card at bottom */}
+                    <div className="block lg:hidden w-full h-64 md:h-80 rounded-2xl overflow-hidden">
                       <img
                         src={currentEvent.imageUrl}
                         alt={currentEvent.imageAlt}
-                        className="w-full h-full object-cover shadow-2xl"
-                        style={{
-                          transform: "scaleX(1)",
-                          borderRadius: "64px 16px 64px 16px",
-                        }}
+                        className="w-full h-full object-cover"
                       />
-                      {/* Decorative overlay */}
-                      <div className="absolute inset-0 rounded-xl"></div>
+                    </div>
+
+                    {/* Desktop: Image with absolute positioning overflow */}
+                    <div className="hidden lg:block relative">
+                      <div className="absolute -top-40 -right-4 w-[100%] h-[46rem]">
+                        <img
+                          src={currentEvent.imageUrl}
+                          alt={currentEvent.imageAlt}
+                          className="w-full h-full object-cover shadow-2xl"
+                          style={{
+                            borderRadius: "64px 16px 64px 16px",
+                          }}
+                        />
+                      </div>
                     </div>
                   </motion.div>
                 </div>
+
+                {/* Navigation buttons - shown on mobile, hidden on desktop */}
+                <motion.div
+                  className="flex lg:hidden justify-center space-x-4 mt-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+                >
+                  <button
+                    onClick={() => navigateEvent("left")}
+                    className="p-3 text-gray-600 rounded-full bg-gray-100 hover:bg-gray-200 hover:text-green-600 transition-colors duration-200"
+                    aria-label="Previous"
+                  >
+                    <HiArrowLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => navigateEvent("right")}
+                    className="p-3 text-gray-600 rounded-full bg-gray-100 hover:bg-gray-200 hover:text-green-600 transition-colors duration-200"
+                    aria-label="Next"
+                  >
+                    <HiArrowRight className="w-5 h-5" />
+                  </button>
+                </motion.div>
               </div>
             </motion.div>
           )}

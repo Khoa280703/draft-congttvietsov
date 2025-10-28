@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
-import {
-  AiFillInstagram,
-  AiOutlineTwitter,
-  AiFillFacebook,
-  AiFillYoutube,
-  AiFillTikTok,
-} from "react-icons/ai";
+import { AiFillFacebook } from "react-icons/ai";
 
 const Footer: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,11 +25,7 @@ const Footer: React.FC = () => {
           <div className="flex items-center space-x-4">
             <nav className="hidden md:flex items-center space-x-4">
               <div className="flex items-center space-x-8">
-                <AiFillInstagram className="w-6 h-6 hover:text-gray-300 transition-colors cursor-pointer" />
-                <AiOutlineTwitter className="w-6 h-6 hover:text-gray-300 transition-colors cursor-pointer" />
                 <AiFillFacebook className="w-6 h-6 hover:text-gray-300 transition-colors cursor-pointer" />
-                <AiFillYoutube className="w-6 h-6 hover:text-gray-300 transition-colors cursor-pointer" />
-                <AiFillTikTok className="w-6 h-6 hover:text-gray-300 transition-colors cursor-pointer" />
               </div>
             </nav>
 

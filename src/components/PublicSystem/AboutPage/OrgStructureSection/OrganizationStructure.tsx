@@ -31,7 +31,6 @@ interface OrgNodeProps {
 
 interface NodeModalProps {
   node: OrgNodeData | null;
-  position: { x: number; y: number } | null;
   onClose: () => void;
 }
 
@@ -75,69 +74,120 @@ const OrgNode = forwardRef<OrgNodeRef, OrgNodeProps>(
 
 OrgNode.displayName = "OrgNode";
 
-const NodeModal: React.FC<NodeModalProps> = ({ node, position, onClose }) => {
-  if (!node || !position) return null;
+const NodeModal: React.FC<NodeModalProps> = ({ node, onClose }) => {
+  if (!node) return null;
 
   return (
-    <div className="fixed inset-0 z-40" onClick={onClose}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/20"
+      onClick={onClose}
+    >
       <div
-        className="node-modal fixed z-50 bg-white border border-gray-200 rounded-xl shadow-2xl p-4 sm:p-6 w-80 sm:w-96 animate-fade-scale-in"
-        style={{
-          left: position.x,
-          top: position.y,
-          transform: "translateY(-50%)",
-          maxWidth: "90vw", // Ensure it doesn't exceed viewport width
-        }}
+        className="bg-white border border-gray-200 rounded-2xl shadow-2xl p-6 sm:p-8 w-[32rem] sm:w-[36rem] max-w-[90vw] max-h-[80vh] overflow-y-auto transform transition-all duration-300 ease-out animate-fade-scale-in"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-start pb-3 border-b border-gray-200">
-          <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-900 pr-2 sm:pr-4">
-            {node.label}
-          </h3>
+        {/* Header with gradient background */}
+        <div className="flex justify-between items-start pb-4 border-b border-gray-100 mb-6">
+          <div className="flex-1 pr-4">
+            <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">
+              {node.label}
+            </h3>
+            <div className="mt-2 w-12 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
+          </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-800 transition-colors flex-shrink-0"
+            className="text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full p-2 transition-all duration-200 flex-shrink-0 group"
             aria-label="Đóng"
           >
-            <FiX size={18} className="sm:w-5 sm:h-5" />
+            <FiX
+              size={20}
+              className="group-hover:rotate-90 transition-transform duration-200"
+            />
           </button>
         </div>
 
-        <div className="mt-3 sm:mt-4 space-y-3 sm:space-y-4">
-          {node.detail && (
-            <div>
-              <p className="text-xs sm:text-sm text-gray-700 leading-relaxed">
-                {node.detail}
-              </p>
+        {/* Content Section */}
+        <div className="space-y-6">
+          {/* Description */}
+          <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+            <div className="flex items-start space-x-3">
+              <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                <svg
+                  className="w-4 h-4 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h4 className="text-sm font-semibold text-gray-900 mb-2">
+                  Thông tin phòng ban
+                </h4>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  {node.detail ||
+                    "Thông tin chi tiết về phòng ban này đang được cập nhật. Vui lòng liên hệ với bộ phận nhân sự để biết thêm thông tin."}
+                </p>
+              </div>
             </div>
-          )}
+          </div>
 
+          {/* Sub-units */}
           {node.children && node.children.length > 0 && (
-            <div>
-              <span className="text-xs sm:text-sm font-semibold text-gray-800">
-                Đơn vị trực thuộc:
-              </span>
-              <ul className="mt-1 sm:mt-2 space-y-1 list-disc list-inside">
-                {node.children.map((child) => (
-                  <li
-                    key={child.id}
-                    className="text-xs sm:text-sm text-gray-600"
+            <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
+              <div className="flex items-start space-x-3">
+                <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <svg
+                    className="w-4 h-4 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    {child.label}
-                  </li>
-                ))}
-              </ul>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                    />
+                  </svg>
+                </div>
+                <div className="flex-1">
+                  <h4 className="text-sm font-semibold text-gray-900 mb-3">
+                    Đơn vị trực thuộc
+                  </h4>
+                  <div className="grid grid-cols-1 gap-2">
+                    {node.children.map((child) => (
+                      <div
+                        key={child.id}
+                        className="flex items-center space-x-2 p-2 bg-white rounded-lg border border-gray-100 hover:border-blue-200 transition-colors"
+                      >
+                        <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                        <span className="text-sm text-gray-700">
+                          {child.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
+          {/* Action Button */}
           {node.url && (
-            <div className="pt-1 sm:pt-2">
+            <div className="pt-2">
               <a
                 href={node.url}
-                className="inline-flex items-center text-xs sm:text-sm font-semibold text-blue-600 hover:text-blue-800 group"
+                className="inline-flex items-center justify-center w-full px-4 py-3 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-cyan-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 group"
               >
-                Xem thêm
-                <FiArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1 transition-transform duration-200 group-hover:translate-x-1" />
+                <span>Xem thêm thông tin</span>
+                <FiArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
               </a>
             </div>
           )}
@@ -388,10 +438,6 @@ const OrganizationStructure = () => {
   );
   const [activeNodeId, setActiveNodeId] = useState<string | null>(null);
   const [modalNode, setModalNode] = useState<OrgNodeData | null>(null);
-  const [modalPosition, setModalPosition] = useState<{
-    x: number;
-    y: number;
-  } | null>(null);
 
   const calculateConnectorLines = useCallback(() => {
     const svg = chartContainerRef.current?.querySelector("svg");
@@ -495,58 +541,21 @@ const OrganizationStructure = () => {
     // Find the node data
     const nodeData = findNodeById(orgChartData, nodeId);
     if (nodeData) {
-      // Get click position
-      const rect = (event.target as HTMLElement).getBoundingClientRect();
+      // Get the actual node element from refs
+      const nodeRef = nodeRefs.current.get(nodeId);
+      const nodeElement = nodeRef?.current?.getElement();
 
-      // Calculate available space
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
+      if (!nodeElement) return;
 
-      // Modal dimensions (approximate)
-      const modalWidth = Math.min(384, viewportWidth * 0.9); // w-96 = 24rem = 384px, but responsive
-      const modalHeight = 200; // approximate height
-      const padding = 20; // padding from screen edge
+      // Get node position relative to viewport
+      const rect = nodeElement.getBoundingClientRect();
 
-      // Determine horizontal position
-      let x: number;
-      const spaceOnRight = viewportWidth - rect.right;
-      const spaceOnLeft = rect.left;
-
-      if (spaceOnRight >= modalWidth + padding) {
-        // Enough space on the right
-        x = rect.right + 10;
-      } else if (spaceOnLeft >= modalWidth + padding) {
-        // Not enough space on right, but enough on left
-        x = rect.left - modalWidth - 10;
-      } else {
-        // Not enough space on either side, center horizontally
-        x = Math.max(padding, (viewportWidth - modalWidth) / 2);
-      }
-
-      // Determine vertical position
-      let y: number;
-      const spaceBelow = viewportHeight - rect.top;
-      const spaceAbove = rect.bottom;
-
-      if (spaceBelow >= modalHeight + padding) {
-        // Enough space below
-        y = rect.top + rect.height / 2;
-      } else if (spaceAbove >= modalHeight + padding) {
-        // Not enough space below, but enough above
-        y = rect.top + rect.height / 2;
-      } else {
-        // Not enough space above or below, center vertically
-        y = Math.max(padding, (viewportHeight - modalHeight) / 2);
-      }
-
-      setModalPosition({ x, y });
       setModalNode(nodeData);
     }
   };
 
   const handleCloseModal = () => {
     setModalNode(null);
-    setModalPosition(null);
   };
 
   useEffect(() => {
@@ -603,11 +612,7 @@ const OrganizationStructure = () => {
       </div>
 
       {/* Node Modal */}
-      <NodeModal
-        node={modalNode}
-        position={modalPosition}
-        onClose={handleCloseModal}
-      />
+      <NodeModal node={modalNode} onClose={handleCloseModal} />
     </div>
   );
 };

@@ -6,8 +6,9 @@ import {
   HiArrowRight,
   HiSearch,
 } from "react-icons/hi";
-import VietsopetroLogo from "@/assets/vietsovlogogiulua.png";
+import VietsopetroLogo from "@/assets/logo/vsp_logo.png";
 import { NAVIGATION_CONFIG } from "@/config/navigation";
+import SmartTextWithAmpersand from "@/components/SmartTextWithAmpersand";
 
 interface NavigationProps {
   activeItem: string;
@@ -107,7 +108,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
             alt="Vietsopetro Logo"
             className="w-26 h-18"
           />
-          <ul className="hidden md:flex justify-center items-center flex-1">
+          <ul className="hidden lg:flex justify-center items-center flex-1">
             {menuItems.map((item) => {
               const hasChildren = item.children && item.children.length > 0;
               const isDropdownOpen = hasChildren && openDropdownId === item.id;
@@ -136,7 +137,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                         }
                       `}
                     >
-                      <span>{item.label}</span>
+                      <SmartTextWithAmpersand text={item.label} />
                       <HiChevronDown
                         className={`w-4 h-4 transition-transform ${
                           isDropdownOpen ? "rotate-180" : ""
@@ -188,7 +189,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       }
                     `}
                   >
-                    {item.label}
+                    <SmartTextWithAmpersand text={item.label} />
                   </a>
                 </li>
               );
@@ -196,7 +197,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
           </ul>
 
           {/* Desktop Icons - Search and Menu */}
-          <div className="hidden md:flex items-center space-x-2">
+          <div className="hidden lg:flex items-center space-x-2">
             <button
               onClick={() => onUrlNavigation && onUrlNavigation("/tim-kiem")}
               className="p-2 text-gray-600 hover:text-vietsov-green hover:scale-110 rounded-full transition-all duration-200"
@@ -217,7 +218,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
             </button>
           </div>
 
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="lg:hidden flex items-center space-x-2">
             <button
               onClick={() => onUrlNavigation && onUrlNavigation("/tim-kiem")}
               className="p-2 text-gray-600 hover:text-vietsov-green hover:bg-gray-100 hover:scale-110 rounded-full transition-all duration-200"
@@ -241,7 +242,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden border-t border-gray-200">
+        <div className="lg:hidden border-t border-gray-200">
           <ul className="flex flex-col items-center py-2">
             {menuItems.map((item) => {
               const hasChildren = item.children && item.children.length > 0;
@@ -265,7 +266,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       }
                     `}
                   >
-                    {item.label}
+                    <SmartTextWithAmpersand text={item.label} />
                   </a>
                   {hasChildren && (
                     <div className="pl-4 border-l-2 border-gray-200 ml-4">
