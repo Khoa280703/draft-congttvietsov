@@ -87,6 +87,10 @@ body {
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
     sans-serif;
   color: var(--color-vietsov-black);
+  transform: scale(0.9);
+  transform-origin: top left;
+  width: 111.11%;
+  overflow-x: hidden;
 }
 
 /* Custom Utility Classes */
