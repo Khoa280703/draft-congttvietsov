@@ -17,7 +17,7 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
         <h2 className="text-3xl md:text-4xl font-medium text-gray-800">
           Hoạt động sản xuất
         </h2>
-        <SeeMoreButtonSimple text="Xem thêm" href="/tintuc/chi-tiet" />
+        <SeeMoreButtonSimple text="Xem thêm" href="/tintuc/hoat-dong-sx-kd" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

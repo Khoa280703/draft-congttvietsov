@@ -9,6 +9,8 @@ import { ArchivePhotosSection } from "@/components/AboutPage";
 import DetailPage from "@/pages/NewsPage/DetailPage";
 import MediaLibraryPage from "@/pages/NewsPage/MediaLibraryPage";
 import CommunityActivityPage from "@/pages/NewsPage/CommunityActivityPage";
+import ProductionActivityPage from "@/pages/NewsPage/ProductionActivityPage";
+import OilNewsPage from "@/pages/NewsPage/OilNewsPage";
 import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -28,6 +30,18 @@ const NewsPage: React.FC = () => {
           { label: "Trang chủ", href: "/" },
           { label: "Tin Tức & Sự Kiện", href: "/tintuc" },
           { label: "Hoạt động đoàn thể" },
+        ];
+      case "/tintuc/hoat-dong-sx-kd":
+        return [
+          { label: "Trang chủ", href: "/" },
+          { label: "Tin Tức & Sự Kiện", href: "/tintuc" },
+          { label: "Hoạt động SX - KD" },
+        ];
+      case "/tintuc/tin-dau-khi":
+        return [
+          { label: "Trang chủ", href: "/" },
+          { label: "Tin Tức & Sự Kiện", href: "/tintuc" },
+          { label: "Tin dầu khí" },
         ];
       case "/tintuc/thu-vien-anh-video":
         return [
@@ -84,7 +98,9 @@ const NewsPage: React.FC = () => {
           }
         />
         <Route path="/chi-tiet" element={<DetailPage />} />
+        <Route path="/hoat-dong-sx-kd" element={<ProductionActivityPage />} />
         <Route path="/hoat-dong-doan-the" element={<CommunityActivityPage />} />
+        <Route path="/tin-dau-khi" element={<OilNewsPage />} />
         <Route path="/thu-vien-anh-video" element={<MediaLibraryPage />} />
       </Routes>
     </>

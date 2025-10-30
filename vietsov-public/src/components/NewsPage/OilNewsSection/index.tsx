@@ -15,7 +15,7 @@ const OilNewsSection: React.FC<OilNewsSectionProps> = ({ className = "" }) => {
         <h2 className="text-3xl md:text-4xl font-medium text-gray-800">
           Tin dầu khí
         </h2>
-        <SeeMoreButtonSimple text="Xem thêm" href="/tintuc/chi-tiet" />
+        <SeeMoreButtonSimple text="Xem thêm" href="/tintuc/tin-dau-khi" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
