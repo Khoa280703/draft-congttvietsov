@@ -22,6 +22,9 @@ import {
   SustainableDevelopmentPage,
 } from "@/pages/index";
 import FieldsCapabilitiesPage from "@/pages/FieldsCapabilitiesPage";
+import ThamDo from "@/pages/FieldsCapabilitiesPage/ThamDo";
+import TimKiem from "@/pages/FieldsCapabilitiesPage/TimKiem";
+import KhaiThac from "@/pages/FieldsCapabilitiesPage/KhaiThac";
 import ContactPage from "@/pages/ContactPage/ContactPage";
 import SearchPage from "@/pages/SearchPage/SearchPage";
 import DocumentationPage from "@/pages/DocumentationPage";
@@ -115,6 +118,9 @@ const PublicInterface: React.FC = () => {
         <Route path="/tintuc/*" element={<NewsPage />} />
         <Route path="/cacnguonchung/*" element={<ResourcesPage />} />
         <Route path="/linhvuc-nangluc" element={<FieldsCapabilitiesPage />} />
+        <Route path="/linhvuc-nangluc/tham-do" element={<ThamDo />} />
+        <Route path="/linhvuc-nangluc/tim-kiem" element={<TimKiem />} />
+        <Route path="/linhvuc-nangluc/khai-thac" element={<KhaiThac />} />
         <Route path="/doitac-duan/*" element={<PartnerProjectPage />} />
         <Route path="/phattrien/*" element={<SustainableDevelopmentPage />} />
         <Route path="/lienhe" element={<ContactPage />} />

@@ -9,6 +9,7 @@ interface ExplorationCardProps {
   image: string;
   description: string;
   imagePosition?: "left" | "right";
+  href?: string;
 }
 
 const ExplorationCard: React.FC<ExplorationCardProps> = ({
@@ -16,6 +17,7 @@ const ExplorationCard: React.FC<ExplorationCardProps> = ({
   image,
   description,
   imagePosition = "right",
+  href,
 }) => {
   const imageOrder =
     imagePosition === "left" ? "lg:order-first" : "lg:order-last";
@@ -119,7 +121,7 @@ const ExplorationCard: React.FC<ExplorationCardProps> = ({
         </motion.div>
 
         <motion.a
-          href="#"
+          href={href || "#"}
           className="flex items-center text-sm text-blue-600 font-semibold hover:text-blue-700 relative z-10"
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -151,6 +153,7 @@ const ExplorationSection: React.FC = () => {
               description={item.description}
               image={item.image}
               imagePosition={item.imagePosition}
+              href={item.href}
             />
           </motion.div>
         ))}
