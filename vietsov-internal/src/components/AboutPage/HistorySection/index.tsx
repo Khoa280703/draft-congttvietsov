@@ -42,9 +42,9 @@ const HistorySection: React.FC<HistorySectionProps> = ({
         </div>
       </div>
 
-      <div className="relative container mx-auto px-4 md:px-12 z-10">
+      <div className="relative container mx-auto px-4 md:px-12 lg:px-60 2xl:px-80 z-10">
         <motion.h2
-          className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-16"
+          className="text-white text-4xl md:text-4xl lg:text-4xl 2xl:text-5xl leading-none tracking-[-0.4px] font-bold mb-8 md:mb-12 lg:mb-10 2xl:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -110,13 +110,13 @@ const HistorySection: React.FC<HistorySectionProps> = ({
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
               {/* Main white card - responsive layout */}
-              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 lg:p-12 relative z-10 h-[28rem] md:h-[32rem] lg:h-[36rem] xl:h-[40rem]">
+              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 lg:p-10 2xl:p-12 relative z-10 h-[22rem] md:h-[26rem] lg:h-[28rem] 2xl:h-[34rem]">
                 <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 h-full">
                   {/* Content Section */}
                   <div className="w-full lg:w-5/8 flex flex-col justify-between lg:pr-0">
-                    <div className="space-y-4 md:space-y-6">
+                    <div className="space-y-4 md:space-y-6 lg:space-y-5 2xl:space-y-6">
                       <motion.h3
-                        className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold bg-clip-text text-transparent bg-[linear-gradient(to_right,_#3b82f6_0%,_#22c55e_50%)]"
+                        className="text-2xl md:text-3xl lg:text-3xl 2xl:text-5xl font-bold bg-clip-text text-transparent bg-[linear-gradient(to_right,_#3b82f6_0%,_#22c55e_50%)]"
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{
@@ -138,7 +138,7 @@ const HistorySection: React.FC<HistorySectionProps> = ({
                           ease: "easeOut",
                         }}
                       >
-                        <p className="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
+                        <p className="text-sm md:text-base lg:text-sm 2xl:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
                           {currentEvent.description}
                         </p>
                       </motion.div>

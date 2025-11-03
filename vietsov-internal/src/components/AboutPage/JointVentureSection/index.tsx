@@ -34,7 +34,7 @@ const JointVentureSection: React.FC<JointVentureSectionProps> = ({
       >
         <div className="container mx-auto px-4">
           <motion.h1
-            className="text-3xl md:text-4xl font-medium text-gray-800 mb-6 leading-tight"
+            className="text-3xl md:text-4xl lg:text-3xl 2xl:text-4xl font-medium text-gray-800 mb-6 lg:mb-5 2xl:mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -43,7 +43,7 @@ const JointVentureSection: React.FC<JointVentureSectionProps> = ({
             {data.title}
           </motion.h1>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-14 2xl:gap-16 items-center">
             {/* Video Section */}
             <motion.div
               className="p-2 border-2 border-vietsov-green rounded-3xl"
@@ -69,7 +69,7 @@ const JointVentureSection: React.FC<JointVentureSectionProps> = ({
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
             >
-              <div className="space-y-4 text-gray-600 leading-relaxed">
+              <div className="space-y-4 lg:space-y-3 2xl:space-y-4 text-gray-600 leading-relaxed text-base lg:text-sm 2xl:text-base">
                 {data.description.split("\n\n").map((paragraph, index) => (
                   <motion.p
                     key={index}

@@ -42,9 +42,9 @@ const AboutPage: React.FC = () => {
           element={
             <div className="bg-vietsov-background">
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:pt-22 md:pb-15 px-4 md:px-12 lg:px-75">
-                  <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15 px-4 md:px-12 lg:px-60 2xl:px-80">
+                  <div className="text-center mb-8 md:mb-12 lg:mb-10 2xl:mb-16">
+                    <h2 className="text-3xl md:text-4xl lg:text-4xl 2xl:text-5xl font-bold">
                       Liên doanh Việt - Nga
                     </h2>
                   </div>
@@ -58,9 +58,9 @@ const AboutPage: React.FC = () => {
 
               {/* Core Values Section */}
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:pt-22 md:pb-15 px-4 md:px-12 lg:px-75">
-                  <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15 px-4 md:px-12 lg:px-60 2xl:px-80">
+                  <div className="text-center mb-8 md:mb-12 lg:mb-10 2xl:mb-16">
+                    <h2 className="text-3xl md:text-4xl lg:text-4xl 2xl:text-5xl font-bold">
                       Giá trị cốt lõi
                     </h2>
                   </div>
@@ -71,9 +71,9 @@ const AboutPage: React.FC = () => {
 
               {/* Organization Structure */}
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:pt-22 md:pb-15 px-4 md:px-12 lg:px-75">
-                  <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15 px-4 md:px-12 lg:px-60 2xl:px-80">
+                  <div className="text-center mb-8 md:mb-12 lg:mb-10 2xl:mb-16">
+                    <h2 className="text-3xl md:text-4xl lg:text-4xl 2xl:text-5xl font-bold">
                       Cơ cấu tổ chức
                     </h2>
                   </div>
@@ -88,9 +88,9 @@ const AboutPage: React.FC = () => {
 
               {/* Capabilities */}
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:pt-22 md:pb-15 px-4 md:px-12 lg:px-75">
-                  <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15 px-4 md:px-12 lg:px-60 2xl:px-80">
+                  <div className="text-center mb-8 md:mb-12 lg:mb-10 2xl:mb-16">
+                    <h2 className="text-3xl md:text-4xl lg:text-4xl 2xl:text-5xl font-bold">
                       Lĩnh Vực Hoạt Động
                     </h2>
                   </div>
@@ -100,7 +100,7 @@ const AboutPage: React.FC = () => {
 
               {/* Archive Photos */}
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:pt-22 md:pb-15 px-4 md:px-12 lg:px-75">
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15 px-4 md:px-12 lg:px-60 2xl:px-80">
                   <ArchivePhotosSection />
                 </section>
               </AnimatedSection>
