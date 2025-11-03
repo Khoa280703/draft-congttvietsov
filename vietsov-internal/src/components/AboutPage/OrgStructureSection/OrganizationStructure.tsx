@@ -9,6 +9,10 @@ import React, {
 } from "react";
 
 import { FiX, FiArrowRight } from "react-icons/fi";
+import { defaultLeaders } from "@/components/AboutPage/LeadershipSection/data";
+import { LeadershipModal } from "@/components/AboutPage";
+import { CardSimple } from "@/components/Card";
+import type { Leader } from "@/components/AboutPage/LeadershipSection/data";
 
 interface OrgNodeData {
   id: string;
@@ -32,6 +36,7 @@ interface OrgNodeProps {
 interface NodeModalProps {
   node: OrgNodeData | null;
   onClose: () => void;
+  onLeaderClick?: (leader: Leader) => void;
 }
 
 const OrgNode = forwardRef<OrgNodeRef, OrgNodeProps>(
@@ -52,8 +57,8 @@ const OrgNode = forwardRef<OrgNodeRef, OrgNodeProps>(
             relative px-6 py-4 rounded-lg cursor-pointer transition-all duration-200
             ${
               isBlueVariant
-                ? "bg-gradient-to-br from-blue-500 to-cyan-400 text-white font-semibold"
-                : "bg-white border-2 border-blue-400 text-blue-600"
+                ? "bg-gradient-to-br from-vietsov-green to-green-400 text-white font-semibold"
+                : "bg-white border-2 border-vietsov-green text-vietsov-green"
             }
             ${isActive ? "ring-4 ring-yellow-400 scale-105" : "hover:scale-105"}
             shadow-md hover:shadow-lg
@@ -74,8 +79,14 @@ const OrgNode = forwardRef<OrgNodeRef, OrgNodeProps>(
 
 OrgNode.displayName = "OrgNode";
 
-const NodeModal: React.FC<NodeModalProps> = ({ node, onClose }) => {
+const NodeModal: React.FC<NodeModalProps> = ({
+  node,
+  onClose,
+  onLeaderClick,
+}) => {
   if (!node) return null;
+
+  const isLeadershipNode = node.id === "ban-tong-giam-doc";
 
   return (
     <div
@@ -83,7 +94,11 @@ const NodeModal: React.FC<NodeModalProps> = ({ node, onClose }) => {
       onClick={onClose}
     >
       <div
-        className="bg-white border border-gray-200 rounded-2xl shadow-2xl p-6 sm:p-8 w-[32rem] sm:w-[36rem] max-w-[90vw] max-h-[80vh] overflow-y-auto transform transition-all duration-300 ease-out animate-fade-scale-in"
+        className={`node-modal bg-white border border-gray-200 rounded-2xl shadow-2xl p-6 sm:p-8 ${
+          isLeadershipNode
+            ? "w-[90vw] max-w-6xl"
+            : "w-[32rem] sm:w-[36rem] max-w-[90vw]"
+        } max-h-[80vh] overflow-y-auto transform transition-all duration-300 ease-out animate-fade-scale-in`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header with gradient background */}
@@ -92,7 +107,7 @@ const NodeModal: React.FC<NodeModalProps> = ({ node, onClose }) => {
             <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">
               {node.label}
             </h3>
-            <div className="mt-2 w-12 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
+            <div className="mt-2 w-12 h-1 bg-gradient-to-r from-vietsov-green to-green-400 rounded-full"></div>
           </div>
           <button
             onClick={onClose}
@@ -108,12 +123,38 @@ const NodeModal: React.FC<NodeModalProps> = ({ node, onClose }) => {
 
         {/* Content Section */}
         <div className="space-y-6">
-          {/* Description */}
-          <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-            <div className="flex items-start space-x-3">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                <svg
-                  className="w-4 h-4 text-blue-600"
+          {isLeadershipNode ? (
+            /* Leadership Grid */
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {defaultLeaders.map((leader) => (
+                <div
+                  key={leader.id}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (onLeaderClick) {
+                      onLeaderClick(leader);
+                    }
+                  }}
+                  className="cursor-pointer"
+                >
+                  <CardSimple
+                    imageUrl={leader.image}
+                    imageAlt={leader.name}
+                    position={leader.title}
+                    name={leader.name}
+                    className="h-full hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+          ) : (
+            <>
+              {/* Description */}
+              <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                    <svg
+                      className="w-4 h-4 text-vietsov-green"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -138,13 +179,13 @@ const NodeModal: React.FC<NodeModalProps> = ({ node, onClose }) => {
             </div>
           </div>
 
-          {/* Sub-units */}
-          {node.children && node.children.length > 0 && (
-            <div className="bg-blue-50 rounded-xl p-4 border border-blue-100">
-              <div className="flex items-start space-x-3">
-                <div className="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-                  <svg
-                    className="w-4 h-4 text-blue-600"
+              {/* Sub-units */}
+              {node.children && node.children.length > 0 && (
+                <div className="bg-green-50 rounded-xl p-4 border border-green-100">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                      <svg
+                        className="w-4 h-4 text-vietsov-green"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -165,9 +206,9 @@ const NodeModal: React.FC<NodeModalProps> = ({ node, onClose }) => {
                     {node.children.map((child) => (
                       <div
                         key={child.id}
-                        className="flex items-center space-x-2 p-2 bg-white rounded-lg border border-gray-100 hover:border-blue-200 transition-colors"
+                        className="flex items-center space-x-2 p-2 bg-white rounded-lg border border-gray-100 hover:border-green-200 transition-colors"
                       >
-                        <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                        <div className="w-2 h-2 bg-vietsov-green rounded-full"></div>
                         <span className="text-sm text-gray-700">
                           {child.label}
                         </span>
@@ -179,17 +220,19 @@ const NodeModal: React.FC<NodeModalProps> = ({ node, onClose }) => {
             </div>
           )}
 
-          {/* Action Button */}
-          {node.url && (
-            <div className="pt-2">
-              <a
-                href={node.url}
-                className="inline-flex items-center justify-center w-full px-4 py-3 bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-cyan-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 group"
-              >
-                <span>Xem thêm thông tin</span>
-                <FiArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
-            </div>
+              {/* Action Button */}
+              {node.url && (
+                <div className="pt-2">
+                  <a
+                    href={node.url}
+                    className="inline-flex items-center justify-center w-full px-4 py-3 bg-gradient-to-r from-vietsov-green to-green-400 text-white font-semibold rounded-xl hover:from-green-600 hover:to-green-500 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 group"
+                  >
+                    <span>Xem thêm thông tin</span>
+                    <FiArrowRight className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" />
+                  </a>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>
@@ -438,6 +481,10 @@ const OrganizationStructure = () => {
   );
   const [activeNodeId, setActiveNodeId] = useState<string | null>(null);
   const [modalNode, setModalNode] = useState<OrgNodeData | null>(null);
+  const [isLeadershipModalOpen, setIsLeadershipModalOpen] = useState(false);
+  const [selectedLeader, setSelectedLeader] = useState<Leader | undefined>(
+    undefined
+  );
 
   const calculateConnectorLines = useCallback(() => {
     const svg = chartContainerRef.current?.querySelector("svg");
@@ -484,7 +531,7 @@ const OrganizationStructure = () => {
       line1.setAttribute("y1", parentY.toString());
       line1.setAttribute("x2", parentX.toString());
       line1.setAttribute("y2", (parentY + verticalLineLength).toString());
-      line1.setAttribute("stroke", "#60a5fa");
+      line1.setAttribute("stroke", "#22c55e");
       line1.setAttribute("stroke-width", "2");
       svg.appendChild(line1);
 
@@ -557,6 +604,12 @@ const OrganizationStructure = () => {
     setModalNode(null);
   };
 
+  const handleLeaderClick = (leader: Leader) => {
+    setSelectedLeader(leader);
+    setIsLeadershipModalOpen(true);
+    // Keep node modal open when opening leadership modal
+  };
+
   useEffect(() => {
     const timeout = setTimeout(calculateConnectorLines, 100);
     const observer = new ResizeObserver(calculateConnectorLines);
@@ -574,22 +627,6 @@ const OrganizationStructure = () => {
     };
   }, [calculateConnectorLines]);
 
-  // Close modal when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (modalNode && !(event.target as Element).closest(".node-modal")) {
-        handleCloseModal();
-      }
-    };
-
-    if (modalNode) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [modalNode]);
 
   return (
     <div className="relative p-8 overflow-x-auto">
@@ -611,7 +648,18 @@ const OrganizationStructure = () => {
       </div>
 
       {/* Node Modal */}
-      <NodeModal node={modalNode} onClose={handleCloseModal} />
+      <NodeModal
+        node={modalNode}
+        onClose={handleCloseModal}
+        onLeaderClick={handleLeaderClick}
+      />
+
+      {/* Leadership Modal */}
+      <LeadershipModal
+        isOpen={isLeadershipModalOpen}
+        onClose={() => setIsLeadershipModalOpen(false)}
+        leader={selectedLeader}
+      />
     </div>
   );
 };

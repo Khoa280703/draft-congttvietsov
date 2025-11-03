@@ -3,15 +3,13 @@ import { motion } from "framer-motion";
 import { CardWithPadding } from "@/components/Card";
 import { SeeMoreButton } from "@/components/Button";
 import { type TypicalProjectsProps, defaultProjects } from "./data";
-import { useNavigate } from "react-router-dom";
 
 const TypicalProjects: React.FC<TypicalProjectsProps> = ({
   projects = defaultProjects,
   viewMoreText = "Xem thêm",
-  viewMoreLink = "/projects",
+  viewMoreLink = "/doitac-duan/du-an",
   className = "",
 }) => {
-  const navigate = useNavigate();
   return (
     <motion.div
       className={`${className}`}
@@ -20,7 +18,7 @@ const TypicalProjects: React.FC<TypicalProjectsProps> = ({
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-15">
         {projects.map((project, index) => (
           <motion.div
             key={project.id}
@@ -58,7 +56,6 @@ const TypicalProjects: React.FC<TypicalProjectsProps> = ({
           text={viewMoreText}
           href={viewMoreLink}
           variant="outline"
-          onClick={() => navigate("/doitac-duan/du-an")}
         />
       </motion.div>
     </motion.div>

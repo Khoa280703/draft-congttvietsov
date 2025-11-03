@@ -5,7 +5,6 @@ import {
   JointVentureSection,
   HistorySection,
   OrgStructureSection,
-  LeadershipSection,
   AchievementsSection,
   CapabilitiesSection,
   CoreValuesSection,
@@ -71,6 +70,7 @@ const InternalAboutPage: React.FC = () => {
                   </div>
                   <CoreValuesSection />
                 </section>
+                <div className="mt-6 h-px bg-gradient-to-r from-transparent via-vietsov-green to-transparent max-w-3xl mx-auto"></div>
               </AnimatedSection>
 
               {/* Organization Structure */}
@@ -82,18 +82,6 @@ const InternalAboutPage: React.FC = () => {
                     </h2>
                   </div>
                   <OrgStructureSection />
-                </section>
-              </AnimatedSection>
-
-              {/* Leadership */}
-              <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
-                  <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                      Ban lãnh đạo
-                    </h2>
-                  </div>
-                  <LeadershipSection />
                 </section>
               </AnimatedSection>
 

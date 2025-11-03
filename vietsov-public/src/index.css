@@ -79,6 +79,14 @@
   --color-vietsov-cyan: #06b6d4;
   --color-vietsov-gray: #6b7280;
   --color-vietsov-light-gray: #919296;
+
+  /* Custom Font Sizes */
+  --font-size-xs-label: 11px;
+  --font-size-sm-label: 13px;
+
+  /* Custom Line Heights */
+  --line-height-xs-label: 22px;
+  --line-height-sm-label: 18px;
 }
 
 /* Global Font Application */
@@ -94,10 +102,6 @@ body {
   color: var(--color-vietsov-black);
   margin: 0;
   padding: 0;
-  transform: scale(0.9);
-  transform-origin: top left;
-  width: 111.11%;
-  overflow-x: hidden;
 }
 
 /* Custom Utility Classes */
@@ -109,6 +113,10 @@ body {
 
   .bg-vietsov-background {
     background-image: linear-gradient(to bottom, #edf8f2, #ffffff);
+  }
+
+  .bg-vietsov-background2 {
+    background-image: linear-gradient(to bottom, #ffffff, #ecf7f1);
   }
 
   .text-vietsov-black {
@@ -163,5 +171,23 @@ body {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  /* Custom Font Size Utilities */
+  .text-xs-label {
+    font-size: var(--font-size-xs-label);
+  }
+
+  .text-sm-label {
+    font-size: var(--font-size-sm-label);
+  }
+
+  /* Custom Line Height Utilities */
+  .leading-xs-label {
+    line-height: var(--line-height-xs-label);
+  }
+
+  .leading-sm-label {
+    line-height: var(--line-height-sm-label);
   }
 }

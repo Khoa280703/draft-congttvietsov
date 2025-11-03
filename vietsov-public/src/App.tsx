@@ -27,7 +27,6 @@ import TimKiem from "@/pages/FieldsCapabilitiesPage/TimKiem";
 import KhaiThac from "@/pages/FieldsCapabilitiesPage/KhaiThac";
 import ContactPage from "@/pages/ContactPage/ContactPage";
 import SearchPage from "@/pages/SearchPage/SearchPage";
-import DocumentationPage from "@/pages/DocumentationPage";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
 
 const PublicInterface: React.FC = () => {
@@ -35,7 +34,6 @@ const PublicInterface: React.FC = () => {
   const navigate = useNavigate();
   const { scrollToSection } = useScrollToSection();
   const [activeNavItem, setActiveNavItem] = useState("TRANG CHỦ");
-  const [showDocumentation, setShowDocumentation] = useState(false);
 
   const { URL_TO_NAV_ITEM, NAV_ITEM_TO_URL } = NAVIGATION_CONFIG.MAIN;
 
@@ -99,8 +97,8 @@ const PublicInterface: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen relative">
-      <Header onDocumentationClick={() => setShowDocumentation(true)} />
+    <div className="overflow-x-hidden w-full max-w-full">
+      <Header />
       <Navigation
         activeItem={activeNavItem}
         onItemClick={handleNavItemClick}
@@ -129,11 +127,6 @@ const PublicInterface: React.FC = () => {
 
       <PreFooter />
       <Footer />
-
-      {/* Documentation Modal */}
-      {showDocumentation && (
-        <DocumentationPage onClose={() => setShowDocumentation(false)} />
-      )}
     </div>
   );
 };

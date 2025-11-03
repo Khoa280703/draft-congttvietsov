@@ -17,7 +17,9 @@ const ValueItem: React.FC<{ value: any; index: number }> = ({
           className="w-16 h-16 text-green-600 text-4xl flex items-center justify-center"
         />
         <h3 className="text-xl font-bold text-gray-900 mt-4 mb-2">{title}</h3>
-        <p className="text-base text-gray-600 leading-relaxed">{description}</p>
+        <p className="font-normal text-base leading-7 text-center text-vietsov-black/80">
+          {description}
+        </p>
       </div>
     </AnimatedItem>
   );

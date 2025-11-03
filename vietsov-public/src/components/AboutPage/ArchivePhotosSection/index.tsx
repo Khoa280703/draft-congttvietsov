@@ -174,7 +174,7 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
 
           {/* See More Button - Centered at bottom */}
           <motion.div
-            className="flex justify-center"
+            className="flex justify-center mt-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}

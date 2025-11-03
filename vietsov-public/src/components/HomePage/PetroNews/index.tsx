@@ -17,7 +17,7 @@ const PetroNews: React.FC<PetroNewsProps> = ({
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {/* News Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-15">
         {newsItems.map((item, index) => (
           <motion.div
             key={item.id}

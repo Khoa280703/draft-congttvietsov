@@ -17,9 +17,9 @@ const VisionMission: React.FC<VisionMissionProps> = ({
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-32 items-center w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-9 gap-12 lg:gap-26 items-center w-full">
         <motion.div
-          className="space-y-32"
+          className="space-y-6 col-span-4"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -27,7 +27,7 @@ const VisionMission: React.FC<VisionMissionProps> = ({
         >
           {/* Vision Section */}
           <motion.div
-            className="space-y-4"
+            className="space-y-4 py-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -55,7 +55,7 @@ const VisionMission: React.FC<VisionMissionProps> = ({
 
           {/* Mission Section */}
           <motion.div
-            className="space-y-4"
+            className="space-y-4 py-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -84,7 +84,7 @@ const VisionMission: React.FC<VisionMissionProps> = ({
         </motion.div>
 
         <motion.div
-          className="relative"
+          className="relative col-span-5"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -101,7 +101,7 @@ const VisionMission: React.FC<VisionMissionProps> = ({
             <img
               src={data.image.src}
               alt={data.image.alt}
-              className="w-full h-[500px] md:h-[600px] object-cover"
+              className="w-full h-[500px] md:h-[500px] object-cover"
               style={{
                 borderTopLeftRadius: "60px",
                 borderBottomLeftRadius: "16px",

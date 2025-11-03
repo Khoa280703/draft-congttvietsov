@@ -27,7 +27,7 @@ const HistorySection: React.FC<HistorySectionProps> = ({
 
   return (
     <motion.section
-      className={`relative py-16 md:py-24 overflow-hidden ${className}`}
+      className={`relative py-16 md:py-32 overflow-hidden ${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -42,9 +42,9 @@ const HistorySection: React.FC<HistorySectionProps> = ({
         </div>
       </div>
 
-      <div className="relative container mx-auto px-4 md:px-12 z-10">
+      <div className="relative px-4 md:px-12 lg:px-75 z-10">
         <motion.h2
-          className="text-white text-4xl md:text-5xl lg:text-6xl font-bold mb-8 md:mb-16"
+          className="text-white text-4xl md:text-4xl lg:text-5xl leading-none tracking-[-0.4px] font-bold mb-8 md:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -110,7 +110,7 @@ const HistorySection: React.FC<HistorySectionProps> = ({
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
               {/* Main white card - responsive layout */}
-              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 lg:p-12 relative z-10 h-[28rem] md:h-[32rem] lg:h-[36rem] xl:h-[40rem]">
+              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 lg:p-12 relative z-10 h-[22rem] md:h-[26rem] lg:h-[30rem] xl:h-[34rem]">
                 <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 h-full">
                   {/* Content Section */}
                   <div className="w-full lg:w-5/8 flex flex-col justify-between lg:pr-0">
@@ -190,7 +190,7 @@ const HistorySection: React.FC<HistorySectionProps> = ({
 
                     {/* Desktop: Image with absolute positioning overflow */}
                     <div className="hidden lg:block relative">
-                      <div className="absolute -top-40 -right-4 w-[100%] h-[46rem]">
+                      <div className="absolute -top-34 -right-4 w-[100%] h-[38rem]">
                         <img
                           src={currentEvent.imageUrl}
                           alt={currentEvent.imageAlt}

@@ -7,7 +7,7 @@ import {
 } from "@/components/NewsPage";
 import { ArchivePhotosSection } from "@/components/AboutPage";
 import DetailPage from "@/pages/NewsPage/DetailPage";
-import MediaLibraryPage from "@/pages/NewsPage/MediaLibraryPage";
+import MediaLibraryPage from "@/pages/NewsPage/MediaLibraryPage/index";
 import CommunityActivityPage from "@/pages/NewsPage/CommunityActivityPage";
 import ProductionActivityPage from "@/pages/NewsPage/ProductionActivityPage";
 import OilNewsPage from "@/pages/NewsPage/OilNewsPage";

@@ -14,17 +14,16 @@ import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
 
 const HomePage: React.FC = () => {
   return (
-    <div className="bg-vietsov-background">
+    <div>
       <SliderHome basePath="public" />
-
-      {/* <AnimatedSection animation="fadeIn" delay={100}>
-        <BreakingNewsSlider basePath="public" />
-      </AnimatedSection> */}
-
-      <AnimatedSection animation="fadeInUp" delay={100}>
-        <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+      <AnimatedSection
+        animation="fadeInUp"
+        delay={100}
+        className="bg-vietsov-background2"
+      >
+        <section className="py-8 md:pt-22 md:pb-15 px-4 md:px-12 lg:px-75">
+          <div className="text-center mb-15">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-none tracking-[-0.008em]">
               Tầm nhìn – Sứ mệnh
             </h2>
             <p className="text-base md:text-base font-normal leading-relaxed max-w-4xl mx-auto">
@@ -33,16 +32,20 @@ const HomePage: React.FC = () => {
               thác hiệu quả tài nguyên.
             </p>
           </div>
-          <div className="flex items-center justify-center min-h-[600px]">
+          <div className="flex items-center justify-center min-h-[500px]">
             <VisionMission />
           </div>
         </section>
       </AnimatedSection>
 
-      <AnimatedSection animation="fadeInUp" delay={100}>
-        <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+      <AnimatedSection
+        animation="fadeInUp"
+        delay={100}
+        className="bg-vietsov-background"
+      >
+        <section className="py-8 md:py-15 px-4 md:px-12 lg:px-75">
+          <div className="text-center mb-15">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-none tracking-[-0.008em]">
               Lĩnh Vực Hoạt Động
             </h2>
           </div>
@@ -50,10 +53,14 @@ const HomePage: React.FC = () => {
         </section>
       </AnimatedSection>
 
-      <AnimatedSection animation="fadeInUp" delay={100}>
+      <AnimatedSection
+        animation="fadeInUp"
+        delay={100}
+        className="bg-vietsov-background2"
+      >
         <div className="bg-white">
-          <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
-            <div className="text-center mb-16">
+          <section className="py-8 md:py-15 px-4 md:px-12 lg:px-75">
+            <div className="text-center mb-15">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                 Dự án tiêu biểu
               </h2>
@@ -64,9 +71,13 @@ const HomePage: React.FC = () => {
       </AnimatedSection>
 
       {/* Petro News Section */}
-      <AnimatedSection animation="fadeInUp" delay={100}>
-        <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
-          <div className="text-center mb-16">
+      <AnimatedSection
+        animation="fadeInUp"
+        delay={100}
+        className="bg-vietsov-background"
+      >
+        <section className="py-8 md:py-15 px-4 md:px-12 lg:px-75">
+          <div className="text-center mb-15">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
               Tin tức Dầu khí
             </h2>
@@ -80,7 +91,7 @@ const HomePage: React.FC = () => {
       </AnimatedSection>
 
       <AnimatedSection animation="fadeInUp" delay={100}>
-        <div className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+        <div className="py-8 md:py-15 px-4 md:px-12 lg:px-75">
           <PartnerSlider />
         </div>
       </AnimatedSection>

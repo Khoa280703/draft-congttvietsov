@@ -20,13 +20,11 @@ import {
   InternalApplicationsPage,
   InternalSearchPage,
 } from "@/pages";
-import DocumentationPage from "@/pages/DocumentationPage";
 
 const InternalInterface: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [activeNavItem, setActiveNavItem] = useState("TRANG CHỦ");
-  const [showDocumentation, setShowDocumentation] = useState(false);
 
   const { URL_TO_NAV_ITEM, NAV_ITEM_TO_URL } = NAVIGATION_CONFIG.INTERNAL;
 
@@ -61,10 +59,10 @@ const InternalInterface: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white relative">
-      <Header onDocumentationClick={() => setShowDocumentation(true)} />
+    <div>
+      <Header />
 
-      <div className="pb-1">
+      <div>
         <Navigation
           activeItem={activeNavItem}
           onItemClick={handleNavItemClick}
@@ -85,11 +83,6 @@ const InternalInterface: React.FC = () => {
 
       <PreFooter />
       <Footer />
-
-      {/* Documentation Modal */}
-      {showDocumentation && (
-        <DocumentationPage onClose={() => setShowDocumentation(false)} />
-      )}
     </div>
   );
 };

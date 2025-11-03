@@ -167,7 +167,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
 
                         {/* Main Title */}
                         <motion.h1
-                          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4"
+                          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[100px] tracking-normal  mb-4"
                           style={{ color: slide.textColor || "white" }}
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
