@@ -180,11 +180,11 @@ const HistorySection: React.FC<HistorySectionProps> = ({
                     transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
                   >
                     {/* Image inside card for all screen sizes */}
-                    <div className="w-full h-64 md:h-80 lg:h-full rounded-2xl overflow-hidden">
+                    <div className="w-full h-64 md:h-80 lg:h-full rounded-2xl overflow-hidden overflow-hidden p-2 border-2 border-vietsov-green">
                       <img
                         src={currentEvent.imageUrl}
                         alt={currentEvent.imageAlt}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover rounded-xl"
                       />
                     </div>
                   </motion.div>

@@ -10,7 +10,7 @@ const GradientImageOverlay: React.FC<GradientImageOverlayProps> = ({
   children,
 }) => {
   return (
-    <div className="relative w-full h-96 lg:h-80 2xl:h-96 bg-gray-900">
+    <div className="relative w-full h-96 lg:h-80 inch32:h-96 bg-gray-900">
       <img
         src={imageUrl}
         alt="Background"

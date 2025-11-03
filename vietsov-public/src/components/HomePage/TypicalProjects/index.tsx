@@ -18,7 +18,7 @@ const TypicalProjects: React.FC<TypicalProjectsProps> = ({
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-6 2xl:gap-8 mb-8 md:mb-12 lg:mb-10 2xl:mb-15">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-6 inch32:gap-8 mb-8 md:mb-12 lg:mb-10 inch32:mb-15">
         {projects.map((project, index) => (
           <motion.div
             key={project.id}

@@ -40,7 +40,7 @@ const TimKiem: React.FC = () => {
       <PageHeader title="Tìm kiếm Dầu khí" backgroundImage={danKhoanBackground} breadcrumbs={breadcrumbs} />
 
       <section className="bg-white py-10 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15">
-        <div className="px-4 md:px-12 lg:px-60 2xl:px-80">
+        <div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-5 2xl:gap-6">
             {capabilities.map((cap, idx) => (
               <CardWithPadding

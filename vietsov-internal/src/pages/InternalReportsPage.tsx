@@ -4,7 +4,7 @@ import { PageWithSidebar } from "@/components";
 const InternalReportsPage: React.FC = () => {
   return (
     <PageWithSidebar activePath="/internal/baocao">
-      <div className="px-4 md:px-12 lg:px-60 2xl:px-80 py-8 md:py-12 lg:py-10 2xl:py-12">
+      <div>
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-4xl lg:text-3xl 2xl:text-4xl font-bold text-gray-800 mb-6 md:mb-8 lg:mb-6 2xl:mb-8">
             Báo cáo (Nội bộ)
