@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import VietsopetroLogo from "@/assets/logo/vsp_logo.png";
-import { RiArrowDownWideFill } from "react-icons/ri";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
 
 // Public interface menu items
@@ -113,11 +112,31 @@ const internalPreFooterLinks = [
   },
 ];
 
+// Website đơn vị thành viên options
+const unitWebsiteOptions = [
+  { url: "https://petrovietnam.pvn.vn", label: "Tập đoàn Dầu khí Việt Nam" },
+  { url: "https://www.gazprom.ru", label: "Gazprom" },
+  { url: "https://www.petronet.com.vn", label: "Petronet" },
+  { url: "https://www.pvn.com.vn", label: "PVN" },
+];
+
+// Liên kết options
+const linkOptions = [
+  { url: "https://www.gov.vn", label: "Cổng Thông tin Điện tử Chính phủ" },
+  { url: "https://www.most.gov.vn", label: "Bộ Khoa học và Công nghệ" },
+  { url: "https://www.monre.gov.vn", label: "Bộ Tài nguyên và Môi trường" },
+  { url: "https://www.pvn.vn", label: "Tập đoàn Dầu khí Việt Nam" },
+];
+
 const PreFooter: React.FC = () => {
   const location = useLocation();
   const [expandedSections, setExpandedSections] = useState<
     Record<string, boolean>
   >({});
+  const [isUnitWebsiteOpen, setIsUnitWebsiteOpen] = useState(false);
+  const [isLinkOpen, setIsLinkOpen] = useState(false);
+  const unitWebsiteRef = useRef<HTMLDivElement>(null);
+  const linkRef = useRef<HTMLDivElement>(null);
 
   // Determine if we're in internal interface based on the path
   const isInternalInterface = location.pathname.startsWith("/internal");
@@ -133,6 +152,29 @@ const PreFooter: React.FC = () => {
       [title]: !prev[title],
     }));
   };
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        unitWebsiteRef.current &&
+        !unitWebsiteRef.current.contains(event.target as Node)
+      ) {
+        setIsUnitWebsiteOpen(false);
+      }
+      if (
+        linkRef.current &&
+        !linkRef.current.contains(event.target as Node)
+      ) {
+        setIsLinkOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <footer className="bg-gray-100 py-12 px-4 border-t border-gray-200">
@@ -204,11 +246,72 @@ const PreFooter: React.FC = () => {
             </div>
           </div>
 
-          <div>
-            <button className="flex items-center text-sm text-gray-700 font-medium px-4 py-2 rounded-md">
-              Website đơn vị thành viên
-              <RiArrowDownWideFill className="w-5 h-5 ml-2 text-blue-500" />
-            </button>
+          <div className="flex flex-col gap-3 items-end">
+            {/* Website đơn vị thành viên Dropdown */}
+            <div ref={unitWebsiteRef} className="relative">
+              <button
+                onClick={() => setIsUnitWebsiteOpen(!isUnitWebsiteOpen)}
+                className="flex items-center text-sm text-gray-700 font-medium px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors"
+              >
+                Website đơn vị thành viên
+                <HiChevronDown
+                  className={`w-5 h-5 ml-2 text-gray-600 transition-transform ${
+                    isUnitWebsiteOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {isUnitWebsiteOpen && (
+                <div className="absolute bottom-full right-0 mb-2 w-64 bg-white border border-gray-300 rounded-lg shadow-lg z-50">
+                  <div className="py-1">
+                    {unitWebsiteOptions.map((option, index) => (
+                      <a
+                        key={index}
+                        href={option.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-vietsov-green transition-colors"
+                        onClick={() => setIsUnitWebsiteOpen(false)}
+                      >
+                        {option.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Liên kết Dropdown */}
+            <div ref={linkRef} className="relative">
+              <button
+                onClick={() => setIsLinkOpen(!isLinkOpen)}
+                className="flex items-center text-sm text-gray-700 font-medium px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors"
+              >
+                Liên kết
+                <HiChevronDown
+                  className={`w-5 h-5 ml-2 text-gray-600 transition-transform ${
+                    isLinkOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {isLinkOpen && (
+                <div className="absolute bottom-full right-0 mb-2 w-64 bg-white border border-gray-300 rounded-lg shadow-lg z-50">
+                  <div className="py-1">
+                    {linkOptions.map((option, index) => (
+                      <a
+                        key={index}
+                        href={option.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-vietsov-green transition-colors"
+                        onClick={() => setIsLinkOpen(false)}
+                      >
+                        {option.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

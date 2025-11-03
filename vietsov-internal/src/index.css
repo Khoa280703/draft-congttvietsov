@@ -108,6 +108,10 @@ body {
     background-image: linear-gradient(to bottom, #edf8f2, #ffffff);
   }
 
+  .bg-vietsov-gradient-green {
+    background: linear-gradient(to right, #006d38, #1b8f45, #62bb46);
+  }
+
   .text-vietsov-black {
     color: #242424;
   }

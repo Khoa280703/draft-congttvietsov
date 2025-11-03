@@ -15,3 +15,7 @@ export { default as LeadershipSection } from "./AboutPage/LeadershipSection";
 // Shared components exports
 export { default as Pagination } from "./Pagination";
 export { default as Keyword } from "./Keyword";
+
+// Form components exports
+export { Select } from "./Form";
+export type { SelectOption, SelectProps } from "./Form";

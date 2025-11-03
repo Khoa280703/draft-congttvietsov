@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("EN");
   const navigate = useNavigate();
   return (
-    <header className="bg-gradient-to-r from-blue-900 to-vietsov-green text-white shadow-lg">
+    <header className="bg-vietsov-gradient-green text-white shadow-lg">
       <div className="px-4 lg:px-80 py-2">
         <div className="flex justify-between items-center">
           {/* Left Section - Language Selection - Desktop only */}

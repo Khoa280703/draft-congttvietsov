@@ -14,8 +14,9 @@ import {
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
-import { Pagination } from "@/components";
+import { Pagination, Select } from "@/components";
 import { PageWithSidebar } from "@/components";
+import type { SelectOption } from "@/components";
 
 import {
   mediaData,
@@ -26,6 +27,13 @@ import {
 
 type SortBy = "name" | "date" | "type" | "size";
 type SortOrder = "asc" | "desc";
+
+const sortOptions: SelectOption<SortBy>[] = [
+  { value: "name", label: "Sắp xếp theo tên" },
+  { value: "date", label: "Sắp xếp theo ngày" },
+  { value: "type", label: "Sắp xếp theo loại" },
+  { value: "size", label: "Sắp xếp theo kích thước" },
+];
 
 const MediaLibraryPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -452,19 +460,21 @@ const MediaLibraryPage: React.FC = () => {
 
               {/* Sort Controls */}
               <div className="flex items-center gap-2">
-                <select
+                <Select<SortBy>
+                  options={sortOptions}
                   value={sortBy}
-                  onChange={(e) => {
-                    setSortBy(e.target.value as SortBy);
-                    setCurrentPage(1);
+                  onChange={(newValue) => {
+                    if (newValue !== null && !Array.isArray(newValue)) {
+                      setSortBy(newValue);
+                      setCurrentPage(1);
+                    }
                   }}
-                  className="px-3 py-2.5 bg-white border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-vietsov-green focus:border-transparent transition-colors"
-                >
-                  <option value="name">Sắp xếp theo tên</option>
-                  <option value="date">Sắp xếp theo ngày</option>
-                  <option value="type">Sắp xếp theo loại</option>
-                  <option value="size">Sắp xếp theo kích thước</option>
-                </select>
+                  placeholder="Chọn cách sắp xếp"
+                  searchable={false}
+                  clearable={false}
+                  width="200px"
+                  className="min-w-[200px]"
+                />
 
                 <button
                   onClick={() => {
