@@ -35,7 +35,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
   const handleDropdownMouseLeave = () => {
     const timeout = setTimeout(() => {
       setOpenDropdownId(null);
-    }, 150); // 150ms delay before closing
+    }, 300); // 300ms delay before closing for easier interaction
     setHoverTimeout(timeout);
   };
 
@@ -89,7 +89,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
   }, [hoverTimeout]);
 
   return (
-    <nav className="bg-white w-full border-t border-gray-200 relative">
+    <nav className="bg-white w-full border-t border-gray-200 relative z-40">
       <div className="px-4 lg:px-80">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-[72px]">
           <div className="flex justify-center lg:justify-start items-center self-stretch">
@@ -99,8 +99,8 @@ const NavigationBar: React.FC<NavigationProps> = ({
               className="w-26 h-18"
             />
           </div>
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between lg:py-7 gap-4 lg:gap-[72px] flex-1 relative">
-            <ul className="hidden lg:flex justify-center items-center flex-wrap flex-1 gap-[28px]">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:py-7 gap-4 lg:gap-[72px] flex-1 relative">
+            <ul className="hidden lg:flex justify-center items-start flex-wrap flex-1 gap-y-2 gap-[28px]">
               {menuItems.map((item) => {
                 const hasChildren = item.children && item.children.length > 0;
                 const isDropdownOpen =
@@ -121,7 +121,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                         }}
                         className={`
                         px-3 py-2 text-sm leading-6 tracking-normal text-center font-semibold
-                        transition-all duration-300 flex items-center justify-center
+                        transition-all duration-300 flex items-center justify-center relative
                         hover:scale-105 whitespace-nowrap
                         ${
                           activeItem === item.label
@@ -131,14 +131,18 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       `}
                       >
                         <span>{item.label}</span>
+                        {activeItem === item.label && (
+                          <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-vietsov-green hidden lg:block"></span>
+                        )}
                       </button>
-                      {activeItem === item.label && (
-                        <span className="absolute -bottom-7 left-0 right-0 h-0.5 bg-vietsov-green hidden lg:block z-10"></span>
-                      )}
 
                       {/* Generic dropdown for any menu item with children */}
                       {isDropdownOpen && (
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 w-80 bg-white border border-gray-200 shadow-lg z-50 dropdown-container">
+                        <div
+                          className="absolute top-full left-1/2 -translate-x-1/2 w-80 bg-white border border-gray-200 shadow-xl z-[100] dropdown-container mt-2"
+                          onMouseEnter={() => handleDropdownMouseEnter(item.id)}
+                          onMouseLeave={handleDropdownMouseLeave}
+                        >
                           <div className="py-3">
                             {item.children!.map((child) => (
                               <div key={child.href} className="px-4">
@@ -147,7 +151,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                                     e.preventDefault();
                                     handleChildItemClick(child);
                                   }}
-                                  className="group block w-full text-center py-3 text-sm text-gray-600 hover:bg-gray-100 hover:px-4 transition-all duration-200 flex items-center justify-center"
+                                  className="group block w-full text-center py-3 text-sm text-gray-600 hover:bg-gray-100 hover:px-4 transition-all duration-200 flex items-center justify-center rounded-md"
                                 >
                                   <span>{child.title}</span>
                                   <HiArrowRight className="w-4 h-4 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ml-2" />
@@ -171,7 +175,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       }}
                       className={`
                       px-3 py-2 text-sm leading-6 tracking-normal text-center font-semibold
-                      transition-all duration-300 inline-block
+                      transition-all duration-300 inline-block relative
                       hover:scale-105 whitespace-nowrap
                       ${
                         activeItem === item.label
@@ -181,10 +185,10 @@ const NavigationBar: React.FC<NavigationProps> = ({
                     `}
                     >
                       <span className="whitespace-nowrap">{item.label}</span>
+                      {activeItem === item.label && (
+                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-vietsov-green hidden lg:block"></span>
+                      )}
                     </a>
-                    {activeItem === item.label && (
-                      <span className="absolute -bottom-7 left-0 right-0 h-0.5 bg-vietsov-green hidden lg:block z-10"></span>
-                    )}
                   </li>
                 );
               })}
