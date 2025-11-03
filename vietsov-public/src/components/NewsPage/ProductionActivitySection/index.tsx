@@ -30,7 +30,7 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
             title={defaultMainArticle.title}
             timestamp={defaultMainArticle.timestamp}
             description={defaultMainArticle.description}
-            imageHeight="h-80 md:h-96 lg:h-[28rem] 2xl:h-[32rem]"
+            imageHeight="h-80 md:h-96 lg:h-[20rem] 2xl:h-[28rem]"
             onClick={() => {
               window.location.href = "/tintuc/chi-tiet";
             }}
@@ -40,7 +40,7 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
 
         {/* Side Articles - Using CardFullDetailHori */}
         <div className="space-y-4 lg:space-y-3 2xl:space-y-4">
-          {defaultSideArticles.map((article) => (
+          {defaultSideArticles.slice(0, 3).map((article) => (
             <CardFullDetailHori
               key={article.id}
               image={article.image}
@@ -55,6 +55,23 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
               className="border-b border-gray-200 pb-4 last:border-b-0 last:pb-0"
             />
           ))}
+          {/* Show 4th article only on 2xl screens */}
+          <div className="hidden 2xl:block">
+            {defaultSideArticles[3] && (
+              <CardFullDetailHori
+                image={defaultSideArticles[3].image}
+                imageAlt={defaultSideArticles[3].title}
+                title={defaultSideArticles[3].title}
+                timestamp={defaultSideArticles[3].timestamp}
+                maxTitleLines={4}
+                maxDescriptionLines={0}
+                onClick={() => {
+                  window.location.href = "/tintuc/chi-tiet";
+                }}
+                className="border-b border-gray-200 pb-4 last:border-b-0 last:pb-0"
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>

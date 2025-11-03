@@ -179,27 +179,13 @@ const HistorySection: React.FC<HistorySectionProps> = ({
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
                   >
-                    {/* Mobile & Tablet: Image inside card at bottom */}
-                    <div className="block lg:hidden w-full h-64 md:h-80 rounded-2xl overflow-hidden">
+                    {/* Image inside card for all screen sizes */}
+                    <div className="w-full h-64 md:h-80 lg:h-full rounded-2xl overflow-hidden p-2 border-2 border-vietsov-green">
                       <img
                         src={currentEvent.imageUrl}
                         alt={currentEvent.imageAlt}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover rounded-xl"
                       />
-                    </div>
-
-                    {/* Desktop: Image with absolute positioning overflow */}
-                    <div className="hidden lg:block relative">
-                      <div className="absolute -top-34 -right-4 w-[100%] h-[38rem]">
-                        <img
-                          src={currentEvent.imageUrl}
-                          alt={currentEvent.imageAlt}
-                          className="w-full h-full object-cover shadow-2xl"
-                          style={{
-                            borderRadius: "64px 16px 64px 16px",
-                          }}
-                        />
-                      </div>
                     </div>
                   </motion.div>
                 </div>

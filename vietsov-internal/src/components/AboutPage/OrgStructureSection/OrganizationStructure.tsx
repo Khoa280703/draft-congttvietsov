@@ -124,29 +124,107 @@ const NodeModal: React.FC<NodeModalProps> = ({
         {/* Content Section */}
         <div className="space-y-6">
           {isLeadershipNode ? (
-            /* Leadership Grid */
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {defaultLeaders.map((leader) => (
-                <div
-                  key={leader.id}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    if (onLeaderClick) {
-                      onLeaderClick(leader);
-                    }
-                  }}
-                  className="cursor-pointer"
-                >
-                  <CardSimple
-                    imageUrl={leader.image}
-                    imageAlt={leader.name}
-                    position={leader.title}
-                    name={leader.name}
-                    className="h-full hover:scale-105 transition-transform duration-300"
-                  />
+            <>
+              {/* Description - Thông tin phòng ban */}
+              <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+                <div className="flex items-start space-x-3">
+                  <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                    <svg
+                      className="w-4 h-4 text-vietsov-green"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-sm font-semibold text-gray-900 mb-2">
+                      Thông tin phòng ban
+                    </h4>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      {node.detail ||
+                        "Ban điều hành cao nhất, chịu trách nhiệm thực hiện các quyết định của Hội đồng liên doanh và quản lý hoạt động hàng ngày của công ty."}
+                    </p>
+                  </div>
                 </div>
-              ))}
-            </div>
+              </div>
+
+              {/* Sub-units - Đơn vị trực thuộc */}
+              {node.children && node.children.length > 0 && (
+                <div className="bg-green-50 rounded-xl p-4 border border-green-100">
+                  <div className="flex items-start space-x-3">
+                    <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                      <svg
+                        className="w-4 h-4 text-vietsov-green"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                        />
+                      </svg>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-sm font-semibold text-gray-900 mb-3">
+                        Đơn vị trực thuộc
+                      </h4>
+                      <div className="grid grid-cols-1 gap-2">
+                        {node.children.map((child) => (
+                          <div
+                            key={child.id}
+                            className="flex items-center space-x-2 p-2 bg-white rounded-lg border border-gray-100 hover:border-green-200 transition-colors"
+                          >
+                            <div className="w-2 h-2 bg-vietsov-green rounded-full"></div>
+                            <span className="text-sm text-gray-700">
+                              {child.label}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Leadership Grid - Ban lãnh đạo */}
+              <div>
+                <h4 className="text-sm font-semibold text-gray-900 mb-4">
+                  Ban lãnh đạo
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {defaultLeaders.map((leader) => (
+                    <div
+                      key={leader.id}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        if (onLeaderClick) {
+                          onLeaderClick(leader);
+                        }
+                      }}
+                      className="cursor-pointer"
+                    >
+                      <CardSimple
+                        imageUrl={leader.image}
+                        imageAlt={leader.name}
+                        position={leader.title}
+                        name={leader.name}
+                        className="h-full hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
           ) : (
             <>
               {/* Description */}

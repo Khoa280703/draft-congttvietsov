@@ -21,16 +21,19 @@ const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-9 gap-8 md:gap-12 lg:gap-14 2xl:gap-20 items-center">
           {/* Left: Image Section */}
           <motion.div
-            className="relative w-full h-64 md:h-80 lg:h-[26rem] 2xl:h-[32rem] overflow-hidden rounded-2xl shadow-xl col-span-5"
+            className="relative w-full h-64 md:h-80 lg:h-[26rem] 2xl:h-[32rem] overflow-hidden col-span-5"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            style={{
+              background: "transparent",
+            }}
           >
             <img
               src={capabilitiesImage}
               alt="Oil rigs and ships in a port"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center shadow-xl"
               style={{
                 borderTopLeftRadius: "16px",
                 borderBottomLeftRadius: "60px",
@@ -38,7 +41,6 @@ const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({
                 borderBottomRightRadius: "16px",
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
           </motion.div>
 
           {/* Right: Content Section */}
