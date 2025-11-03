@@ -329,9 +329,6 @@ const Select = <T,>({
     );
   };
 
-  const selectedValues =
-    multiple && Array.isArray(value) ? value : value ? [value] : [];
-
   return (
     <div
       ref={wrapperRef}
