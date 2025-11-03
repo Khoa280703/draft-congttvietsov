@@ -91,7 +91,7 @@ const SidebarArticleCard: React.FC<SidebarArticleCardProps> = ({ data }) => {
 // --- Component chính ---
 const SpotlightNews: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 pb-8 md:pb-12">
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-5 2xl:gap-6 pb-8 md:pb-12 lg:pb-10 2xl:pb-12">
       <article className="lg:col-span-3">
         <div
           className="cursor-pointer"
@@ -111,11 +111,11 @@ const SpotlightNews: React.FC = () => {
             <span>{mainArticleData.timestamp}</span>
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-3xl 2xl:text-4xl font-bold text-gray-900 mb-4 lg:mb-3 2xl:mb-4 leading-tight">
             {mainArticleData.title}
           </h1>
 
-          <p className="text-base text-gray-600 leading-relaxed">
+          <p className="text-base lg:text-sm 2xl:text-base text-gray-600 leading-relaxed">
             {mainArticleData.summary}
           </p>
 
@@ -156,7 +156,7 @@ const SpotlightNews: React.FC = () => {
             </h2>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 lg:space-y-3 2xl:space-y-4">
             {sidebarArticlesData.map((article) => (
               <SidebarArticleCard key={article.id} data={article} />
             ))}

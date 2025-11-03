@@ -39,24 +39,24 @@ const BigCardFullDetail: React.FC<BigCardFullDetailProps> = ({
         className={`w-full ${imageHeight} object-cover rounded-lg`}
       />
 
-      <div className="p-6 space-y-4 flex-1 flex flex-col">
+      <div className="py-4 px-4 md:py-5 md:px-6 lg:py-4 lg:px-5 2xl:py-6 2xl:px-6 space-y-4 md:space-y-5 lg:space-y-4 2xl:space-y-6 flex-1 flex flex-col">
         {category && (
-          <div className="text-sm font-bold text-vietsov-green uppercase tracking-wide">
+          <div className="font-bold text-[11px] lg:text-[10px] 2xl:text-[11px] leading-none tracking-[2px] lg:tracking-[1.5px] 2xl:tracking-[2px] text-vietsov-green uppercase">
             {category}
           </div>
         )}
 
         {/* Title */}
-        <h3 className="text-2xl font-semibold leading-tight">{title}</h3>
+        <h3 className="font-semibold text-2xl lg:text-xl 2xl:text-2xl leading-tight">{title}</h3>
 
         {timestamp && (
-          <div className="text-sm font-normal text-vietsov-light-gray">
+          <div className="text-sm lg:text-xs 2xl:text-sm font-normal leading-none text-vietsov-light-gray">
             {timestamp}
           </div>
         )}
 
         {description && (
-          <p className="text-sm leading-relaxed line-clamp-3 flex-1 text-vietsov-black/80">
+          <p className="text-sm lg:text-xs 2xl:text-sm leading-relaxed line-clamp-3 flex-1 text-vietsov-black/80">
             {description}
           </p>
         )}

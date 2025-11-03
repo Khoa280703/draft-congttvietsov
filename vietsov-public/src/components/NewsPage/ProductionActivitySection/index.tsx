@@ -13,14 +13,14 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
   return (
     <div className={`${className}`}>
       {/* Header */}
-      <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-medium text-gray-800">
+      <div className="flex justify-between items-center mb-8 md:mb-12 lg:mb-10 2xl:mb-12">
+        <h2 className="text-3xl md:text-4xl lg:text-3xl 2xl:text-4xl font-medium text-gray-800">
           Hoạt động sản xuất
         </h2>
         <SeeMoreButtonSimple text="Xem thêm" href="/tintuc/hoat-dong-sx-kd" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 2xl:gap-8">
         {/* Main Article - Using CardFullDetail */}
         <div>
           <BigCardFullDetail
@@ -30,7 +30,7 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
             title={defaultMainArticle.title}
             timestamp={defaultMainArticle.timestamp}
             description={defaultMainArticle.description}
-            imageHeight="h-128"
+            imageHeight="h-80 md:h-96 lg:h-[28rem] 2xl:h-[32rem]"
             onClick={() => {
               window.location.href = "/tintuc/chi-tiet";
             }}
@@ -39,7 +39,7 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
         </div>
 
         {/* Side Articles - Using CardFullDetailHori */}
-        <div className="space-y-4">
+        <div className="space-y-4 lg:space-y-3 2xl:space-y-4">
           {defaultSideArticles.map((article) => (
             <CardFullDetailHori
               key={article.id}

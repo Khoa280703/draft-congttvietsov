@@ -24,17 +24,17 @@ const ContactPage: React.FC = () => {
 
       <div className="bg-vietsov-background">
         {/* Contact Information */}
-        <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+        <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15 px-4 md:px-12 lg:px-60 2xl:px-80">
           <ContactInfo />
         </section>
 
         {/* Contact Form */}
-        <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+        <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15 px-4 md:px-12 lg:px-60 2xl:px-80">
           <ContactForm />
         </section>
 
         {/* Headquarters Map */}
-        <section className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+        <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15 px-4 md:px-12 lg:px-60 2xl:px-80">
           <HeadquartersMap />
         </section>
       </div>

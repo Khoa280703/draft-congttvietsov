@@ -26,13 +26,13 @@ const PartnerProjectPage: React.FC = () => {
           path="/"
           element={
             <>
-              <div className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+              <div className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15 px-4 md:px-12 lg:px-60 2xl:px-80">
                 <CooperationSection />
               </div>
-              <div className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+              <div className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15 px-4 md:px-12 lg:px-60 2xl:px-80">
                 <PartnerMarquee />
               </div>
-              <div className="py-8 md:py-16 container mx-auto px-4 md:px-12">
+              <div className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15 px-4 md:px-12 lg:px-60 2xl:px-80">
                 <FeaturedProjects />
               </div>
             </>

@@ -21,12 +21,12 @@ const HomePage: React.FC = () => {
       <SliderHome />
       <BreakingNewsSlider />
       <div className="bg-vietsov-background py-8">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">
+        <div className="px-4 md:px-12 lg:px-60 2xl:px-80 py-8 md:py-12 lg:py-10 2xl:py-12">
+          <h2 className="text-3xl md:text-4xl lg:text-3xl 2xl:text-4xl font-bold text-gray-900 text-center mb-8 md:mb-12 lg:mb-10 2xl:mb-12">
             Thông tin sản xuất
           </h2>
-          <div className="container px-4 rounded-xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="px-4 rounded-xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-5 2xl:gap-6">
               <StatisticCard
                 data={statisticCardData}
                 title="SẢN LƯỢNG DẦU KHAI THÁC VSP"
@@ -46,7 +46,7 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-4 pb-8">
+        <div className="px-4 md:px-12 lg:px-60 2xl:px-80 pb-8 md:pb-12 lg:pb-10 2xl:pb-12">
           <ProductionNews />
         </div>
       </div>
@@ -56,11 +56,11 @@ const HomePage: React.FC = () => {
         <ActivitySlider />
       </div>
       <div className="bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-4 py-8">
+        <div className="px-4 md:px-12 lg:px-60 2xl:px-80 py-8 md:py-12 lg:py-10 2xl:py-12">
           <SpotlightNews />
         </div>
       </div> */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-4 py-8">
+      <div className="px-4 md:px-12 lg:px-60 2xl:px-80 py-8 md:py-12 lg:py-10 2xl:py-12">
         <LinkCenter />
       </div>
     </div>

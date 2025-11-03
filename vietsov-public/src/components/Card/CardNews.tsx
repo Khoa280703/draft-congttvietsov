@@ -41,7 +41,7 @@ const CardNews: React.FC<CardNewsProps> = ({
       whileHover={{ y: -2, transition: { duration: 0.2 } }}
       onClick={onClick}
     >
-      <div className="relative w-full h-48 overflow-hidden">
+      <div className="relative w-full h-48 md:h-56 lg:h-52 2xl:h-64 overflow-hidden">
         <img
           src={imageUrl}
           alt={imageAlt}
@@ -50,39 +50,39 @@ const CardNews: React.FC<CardNewsProps> = ({
 
         {isVideo && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="bg-white/90 rounded-full p-4 shadow-lg">
-              <FiPlay className="w-6 h-6 text-gray-800 ml-1" />
+            <div className="bg-white/90 rounded-full p-4 lg:p-3.5 2xl:p-4 shadow-lg">
+              <FiPlay className="w-6 h-6 lg:w-5 lg:h-5 2xl:w-6 2xl:h-6 text-gray-800 ml-1" />
             </div>
           </div>
         )}
       </div>
 
-      <div className="py-2 space-y-4 flex-1 flex flex-col">
+      <div className="py-2 md:py-3 lg:py-2 2xl:py-3 space-y-3 md:space-y-4 lg:space-y-3 2xl:space-y-4 flex-1 flex flex-col">
         {/* Title */}
-        <h3 className="text-base font-semibold text-gray-900 leading-tight line-clamp-3 flex-1">
+        <h3 className="text-base lg:text-sm 2xl:text-base font-semibold text-gray-900 leading-tight line-clamp-3 flex-1">
           {title}
         </h3>
 
         {/* Metadata Footer */}
-        <div className="flex items-center justify-between text-sm text-gray-500 mt-auto">
-          <div className="flex items-center space-x-4">
+        <div className="flex items-center justify-between text-sm lg:text-xs 2xl:text-sm text-gray-500 mt-auto">
+          <div className="flex items-center space-x-3 md:space-x-4 lg:space-x-3 2xl:space-x-4">
             {/* Likes */}
             <div className="flex items-center space-x-1">
-              <HiHeart className="w-4 h-4 text-red-500" />
-              <HiThumbUp className="w-4 h-4 text-gray-400" />
+              <HiHeart className="w-4 h-4 lg:w-3.5 lg:h-3.5 2xl:w-4 2xl:h-4 text-red-500" />
+              <HiThumbUp className="w-4 h-4 lg:w-3.5 lg:h-3.5 2xl:w-4 2xl:h-4 text-gray-400" />
               <span className="font-medium">{likes}</span>
             </div>
 
             {/* Comments */}
             <div className="flex items-center space-x-1">
-              <BsChatLeftText className="w-4 h-4 text-gray-400" />
+              <BsChatLeftText className="w-4 h-4 lg:w-3.5 lg:h-3.5 2xl:w-4 2xl:h-4 text-gray-400" />
               <span className="font-medium">{comments}</span>
             </div>
           </div>
 
           {/* Date */}
           <div className="flex items-center space-x-1">
-            <HiClock className="w-4 h-4 text-gray-400" />
+            <HiClock className="w-4 h-4 lg:w-3.5 lg:h-3.5 2xl:w-4 2xl:h-4 text-gray-400" />
             <span className="font-medium">{date}</span>
           </div>
         </div>

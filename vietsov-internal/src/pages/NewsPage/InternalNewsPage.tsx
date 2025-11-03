@@ -16,9 +16,9 @@ const InternalNewsDetail: React.FC = () => {
             <>
               <SliderHome basePath="internal" />
               <BreakingNewsSlider />
-              <div className="max-w-7xl mx-auto px-4 pb-12 pt-8">
+              <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-60 2xl:px-80 pb-12 md:pb-16 lg:pb-12 2xl:pb-16 pt-8 md:pt-12 lg:pt-10 2xl:pt-12">
                 <SpotlightNews />
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-5 2xl:gap-6">
                   <div className="lg:col-span-3">
                     <TrainingNews />
                     <NewsHome />
@@ -28,7 +28,7 @@ const InternalNewsDetail: React.FC = () => {
                     <Sidebar />
                   </div>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6 border-t border-gray-300 pt-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-5 2xl:gap-6 mt-6 lg:mt-5 2xl:mt-6 border-t border-gray-300 pt-6 lg:pt-5 2xl:pt-6">
                   <div className="lg:col-span-1">
                     <ChartHome />
                   </div>
