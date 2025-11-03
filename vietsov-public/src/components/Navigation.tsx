@@ -121,8 +121,8 @@ const NavigationBar: React.FC<NavigationProps> = ({
                           onItemClick(item.label);
                         }}
                         className={`
-                        px-4 text-sm leading-6 tracking-normal text-center font-semibold
-                        transition-all duration-300 flex items-center justify-center
+                        px-4 py-2 text-sm leading-6 tracking-normal text-center font-semibold
+                        transition-all duration-300 flex items-center justify-center relative
                         hover:scale-105 whitespace-nowrap
                         ${
                           activeItem === item.label
@@ -132,10 +132,10 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       `}
                       >
                         <span>{item.label}</span>
+                        {activeItem === item.label && (
+                          <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-vietsov-green hidden lg:block"></span>
+                        )}
                       </button>
-                      {activeItem === item.label && (
-                        <span className="absolute -bottom-7 left-4 right-4 h-0.5 bg-vietsov-green hidden lg:block z-10"></span>
-                      )}
 
                       {/* Generic dropdown for any menu item with children */}
                       {isDropdownOpen && (
@@ -171,8 +171,8 @@ const NavigationBar: React.FC<NavigationProps> = ({
                         onItemClick(item.label);
                       }}
                       className={`
-                      px-3 text-sm leading-6 tracking-normal text-center font-semibold
-                      transition-all duration-300 inline-block
+                      px-3 py-2 text-sm leading-6 tracking-normal text-center font-semibold
+                      transition-all duration-300 inline-block relative
                       hover:scale-105 whitespace-nowrap
                       ${
                         activeItem === item.label
@@ -182,10 +182,10 @@ const NavigationBar: React.FC<NavigationProps> = ({
                     `}
                     >
                       <span>{item.label}</span>
+                      {activeItem === item.label && (
+                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-vietsov-green hidden lg:block"></span>
+                      )}
                     </a>
-                    {activeItem === item.label && (
-                      <span className="absolute -bottom-7 left-3 right-3 h-0.5 bg-vietsov-green hidden lg:block z-10"></span>
-                    )}
                   </li>
                 );
               })}

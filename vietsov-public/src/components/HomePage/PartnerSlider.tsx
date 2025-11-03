@@ -33,7 +33,7 @@ const partnerLogosData: PartnerLogo[] = [
 const PartnerSlider: React.FC = () => {
   return (
     <div>
-      <h2 className="text-4xl md:text-5xl font-bold text-center mb-10 drop-shadow-lg">
+      <h2 className="text-4xl md:text-5xl lg:text-4xl 2xl:text-5xl font-bold text-center mb-10 lg:mb-8 2xl:mb-10 drop-shadow-lg">
         Đối tác
       </h2>
       <div className="">
@@ -56,6 +56,7 @@ const PartnerSlider: React.FC = () => {
             640: { slidesPerView: 2, spaceBetween: 20 },
             768: { slidesPerView: 3, spaceBetween: 30 },
             1024: { slidesPerView: 4, spaceBetween: 30 },
+            1536: { slidesPerView: 4, spaceBetween: 30 },
           }}
         >
           {partnerLogosData.map((logo) => (

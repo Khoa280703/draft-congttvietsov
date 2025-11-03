@@ -17,9 +17,9 @@ const VisionMission: React.FC<VisionMissionProps> = ({
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="grid grid-cols-1 lg:grid-cols-9 gap-12 lg:gap-26 items-center w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-9 gap-8 md:gap-12 lg:gap-14 2xl:gap-26 items-center w-full">
         <motion.div
-          className="space-y-6 col-span-4"
+          className="space-y-6 md:space-y-6 lg:space-y-5 2xl:space-y-6 col-span-4"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -27,7 +27,7 @@ const VisionMission: React.FC<VisionMissionProps> = ({
         >
           {/* Vision Section */}
           <motion.div
-            className="space-y-4 py-6"
+            className="space-y-4 py-4 md:py-5 lg:py-4 2xl:py-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -42,27 +42,27 @@ const VisionMission: React.FC<VisionMissionProps> = ({
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.5, ease: "backOut" }}
               >
-                <img src={Frame2} alt="Vision Icon" className="w-10 h-10" />
+                <img src={Frame2} alt="Vision Icon" className="w-8 h-8 md:w-10 md:h-10" />
               </motion.div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
+              <h3 className="text-2xl md:text-3xl lg:text-2xl 2xl:text-3xl font-bold text-gray-800">
                 {data.vision.title}
               </h3>
             </div>
-            <p className="text-gray-600 leading-relaxed text-base font-normal">
+            <p className="text-gray-600 leading-relaxed text-base lg:text-sm 2xl:text-base font-normal">
               {data.vision.description}
-            </p>
+              </p>
           </motion.div>
 
           {/* Mission Section */}
           <motion.div
-            className="space-y-4 py-6"
+            className="space-y-4 py-4 md:py-5 lg:py-4 2xl:py-6"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.6, ease: "easeOut" }}
           >
             {/* Icon and Title Row */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3 md:space-x-4">
               <motion.div
                 className="flex-shrink-0"
                 initial={{ scale: 0 }}
@@ -70,14 +70,14 @@ const VisionMission: React.FC<VisionMissionProps> = ({
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.7, ease: "backOut" }}
               >
-                <img src={Frame3} alt="Mission Icon" className="w-10 h-10" />
+                <img src={Frame3} alt="Mission Icon" className="w-8 h-8 md:w-10 md:h-10" />
               </motion.div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-800">
+              <h3 className="text-2xl md:text-3xl lg:text-2xl 2xl:text-3xl font-bold text-gray-800">
                 {data.mission.title}
               </h3>
             </div>
             {/* Description aligned with icon */}
-            <p className="text-gray-600 leading-relaxed text-base font-normal">
+            <p className="text-gray-600 leading-relaxed text-base lg:text-sm 2xl:text-base font-normal">
               {data.mission.description}
             </p>
           </motion.div>
@@ -101,7 +101,7 @@ const VisionMission: React.FC<VisionMissionProps> = ({
             <img
               src={data.image.src}
               alt={data.image.alt}
-              className="w-full h-[500px] md:h-[500px] object-cover"
+              className="w-full h-[300px] md:h-[400px] lg:h-[380px] 2xl:h-[500px] object-cover"
               style={{
                 borderTopLeftRadius: "60px",
                 borderBottomLeftRadius: "16px",

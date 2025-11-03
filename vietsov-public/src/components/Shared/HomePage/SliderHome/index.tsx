@@ -84,7 +84,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
         }}
         onSwiper={setSwiperInstance}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="h-[80vh] md:h-[800px] w-full"
+        className="h-[80vh] md:h-[800px] lg:h-[700px] 2xl:h-[800px] w-full"
       >
         {finalSlides.map((slide) => (
           <SwiperSlide key={slide.id}>
@@ -146,13 +146,13 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
               >
                 {/* Main Content - Centered */}
                 <div className="flex-1 flex items-center">
-                  <div className="container mx-auto px-6 md:px-12">
-                    <div className="max-w-3xl">
+                  <div className="container mx-auto px-6 md:px-12 lg:px-20 2xl:px-12">
+                    <div className="max-w-3xl lg:max-w-2xl 2xl:max-w-3xl">
                       {/* Content Section */}
-                      <div className="mb-8">
+                      <div className="mb-8 lg:mb-6 2xl:mb-8">
                         {/* Category Text */}
                         <motion.p
-                          className="text-sm md:text-base font-medium uppercase tracking-wider mb-4"
+                          className="text-sm md:text-base lg:text-sm 2xl:text-base font-medium uppercase tracking-wider mb-4 lg:mb-3 2xl:mb-4"
                           style={{ color: slide.textColor || "white" }}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -167,7 +167,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
 
                         {/* Main Title */}
                         <motion.h1
-                          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[100px] tracking-normal  mb-4"
+                          className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl 2xl:text-6xl font-bold leading-[100px] lg:leading-[80px] 2xl:leading-[100px] tracking-normal mb-4 lg:mb-3 2xl:mb-4"
                           style={{ color: slide.textColor || "white" }}
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -203,7 +203,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
 
                         {/* Description */}
                         <motion.p
-                          className="text-base md:text-lg leading-relaxed mb-6 max-w-2xl"
+                          className="text-base md:text-lg lg:text-base 2xl:text-lg leading-relaxed mb-6 lg:mb-5 2xl:mb-6 max-w-2xl lg:max-w-xl 2xl:max-w-2xl"
                           style={{ color: slide.textColor || "white" }}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -219,7 +219,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                         {/* CTA Button */}
                         <motion.button
                           onClick={() => handleButtonClick(slide.buttonLink)}
-                          className="inline-flex items-center px-6 py-3 rounded-lg font-semibold"
+                          className="inline-flex items-center px-6 py-3 lg:px-5 lg:py-2.5 2xl:px-6 2xl:py-3 rounded-lg font-semibold lg:text-sm 2xl:text-base"
                           style={{
                             backgroundColor:
                               slide.buttonBackgroundColor || "white",
@@ -237,7 +237,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                         >
                           {slide.buttonText}
                           <HiArrowRight
-                            className="w-5 h-5 ml-2"
+                            className="w-5 h-5 lg:w-4 lg:h-4 2xl:w-5 2xl:h-5 ml-2"
                             style={{ color: "#10954F" }}
                           />
                         </motion.button>
@@ -249,18 +249,18 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                 {/* Pagination - Bottom */}
                 {showPagination && (
                   <motion.div
-                    className="container mx-auto px-6 md:px-12 pb-16 md:pb-10"
+                    className="container mx-auto px-6 md:px-12 lg:px-20 2xl:px-12 pb-16 md:pb-10 lg:pb-8 2xl:pb-10"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 1.5, ease: "easeOut" }}
                   >
-                    <div className="max-w-3xl">
-                      <div className="flex items-center space-x-6">
+                    <div className="max-w-3xl lg:max-w-2xl 2xl:max-w-3xl">
+                      <div className="flex items-center space-x-6 lg:space-x-4 2xl:space-x-6">
                         {finalSlides.map((_, index) => (
                           <motion.button
                             key={index}
                             onClick={() => handleSlideClick(index)}
-                            className={`relative text-base font-medium ${
+                            className={`relative text-base lg:text-sm 2xl:text-base font-medium ${
                               activeIndex === index
                                 ? "text-white"
                                 : "text-white/60 hover:text-white"
@@ -293,7 +293,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
               {/* Left Navigation Arrow */}
               <motion.button
                 onClick={() => handleRigNavigationClick("left")}
-                className="absolute top-1/2 left-8 md:left-16 transform -translate-y-1/2 w-12 h-12 backdrop-blur-sm rounded-full flex items-center justify-center z-10 border border-white transition-all duration-300 hover:bg-white/30 hover:scale-110 hover:shadow-lg"
+                className="absolute top-1/2 left-8 md:left-16 lg:left-12 2xl:left-16 transform -translate-y-1/2 w-12 h-12 lg:w-10 lg:h-10 2xl:w-12 2xl:h-12 backdrop-blur-sm rounded-full flex items-center justify-center z-10 border border-white transition-all duration-300 hover:bg-white/30 hover:scale-110 hover:shadow-lg"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 1.2, ease: "easeOut" }}
@@ -304,13 +304,13 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <HiArrowLeft className="w-6 h-6 text-white transition-transform duration-300 group-hover:scale-110" />
+                <HiArrowLeft className="w-6 h-6 lg:w-5 lg:h-5 2xl:w-6 2xl:h-6 text-white transition-transform duration-300 group-hover:scale-110" />
               </motion.button>
 
               {/* Right Navigation Arrow */}
               <motion.button
                 onClick={() => handleRigNavigationClick("right")}
-                className="absolute top-1/2 right-8 md:right-16 transform -translate-y-1/2 w-12 h-12 backdrop-blur-sm rounded-full flex items-center justify-center z-10 border border-white transition-all duration-300 hover:bg-white/30 hover:scale-110 hover:shadow-lg"
+                className="absolute top-1/2 right-8 md:right-16 lg:right-12 2xl:right-16 transform -translate-y-1/2 w-12 h-12 lg:w-10 lg:h-10 2xl:w-12 2xl:h-12 backdrop-blur-sm rounded-full flex items-center justify-center z-10 border border-white transition-all duration-300 hover:bg-white/30 hover:scale-110 hover:shadow-lg"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 1.2, ease: "easeOut" }}
@@ -321,7 +321,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <HiArrowRight className="w-6 h-6 text-white transition-transform duration-300 group-hover:scale-110" />
+                <HiArrowRight className="w-6 h-6 lg:w-5 lg:h-5 2xl:w-6 2xl:h-6 text-white transition-transform duration-300 group-hover:scale-110" />
               </motion.button>
             </div>
           </SwiperSlide>

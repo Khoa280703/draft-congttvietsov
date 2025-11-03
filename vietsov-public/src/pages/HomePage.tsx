@@ -21,18 +21,18 @@ const HomePage: React.FC = () => {
         delay={100}
         className="bg-vietsov-background2"
       >
-        <section className="py-8 md:pt-22 md:pb-15 px-4 md:px-12 lg:px-75">
-          <div className="text-center mb-15">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-none tracking-[-0.008em]">
+        <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15 px-4 md:px-12 lg:px-60 2xl:px-80">
+          <div className="text-center mb-8 md:mb-12 lg:mb-10 2xl:mb-15">
+            <h2 className="text-3xl md:text-4xl lg:text-4xl 2xl:text-5xl font-bold mb-4 md:mb-5 lg:mb-4 2xl:mb-6 leading-none tracking-[-0.008em]">
               Tầm nhìn – Sứ mệnh
             </h2>
-            <p className="text-base md:text-base font-normal leading-relaxed max-w-4xl mx-auto">
+            <p className="text-base md:text-base lg:text-sm 2xl:text-base font-normal leading-relaxed max-w-4xl lg:max-w-3xl 2xl:max-w-4xl mx-auto px-4 lg:px-0">
               Doanh nghiệp dầu khí và năng lượng hàng đầu khu vực, phát triển
               bền vững và tiên phong trong chuyển đổi năng lượng, đồng thời khai
               thác hiệu quả tài nguyên.
             </p>
           </div>
-          <div className="flex items-center justify-center min-h-[500px]">
+          <div className="flex items-center justify-center min-h-[400px] md:min-h-[450px] lg:min-h-[400px] 2xl:min-h-[500px]">
             <VisionMission />
           </div>
         </section>
@@ -43,9 +43,9 @@ const HomePage: React.FC = () => {
         delay={100}
         className="bg-vietsov-background"
       >
-        <section className="py-8 md:py-15 px-4 md:px-12 lg:px-75">
-          <div className="text-center mb-15">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-none tracking-[-0.008em]">
+        <section className="py-8 md:py-12 lg:py-10 2xl:py-15 px-4 md:px-12 lg:px-60 2xl:px-80">
+          <div className="text-center mb-8 md:mb-12 lg:mb-10 2xl:mb-15">
+            <h2 className="text-3xl md:text-4xl lg:text-4xl 2xl:text-5xl font-bold leading-none tracking-[-0.008em]">
               Lĩnh Vực Hoạt Động
             </h2>
           </div>
@@ -59,9 +59,9 @@ const HomePage: React.FC = () => {
         className="bg-vietsov-background2"
       >
         <div className="bg-white">
-          <section className="py-8 md:py-15 px-4 md:px-12 lg:px-75">
-            <div className="text-center mb-15">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+          <section className="py-8 md:py-12 lg:py-10 2xl:py-15 px-4 md:px-12 lg:px-60 2xl:px-80">
+            <div className="text-center mb-8 md:mb-12 lg:mb-10 2xl:mb-15">
+              <h2 className="text-3xl md:text-4xl lg:text-4xl 2xl:text-5xl font-bold">
                 Dự án tiêu biểu
               </h2>
             </div>
@@ -76,9 +76,9 @@ const HomePage: React.FC = () => {
         delay={100}
         className="bg-vietsov-background"
       >
-        <section className="py-8 md:py-15 px-4 md:px-12 lg:px-75">
-          <div className="text-center mb-15">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
+        <section className="py-8 md:py-12 lg:py-10 2xl:py-15 px-4 md:px-12 lg:px-60 2xl:px-80">
+          <div className="text-center mb-8 md:mb-12 lg:mb-10 2xl:mb-15">
+            <h2 className="text-3xl md:text-4xl lg:text-4xl 2xl:text-5xl font-bold">
               Tin tức Dầu khí
             </h2>
           </div>
@@ -91,7 +91,7 @@ const HomePage: React.FC = () => {
       </AnimatedSection>
 
       <AnimatedSection animation="fadeInUp" delay={100}>
-        <div className="py-8 md:py-15 px-4 md:px-12 lg:px-75">
+        <div className="py-8 md:py-12 lg:py-10 2xl:py-15 px-4 md:px-12 lg:px-60 2xl:px-80">
           <PartnerSlider />
         </div>
       </AnimatedSection>
