@@ -72,7 +72,7 @@ const CardFullDetailHori: React.FC<CardFullDetailHoriProps> = ({
         <img
           src={image}
           alt={imageAlt}
-          className="w-full h-full object-cover rounded-2xl"
+          className="w-full h-full object-cover"
         />
       </div>
 

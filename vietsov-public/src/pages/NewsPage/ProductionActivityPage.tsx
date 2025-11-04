@@ -120,7 +120,7 @@ const ProductionActivityPage: React.FC = () => {
 
   return (
     <PageWithSidebar activePath="/tintuc/hoat-dong-sx-kd">
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen">
         {/* Search and Sort Controls */}
         <div className="mb-6 space-y-4">
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">

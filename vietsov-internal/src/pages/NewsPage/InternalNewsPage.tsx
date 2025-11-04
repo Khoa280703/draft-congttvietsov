@@ -16,7 +16,7 @@ const InternalNewsDetail: React.FC = () => {
             <>
               <SliderHome basePath="internal" />
               <BreakingNewsSlider />
-              <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-60 2xl:px-80 pb-12 md:pb-16 lg:pb-12 2xl:pb-16 pt-8 md:pt-12 lg:pt-10 2xl:pt-12">
+              <div className="container mx-auto px-4 pb-12 md:pb-16 lg:pb-12 2xl:pb-16 pt-8 md:pt-12 lg:pt-10 2xl:pt-12">
                 <SpotlightNews />
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-5 2xl:gap-6">
                   <div className="lg:col-span-3">

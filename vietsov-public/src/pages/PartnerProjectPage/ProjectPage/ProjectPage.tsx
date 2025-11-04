@@ -1,25 +1,69 @@
-import React, { useState } from "react";
-import { PageWithSidebar } from "@/components";
+import React, { useState, useMemo } from "react";
+import { PageWithSidebar, Select, Pagination } from "@/components";
+import type { SelectOption } from "@/components";
 import { CardFullDetailHori } from "@/components/Card";
 import { motion } from "framer-motion";
+import { FiSearch, FiArrowUp, FiArrowDown } from "react-icons/fi";
 import { projectData, featuredProjectData } from "./data";
 import { useNavigate } from "react-router-dom";
-import { Pagination } from "@/components";
+
+type SortBy = "date" | "category" | "title";
+type SortOrder = "asc" | "desc";
+
+const sortOptions: SelectOption<SortBy>[] = [
+  { value: "date", label: "Theo ngày đăng" },
+  { value: "category", label: "Theo danh mục" },
+  { value: "title", label: "Theo tiêu đề" },
+];
 
 const ProjectPage: React.FC = () => {
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy] = useState<SortBy>("date");
+  const [sortOrder, setSortOrder] = useState<SortOrder>("desc");
   const itemsPerPage = 6;
 
-  // Calculate pagination
-  const totalPages = Math.ceil(projectData.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentProjects = projectData.slice(startIndex, endIndex);
+  // Filter by search term
+  const filteredProjects = useMemo(() => {
+    if (!searchTerm) return projectData;
+    return projectData.filter(
+      (project) =>
+        project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.category.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm]);
+
+  // Sort projects
+  const sortedProjects = useMemo(() => {
+    const sorted = [...filteredProjects];
+    sorted.sort((a, b) => {
+      if (sortBy === "date") {
+        const dateA = new Date(a.date).getTime();
+        const dateB = new Date(b.date).getTime();
+        return sortOrder === "asc" ? dateA - dateB : dateB - dateA;
+      } else if (sortBy === "category") {
+        const comparison = a.category.localeCompare(b.category, "vi");
+        return sortOrder === "asc" ? comparison : -comparison;
+      } else {
+        // Sort by title
+        const comparison = a.title.localeCompare(b.title, "vi");
+        return sortOrder === "asc" ? comparison : -comparison;
+      }
+    });
+    return sorted;
+  }, [filteredProjects, sortBy, sortOrder]);
+
+  // Pagination
+  const totalPages = Math.ceil(sortedProjects.length / itemsPerPage);
+  const paginatedProjects = sortedProjects.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    // Scroll to top when page changes
     window.scrollTo({ top: 120, behavior: "smooth" });
   };
   return (
@@ -28,7 +72,7 @@ const ProjectPage: React.FC = () => {
         activePath="/doitac-duan/du-an"
         sidebarContent={
           <div className="space-y-6">
-            <div className="bg-white rounded-lg shadow-sm p-6">
+            <div>
               <h3 className="text-lg lg:text-base inch32:text-lg font-bold text-gray-800 mb-4 lg:mb-3 inch32:mb-4">
                 Dự án nổi bật
               </h3>
@@ -36,20 +80,22 @@ const ProjectPage: React.FC = () => {
                 {featuredProjectData.slice(0, 3).map((project, index) => (
                   <motion.div
                     key={project.id}
-                    className="border-b border-gray-200 pb-4 lg:pb-3 inch32:pb-4 last:border-b-0"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                   >
-                    <h4 className="text-sm lg:text-xs inch32:text-sm font-semibold text-gray-800 mb-1 lg:mb-0.5 inch32:mb-1 leading-relaxed">
-                      {project.title}
-                    </h4>
-                    <p className="text-xs lg:text-[10px] inch32:text-xs text-gray-600 mb-2 lg:mb-1.5 inch32:mb-2 line-clamp-2">
-                      {project.description}
-                    </p>
-                    <span className="text-xs lg:text-[10px] inch32:text-xs text-green-600 font-medium">
-                      {project.status}
-                    </span>
+                    <CardFullDetailHori
+                      image={project.image}
+                      imageAlt={project.title}
+                      title={project.title}
+                      timestamp={project.date}
+                      description={project.description}
+                      maxTitleLines={2}
+                      maxDescriptionLines={2}
+                      detail={false}
+                      onClick={() => navigate("/doitac-duan/du-an/chi-tiet")}
+                      className="h-full"
+                    />
                   </motion.div>
                 ))}
               </div>
@@ -63,53 +109,116 @@ const ProjectPage: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="p-6 lg:p-5 inch32:p-6 border-b border-gray-200 flex justify-between items-center">
-            <div>
-              <h2 className="text-2xl lg:text-xl inch32:text-2xl font-bold text-gray-800 mb-2 lg:mb-1.5 inch32:mb-2">
-                Tất cả dự án
-              </h2>
-              <p className="text-gray-600 lg:text-sm inch32:text-base">
-                Hiển thị {startIndex + 1}-
-                {Math.min(endIndex, projectData.length)} trong tổng số{" "}
-                {projectData.length} dự án
-              </p>
+          <div className="p-6 lg:p-5 inch32:p-6">
+            <h2 className="text-2xl lg:text-xl inch32:text-2xl font-bold text-gray-800 mb-6 lg:mb-5 inch32:mb-6">
+              Tất cả dự án
+            </h2>
+
+            {/* Search and Sort Controls */}
+            <div className="mb-6 space-y-4">
+              <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                <div className="relative flex-1 w-full sm:max-w-md">
+                  <FiSearch
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
+                    size={20}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Tìm kiếm dự án..."
+                    value={searchTerm}
+                    onChange={(e) => {
+                      setSearchTerm(e.target.value);
+                      setCurrentPage(1);
+                    }}
+                    className="w-full pl-12 pr-4 py-2.5 bg-white border border-gray-300 rounded-lg text-sm placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-vietsov-green focus:border-transparent transition-colors"
+                  />
+                </div>
+
+                {/* Sort Controls */}
+                <div className="flex items-center gap-2">
+                  <Select<SortBy>
+                    options={sortOptions}
+                    value={sortBy}
+                    onChange={(newValue) => {
+                      if (newValue !== null && !Array.isArray(newValue)) {
+                        setSortBy(newValue);
+                        setCurrentPage(1);
+                      }
+                    }}
+                    placeholder="Sắp xếp"
+                    searchable={false}
+                    clearable={false}
+                    width="200px"
+                    className="min-w-[200px]"
+                  />
+
+                  <button
+                    onClick={() =>
+                      setSortOrder(sortOrder === "asc" ? "desc" : "asc")
+                    }
+                    className="p-2.5 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                    title={sortOrder === "asc" ? "Tăng dần" : "Giảm dần"}
+                  >
+                    {sortOrder === "asc" ? (
+                      <FiArrowUp size={20} className="text-gray-600" />
+                    ) : (
+                      <FiArrowDown size={20} className="text-gray-600" />
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              {/* Results count */}
+              {searchTerm && (
+                <p className="text-sm text-gray-600">
+                  Tìm thấy {sortedProjects.length} kết quả
+                </p>
+              )}
             </div>
           </div>
 
           <div className="p-6 lg:p-5 inch32:p-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-5 inch32:gap-6">
-              {currentProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  <CardFullDetailHori
-                    image={project.image}
-                    imageAlt={project.title}
-                    title={project.title}
-                    description={project.description}
-                    category={project.category}
-                    timestamp={project.date}
-                    maxTitleLines={2}
-                    maxDescriptionLines={3}
-                    className="h-full"
-                    detail={true}
-                    onClick={() => navigate("/doitac-duan/du-an/chi-tiet")}
-                  />
-                </motion.div>
-              ))}
-            </div>
+            {paginatedProjects.length > 0 ? (
+              <>
+                <div className="grid grid-cols-1 gap-6 lg:gap-5 inch32:gap-6">
+                  {paginatedProjects.map((project, index) => (
+                    <motion.div
+                      key={project.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                    >
+                      <CardFullDetailHori
+                        image={project.image}
+                        imageAlt={project.title}
+                        title={project.title}
+                        description={project.description}
+                        category={project.category}
+                        timestamp={project.date}
+                        maxTitleLines={2}
+                        maxDescriptionLines={3}
+                        className="h-full"
+                        detail={true}
+                        onClick={() => navigate("/doitac-duan/du-an/chi-tiet")}
+                      />
+                    </motion.div>
+                  ))}
+                </div>
 
-            {/* Pagination */}
-            {totalPages > 1 && (
-              <div className="mt-8 lg:mt-7 inch32:mt-8 flex justify-center">
-                <Pagination
-                  currentPage={currentPage}
-                  totalPages={totalPages}
-                  onPageChange={handlePageChange}
-                />
+                {/* Pagination */}
+                {totalPages > 1 && (
+                  <div className="mt-8 lg:mt-7 inch32:mt-8 flex justify-center">
+                    <Pagination
+                      currentPage={currentPage}
+                      totalPages={totalPages}
+                      onPageChange={handlePageChange}
+                    />
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-gray-500">Không tìm thấy dự án nào</p>
               </div>
             )}
           </div>

@@ -9,17 +9,15 @@ import {
 
 const OilNewsSection: React.FC<OilNewsSectionProps> = ({ className = "" }) => {
   return (
-    <div className={`font-sans ${className}`}>
-      {/* Header */}
+    <div className={`${className}`}>
       <div className="flex justify-between items-center mb-8 md:mb-12 lg:mb-10 inch32:mb-12">
-        <h2 className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium text-gray-800">
+        <h2 className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium">
           Tin dầu khí
         </h2>
         <SeeMoreButtonSimple text="Xem thêm" href="/tintuc/tin-dau-khi" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 inch32:gap-8">
-        {/* Main Article - Using CardFullDetail */}
         <div>
           <BigCardFullDetail
             image={defaultMainArticle.image}
@@ -32,28 +30,37 @@ const OilNewsSection: React.FC<OilNewsSectionProps> = ({ className = "" }) => {
             onClick={() => {
               window.location.href = "/tintuc/chi-tiet";
             }}
-            className="h-full"
+            className="h-full border-b-1 border-vietsov-green/20 pb-2"
           />
         </div>
 
-        {/* Side Articles - Using CardFullDetailHori */}
-        <div className="space-y-4 lg:space-y-3 inch32:space-y-4">
-          {defaultSideArticles.slice(0, 3).map((article) => (
-            <CardFullDetailHori
-              key={article.id}
-              image={article.image}
-              imageAlt={article.title}
-              title={article.title}
-              timestamp={article.timestamp}
-              maxTitleLines={4}
-              maxDescriptionLines={0}
-              onClick={() => {
-                window.location.href = "/tintuc/chi-tiet";
-              }}
-              className="border-b border-gray-200 pb-4 last:border-b-0 last:pb-0"
-            />
-          ))}
-          {/* Show 4th article only on 2xl screens */}
+        <div className="flex flex-col gap-4 lg:gap-3 inch32:gap-4 border-b-1 border-vietsov-green/20 pb-4">
+          {defaultSideArticles.slice(0, 3).map((article, index) => {
+            const isLast = index === 2;
+            return (
+              <div
+                key={article.id}
+                className={
+                  isLast
+                    ? "pb-0 inch32:border-b inch32:border-gray-200 inch32:pb-4"
+                    : "border-b border-gray-200 pb-4"
+                }
+              >
+                <CardFullDetailHori
+                  image={article.image}
+                  imageAlt={article.title}
+                  title={article.title}
+                  timestamp={article.timestamp}
+                  maxTitleLines={4}
+                  maxDescriptionLines={0}
+                  onClick={() => {
+                    window.location.href = "/tintuc/chi-tiet";
+                  }}
+                />
+              </div>
+            );
+          })}
+
           <div className="hidden inch32:block">
             {defaultSideArticles[3] && (
               <CardFullDetailHori
@@ -66,7 +73,6 @@ const OilNewsSection: React.FC<OilNewsSectionProps> = ({ className = "" }) => {
                 onClick={() => {
                   window.location.href = "/tintuc/chi-tiet";
                 }}
-                className="border-b border-gray-200 pb-4 last:border-b-0 last:pb-0"
               />
             )}
           </div>

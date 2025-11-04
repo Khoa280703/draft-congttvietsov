@@ -13,7 +13,7 @@ const CommunityActivitySection: React.FC<CommunityActivitySectionProps> = ({
     <div className={`font-sans ${className}`}>
       {/* Header */}
       <div className="flex justify-between items-center mb-8 md:mb-12 lg:mb-10 inch32:mb-12">
-        <h2 className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium text-gray-800">
+        <h2 className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium">
           Hoạt động đoàn thể
         </h2>
         <SeeMoreButtonSimple

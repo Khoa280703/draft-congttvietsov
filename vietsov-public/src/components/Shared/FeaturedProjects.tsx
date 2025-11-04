@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight, FiCalendar, FiMapPin, FiUsers } from "react-icons/fi";
-import { useElementAnimation } from "@/hooks/useElementAnimation";
 import { useNavigate } from "react-router-dom";
+import { useElementAnimation } from "@/hooks/useElementAnimation";
 
 import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
 import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
@@ -174,38 +174,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 const FeaturedProjects: React.FC = () => {
-  const titleRef = useElementAnimation({ delay: 0 });
-  const subtitleRef = useElementAnimation({ delay: 100 });
   const navigate = useNavigate();
   return (
     <section className="">
       <div className="">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <motion.div
-            ref={titleRef as React.RefObject<HTMLDivElement>}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Dự án tiêu biểu
-            </h2>
-          </motion.div>
-
-          <motion.div
-            ref={subtitleRef as React.RefObject<HTMLDivElement>}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-          >
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Khám phá những dự án nổi bật và thành tựu đáng tự hào của
-              Vietsovpetro trong lĩnh vực dầu khí
-            </p>
-          </motion.div>
-        </div>
-
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
           {projectsData.map((project, index) => (

@@ -7,7 +7,7 @@ const InternalNewsDetail: React.FC = () => {
   return (
     <div>
       <NewTicket />
-      <main className="max-w-7xl mx-auto px-4 md:px-12 lg:px-60 2xl:px-80 py-8 md:py-12 lg:py-10 2xl:py-12">
+      <main className="container mx-auto px-4 py-8 md:py-12 lg:py-10 2xl:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-5 2xl:gap-6">
           <div className="lg:col-span-3">
             <NewsArticle />

@@ -24,18 +24,24 @@ const ContactPage: React.FC = () => {
 
       <div className="bg-vietsov-background">
         {/* Contact Information */}
-        <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-          <ContactInfo />
+        <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
+          <div className="container mx-auto px-4">
+            <ContactInfo />
+          </div>
         </section>
 
         {/* Contact Form */}
-        <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-          <ContactForm />
+        <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
+          <div className="container mx-auto px-4">
+            <ContactForm />
+          </div>
         </section>
 
         {/* Headquarters Map */}
-        <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-          <HeadquartersMap />
+        <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
+          <div className="container mx-auto px-4">
+            <HeadquartersMap />
+          </div>
         </section>
       </div>
     </>

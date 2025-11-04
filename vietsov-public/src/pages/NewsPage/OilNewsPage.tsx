@@ -55,14 +55,18 @@ const OilNewsPage: React.FC = () => {
       image: oilSides[i % oilSides.length]?.image || oilMain.image,
       imageAlt: `Tin dầu khí ${i + 1}`,
       category: "TIN DẦU KHÍ",
-      title: `Tin dầu khí số ${i + 1}: ${[
-        "Giá dầu thế giới",
-        "Khai thác mỏ mới",
-        "Công nghệ khoan",
-        "Thị trường năng lượng",
-        "Hợp đồng xuất khẩu",
-      ][i % 5]}`,
-      timestamp: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toLocaleString("vi-VN"),
+      title: `Tin dầu khí số ${i + 1}: ${
+        [
+          "Giá dầu thế giới",
+          "Khai thác mỏ mới",
+          "Công nghệ khoan",
+          "Thị trường năng lượng",
+          "Hợp đồng xuất khẩu",
+        ][i % 5]
+      }`,
+      timestamp: new Date(Date.now() - i * 24 * 60 * 60 * 1000).toLocaleString(
+        "vi-VN"
+      ),
       description: `Mô tả chi tiết về tin dầu khí số ${i + 1}...`,
       viewCount: Math.floor(Math.random() * 3500) + 100,
     }));
@@ -112,7 +116,7 @@ const OilNewsPage: React.FC = () => {
 
   return (
     <PageWithSidebar activePath="/tintuc/tin-dau-khi">
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen">
         {/* Search and Sort Controls */}
         <div className="mb-6 space-y-4">
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">

@@ -129,7 +129,8 @@ const SearchPage: React.FC = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Search Header */}
       <div className="bg-white border-b border-gray-200">
-        <div className="px-4 md:px-12 lg:px-60 inch32:px-80 py-8 md:py-12 lg:py-10 inch32:py-12">
+        <div className="py-8 md:py-12 lg:py-10 inch32:py-12">
+          <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -171,11 +172,13 @@ const SearchPage: React.FC = () => {
               </div>
             </form>
           </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Search Results */}
-      <div className="px-4 md:px-12 lg:px-60 inch32:px-80 py-8 md:py-12 lg:py-10 inch32:py-12">
+      <div className="py-8 md:py-12 lg:py-10 inch32:py-12">
+        <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -266,6 +269,7 @@ const SearchPage: React.FC = () => {
             </div>
           )}
         </motion.div>
+        </div>
       </div>
     </div>
   );

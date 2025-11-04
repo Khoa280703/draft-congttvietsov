@@ -19,7 +19,7 @@ const OrgStructureSection: React.FC<OrgStructureSectionProps> = ({
     >
       <div className="relative z-10">
         <motion.h1
-          className="text-4xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium left-1/10 text-gray-800 mb-6 lg:mb-5 inch32:mb-6 leading-tight"
+          className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium left-1/10 mb-6 lg:mb-5 inch32:mb-6 leading-tight"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}

@@ -17,7 +17,7 @@ const VisionMission: React.FC<VisionMissionProps> = ({
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div className="grid grid-cols-1 lg:grid-cols-9 gap-8 md:gap-12 lg:gap-14 inch32:gap-26 items-center w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-9 gap-8 md:gap-12 lg:gap-18 inch32:gap-26 items-center w-full">
         <motion.div
           className="space-y-6 md:space-y-6 lg:space-y-5 inch32:space-y-6 col-span-4"
           initial={{ opacity: 0, x: -50 }}
@@ -109,13 +109,13 @@ const VisionMission: React.FC<VisionMissionProps> = ({
             <img
               src={data.image.src}
               alt={data.image.alt}
-              className="w-full h-[18rem] md:h-[25rem] lg:h-[30rem] inch32:h-[32rem] object-cover"
-              style={{
-                borderTopLeftRadius: "60px",
-                borderBottomLeftRadius: "16px",
-                borderTopRightRadius: "16px",
-                borderBottomRightRadius: "60px",
-              }}
+              className="w-full h-[18rem] md:h-[28rem] lg:h-[34rem] inch32:h-[42rem] object-cover pl-10"
+              // style={{
+              //   borderTopLeftRadius: "60px",
+              //   borderBottomLeftRadius: "16px",
+              //   borderTopRightRadius: "16px",
+              //   borderBottomRightRadius: "60px",
+              // }}
             />
           </motion.div>
         </motion.div>

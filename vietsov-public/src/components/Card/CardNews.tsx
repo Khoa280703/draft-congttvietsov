@@ -31,7 +31,7 @@ const CardNews: React.FC<CardNewsProps> = ({
 }) => {
   return (
     <motion.article
-      className={`overflow-hidden hover:shadow-md transition-shadow duration-300 h-full flex flex-col ${
+      className={`overflow-hidden hover:shadow-md transition-shadow duration-300 h-full flex flex-col border-b-1 border-vietsov-green/20 pb-2 ${
         onClick ? "cursor-pointer" : ""
       } ${className}`}
       initial={{ opacity: 0, y: 20 }}
@@ -45,7 +45,7 @@ const CardNews: React.FC<CardNewsProps> = ({
         <img
           src={imageUrl}
           alt={imageAlt}
-          className="w-full h-full object-cover rounded-lg"
+          className="w-full h-full object-cover"
         />
 
         {isVideo && (
@@ -57,7 +57,7 @@ const CardNews: React.FC<CardNewsProps> = ({
         )}
       </div>
 
-      <div className="py-2 md:py-3 lg:py-2 inch32:py-3 space-y-3 md:space-y-4 lg:space-y-3 inch32:space-y-4 flex-1 flex flex-col">
+      <div className="py-2 md:py-3 lg:py-2 inch32:py-3 space-y-3 md:space-y-4 lg:space-y-3 inch32:space-y-4 flex-1 flex flex-col p-4">
         {/* Title */}
         <h3 className="text-base lg:text-sm inch32:text-base font-semibold text-gray-900 leading-tight line-clamp-3 flex-1">
           {title}

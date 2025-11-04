@@ -71,27 +71,35 @@ const NewsPage: React.FC = () => {
             <div className="bg-vietsov-background">
               <AnimatedSection animation="fadeInUp" delay={100}>
                 <div className="bg-white">
-                  <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-                    <ProductionActivitySection />
+                  <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
+                    <div className="container mx-auto px-4">
+                      <ProductionActivitySection />
+                    </div>
                   </section>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection animation="fadeInUp" delay={200}>
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-                  <CommunityActivitySection />
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
+                  <div className="container mx-auto px-4">
+                    <CommunityActivitySection />
+                  </div>
                 </section>
               </AnimatedSection>
 
               <AnimatedSection animation="fadeInUp" delay={300}>
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-                  <OilNewsSection />
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
+                  <div className="container mx-auto px-4">
+                    <OilNewsSection />
+                  </div>
                 </section>
               </AnimatedSection>
 
               <AnimatedSection animation="fadeInUp" delay={400}>
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-                  <ArchivePhotosSection />
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
+                  <div className="container mx-auto px-4">
+                    <ArchivePhotosSection />
+                  </div>
                 </section>
               </AnimatedSection>
             </div>

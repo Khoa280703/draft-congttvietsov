@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CardFullDetail, CardFullDetailHori } from "@/components/Card";
+import { FeaturedArticle, CardFullDetailHori } from "@/components/Card";
 import { Pagination } from "@/components";
 import { truyenThongArticles } from "./data";
 
@@ -37,21 +37,17 @@ const TruyenThongVHDNHDXHSection: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             Bài viết nổi bật
           </h2>
-          <div className="relative">
-            <CardFullDetail
-              image={featuredArticle.image}
-              imageAlt={featuredArticle.imageAlt}
-              title={featuredArticle.title}
-              description={featuredArticle.content}
-              category={featuredArticle.category}
-              timestamp={featuredArticle.publishDate}
-              detail={true}
-              onClick={() => {
-                window.location.href = "/tintuc/chi-tiet";
-              }}
-              className="mb-8"
-            />
-          </div>
+          <FeaturedArticle
+            image={featuredArticle.image}
+            imageAlt={featuredArticle.imageAlt}
+            category={featuredArticle.category}
+            title={featuredArticle.title}
+            timestamp={featuredArticle.publishDate}
+            description={featuredArticle.content}
+            onClick={() => {
+              window.location.href = "/tintuc/chi-tiet";
+            }}
+          />
         </motion.div>
       )}
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { PageHeader } from "@/components";
+import { PageHeader, SectionWithTitle } from "@/components";
 import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import {
   CooperationSection,
@@ -26,15 +26,22 @@ const PartnerProjectPage: React.FC = () => {
           path="/"
           element={
             <>
-              <div className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-                <CooperationSection />
+              <div className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
+                <div className="container mx-auto px-4">
+                  <CooperationSection />
+                </div>
               </div>
-              <div className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-                <PartnerMarquee />
+              <div className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
+                <div className="container mx-auto px-4">
+                  <PartnerMarquee />
+                </div>
               </div>
-              <div className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
+              <SectionWithTitle
+                title="Dự án tiêu biểu"
+                description="Khám phá những dự án nổi bật và thành tựu đáng tự hào của Vietsovpetro trong lĩnh vực dầu khí"
+              >
                 <FeaturedProjects />
-              </div>
+              </SectionWithTitle>
             </>
           }
         />

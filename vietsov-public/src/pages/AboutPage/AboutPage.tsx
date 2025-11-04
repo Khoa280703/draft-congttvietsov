@@ -1,5 +1,5 @@
 import React from "react";
-import { PageHeader } from "@/components";
+import { PageHeader, SectionWithTitle } from "@/components";
 import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import {
   JointVentureSection,
@@ -42,66 +42,41 @@ const AboutPage: React.FC = () => {
           element={
             <div className="bg-vietsov-background">
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-                  <div className="text-center mb-8 md:mb-12 lg:mb-10 inch32:mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-4xl inch32:text-5xl font-bold">
-                      Liên doanh Việt - Nga
-                    </h2>
-                  </div>
+                <SectionWithTitle title="Liên doanh Việt - Nga">
                   <JointVentureSection />
-                </section>
+                </SectionWithTitle>
               </AnimatedSection>
-
               <AnimatedSection animation="fadeInUp" delay={100}>
                 <HistorySection />
               </AnimatedSection>
-
               {/* Core Values Section */}
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-                  <div className="text-center mb-8 md:mb-12 lg:mb-10 inch32:mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-4xl inch32:text-5xl font-bold">
-                      Giá trị cốt lõi
-                    </h2>
-                  </div>
+                <SectionWithTitle title="Giá trị cốt lõi" showGradientLine>
                   <CoreValuesSection />
-                </section>
-                <div className="mt-6 h-px bg-gradient-to-r from-transparent via-vietsov-green to-transparent max-w-3xl mx-auto"></div>
+                </SectionWithTitle>
               </AnimatedSection>
-
               {/* Organization Structure */}
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-                  <div className="text-center mb-8 md:mb-12 lg:mb-10 inch32:mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-4xl inch32:text-5xl font-bold">
-                      Cơ cấu tổ chức
-                    </h2>
-                  </div>
+                <SectionWithTitle title="Cơ cấu tổ chức">
                   <OrgStructureSection />
-                </section>
+                </SectionWithTitle>
               </AnimatedSection>
-
               {/* Achievements */}
               <AnimatedSection animation="fadeInUp" delay={100}>
                 <AchievementsSection />
               </AnimatedSection>
-
               {/* Capabilities */}
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-                  <div className="text-center mb-8 md:mb-12 lg:mb-10 inch32:mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-4xl inch32:text-5xl font-bold">
-                      Lĩnh Vực Hoạt Động
-                    </h2>
-                  </div>
+                <SectionWithTitle title="Lĩnh Vực Hoạt Động">
                   <CapabilitiesSection />
-                </section>
+                </SectionWithTitle>
               </AnimatedSection>
-
               {/* Archive Photos */}
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15 px-4 md:px-12 lg:px-60 inch32:px-80">
-                  <ArchivePhotosSection />
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
+                  <div className="container mx-auto px-4">
+                    <ArchivePhotosSection />
+                  </div>
                 </section>
               </AnimatedSection>
             </div>

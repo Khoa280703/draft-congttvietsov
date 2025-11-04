@@ -32,9 +32,9 @@ const JointVentureSection: React.FC<JointVentureSectionProps> = ({
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <motion.h1
-            className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium text-gray-800 mb-6 lg:mb-5 inch32:mb-6 leading-tight"
+            className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium mb-6 lg:mb-5 inch32:mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}

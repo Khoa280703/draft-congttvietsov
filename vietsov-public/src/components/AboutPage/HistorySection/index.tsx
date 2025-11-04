@@ -42,63 +42,65 @@ const HistorySection: React.FC<HistorySectionProps> = ({
         </div>
       </div>
 
-      <div className="relative px-4 md:px-12 lg:px-60 inch32:px-80 z-10">
-        <motion.h2
-          className="text-white text-4xl md:text-4xl lg:text-4xl inch32:text-5xl leading-none tracking-[-0.4px] font-bold mb-8 md:mb-12 lg:mb-10 inch32:mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-        >
-          Lịch sử hình thành
-        </motion.h2>
-        <motion.div
-          className="flex items-center justify-start mb-4 md:mb-6 space-x-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-        >
-          {/* Left arrow - no background */}
-          <button
-            onClick={() => navigateEvent("left")}
-            className="pr-4 text-white hover:text-green-300 transition-colors duration-200"
-            aria-label="Previous event"
+      <div className="relative container mx-auto px-4 z-10">
+        <div className="flex flex-col items-center">
+          <motion.h2
+            className="text-white text-4xl md:text-4xl lg:text-4xl inch32:text-5xl leading-none tracking-[-0.4px] font-bold mb-8 md:mb-12 lg:mb-10 inch32:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           >
-            <HiArrowLeft className="w-6 h-6" />
-          </button>
+            Lịch sử hình thành
+          </motion.h2>
+          <motion.div
+            className="flex items-center justify-start mb-4 md:mb-6 space-x-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          >
+            {/* Left arrow - no background */}
+            <button
+              onClick={() => navigateEvent("left")}
+              className="pr-4 text-white hover:text-green-300 transition-colors duration-200"
+              aria-label="Previous event"
+            >
+              <HiArrowLeft className="w-6 h-6" />
+            </button>
 
-          <div
-            ref={timelineRef}
-            className="flex overflow-x-auto scrollbar-hide space-x-8 py-2"
-          >
-            {sortedEvents.map((event, index) => (
-              <button
-                key={event.year}
-                onClick={() => setActiveIndex(index)}
-                className={`
-                  flex-shrink-0 px-4 py-2 rounded-full text-lg font-bold transition-all duration-300
+            <div
+              ref={timelineRef}
+              className="flex overflow-x-auto scrollbar-hide space-x-8 py-2 px-4"
+            >
+              {sortedEvents.map((event, index) => (
+                <button
+                  key={event.year}
+                  onClick={() => setActiveIndex(index)}
+                  className={`
+                  flex-shrink-0 px-2 py-1 rounded-full text-base font-bold transition-all duration-300
                   ${
                     activeIndex === index
                       ? "bg-white text-green-800 scale-130"
                       : "bg-white/40 text-white hover:bg-white/60"
                   }
                 `}
-              >
-                {event.year}
-              </button>
-            ))}
-          </div>
+                >
+                  {event.year}
+                </button>
+              ))}
+            </div>
 
-          {/* Right arrow - no background */}
-          <button
-            onClick={() => navigateEvent("right")}
-            className="pl-4 text-white hover:text-green-300 transition-colors duration-200"
-            aria-label="Next event"
-          >
-            <HiArrowRight className="w-6 h-6" />
-          </button>
-        </motion.div>
+            {/* Right arrow - no background */}
+            <button
+              onClick={() => navigateEvent("right")}
+              className="pl-4 text-white hover:text-green-300 transition-colors duration-200"
+              aria-label="Next event"
+            >
+              <HiArrowRight className="w-6 h-6" />
+            </button>
+          </motion.div>
+        </div>
         <AnimatePresence mode="wait">
           {currentEvent && (
             <motion.div
@@ -110,7 +112,7 @@ const HistorySection: React.FC<HistorySectionProps> = ({
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
               {/* Main white card - responsive layout */}
-              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 lg:p-10 inch32:p-12 relative z-10 h-[22rem] md:h-[26rem] lg:h-[28rem] inch32:h-[34rem]">
+              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 lg:p-10 inch32:p-12 relative z-10 h-[22rem] md:h-[26rem] lg:h-[28rem] inch32:h-[38rem]">
                 <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 h-full">
                   {/* Content Section */}
                   <div className="w-full lg:w-5/8 flex flex-col justify-between lg:pr-0">

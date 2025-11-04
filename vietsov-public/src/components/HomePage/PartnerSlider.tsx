@@ -33,7 +33,7 @@ const partnerLogosData: PartnerLogo[] = [
 const PartnerSlider: React.FC = () => {
   return (
     <div>
-      <h2 className="text-4xl md:text-5xl lg:text-4xl inch32:text-5xl font-bold text-center mb-10 lg:mb-8 inch32:mb-10 drop-shadow-lg">
+      <h2 className="text-4xl md:text-5xl lg:text-4xl inch32:text-5xl font-bold text-center mb-10 lg:mb-16 inch32:mb-10 drop-shadow-lg">
         Đối tác
       </h2>
       <div className="">

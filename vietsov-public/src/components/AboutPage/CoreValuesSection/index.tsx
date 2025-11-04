@@ -1,9 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import AnimatedItem from "@/components/AnimatedItem";
-import { type CoreValuesSectionProps, defaultCoreValues } from "./data";
+import {
+  type CoreValuesSectionProps,
+  type CoreValue,
+  defaultCoreValues,
+} from "./data";
 
-const ValueItem: React.FC<{ value: any; index: number }> = ({
+const ValueItem: React.FC<{ value: CoreValue; index: number }> = ({
   value,
   index,
 }) => {
@@ -31,6 +35,8 @@ const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({
   values = defaultCoreValues,
   className = "",
 }) => {
+  const displayedValues = values.slice(0, 5);
+
   return (
     <motion.section
       id="vision-mission"
@@ -40,12 +46,31 @@ const CoreValuesSection: React.FC<CoreValuesSectionProps> = ({
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div>
-        <div className="flex flex-wrap justify-center gap-x-6 md:gap-x-8 lg:gap-x-6 inch32:gap-x-8 gap-y-8 md:gap-y-12 lg:gap-y-10 inch32:gap-y-12">
-          {values.map((value, index) => (
-            <ValueItem key={value.id} value={value} index={index} />
-          ))}
-        </div>
+      <div className="grid grid-cols-12 gap-x-6 md:gap-x-8 lg:gap-x-6 inch32:gap-x-8 gap-y-8 md:gap-y-12 lg:gap-y-10 inch32:gap-y-12">
+        {displayedValues.map((value, index) => {
+          let gridClasses = "";
+          switch (index) {
+            case 0:
+            case 1:
+            case 2:
+              gridClasses = "col-span-12 md:col-span-4";
+              break;
+            case 3:
+              gridClasses = "col-span-12 md:col-start-3 md:col-span-4";
+              break;
+            case 4:
+              gridClasses = "col-span-12 md:col-span-4";
+              break;
+          }
+
+          return (
+            <div key={value.id} className={gridClasses}>
+              <div className="flex justify-center">
+                <ValueItem value={value} index={index} />
+              </div>
+            </div>
+          );
+        })}
       </div>
     </motion.section>
   );

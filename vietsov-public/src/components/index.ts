@@ -3,6 +3,7 @@ export { default as Navigation } from "./Navigation";
 export { default as PageHeader } from "./PageHeader";
 export { default as SidebarNavigation } from "./SidebarNavigation";
 export { default as PageWithSidebar } from "./PageWithSidebar";
+export { default as SectionWithTitle } from "./Shared/SectionWithTitle";
 
 export { default as GradientImageOverlay } from "./HomePage/GradientImageOverlay";
 export { default as VisionMission } from "./HomePage/VisionMission";

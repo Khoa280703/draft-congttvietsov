@@ -52,7 +52,7 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-4xl inch32:text-5xl font-bold mb-4 md:mb-0">
+            <h2 className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium mb-4 md:mb-0">
               Hình ảnh tư liệu
             </h2>
             <div className="flex flex-wrap gap-2">
@@ -73,10 +73,10 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
           </motion.div>
 
           {/* Featured Content - Top Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 inch32:gap-8 mb-8 lg:mb-6 inch32:mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 inch32:gap-8 mb-8 lg:mb-6 inch32:mb-8 border-b-1 border-vietsov-green/50 pb-8 lg:pb-6 inch32:pb-8">
             {/* Featured Image/Video */}
             <motion.div
-              className="relative w-full h-80 lg:h-[340px] inch32:h-96 overflow-hidden rounded-lg"
+              className="relative w-full h-80 lg:h-[340px] inch32:h-96 overflow-hidden"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -141,7 +141,7 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
 
           {/* News Cards - Single Row (1x4) */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 inch32:gap-6 mb-8 lg:mb-6 inch32:mb-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 inch32:gap-6 mb-8 lg:mb-6 inch32:mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -174,7 +174,7 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
 
           {/* See More Button - Centered at bottom */}
           <motion.div
-            className="flex justify-center mt-12"
+            className="flex justify-center mt-16"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}

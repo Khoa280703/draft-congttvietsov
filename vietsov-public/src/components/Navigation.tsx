@@ -91,7 +91,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
 
   return (
     <nav className="bg-white w-full border-t border-gray-200 relative z-40">
-      <div className="px-4 lg:px-80">
+      <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-12">
           <div className="flex justify-center lg:justify-start items-center self-stretch">
             <img

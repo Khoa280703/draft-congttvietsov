@@ -65,7 +65,7 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
   if (isLoading) {
     return (
       <section
-        className={`relative font-sans py-16 md:py-24 lg:py-20 inch32:py-24 text-white overflow-hidden ${className}`}
+        className={`relative py-16 md:py-24 lg:py-20 inch32:py-24 text-white overflow-hidden ${className}`}
       >
         <div className="relative container mx-auto px-4 md:px-12 lg:px-60 inch32:px-80 z-10">
           <div className="max-w-4xl">
@@ -86,7 +86,7 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
   if (error) {
     return (
       <section
-        className={`relative font-sans py-16 md:py-24 lg:py-20 inch32:py-24 text-white overflow-hidden ${className}`}
+        className={`relative py-16 md:py-24 lg:py-20 inch32:py-24 text-white overflow-hidden ${className}`}
       >
         <div className="relative container mx-auto px-4 md:px-12 lg:px-60 inch32:px-80 z-10">
           <div className="max-w-4xl">
@@ -123,7 +123,7 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
         ></div>
       </div>
 
-      <div className="relative container mx-auto px-4 md:px-12 z-10">
+      <div className="relative container mx-auto z-10">
         <div className="max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {achievements.map((achievement, index) => (
