@@ -129,14 +129,14 @@ const SearchPage: React.FC = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Search Header */}
       <div className="bg-white border-b border-gray-200">
-        <div className="px-4 md:px-12 lg:px-60 2xl:px-80 py-8 md:py-12 lg:py-10 2xl:py-12">
+        <div className="px-4 md:px-12 lg:px-60 inch32:px-80 py-8 md:py-12 lg:py-10 inch32:py-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto"
           >
-            <h1 className="text-3xl md:text-4xl lg:text-3xl 2xl:text-4xl font-bold text-gray-900 mb-6 md:mb-8 lg:mb-6 2xl:mb-8">
+            <h1 className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-bold text-gray-900 mb-6 md:mb-8 lg:mb-6 inch32:mb-8">
               Tìm kiếm
             </h1>
 
@@ -148,7 +148,7 @@ const SearchPage: React.FC = () => {
                   value={searchQuery}
                   onChange={handleInputChange}
                   placeholder="Bạn đang tìm kiếm điều gì?"
-                  className="w-full px-6 md:px-6 lg:px-5 2xl:px-6 py-4 md:py-4 lg:py-3.5 2xl:py-4 pr-16 md:pr-16 lg:pr-14 2xl:pr-16 text-lg lg:text-base 2xl:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-vietsov-green focus:border-vietsov-green outline-none transition-all duration-200"
+                  className="w-full px-6 md:px-6 lg:px-5 inch32:px-6 py-4 md:py-4 lg:py-3.5 inch32:py-4 pr-16 md:pr-16 lg:pr-14 inch32:pr-16 text-lg lg:text-base inch32:text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-vietsov-green focus:border-vietsov-green outline-none transition-all duration-200"
                   autoFocus
                 />
                 <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center space-x-2">
@@ -158,14 +158,14 @@ const SearchPage: React.FC = () => {
                       onClick={clearSearch}
                       className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
                     >
-                      <HiX className="w-5 h-5 lg:w-4 lg:h-4 2xl:w-5 2xl:h-5" />
+                      <HiX className="w-5 h-5 lg:w-4 lg:h-4 inch32:w-5 inch32:h-5" />
                     </button>
                   )}
                   <button
                     type="submit"
                     className="p-2 text-vietsov-green hover:text-vietsov-green/80 transition-colors"
                   >
-                    <HiSearch className="w-6 h-6 lg:w-5 lg:h-5 2xl:w-6 2xl:h-6" />
+                    <HiSearch className="w-6 h-6 lg:w-5 lg:h-5 inch32:w-6 inch32:h-6" />
                   </button>
                 </div>
               </div>
@@ -175,7 +175,7 @@ const SearchPage: React.FC = () => {
       </div>
 
       {/* Search Results */}
-      <div className="px-4 md:px-12 lg:px-60 2xl:px-80 py-8 md:py-12 lg:py-10 2xl:py-12">
+      <div className="px-4 md:px-12 lg:px-60 inch32:px-80 py-8 md:py-12 lg:py-10 inch32:py-12">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -184,13 +184,13 @@ const SearchPage: React.FC = () => {
         >
           {isSearching ? (
             <div className="text-center py-12">
-              <div className="inline-block animate-spin rounded-full h-8 w-8 lg:h-7 lg:w-7 2xl:h-8 2xl:w-8 border-b-2 border-vietsov-green"></div>
-              <p className="mt-4 lg:mt-3 2xl:mt-4 text-gray-600 lg:text-sm 2xl:text-base">Đang tìm kiếm...</p>
+              <div className="inline-block animate-spin rounded-full h-8 w-8 lg:h-7 lg:w-7 inch32:h-8 inch32:w-8 border-b-2 border-vietsov-green"></div>
+              <p className="mt-4 lg:mt-3 inch32:mt-4 text-gray-600 lg:text-sm inch32:text-base">Đang tìm kiếm...</p>
             </div>
           ) : searchResults.length > 0 ? (
             <>
-              <div className="mb-6 lg:mb-5 2xl:mb-6">
-                <p className="text-gray-600 lg:text-sm 2xl:text-base">
+              <div className="mb-6 lg:mb-5 inch32:mb-6">
+                <p className="text-gray-600 lg:text-sm inch32:text-base">
                   Tìm thấy{" "}
                   <span className="font-semibold text-vietsov-green">
                     {searchResults.length}
@@ -205,7 +205,7 @@ const SearchPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="space-y-6 lg:space-y-5 2xl:space-y-6">
+              <div className="space-y-6 lg:space-y-5 inch32:space-y-6">
                 {searchResults.map((result, index) => (
                   <motion.div
                     key={result.id}
@@ -228,7 +228,7 @@ const SearchPage: React.FC = () => {
               </div>
 
               {/* Load More Button */}
-              <div className="mt-8 lg:mt-7 2xl:mt-8 text-center">
+              <div className="mt-8 lg:mt-7 inch32:mt-8 text-center">
                 <SeeMoreButton
                   onClick={() => {
                     // Simulate loading more results
@@ -239,28 +239,28 @@ const SearchPage: React.FC = () => {
             </>
           ) : searchQuery ? (
             <div className="text-center py-12">
-              <HiSearch className="w-16 h-16 lg:w-14 lg:h-14 2xl:w-16 2xl:h-16 text-gray-300 mx-auto mb-4 lg:mb-3 2xl:mb-4" />
-              <h3 className="text-xl lg:text-lg 2xl:text-xl font-semibold text-gray-700 mb-2 lg:mb-1.5 2xl:mb-2">
+              <HiSearch className="w-16 h-16 lg:w-14 lg:h-14 inch32:w-16 inch32:h-16 text-gray-300 mx-auto mb-4 lg:mb-3 inch32:mb-4" />
+              <h3 className="text-xl lg:text-lg inch32:text-xl font-semibold text-gray-700 mb-2 lg:mb-1.5 inch32:mb-2">
                 Không tìm thấy kết quả
               </h3>
-              <p className="text-gray-500 mb-6 lg:mb-5 2xl:mb-6 lg:text-sm 2xl:text-base">
+              <p className="text-gray-500 mb-6 lg:mb-5 inch32:mb-6 lg:text-sm inch32:text-base">
                 Không có kết quả nào cho "
                 <span className="font-medium">{searchQuery}</span>"
               </p>
               <button
                 onClick={clearSearch}
-                className="px-6 py-3 lg:px-5 lg:py-2.5 2xl:px-6 2xl:py-3 bg-vietsov-green text-white rounded-lg hover:bg-vietsov-green/90 transition-colors lg:text-sm 2xl:text-base"
+                className="px-6 py-3 lg:px-5 lg:py-2.5 inch32:px-6 inch32:py-3 bg-vietsov-green text-white rounded-lg hover:bg-vietsov-green/90 transition-colors lg:text-sm inch32:text-base"
               >
                 Xóa tìm kiếm
               </button>
             </div>
           ) : (
             <div className="text-center py-12">
-              <HiSearch className="w-16 h-16 lg:w-14 lg:h-14 2xl:w-16 2xl:h-16 text-gray-300 mx-auto mb-4 lg:mb-3 2xl:mb-4" />
-              <h3 className="text-xl lg:text-lg 2xl:text-xl font-semibold text-gray-700 mb-2 lg:mb-1.5 2xl:mb-2">
+              <HiSearch className="w-16 h-16 lg:w-14 lg:h-14 inch32:w-16 inch32:h-16 text-gray-300 mx-auto mb-4 lg:mb-3 inch32:mb-4" />
+              <h3 className="text-xl lg:text-lg inch32:text-xl font-semibold text-gray-700 mb-2 lg:mb-1.5 inch32:mb-2">
                 Tìm kiếm thông tin
               </h3>
-              <p className="text-gray-500 lg:text-sm 2xl:text-base">
+              <p className="text-gray-500 lg:text-sm inch32:text-base">
                 Nhập từ khóa để tìm kiếm thông tin trên website
               </p>
             </div>

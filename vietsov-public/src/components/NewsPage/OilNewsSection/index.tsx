@@ -11,14 +11,14 @@ const OilNewsSection: React.FC<OilNewsSectionProps> = ({ className = "" }) => {
   return (
     <div className={`font-sans ${className}`}>
       {/* Header */}
-      <div className="flex justify-between items-center mb-8 md:mb-12 lg:mb-10 2xl:mb-12">
-        <h2 className="text-3xl md:text-4xl lg:text-3xl 2xl:text-4xl font-medium text-gray-800">
+      <div className="flex justify-between items-center mb-8 md:mb-12 lg:mb-10 inch32:mb-12">
+        <h2 className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium text-gray-800">
           Tin dầu khí
         </h2>
         <SeeMoreButtonSimple text="Xem thêm" href="/tintuc/tin-dau-khi" />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 2xl:gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 inch32:gap-8">
         {/* Main Article - Using CardFullDetail */}
         <div>
           <BigCardFullDetail
@@ -28,7 +28,7 @@ const OilNewsSection: React.FC<OilNewsSectionProps> = ({ className = "" }) => {
             title={defaultMainArticle.title}
             timestamp={defaultMainArticle.timestamp}
             description={defaultMainArticle.description}
-            imageHeight="h-80 md:h-96 lg:h-[20rem] 2xl:h-[28rem]"
+            imageHeight="h-80 md:h-96 lg:h-[20rem] inch32:h-[28rem]"
             onClick={() => {
               window.location.href = "/tintuc/chi-tiet";
             }}
@@ -37,7 +37,7 @@ const OilNewsSection: React.FC<OilNewsSectionProps> = ({ className = "" }) => {
         </div>
 
         {/* Side Articles - Using CardFullDetailHori */}
-        <div className="space-y-4 lg:space-y-3 2xl:space-y-4">
+        <div className="space-y-4 lg:space-y-3 inch32:space-y-4">
           {defaultSideArticles.slice(0, 3).map((article) => (
             <CardFullDetailHori
               key={article.id}
@@ -54,7 +54,7 @@ const OilNewsSection: React.FC<OilNewsSectionProps> = ({ className = "" }) => {
             />
           ))}
           {/* Show 4th article only on 2xl screens */}
-          <div className="hidden 2xl:block">
+          <div className="hidden inch32:block">
             {defaultSideArticles[3] && (
               <CardFullDetailHori
                 image={defaultSideArticles[3].image}

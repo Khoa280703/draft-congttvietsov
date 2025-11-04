@@ -32,7 +32,7 @@ const OilNewsPage: React.FC = () => {
   return (
     <PageWithSidebar activePath="/tintuc/tin-dau-khi">
       <div className="min-h-screen bg-gray-50">
-        <div className="space-y-6 lg:space-y-5 2xl:space-y-6">
+        <div className="space-y-6 lg:space-y-5 inch32:space-y-6">
           {newsData.map((news, index) => (
             <motion.div
               key={news.id}

@@ -65,9 +65,9 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
   if (isLoading) {
     return (
       <section
-        className={`relative font-sans py-16 md:py-24 lg:py-20 2xl:py-24 text-white overflow-hidden ${className}`}
+        className={`relative font-sans py-16 md:py-24 lg:py-20 inch32:py-24 text-white overflow-hidden ${className}`}
       >
-        <div className="relative container mx-auto px-4 md:px-12 lg:px-60 2xl:px-80 z-10">
+        <div className="relative container mx-auto px-4 md:px-12 lg:px-60 inch32:px-80 z-10">
           <div className="max-w-4xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -86,9 +86,9 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
   if (error) {
     return (
       <section
-        className={`relative font-sans py-16 md:py-24 lg:py-20 2xl:py-24 text-white overflow-hidden ${className}`}
+        className={`relative font-sans py-16 md:py-24 lg:py-20 inch32:py-24 text-white overflow-hidden ${className}`}
       >
-        <div className="relative container mx-auto px-4 md:px-12 lg:px-60 2xl:px-80 z-10">
+        <div className="relative container mx-auto px-4 md:px-12 lg:px-60 inch32:px-80 z-10">
           <div className="max-w-4xl">
             <div className="text-center">
               <p className="text-red-300">
@@ -139,10 +139,10 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
                   ease: "easeOut",
                 }}
               >
-                <h3 className="text-2xl md:text-4xl lg:text-3xl 2xl:text-4xl font-bold leading-tight">
+                <h3 className="text-2xl md:text-4xl lg:text-3xl inch32:text-4xl font-bold leading-tight">
                   {achievement.value}
                 </h3>
-                <p className="text-sm md:text-base lg:text-sm 2xl:text-base font-base leading-relaxed">
+                <p className="text-sm md:text-base lg:text-sm inch32:text-base font-base leading-relaxed">
                   {achievement.description}
                 </p>
               </motion.div>

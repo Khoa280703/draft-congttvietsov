@@ -39,9 +39,9 @@ const ThamDo: React.FC = () => {
     <PageWithSidebar activePath="/linhvuc-nangluc">
       <PageHeader title="Thăm dò Dầu khí" backgroundImage={danKhoanBackground} breadcrumbs={breadcrumbs} />
 
-      <section className="bg-white py-10 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 2xl:pt-22 2xl:pb-15">
+      <section className="bg-white py-10 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-5 2xl:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-5 inch32:gap-6">
             {capabilities.map((cap, idx) => (
               <CardWithPadding
                 key={idx}
@@ -54,10 +54,10 @@ const ThamDo: React.FC = () => {
             ))}
           </div>
 
-          <div className="mt-8 lg:mt-7 2xl:mt-8 flex items-center justify-between bg-gray-50 p-6 lg:p-5 2xl:p-6 rounded-xl">
+          <div className="mt-8 lg:mt-7 inch32:mt-8 flex items-center justify-between bg-gray-50 p-6 lg:p-5 inch32:p-6 rounded-xl">
             <div>
-              <h3 className="text-xl lg:text-lg 2xl:text-xl font-semibold text-gray-800">Tài liệu & Quy trình</h3>
-              <p className="text-gray-600 lg:text-sm 2xl:text-base">Tham khảo quy trình, tiêu chuẩn kỹ thuật và hồ sơ năng lực thăm dò.</p>
+              <h3 className="text-xl lg:text-lg inch32:text-xl font-semibold text-gray-800">Tài liệu & Quy trình</h3>
+              <p className="text-gray-600 lg:text-sm inch32:text-base">Tham khảo quy trình, tiêu chuẩn kỹ thuật và hồ sơ năng lực thăm dò.</p>
             </div>
             <SeeMoreButtonSimple text="Xem tài liệu" href="/cacnguonchung/khcn" />
           </div>

@@ -19,7 +19,7 @@ const OrgStructureSection: React.FC<OrgStructureSectionProps> = ({
     >
       <div className="relative z-10">
         <motion.h1
-          className="text-4xl md:text-4xl lg:text-3xl 2xl:text-4xl font-medium left-1/10 text-gray-800 mb-6 lg:mb-5 2xl:mb-6 leading-tight"
+          className="text-4xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium left-1/10 text-gray-800 mb-6 lg:mb-5 inch32:mb-6 leading-tight"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -28,7 +28,7 @@ const OrgStructureSection: React.FC<OrgStructureSectionProps> = ({
           {data.title}
         </motion.h1>
 
-        <div className="grid grid-cols-1 gap-8 md:gap-16 lg:gap-12 2xl:gap-16">
+        <div className="grid grid-cols-1 gap-8 md:gap-16 lg:gap-12 inch32:gap-16">
           <motion.div
             className="text-gray-700"
             initial={{ opacity: 0, x: -30 }}
@@ -36,7 +36,7 @@ const OrgStructureSection: React.FC<OrgStructureSectionProps> = ({
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
           >
-            <div className="space-y-4 lg:space-y-3 2xl:space-y-4 text-gray-600 leading-relaxed text-base lg:text-sm 2xl:text-base">
+            <div className="space-y-4 lg:space-y-3 inch32:space-y-4 text-gray-600 leading-relaxed text-base lg:text-sm inch32:text-base">
               {data.paragraphs.map((paragraph, index) => (
                 <motion.p
                   key={index}

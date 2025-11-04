@@ -12,8 +12,8 @@ const CommunityActivitySection: React.FC<CommunityActivitySectionProps> = ({
   return (
     <div className={`font-sans ${className}`}>
       {/* Header */}
-      <div className="flex justify-between items-center mb-8 md:mb-12 lg:mb-10 2xl:mb-12">
-        <h2 className="text-3xl md:text-4xl lg:text-3xl 2xl:text-4xl font-medium text-gray-800">
+      <div className="flex justify-between items-center mb-8 md:mb-12 lg:mb-10 inch32:mb-12">
+        <h2 className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium text-gray-800">
           Hoạt động đoàn thể
         </h2>
         <SeeMoreButtonSimple
@@ -23,7 +23,7 @@ const CommunityActivitySection: React.FC<CommunityActivitySectionProps> = ({
       </div>
 
       {/* Articles Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6 2xl:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6 inch32:gap-8">
         {defaultCommunityActivityData.map((article) => (
           <CardFullDetail
             key={article.id}
