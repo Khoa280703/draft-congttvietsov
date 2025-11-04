@@ -29,10 +29,10 @@ type SortBy = "name" | "date" | "type" | "size";
 type SortOrder = "asc" | "desc";
 
 const sortOptions: SelectOption<SortBy>[] = [
-  { value: "name", label: "Sắp xếp theo tên" },
-  { value: "date", label: "Sắp xếp theo ngày" },
-  { value: "type", label: "Sắp xếp theo loại" },
-  { value: "size", label: "Sắp xếp theo kích thước" },
+  { value: "name", label: "Theo tên" },
+  { value: "date", label: "Theo ngày" },
+  { value: "type", label: "Theo loại" },
+  { value: "size", label: "Theo kích thước" },
 ];
 
 const MediaLibraryPage: React.FC = () => {

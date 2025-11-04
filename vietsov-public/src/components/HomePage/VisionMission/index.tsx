@@ -109,7 +109,7 @@ const VisionMission: React.FC<VisionMissionProps> = ({
             <img
               src={data.image.src}
               alt={data.image.alt}
-              className="w-full h-[300px] md:h-[400px] lg:h-[380px] inch32:h-[500px] object-cover"
+              className="w-full h-[18rem] md:h-[25rem] lg:h-[30rem] inch32:h-[32rem] object-cover"
               style={{
                 borderTopLeftRadius: "60px",
                 borderBottomLeftRadius: "16px",
