@@ -352,9 +352,7 @@ const MediaLibraryPage: React.FC = () => {
   // List View Item Component
   const ListViewItem: React.FC<{ item: MediaItem }> = ({ item }) => (
     <div
-      className={`flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors border-b border-gray-100 ${
-        item.type !== "folder" ? "cursor-pointer" : ""
-      }`}
+      className="flex items-center gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors border-b border-gray-100 cursor-pointer"
       onClick={() => {
         if (item.type === "folder") {
           handleFolderClick(item.id);
@@ -481,7 +479,7 @@ const MediaLibraryPage: React.FC = () => {
                     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
                     setCurrentPage(1);
                   }}
-                  className="p-2.5 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-gray-700"
+                  className="p-2.5 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-gray-700 cursor-pointer"
                   aria-label={`Sort ${
                     sortOrder === "asc" ? "descending" : "ascending"
                   }`}
@@ -499,7 +497,7 @@ const MediaLibraryPage: React.FC = () => {
               <div className="flex items-center gap-2 border border-gray-300 rounded-lg p-1">
                 <button
                   onClick={() => setViewMode("grid")}
-                  className={`p-2 rounded transition-colors ${
+                  className={`p-2 rounded transition-colors cursor-pointer ${
                     viewMode === "grid"
                       ? "bg-vietsov-green text-white"
                       : "text-gray-600 hover:bg-gray-100"
@@ -510,7 +508,7 @@ const MediaLibraryPage: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setViewMode("list")}
-                  className={`p-2 rounded transition-colors ${
+                  className={`p-2 rounded transition-colors cursor-pointer ${
                     viewMode === "list"
                       ? "bg-vietsov-green text-white"
                       : "text-gray-600 hover:bg-gray-100"

@@ -41,7 +41,11 @@ const AboutPage: React.FC = () => {
           path="/"
           element={
             <div className="bg-vietsov-background">
-              <AnimatedSection animation="fadeInUp" delay={100}>
+              <AnimatedSection
+                animation="fadeInUp"
+                delay={100}
+                className="bg-vietsov-background"
+              >
                 <SectionWithTitle title="Liên doanh Việt - Nga">
                   <JointVentureSection />
                 </SectionWithTitle>
@@ -50,13 +54,21 @@ const AboutPage: React.FC = () => {
                 <HistorySection />
               </AnimatedSection>
               {/* Core Values Section */}
-              <AnimatedSection animation="fadeInUp" delay={100}>
+              <AnimatedSection
+                animation="fadeInUp"
+                delay={100}
+                className="bg-vietsov-background2"
+              >
                 <SectionWithTitle title="Giá trị cốt lõi" showGradientLine>
                   <CoreValuesSection />
                 </SectionWithTitle>
               </AnimatedSection>
               {/* Organization Structure */}
-              <AnimatedSection animation="fadeInUp" delay={100}>
+              <AnimatedSection
+                animation="fadeInUp"
+                delay={100}
+                className="bg-vietsov-background"
+              >
                 <SectionWithTitle title="Cơ cấu tổ chức">
                   <OrgStructureSection />
                 </SectionWithTitle>
@@ -66,7 +78,11 @@ const AboutPage: React.FC = () => {
                 <AchievementsSection />
               </AnimatedSection>
               {/* Capabilities */}
-              <AnimatedSection animation="fadeInUp" delay={100}>
+              <AnimatedSection
+                animation="fadeInUp"
+                delay={100}
+                className="bg-vietsov-background2"
+              >
                 <SectionWithTitle title="Lĩnh Vực Hoạt Động">
                   <CapabilitiesSection />
                 </SectionWithTitle>

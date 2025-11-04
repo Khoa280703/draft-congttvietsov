@@ -17,7 +17,7 @@ const SeeMoreButton: React.FC<SeeMoreButtonProps> = ({
   variant = "outline",
 }) => {
   const baseClasses =
-    "inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-200 lg:w-58 text-center justify-center";
+    "inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-200 lg:w-58 text-center justify-center cursor-pointer";
 
   const variantClasses = {
     default:

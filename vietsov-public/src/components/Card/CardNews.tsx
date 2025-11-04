@@ -31,14 +31,14 @@ const CardNews: React.FC<CardNewsProps> = ({
 }) => {
   return (
     <motion.article
-      className={`overflow-hidden hover:shadow-md transition-shadow duration-300 h-full flex flex-col border-b-1 border-vietsov-green/20 pb-2 ${
+      className={`overflow-hidden transition-shadow duration-300 h-full flex flex-col border-b-1 border-vietsov-green/30 pb-2 ${
         onClick ? "cursor-pointer" : ""
       } ${className}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      whileHover={{ y: -2, transition: { duration: 0.2 } }}
+      whileHover={{ cursor: "pointer" }}
       onClick={onClick}
     >
       <div className="relative w-full h-48 md:h-56 lg:h-52 inch32:h-64 overflow-hidden">

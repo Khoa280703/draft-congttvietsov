@@ -123,7 +123,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                         className={`
                         px-4 py-2 text-sm leading-6 tracking-normal text-center font-semibold
                         transition-all duration-300 flex items-center justify-center relative
-                        hover:scale-105 whitespace-nowrap
+                        hover:scale-105 whitespace-nowrap cursor-pointer
                         ${
                           activeItem === item.label
                             ? "text-vietsov-green "
@@ -152,7 +152,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                                     e.preventDefault();
                                     handleChildItemClick(child);
                                   }}
-                                  className="group block w-full text-center py-3 text-sm text-gray-600 hover:bg-gray-100 hover:px-4 transition-all duration-200 flex items-center justify-center rounded-md"
+                                  className="group block w-full text-center py-3 text-sm text-gray-600 hover:bg-gray-100 hover:px-4 transition-all duration-200 flex items-center justify-center rounded-md cursor-pointer"
                                 >
                                   <span>{child.title}</span>
                                   <HiArrowRight className="w-4 h-4 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ml-2" />
@@ -199,7 +199,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
             <div className="hidden lg:flex items-center space-x-2 mt-2 lg:mt-0">
               <button
                 onClick={() => onUrlNavigation && onUrlNavigation("/tim-kiem")}
-                className="p-2 text-gray-600 hover:text-vietsov-green hover:scale-110 rounded-full transition-all duration-200"
+                className="p-2 text-gray-600 hover:text-vietsov-green hover:scale-110 rounded-full transition-all duration-200 cursor-pointer"
                 title="Tìm kiếm"
               >
                 <HiSearch className="w-5 h-5" />
@@ -209,7 +209,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
             <div className="lg:hidden flex items-center justify-center space-x-2 w-full">
               <button
                 onClick={() => onUrlNavigation && onUrlNavigation("/tim-kiem")}
-                className="p-2 text-gray-600 hover:text-vietsov-green hover:bg-gray-100 hover:scale-110 rounded-full transition-all duration-200"
+                className="p-2 text-gray-600 hover:text-vietsov-green hover:bg-gray-100 hover:scale-110 rounded-full transition-all duration-200 cursor-pointer"
                 title="Tìm kiếm"
               >
                 <HiSearch className="w-5 h-5" />
@@ -217,7 +217,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
 
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md text-gray-600 hover:bg-gray-100 hover:scale-110 focus:outline-none transition-all duration-200"
+                className="p-2 rounded-md text-gray-600 hover:bg-gray-100 hover:scale-110 focus:outline-none transition-all duration-200 cursor-pointer"
               >
                 {isMenuOpen ? (
                   <HiX className="w-6 h-6" />

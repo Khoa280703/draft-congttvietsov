@@ -16,6 +16,7 @@ export interface SideArticle {
   id: number;
   title: string;
   timestamp: string;
+  description?: string;
   image: string;
 }
 
@@ -39,12 +40,16 @@ export const defaultSideArticles: SideArticle[] = [
     title:
       "Xí nghiệp Địa vật lý giếng khoan sẽ chia khó khăn cùng đồng bào chịu ảnh hưởng bão Yagi",
     timestamp: "11:50 03/10/2024",
+    description:
+      "Xí nghiệp đã triển khai các chương trình hỗ trợ nhằm giúp đỡ đồng bào vùng bị ảnh hưởng bão, thể hiện tinh thần tương thân tương ái và trách nhiệm xã hội.",
     image: chuyenTham1996,
   },
   {
     id: 2,
     title: "Công đoàn Vietsovpetro khai mạc giải Bóng chuyền năm 2024",
     timestamp: "11:50 03/10/2024",
+    description:
+      "Giải đấu bóng chuyền năm 2024 được khai mạc với sự tham gia của nhiều đội bóng, tạo cơ hội giao lưu và rèn luyện sức khỏe cho cán bộ nhân viên.",
     image: daiHoiDaiBieu,
   },
   {
@@ -52,6 +57,8 @@ export const defaultSideArticles: SideArticle[] = [
     title:
       "Đoàn thanh niên và Ban nữ công Trung tâm CNTT&LL tổ chức chương trình an sinh xã hội",
     timestamp: "11:50 03/10/2024",
+    description:
+      "Chương trình an sinh xã hội đã được tổ chức thành công với nhiều hoạt động ý nghĩa, góp phần hỗ trợ cộng đồng và phát triển xã hội.",
     image: hoiNghiSuKien,
   },
   {
@@ -59,6 +66,8 @@ export const defaultSideArticles: SideArticle[] = [
     title:
       "Các sự kiện nổi bật của Petrovietnam trong tuần từ ngày 6/10 đến 13/10/2024",
     timestamp: "11:50 03/10/2024",
+    description:
+      "Tuần qua có nhiều sự kiện quan trọng trong ngành dầu khí, bao gồm các cuộc họp chiến lược, hội thảo chuyên môn và hoạt động hợp tác quốc tế.",
     image: hoiNghiPetro,
   },
 ];

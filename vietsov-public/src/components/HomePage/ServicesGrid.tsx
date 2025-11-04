@@ -123,10 +123,10 @@ const ServicesGrid: React.FC = () => {
         </div>
 
         <div className="flex justify-center items-center space-x-3 mt-12">
-          <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-400 hover:bg-gray-100">
+          <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-400 hover:bg-gray-100 cursor-pointer">
             <MdArrowBackIosNew className="w-5 h-5" />
           </button>
-          <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-400 hover:bg-gray-100">
+          <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-400 hover:bg-gray-100 cursor-pointer">
             <MdArrowForwardIos className="w-5 h-5" />
           </button>
         </div>

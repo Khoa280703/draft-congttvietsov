@@ -188,7 +188,7 @@ const PreFooter: React.FC = () => {
               <div key={column.title}>
                 <button
                   onClick={() => hasLinks && toggleSection(column.title)}
-                  className="font-bold text-gray-800 mb-4 text-sm uppercase flex items-center hover:text-vietsov-green transition-colors duration-200"
+                  className="font-bold text-gray-800 mb-4 text-sm uppercase flex items-center hover:text-vietsov-green transition-colors duration-200 cursor-pointer disabled:cursor-not-allowed"
                   disabled={!hasLinks}
                 >
                   {column.title}
@@ -251,7 +251,7 @@ const PreFooter: React.FC = () => {
             <div ref={unitWebsiteRef} className="relative">
               <button
                 onClick={() => setIsUnitWebsiteOpen(!isUnitWebsiteOpen)}
-                className="flex items-center text-sm text-gray-700 font-medium px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors"
+                className="flex items-center text-sm text-gray-700 font-medium px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
               >
                 Website đơn vị thành viên
                 <HiChevronDown
@@ -284,7 +284,7 @@ const PreFooter: React.FC = () => {
             <div ref={linkRef} className="relative">
               <button
                 onClick={() => setIsLinkOpen(!isLinkOpen)}
-                className="flex items-center text-sm text-gray-700 font-medium px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors"
+                className="flex items-center text-sm text-gray-700 font-medium px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
               >
                 Liên kết
                 <HiChevronDown

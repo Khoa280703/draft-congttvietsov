@@ -28,7 +28,7 @@ const CardFullDetail: React.FC<CardFullDetailProps> = ({
 }) => {
   return (
     <div
-      className={`overflow-hidden border-1 border-vietsov-green/50 shadow-lg h-full flex flex-col ${
+      className={`overflow-hidden border-1 border-vietsov-green/30 h-full flex flex-col ${
         onClick ? "cursor-pointer" : ""
       } ${className}`}
       onClick={onClick}

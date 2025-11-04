@@ -32,11 +32,11 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
             onClick={() => {
               window.location.href = "/tintuc/chi-tiet";
             }}
-            className="h-full border-b-1 border-vietsov-green/20 pb-2"
+            className="h-full border-b-1 border-vietsov-green/30 pb-2"
           />
         </div>
 
-        <div className="flex flex-col gap-4 lg:gap-3 inch32:gap-4 border-b-1 border-vietsov-green/20 pb-4">
+        <div className="flex flex-col gap-4 lg:gap-3 inch32:gap-4 border-b-1 border-vietsov-green/30 pb-4">
           {defaultSideArticles.slice(0, 3).map((article, index) => {
             const isLast = index === 2;
             return (
@@ -53,8 +53,9 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
                   imageAlt={article.title}
                   title={article.title}
                   timestamp={article.timestamp}
-                  maxTitleLines={4}
-                  maxDescriptionLines={0}
+                  description={article.description}
+                  maxTitleLines={2}
+                  maxDescriptionLines={2}
                   onClick={() => {
                     window.location.href = "/tintuc/chi-tiet";
                   }}
@@ -70,8 +71,9 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
                 imageAlt={defaultSideArticles[3].title}
                 title={defaultSideArticles[3].title}
                 timestamp={defaultSideArticles[3].timestamp}
-                maxTitleLines={4}
-                maxDescriptionLines={0}
+                description={defaultSideArticles[3].description}
+                maxTitleLines={2}
+                maxDescriptionLines={2}
                 onClick={() => {
                   window.location.href = "/tintuc/chi-tiet";
                 }}

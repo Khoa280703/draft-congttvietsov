@@ -80,7 +80,7 @@ const ATSKMTSection: React.FC = () => {
                   onClick={() => {
                     window.location.href = "/tintuc/chi-tiet";
                   }}
-                  className="h-full"
+                  className="h-full border-b-1 border-vietsov-green/30 pb-4"
                 />
               </div>
             </motion.div>

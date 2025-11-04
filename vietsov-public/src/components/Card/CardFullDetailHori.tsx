@@ -29,13 +29,31 @@ const CardFullDetailHori: React.FC<CardFullDetailHoriProps> = ({
   maxDescriptionLines = 3,
 }) => {
   const calculateHeight = () => {
-    const baseHeight = 40;
-    const categoryHeight = category ? 20 : 0;
-    const titleHeight = maxTitleLines * 24;
-    const timestampHeight = timestamp ? 20 : 0;
-    const descriptionHeight = description ? maxDescriptionLines * 20 : 0;
-    const detailHeight = detail ? 32 : 0;
+    // Base padding (py-2 = 8px top + 8px bottom = 16px)
+    const basePadding = 16;
 
+    // Category height: text-[10px] với leading-none ≈ 12px
+    const categoryHeight = category ? 12 : 0;
+
+    // Title height: text-lg (18px) với leading-tight, mỗi dòng ≈ 22px
+    // text-base (16px) với leading-tight, mỗi dòng ≈ 20px
+    // text-lg inch32 (18px) với leading-tight, mỗi dòng ≈ 22px
+    // Tính trung bình 21px/dòng
+    const titleHeight = maxTitleLines * 21;
+
+    // Timestamp height: text-sm (14px) với leading-none ≈ 14px
+    const timestampHeight = timestamp ? 14 : 0;
+
+    // Description height: text-sm (14px) với leading-relaxed, mỗi dòng ≈ 18px
+    // text-xs (12px) với leading-relaxed, mỗi dòng ≈ 16px
+    // Tính trung bình 17px/dòng
+    const descriptionHeight = description ? maxDescriptionLines * 17 : 0;
+
+    // Detail link height: text-sm (14px) + icon ≈ 20px
+    const detailHeight = detail ? 20 : 0;
+
+    // Spacing giữa các elements: space-y-2 (8px) cho md, space-y-3 (12px) cho lg
+    // Tính trung bình là space-y-2.5 ≈ 10px
     const elementsCount = [
       category,
       title,
@@ -44,10 +62,10 @@ const CardFullDetailHori: React.FC<CardFullDetailHoriProps> = ({
       detail,
     ].filter(Boolean).length;
 
-    const spacing = elementsCount > 1 ? (elementsCount - 1) * 12 : 0;
+    const spacing = elementsCount > 1 ? (elementsCount - 1) * 10 : 0;
 
     return (
-      baseHeight +
+      basePadding +
       categoryHeight +
       titleHeight +
       timestampHeight +
@@ -76,7 +94,7 @@ const CardFullDetailHori: React.FC<CardFullDetailHoriProps> = ({
         />
       </div>
 
-      <div className="w-3/5 pl-4 md:pl-6 lg:pl-5 inch32:pl-6 py-2 flex flex-col justify-center h-full">
+      <div className="w-3/5 pl-4 md:pl-6 lg:pl-5 inch32:pl-6 py-2 flex flex-col h-full">
         <div className="space-y-2 md:space-y-3 lg:space-y-2 inch32:space-y-3">
           {category && (
             <div className="font-bold text-[10px] lg:text-[9px] inch32:text-[10px] leading-none tracking-[1.5px] lg:tracking-[1px] inch32:tracking-[1.5px] text-vietsov-green uppercase">

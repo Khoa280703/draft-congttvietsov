@@ -48,7 +48,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
             placeholder="Search for..."
             className="flex-1 py-2 lg:py-1.5 inch32:py-2 text-sm lg:text-xs inch32:text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <button className="p-2 lg:p-1.5 inch32:p-2 text-gray-500 hover:text-gray-700">
+          <button className="p-2 lg:p-1.5 inch32:p-2 text-gray-500 hover:text-gray-700 cursor-pointer">
             <IoIosSearch className="w-5 h-5 lg:w-4 lg:h-4 inch32:w-5 inch32:h-5" />
           </button>
         </div>
@@ -65,7 +65,7 @@ const SidebarNavigation: React.FC<SidebarNavigationProps> = ({
                 {item.children.length > 0 ? (
                   <button
                     onClick={() => toggleSection(item.href)}
-                    className={`w-full text-left py-1 lg:py-0.5 inch32:py-1 text-base lg:text-sm inch32:text-base flex items-center justify-between ${
+                    className={`w-full text-left py-1 lg:py-0.5 inch32:py-1 text-base lg:text-sm inch32:text-base flex items-center justify-between cursor-pointer ${
                       isParentActive
                         ? "text-green-600 font-medium"
                         : "text-gray-600 hover:text-gray-800"

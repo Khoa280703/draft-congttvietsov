@@ -157,14 +157,14 @@ const SearchPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={clearSearch}
-                      className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+                      className="p-2 text-gray-400 hover:text-gray-600 transition-colors cursor-pointer"
                     >
                       <HiX className="w-5 h-5 lg:w-4 lg:h-4 inch32:w-5 inch32:h-5" />
                     </button>
                   )}
                   <button
                     type="submit"
-                    className="p-2 text-vietsov-green hover:text-vietsov-green/80 transition-colors"
+                    className="p-2 text-vietsov-green hover:text-vietsov-green/80 transition-colors cursor-pointer"
                   >
                     <HiSearch className="w-6 h-6 lg:w-5 lg:h-5 inch32:w-6 inch32:h-6" />
                   </button>

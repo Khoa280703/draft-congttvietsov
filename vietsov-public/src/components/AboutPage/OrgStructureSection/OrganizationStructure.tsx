@@ -111,7 +111,7 @@ const NodeModal: React.FC<NodeModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full p-2 transition-all duration-200 flex-shrink-0 group"
+            className="text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full p-2 transition-all duration-200 flex-shrink-0 group cursor-pointer"
             aria-label="Đóng"
           >
             <FiX
@@ -126,7 +126,7 @@ const NodeModal: React.FC<NodeModalProps> = ({
           {isLeadershipNode ? (
             <>
               {/* Description - Thông tin phòng ban */}
-              <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+              <div className="ounded-xl p-4 border border-gray-100">
                 <div className="flex items-start space-x-3">
                   <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
                     <svg
@@ -157,7 +157,7 @@ const NodeModal: React.FC<NodeModalProps> = ({
 
               {/* Sub-units - Đơn vị trực thuộc */}
               {node.children && node.children.length > 0 && (
-                <div className="bg-green-50 rounded-xl p-4 border border-green-100">
+                <div className="rounded-xl p-4 border border-green-100">
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
                       <svg
@@ -228,7 +228,7 @@ const NodeModal: React.FC<NodeModalProps> = ({
           ) : (
             <>
               {/* Description */}
-              <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
+              <div className="rounded-xl p-4 border border-gray-100">
                 <div className="flex items-start space-x-3">
                   <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
                     <svg
@@ -259,7 +259,7 @@ const NodeModal: React.FC<NodeModalProps> = ({
 
               {/* Sub-units */}
               {node.children && node.children.length > 0 && (
-                <div className="bg-green-50 rounded-xl p-4 border border-green-100">
+                <div className=" rounded-xl p-4 border border-green-100">
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
                       <svg
@@ -284,7 +284,7 @@ const NodeModal: React.FC<NodeModalProps> = ({
                         {node.children.map((child) => (
                           <div
                             key={child.id}
-                            className="flex items-center space-x-2 p-2 bg-white rounded-lg border border-gray-100 hover:border-green-200 transition-colors"
+                            className="flex items-center space-x-2 p-2 bg-white hover:border-green-200 transition-colors"
                           >
                             <div className="w-2 h-2 bg-vietsov-green rounded-full"></div>
                             <span className="text-sm text-gray-700">

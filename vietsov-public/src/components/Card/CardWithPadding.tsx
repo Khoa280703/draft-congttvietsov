@@ -22,7 +22,7 @@ const CardWithPadding: React.FC<CardWithPaddingProps> = ({
 }) => {
   return (
     <div
-      className={`bg-white backdrop-blur-sm border-1 border-vietsov-green/50 overflow-hidden shadow-lg ${className}`}
+      className={`bg-white backdrop-blur-sm border-1 border-vietsov-green/30 overflow-hidden ${className}`}
     >
       <div className="relative inch32:px-5 inch32:pt-5 pb-4 md:pb-6 lg:pb-4 inch32:pb-6">
         <img

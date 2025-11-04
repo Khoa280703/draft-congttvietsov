@@ -17,7 +17,7 @@ const EnterpriseCard: React.FC<EnterpriseCardProps> = ({
     imagePosition === "left" ? "lg:order-first" : "lg:order-last";
 
   return (
-    <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-32 items-center mb-20 last:mb-0">
+    <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-32 items-center mb-20 last:mb-0 py-16">
       <motion.div
         className={imageOrder}
         initial={{ opacity: 0, x: imagePosition === "left" ? -50 : 50 }}
@@ -28,7 +28,7 @@ const EnterpriseCard: React.FC<EnterpriseCardProps> = ({
         <img
           src={image}
           alt={title}
-          className="w-full h-[500px] md:h-[700px] lg:h-[850px] object-cover rounded-2xl shadow-lg"
+          className="w-full h-[500px] md:h-[700px] lg:h-[640px] object-cover rounded-2xl shadow-lg"
         />
       </motion.div>
 
@@ -41,7 +41,7 @@ const EnterpriseCard: React.FC<EnterpriseCardProps> = ({
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       >
         {/* Background Quote Icon */}
-        <motion.span
+        {/* <motion.span
           className={`
             absolute -top-26
             ${imagePosition === "left" ? "-left-20" : "-left-20"}
@@ -54,7 +54,7 @@ const EnterpriseCard: React.FC<EnterpriseCardProps> = ({
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
         >
           <FaQuoteLeft />
-        </motion.span>
+        </motion.span> */}
 
         <motion.p
           className="text-sm font-bold text-green-600 mb-2 relative z-10"

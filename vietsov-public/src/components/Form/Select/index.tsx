@@ -364,7 +364,7 @@ const Select = <T,>({
             <button
               type="button"
               onClick={handleClear}
-              className="p-1 hover:bg-gray-100 rounded transition-colors"
+              className="p-1 hover:bg-gray-100 rounded transition-colors cursor-pointer"
               aria-label="Xóa lựa chọn"
             >
               <FiX size={16} className="text-gray-400" />

@@ -73,7 +73,7 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
           </motion.div>
 
           {/* Featured Content - Top Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 inch32:gap-8 mb-8 lg:mb-6 inch32:mb-8 border-b-1 border-vietsov-green/50 pb-8 lg:pb-6 inch32:pb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-8 inch32:gap-8 mb-8 lg:mb-6 inch32:mb-8 border-b-1 border-vietsov-green/30 pb-8 lg:pb-6 inch32:pb-8 hover:cursor-pointer">
             {/* Featured Image/Video */}
             <motion.div
               className="relative w-full h-80 lg:h-[340px] inch32:h-96 overflow-hidden"
@@ -123,16 +123,16 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
 
               {/* Social Sharing Icons */}
               <div className="flex items-center space-x-4 pt-4">
-                <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors">
+                <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors cursor-pointer">
                   <FiShare2 className="w-5 h-5" />
                 </button>
-                <button className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors">
+                <button className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors cursor-pointer">
                   <FaFacebookF className="w-5 h-5" />
                 </button>
-                <button className="flex items-center space-x-2 text-gray-600 hover:text-blue-400 transition-colors">
+                <button className="flex items-center space-x-2 text-gray-600 hover:text-blue-400 transition-colors cursor-pointer">
                   <FaTwitter className="w-5 h-5" />
                 </button>
-                <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors">
+                <button className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors cursor-pointer">
                   <FiBookmark className="w-5 h-5" />
                 </button>
               </div>

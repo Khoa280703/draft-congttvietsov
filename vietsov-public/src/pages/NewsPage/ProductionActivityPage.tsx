@@ -163,7 +163,7 @@ const ProductionActivityPage: React.FC = () => {
                 onClick={() =>
                   setSortOrder(sortOrder === "asc" ? "desc" : "asc")
                 }
-                className="p-2.5 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                className="p-2.5 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
                 title={sortOrder === "asc" ? "Tăng dần" : "Giảm dần"}
               >
                 {sortOrder === "asc" ? (

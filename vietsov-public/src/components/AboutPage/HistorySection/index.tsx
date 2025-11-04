@@ -4,24 +4,39 @@ import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 import { type HistorySectionProps, defaultHistoryEvents } from "./data";
 
 const HistorySection: React.FC<HistorySectionProps> = ({
-  events = defaultHistoryEvents,
+  years = defaultHistoryEvents,
   className = "",
 }) => {
-  const sortedEvents = [...events].sort((a, b) => a.year - b.year);
-  const [activeIndex, setActiveIndex] = useState(
-    sortedEvents.findIndex((event) => event.year === 2009) !== -1
-      ? sortedEvents.findIndex((event) => event.year === 2009)
+  const sortedYears = [...years].sort((a, b) => a.year - b.year);
+
+  const [activeYearIndex, setActiveYearIndex] = useState(
+    sortedYears.findIndex((year) => year.year === 2009) !== -1
+      ? sortedYears.findIndex((year) => year.year === 2009)
       : 0
   );
+  const [selectedEventIndex, setSelectedEventIndex] = useState(0);
   const timelineRef = useRef<HTMLDivElement>(null);
 
-  const currentEvent = sortedEvents[activeIndex];
+  const currentYear = sortedYears[activeYearIndex];
+  const currentEvents = currentYear?.events || [];
+  const selectedEvent = currentEvents[selectedEventIndex];
 
-  const navigateEvent = (direction: "left" | "right") => {
+  const handleYearClick = (yearIndex: number) => {
+    setActiveYearIndex(yearIndex);
+    setSelectedEventIndex(0); // Reset to first event of selected year
+  };
+
+  const navigateYear = (direction: "left" | "right") => {
     if (direction === "left") {
-      setActiveIndex((prev) => (prev > 0 ? prev - 1 : sortedEvents.length - 1));
+      const prevYearIndex =
+        activeYearIndex > 0 ? activeYearIndex - 1 : sortedYears.length - 1;
+      setActiveYearIndex(prevYearIndex);
+      setSelectedEventIndex(0);
     } else {
-      setActiveIndex((prev) => (prev < sortedEvents.length - 1 ? prev + 1 : 0));
+      const nextYearIndex =
+        activeYearIndex < sortedYears.length - 1 ? activeYearIndex + 1 : 0;
+      setActiveYearIndex(nextYearIndex);
+      setSelectedEventIndex(0);
     }
   };
 
@@ -60,11 +75,11 @@ const HistorySection: React.FC<HistorySectionProps> = ({
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
           >
-            {/* Left arrow - no background */}
+            {/* Left arrow */}
             <button
-              onClick={() => navigateEvent("left")}
-              className="pr-4 text-white hover:text-green-300 transition-colors duration-200"
-              aria-label="Previous event"
+              onClick={() => navigateYear("left")}
+              className="pr-4 text-white hover:text-green-300 transition-colors duration-200 cursor-pointer"
+              aria-label="Previous year"
             >
               <HiArrowLeft className="w-6 h-6" />
             </button>
@@ -73,151 +88,108 @@ const HistorySection: React.FC<HistorySectionProps> = ({
               ref={timelineRef}
               className="flex overflow-x-auto scrollbar-hide space-x-8 py-2 px-4"
             >
-              {sortedEvents.map((event, index) => (
+              {sortedYears.map((yearData, index) => (
                 <button
-                  key={event.year}
-                  onClick={() => setActiveIndex(index)}
+                  key={yearData.year}
+                  onClick={() => handleYearClick(index)}
                   className={`
-                  flex-shrink-0 px-2 py-1 rounded-full text-base font-bold transition-all duration-300
+                  flex-shrink-0 px-2 py-1 rounded-full text-base font-bold transition-all duration-300 cursor-pointer
                   ${
-                    activeIndex === index
+                    activeYearIndex === index
                       ? "bg-white text-green-800 scale-130"
                       : "bg-white/40 text-white hover:bg-white/60"
                   }
                 `}
                 >
-                  {event.year}
+                  {yearData.year}
                 </button>
               ))}
             </div>
 
-            {/* Right arrow - no background */}
+            {/* Right arrow */}
             <button
-              onClick={() => navigateEvent("right")}
-              className="pl-4 text-white hover:text-green-300 transition-colors duration-200"
-              aria-label="Next event"
+              onClick={() => navigateYear("right")}
+              className="pl-4 text-white hover:text-green-300 transition-colors duration-200 cursor-pointer"
+              aria-label="Next year"
             >
               <HiArrowRight className="w-6 h-6" />
             </button>
           </motion.div>
         </div>
-        <AnimatePresence mode="wait">
-          {currentEvent && (
-            <motion.div
-              key={currentEvent.year}
-              className="relative x-auto"
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -30 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              {/* Main white card - responsive layout */}
-              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 lg:p-10 inch32:p-12 relative z-10 h-[22rem] md:h-[26rem] lg:h-[28rem] inch32:h-[38rem]">
-                <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 h-full">
-                  {/* Content Section */}
-                  <div className="w-full lg:w-5/8 flex flex-col justify-between lg:pr-0">
-                    <div className="space-y-4 md:space-y-6 lg:space-y-5 inch32:space-y-6">
-                      <motion.h3
-                        className="text-2xl md:text-3xl lg:text-3xl inch32:text-5xl font-bold bg-clip-text text-transparent bg-[linear-gradient(to_right,_#3b82f6_0%,_#22c55e_50%)]"
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.6,
-                          delay: 0.2,
-                          ease: "easeOut",
-                        }}
-                      >
-                        {currentEvent.date}
-                      </motion.h3>
 
-                      <motion.div
-                        className="space-y-4"
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.6,
-                          delay: 0.3,
-                          ease: "easeOut",
-                        }}
-                      >
-                        <p className="text-sm md:text-base lg:text-sm inch32:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
-                          {currentEvent.description}
-                        </p>
-                      </motion.div>
-                    </div>
-
-                    {/* Navigation buttons - hidden on mobile, shown on desktop */}
-                    <motion.div
-                      className="hidden lg:flex space-x-4 pt-4"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        duration: 0.6,
-                        delay: 0.5,
-                        ease: "easeOut",
-                      }}
-                    >
-                      <button
-                        onClick={() => navigateEvent("left")}
-                        className="p-2 text-gray-600 rounded-full hover:bg-gray-100 hover:text-green-600 transition-colors duration-200"
-                        aria-label="Previous"
-                      >
-                        <HiArrowLeft className="w-5 h-5" />
-                      </button>
-                      <button
-                        onClick={() => navigateEvent("right")}
-                        className="p-2 text-gray-600 rounded-full hover:bg-gray-100 hover:text-green-600 transition-colors duration-200"
-                        aria-label="Next"
-                      >
-                        <HiArrowRight className="w-5 h-5" />
-                      </button>
-                    </motion.div>
-                  </div>
-
-                  {/* Image Section */}
-                  <motion.div
-                    className="w-full lg:w-3/8 flex-shrink-0 mt-6 lg:mt-0"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+        {/* Main layout: Scrollable events list on left, Image on right */}
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="flex flex-col lg:flex-row h-[30rem] md:h-[35rem] lg:h-[28rem] inch32:h-[38rem]">
+            {/* Left: Scrollable events list for selected year */}
+            <div className="w-full lg:w-2/5 border-r border-gray-200 overflow-y-auto">
+              <div className="p-4 space-y-2">
+                {currentEvents.map((event, index) => (
+                  <motion.button
+                    key={`${currentYear.year}-${index}`}
+                    onClick={() => setSelectedEventIndex(index)}
+                    className={`
+                      w-full text-left p-4 rounded-lg transition-all duration-200 cursor-pointer
+                      ${
+                        selectedEventIndex === index
+                          ? "bg-vietsov-green text-white shadow-md"
+                          : "bg-gray-50 hover:bg-gray-100 text-gray-800"
+                      }
+                    `}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    {/* Image inside card for all screen sizes */}
-                    <div className="w-full h-64 md:h-80 lg:h-full rounded-2xl overflow-hidden p-2 border-2 border-vietsov-green">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="flex-1">
+                        <div
+                          className={`font-semibold text-sm mb-1 ${
+                            selectedEventIndex === index
+                              ? "text-white"
+                              : "bg-clip-text text-transparent bg-[linear-gradient(to_right,_#3b82f6_0%,_#22c55e_50%)]"
+                          }`}
+                        >
+                          {event.date}
+                        </div>
+                        <p
+                          className={`text-xs line-clamp-2 ${
+                            selectedEventIndex === index
+                              ? "text-white/90"
+                              : "text-gray-600"
+                          }`}
+                        >
+                          {event.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Selected event image */}
+            <div className="w-full lg:w-3/5 flex items-center justify-center p-6 lg:p-8 inch32:p-12">
+              <AnimatePresence mode="wait">
+                {selectedEvent && (
+                  <motion.div
+                    key={`${currentYear.year}-${selectedEventIndex}`}
+                    className="w-full h-full"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                  >
+                    <div className="w-full h-full rounded-2xl overflow-hidden p-2 border-2 border-vietsov-green">
                       <img
-                        src={currentEvent.imageUrl}
-                        alt={currentEvent.imageAlt}
+                        src={selectedEvent.imageUrl}
+                        alt={selectedEvent.imageAlt}
                         className="w-full h-full object-cover rounded-xl"
                       />
                     </div>
                   </motion.div>
-                </div>
-
-                {/* Navigation buttons - shown on mobile, hidden on desktop */}
-                <motion.div
-                  className="flex lg:hidden justify-center space-x-4 mt-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-                >
-                  <button
-                    onClick={() => navigateEvent("left")}
-                    className="p-3 text-gray-600 rounded-full bg-gray-100 hover:bg-gray-200 hover:text-green-600 transition-colors duration-200"
-                    aria-label="Previous"
-                  >
-                    <HiArrowLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={() => navigateEvent("right")}
-                    className="p-3 text-gray-600 rounded-full bg-gray-100 hover:bg-gray-200 hover:text-green-600 transition-colors duration-200"
-                    aria-label="Next"
-                  >
-                    <HiArrowRight className="w-5 h-5" />
-                  </button>
-                </motion.div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
       </div>
     </motion.section>
   );
