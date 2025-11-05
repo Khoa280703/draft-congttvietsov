@@ -60,7 +60,7 @@ const HeadquartersMap: React.FC = () => {
                   "_blank"
                 );
               }}
-              className="bg-vietsov-green text-white py-3 px-6 rounded-lg font-medium hover:bg-vietsov-green/90 transition-colors duration-300 flex items-center space-x-2 shadow-lg"
+              className="bg-vietsov-green text-white py-3 px-6 rounded-lg font-medium hover:bg-vietsov-green/90 transition-colors duration-300 flex items-center space-x-2 shadow-lg cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

@@ -27,7 +27,7 @@ const RecruitmentSection: React.FC = () => {
         >
           <button
             onClick={() => setActiveTab("recruitment")}
-            className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
+            className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors cursor-pointer ${
               activeTab === "recruitment"
                 ? "bg-white text-gray-900 shadow-sm"
                 : "text-gray-600 hover:text-gray-900"
@@ -37,7 +37,7 @@ const RecruitmentSection: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveTab("admission")}
-            className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors ${
+            className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-colors cursor-pointer ${
               activeTab === "admission"
                 ? "bg-white text-gray-900 shadow-sm"
                 : "text-gray-600 hover:text-gray-900"

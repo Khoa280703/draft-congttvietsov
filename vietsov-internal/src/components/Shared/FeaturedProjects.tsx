@@ -93,7 +93,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <motion.div
       ref={cardRef as React.RefObject<HTMLDivElement>}
-      className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+      className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
       whileHover={{ y: -8 }}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
@@ -163,7 +163,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           >
             {project.status}
           </span>
-          <button className="flex items-center text-green-600 hover:text-green-700 font-semibold text-sm transition-colors duration-300 group/btn">
+          <button className="flex items-center text-green-600 hover:text-green-700 font-semibold text-sm transition-colors duration-300 group/btn cursor-pointer">
             Xem chi tiết
             <FiArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform duration-300" />
           </button>
@@ -227,7 +227,7 @@ const FeaturedProjects: React.FC = () => {
         >
           <a
             href="/doitac-duan/du-an"
-            className="inline-flex items-center bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            className="inline-flex items-center bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
           >
             Xem tất cả dự án
             <FiArrowRight className="w-5 h-5 ml-2" />

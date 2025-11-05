@@ -219,7 +219,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                         {/* CTA Button */}
                         <motion.button
                           onClick={() => handleButtonClick(slide.buttonLink)}
-                          className="inline-flex items-center px-6 py-3 lg:px-5 lg:py-2.5 inch32:px-6 inch32:py-3 rounded-lg font-semibold lg:text-sm inch32:text-base"
+                          className="inline-flex items-center px-6 py-3 lg:px-5 lg:py-2.5 inch32:px-6 inch32:py-3 rounded-lg font-semibold lg:text-sm inch32:text-base cursor-pointer"
                           style={{
                             backgroundColor:
                               slide.buttonBackgroundColor || "white",
@@ -260,7 +260,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                           <motion.button
                             key={index}
                             onClick={() => handleSlideClick(index)}
-                            className={`relative text-base lg:text-sm inch32:text-base font-medium ${
+                            className={`relative text-base lg:text-sm inch32:text-base font-medium cursor-pointer ${
                               activeIndex === index
                                 ? "text-white"
                                 : "text-white/60 hover:text-white"
@@ -293,7 +293,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
               {/* Left Navigation Arrow */}
               <motion.button
                 onClick={() => handleRigNavigationClick("left")}
-                className="absolute top-1/2 left-8 md:left-16 lg:left-12 inch32:left-16 transform -translate-y-1/2 w-12 h-12 lg:w-10 lg:h-10 inch32:w-12 inch32:h-12 backdrop-blur-sm rounded-full flex items-center justify-center z-10 border border-white transition-all duration-300 hover:bg-white/30 hover:scale-110 hover:shadow-lg"
+                className="absolute top-1/2 left-8 md:left-16 lg:left-12 inch32:left-16 transform -translate-y-1/2 w-12 h-12 lg:w-10 lg:h-10 inch32:w-12 inch32:h-12 backdrop-blur-sm rounded-full flex items-center justify-center z-10 border border-white transition-all duration-300 hover:bg-white/30 hover:scale-110 hover:shadow-lg cursor-pointer"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 1.2, ease: "easeOut" }}
@@ -310,7 +310,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
               {/* Right Navigation Arrow */}
               <motion.button
                 onClick={() => handleRigNavigationClick("right")}
-                className="absolute top-1/2 right-8 md:right-16 lg:right-12 inch32:right-16 transform -translate-y-1/2 w-12 h-12 lg:w-10 lg:h-10 inch32:w-12 inch32:h-12 backdrop-blur-sm rounded-full flex items-center justify-center z-10 border border-white transition-all duration-300 hover:bg-white/30 hover:scale-110 hover:shadow-lg"
+                className="absolute top-1/2 right-8 md:right-16 lg:right-12 inch32:right-16 transform -translate-y-1/2 w-12 h-12 lg:w-10 lg:h-10 inch32:w-12 inch32:h-12 backdrop-blur-sm rounded-full flex items-center justify-center z-10 border border-white transition-all duration-300 hover:bg-white/30 hover:scale-110 hover:shadow-lg cursor-pointer"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 1.2, ease: "easeOut" }}

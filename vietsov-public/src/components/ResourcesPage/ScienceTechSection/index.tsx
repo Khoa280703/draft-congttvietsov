@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CardFullDetail, CardFullDetailHori } from "@/components/Card";
+import { CardFullDetailHori, FeaturedArticle } from "@/components/Card";
 import { Pagination } from "@/components";
 import { scienceTechArticles } from "./data";
 
@@ -38,14 +38,13 @@ const ScienceTechSection: React.FC = () => {
             Nghiên cứu nổi bật
           </h2>
           <div className="relative">
-            <CardFullDetail
+            <FeaturedArticle
               image={featuredArticle.image}
               imageAlt={featuredArticle.imageAlt}
               title={featuredArticle.title}
               description={featuredArticle.content}
               category={featuredArticle.category}
               timestamp={featuredArticle.publishDate}
-              detail={false}
               onClick={() => {
                 window.location.href = "/tintuc/chi-tiet";
               }}

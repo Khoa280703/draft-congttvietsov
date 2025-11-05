@@ -93,7 +93,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <motion.div
       ref={cardRef as React.RefObject<HTMLDivElement>}
-      className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+      className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
       whileHover={{ y: -8 }}
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}

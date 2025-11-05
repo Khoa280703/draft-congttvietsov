@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CardFullDetail, CardFullDetailHori } from "@/components/Card";
+import { CardFullDetailHori, FeaturedArticle } from "@/components/Card";
 import { Pagination } from "@/components";
 import { trainingPrograms } from "./data";
 import { useNavigate } from "react-router-dom";
@@ -37,14 +37,13 @@ const TrainingSection: React.FC = () => {
             Chương trình nổi bật
           </h2>
           <div className="relative">
-            <CardFullDetail
+            <FeaturedArticle
               image={featuredProgram.image}
               imageAlt={featuredProgram.imageAlt}
               title={featuredProgram.title}
               description={featuredProgram.content}
               category={featuredProgram.category}
               timestamp={featuredProgram.publishDate}
-              detail={true}
               onClick={() => {
                 navigate(`/tintuc/chi-tiet`);
               }}

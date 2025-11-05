@@ -51,7 +51,7 @@ const OtherArticles: React.FC = () => {
           </h2>
           <a
             href="#"
-            className="flex items-center text-sm hover:text-green-700 font-medium transition-colors"
+            className="flex items-center text-sm hover:text-green-700 font-medium transition-colors cursor-pointer"
           >
             Xem thêm <FiArrowRight className="w-4 h-4 ml-1" />
           </a>

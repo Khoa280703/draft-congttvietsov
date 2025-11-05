@@ -9,6 +9,7 @@ export interface ExplorationData {
   image: string;
   imagePosition: "left" | "right";
   href?: string;
+  capabilities?: string[];
 }
 
 export const explorationData: ExplorationData[] = [
@@ -20,6 +21,13 @@ export const explorationData: ExplorationData[] = [
     image: danKhoanVietsov,
     imagePosition: "right",
     href: "/linhvuc-nangluc/tham-do",
+    capabilities: [
+      "Thăm dò địa chất và địa vật lý",
+      "Khoan thăm dò và khai thác",
+      "Xử lý và vận chuyển dầu khí",
+      "Quản lý và vận hành giàn khoan",
+      "Bảo vệ môi trường trong khai thác",
+    ],
   },
   {
     index: "02",
@@ -29,6 +37,13 @@ export const explorationData: ExplorationData[] = [
     image: hoiNghiSuKien,
     imagePosition: "left",
     href: "/linhvuc-nangluc/tim-kiem",
+    capabilities: [
+      "Khảo sát địa chấn 3D",
+      "Phân tích địa hóa",
+      "Mô hình hóa địa chất",
+      "Đánh giá tiềm năng dầu khí",
+      "Phát hiện và phát triển mỏ mới",
+    ],
   },
   {
     index: "03",
@@ -38,5 +53,12 @@ export const explorationData: ExplorationData[] = [
     image: hoiNghiPetro,
     imagePosition: "right",
     href: "/linhvuc-nangluc/khai-thac",
+    capabilities: [
+      "Vận hành và quản lý giàn khoan",
+      "Hệ thống xử lý dầu khí",
+      "Vận chuyển và phân phối",
+      "Bảo trì và sửa chữa thiết bị",
+      "An toàn lao động và môi trường",
+    ],
   },
 ];

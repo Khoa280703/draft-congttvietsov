@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = () => {
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => setSelectedLanguage("EN")}
-                className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors ${
+                className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors cursor-pointer ${
                   selectedLanguage === "EN"
                     ? "bg-white/20"
                     : "hover:bg-white/10"
@@ -43,7 +43,7 @@ const Header: React.FC<HeaderProps> = () => {
               </button>
               <button
                 onClick={() => setSelectedLanguage("RU")}
-                className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors ${
+                className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors cursor-pointer ${
                   selectedLanguage === "RU"
                     ? "bg-white/20"
                     : "hover:bg-white/10"
@@ -65,7 +65,7 @@ const Header: React.FC<HeaderProps> = () => {
           <div className="flex items-center lg:space-x-4">
             {/* Desktop buttons - hidden on mobile */}
             <button
-              className="hidden lg:flex items-center space-x-2 hover:text-gray-300 transition-colors"
+              className="hidden lg:flex items-center space-x-2 hover:text-gray-300 transition-colors cursor-pointer"
               onClick={() => navigate("/lienhe")}
             >
               <HiOutlineLocationMarker className="w-4 h-4" />
@@ -73,7 +73,7 @@ const Header: React.FC<HeaderProps> = () => {
                 Liên hệ
               </span>
             </button>
-            <button className="hidden lg:flex items-center space-x-2 hover:text-gray-300 transition-colors">
+            <button className="hidden lg:flex items-center space-x-2 hover:text-gray-300 transition-colors cursor-pointer">
               <FaRegCircleUser className="w-4 h-4" />
               <span className="font-medium text-sm-label leading-sm-label tracking-normal">
                 Đăng nhập
@@ -82,7 +82,7 @@ const Header: React.FC<HeaderProps> = () => {
             {/* Mobile Menu Toggle - only visible on mobile */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden hover:text-gray-300 transition-colors"
+              className="lg:hidden hover:text-gray-300 transition-colors cursor-pointer"
             >
               {isMenuOpen ? (
                 <HiX className="w-5 h-5" />
@@ -103,7 +103,7 @@ const Header: React.FC<HeaderProps> = () => {
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => setSelectedLanguage("EN")}
-                  className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors ${
+                  className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors cursor-pointer ${
                     selectedLanguage === "EN"
                       ? "bg-white/20"
                       : "hover:bg-white/10"
@@ -120,7 +120,7 @@ const Header: React.FC<HeaderProps> = () => {
                 </button>
                 <button
                   onClick={() => setSelectedLanguage("RU")}
-                  className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors ${
+                  className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors cursor-pointer ${
                     selectedLanguage === "RU"
                       ? "bg-white/20"
                       : "hover:bg-white/10"
@@ -138,7 +138,7 @@ const Header: React.FC<HeaderProps> = () => {
               </div>
             </div>
             <button
-              className="flex items-center space-x-2 py-2 hover:bg-white/10 rounded px-2 w-full text-left"
+              className="flex items-center space-x-2 py-2 hover:bg-white/10 rounded px-2 w-full text-left cursor-pointer"
               onClick={() => navigate("/lienhe")}
             >
               <HiOutlineLocationMarker className="w-4 h-4" />
@@ -146,7 +146,7 @@ const Header: React.FC<HeaderProps> = () => {
                 Liên hệ
               </span>
             </button>
-            <button className="flex items-center space-x-2 py-2 hover:bg-white/10 rounded px-2 w-full text-left">
+            <button className="flex items-center space-x-2 py-2 hover:bg-white/10 rounded px-2 w-full text-left cursor-pointer">
               <FaRegCircleUser className="w-4 h-4" />
               <span className="font-medium text-sm-label leading-sm-label tracking-normal">
                 Đăng nhập

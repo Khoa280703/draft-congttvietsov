@@ -80,6 +80,8 @@
   --color-vietsov-cyan: #06b6d4;
   --color-vietsov-gray: #6b7280;
   --color-vietsov-light-gray: #919296;
+  --color-vietsov-skin: #ebf7f0;
+  --color-vietsov-skin2: #edf8f2;
 
   /* Custom Font Sizes */
   --font-size-xs-label: 11px;

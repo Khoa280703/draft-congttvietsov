@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = () => {
             <div className="flex items-center space-x-2">
               <button
                 onClick={() => setSelectedLanguage("EN")}
-                className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors ${
+                className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors cursor-pointer ${
                   selectedLanguage === "EN"
                     ? "bg-white/20"
                     : "hover:bg-white/10"
@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProps> = () => {
               </button>
               <button
                 onClick={() => setSelectedLanguage("RU")}
-                className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors ${
+                className={`flex items-center space-x-1 px-2 py-1 rounded transition-colors cursor-pointer ${
                   selectedLanguage === "RU"
                     ? "bg-white/20"
                     : "hover:bg-white/10"
@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = () => {
           <div className="flex items-center lg:space-x-4">
             {/* Desktop buttons - hidden on mobile */}
             <button
-              className="hidden lg:flex items-center space-x-2 hover:text-gray-300 transition-colors"
+              className="hidden lg:flex items-center space-x-2 hover:text-gray-300 transition-colors cursor-pointer"
               onClick={() => navigate(ROUTES.PUBLIC.CONTACT)}
             >
               <HiOutlineLocationMarker className="w-4 h-4" />

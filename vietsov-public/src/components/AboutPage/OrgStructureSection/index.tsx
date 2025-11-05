@@ -66,7 +66,7 @@ const OrgStructureSection: React.FC<OrgStructureSectionProps> = ({
 
             <motion.a
               href={data.readMoreLink}
-              className="inline-flex items-center font-semibold mt-8 hover:text-vietsov-green transition-colors"
+              className="inline-flex items-center font-semibold mt-8 hover:text-vietsov-green transition-colors cursor-pointer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}

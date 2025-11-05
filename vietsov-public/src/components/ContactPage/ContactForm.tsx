@@ -213,7 +213,7 @@ const ContactForm: React.FC = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="inline-flex items-center px-8 py-3 bg-vietsov-green text-white font-semibold rounded-lg hover:bg-vietsov-green/90 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="inline-flex items-center px-8 py-3 bg-vietsov-green text-white font-semibold rounded-lg hover:bg-vietsov-green/90 transition-colors duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

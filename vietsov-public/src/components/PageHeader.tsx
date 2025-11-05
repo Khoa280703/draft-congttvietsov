@@ -79,7 +79,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
                   {crumb.href ? (
                     <a
                       href={crumb.href}
-                      className="hover:text-green-300 transition-colors"
+                      className="hover:text-green-300 transition-colors cursor-pointer"
                     >
                       {crumb.label}
                     </a>

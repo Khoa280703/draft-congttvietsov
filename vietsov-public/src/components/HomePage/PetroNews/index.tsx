@@ -32,7 +32,7 @@ const PetroNews: React.FC<PetroNewsProps> = ({
           >
             <a
               href={item.link}
-              className="block h-full hover:scale-105 transition-transform duration-300"
+              className="block h-full hover:scale-105 transition-transform duration-300 cursor-pointer"
             >
               <CardFullDetail
                 image={item.image}

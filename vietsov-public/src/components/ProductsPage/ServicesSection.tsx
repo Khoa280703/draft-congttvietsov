@@ -82,7 +82,7 @@ const ServiceCard: React.FC<{
         </p>
         <a
           href="#"
-          className="flex items-center text-sm text-green-600 font-semibold hover:text-green-700"
+          className="flex items-center text-sm text-green-600 font-semibold hover:text-green-700 cursor-pointer"
         >
           Xem thêm <FiArrowRight className="w-4 h-4 ml-1" />
         </a>

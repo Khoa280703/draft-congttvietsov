@@ -5,4 +5,8 @@ export interface EnterpriseCardData {
   image: string;
   imagePosition: "left" | "right";
   path?: string;
+  categoryLabel?: string;
+  capabilities?: string[];
+  imageHeight?: string;
+  showQuoteIcon?: boolean;
 }

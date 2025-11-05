@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { CardFullDetail, CardFullDetailHori } from "@/components/Card";
+import { CardFullDetailHori, FeaturedArticle } from "@/components/Card";
 import { Pagination } from "@/components";
 import { innovationItems } from "./data";
 
@@ -21,32 +21,6 @@ const InnovationSection: React.FC = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "implemented":
-        return "bg-green-100 text-green-800";
-      case "approved":
-        return "bg-blue-100 text-blue-800";
-      case "pending":
-        return "bg-yellow-100 text-yellow-800";
-      default:
-        return "bg-gray-100 text-gray-800";
-    }
-  };
-
-  const getStatusText = (status: string) => {
-    switch (status) {
-      case "implemented":
-        return "Đã triển khai";
-      case "approved":
-        return "Đã phê duyệt";
-      case "pending":
-        return "Đang xem xét";
-      default:
-        return "Không xác định";
-    }
-  };
-
   return (
     <div className="space-y-8">
       {/* Featured Innovation */}
@@ -60,28 +34,18 @@ const InnovationSection: React.FC = () => {
             Sáng kiến nổi bật
           </h2>
           <div className="relative">
-            <CardFullDetail
+            <FeaturedArticle
               image={featuredItem.image}
               imageAlt={featuredItem.imageAlt}
               title={featuredItem.title}
               description={featuredItem.content}
               category={featuredItem.category}
               timestamp={featuredItem.publishDate}
-              detail={true}
               onClick={() => {
                 window.location.href = "/tintuc/chi-tiet";
               }}
               className="mb-8"
             />
-            <div className="absolute top-4 right-4 bg-white rounded-lg p-2 shadow-md">
-              <span
-                className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(
-                  featuredItem.status
-                )}`}
-              >
-                {getStatusText(featuredItem.status)}
-              </span>
-            </div>
           </div>
         </motion.div>
       )}
@@ -121,15 +85,6 @@ const InnovationSection: React.FC = () => {
                   }}
                   className="h-full"
                 />
-                <div className="absolute top-4 right-4 bg-white rounded-lg p-2 shadow-md">
-                  <span
-                    className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(
-                      item.status
-                    )}`}
-                  >
-                    {getStatusText(item.status)}
-                  </span>
-                </div>
               </div>
             </motion.div>
           ))}

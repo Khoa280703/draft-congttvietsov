@@ -65,7 +65,7 @@ const PartnerSlider: React.FC = () => {
                 href={logo.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 group"
+                className="block p-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer"
               >
                 <img
                   src={logo.src}

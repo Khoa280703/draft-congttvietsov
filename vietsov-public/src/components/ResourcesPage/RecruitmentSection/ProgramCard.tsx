@@ -140,7 +140,7 @@ const ProgramCard: React.FC<ProgramCardProps> = ({ program, index }) => {
 
         {/* Action Button - Always at bottom */}
         <motion.button
-          className="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium mt-auto"
+          className="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium mt-auto cursor-pointer"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >

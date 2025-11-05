@@ -25,7 +25,7 @@ const JobCard: React.FC<JobCardProps> = ({ job, index }) => {
         <div>
           <a
             href="#"
-            className="font-semibold text-gray-800 hover:text-green-600 transition-colors"
+            className="font-semibold text-gray-800 hover:text-green-600 transition-colors cursor-pointer"
           >
             {title}
           </a>

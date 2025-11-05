@@ -66,7 +66,7 @@ const BreakingNewsSlider: React.FC<BreakingNewsSliderProps> = ({
               {duplicatedNewsItems.map((item, index) => (
                 <React.Fragment key={`${item.id}-${index}`}>
                   <BsDot className="w-5 h-5 text-white shrink-0" />
-                  <a href={item.link} className="hover:underline shrink-0">
+                  <a href={item.link} className="hover:underline shrink-0 cursor-pointer">
                     {item.title}
                   </a>
                 </React.Fragment>

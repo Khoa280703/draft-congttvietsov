@@ -69,34 +69,48 @@ const NewsPage: React.FC = () => {
           path="/"
           element={
             <div className="bg-vietsov-background">
-              <AnimatedSection animation="fadeInUp" delay={100}>
-                <div className="bg-white">
-                  <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
-                    <div className="container mx-auto px-4">
-                      <ProductionActivitySection />
-                    </div>
-                  </section>
-                </div>
+              <AnimatedSection
+                animation="fadeInUp"
+                delay={100}
+                className="bg-white"
+              >
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
+                  <div className="container mx-auto px-4">
+                    <ProductionActivitySection />
+                  </div>
+                </section>
               </AnimatedSection>
 
-              <AnimatedSection animation="fadeInUp" delay={200}>
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
+              <AnimatedSection
+                animation="fadeInUp"
+                delay={200}
+                className="bg-vietsov-skin"
+              >
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
                   <div className="container mx-auto px-4">
                     <CommunityActivitySection />
                   </div>
                 </section>
               </AnimatedSection>
 
-              <AnimatedSection animation="fadeInUp" delay={300}>
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
+              <AnimatedSection
+                animation="fadeInUp"
+                delay={300}
+                className="bg-white"
+              >
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
                   <div className="container mx-auto px-4">
                     <OilNewsSection />
                   </div>
                 </section>
               </AnimatedSection>
 
-              <AnimatedSection animation="fadeInUp" delay={400}>
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
+              <AnimatedSection
+                animation="fadeInUp"
+                delay={400}
+                className="bg-vietsov-skin2"
+              >
+                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
                   <div className="container mx-auto px-4">
                     <ArchivePhotosSection />
                   </div>

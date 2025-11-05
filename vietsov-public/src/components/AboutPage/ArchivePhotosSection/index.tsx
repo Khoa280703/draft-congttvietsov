@@ -60,7 +60,7 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ${
                     activeCategory === category
                       ? "bg-vietsov-green text-white"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"

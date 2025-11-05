@@ -46,7 +46,7 @@ const CardWithPadding: React.FC<CardWithPaddingProps> = ({
         {/* Read More Link */}
         <a
           href={readMoreLink}
-          className="inline-flex items-center text-base lg:text-sm 2xl:text-base font-semibold transition-colors duration-200"
+          className="inline-flex items-center text-base lg:text-sm 2xl:text-base font-semibold transition-colors duration-200 cursor-pointer"
         >
           {readMoreText}
           <HiArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 2xl:w-4 2xl:h-4 ml-1 text-vietsov-green" />
