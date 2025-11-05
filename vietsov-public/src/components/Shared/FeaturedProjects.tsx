@@ -1,8 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { FiArrowRight, FiCalendar, FiMapPin, FiUsers } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import { useElementAnimation } from "@/hooks/useElementAnimation";
 
 import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
 import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
@@ -66,17 +64,13 @@ const projectsData = [
 
 interface ProjectCardProps {
   project: (typeof projectsData)[0];
-  index: number;
   onClick: () => void;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   project,
-  index,
   onClick,
 }) => {
-  const cardRef = useElementAnimation({ delay: index * 200 });
-
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Hoàn thành":
@@ -91,13 +85,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   };
 
   return (
-    <motion.div
-      ref={cardRef as React.RefObject<HTMLDivElement>}
-      className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden cursor-pointer"
-      whileHover={{ y: -8 }}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.2, duration: 0.6 }}
+    <div
+      className="relative bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer"
       onClick={onClick}
     >
       {/* Featured Badge */}
@@ -114,9 +103,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+          className="w-full h-48 object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
         {/* Category Badge */}
         <div className="absolute top-4 left-4">
@@ -129,7 +117,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       {/* Content */}
       <div className="p-6">
         {/* Title */}
-        <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-vietsov-green transition-colors duration-300">
+        <h3 className="text-xl font-bold text-gray-900 mb-3">
           {project.title}
         </h3>
 
@@ -163,13 +151,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           >
             {project.status}
           </span>
-          <button className="flex items-center text-green-600 hover:text-green-700 font-semibold text-sm transition-colors duration-300 group/btn cursor-pointer">
+          <button className="flex items-center text-green-600 font-semibold text-sm cursor-pointer">
             Xem chi tiết
-            <FiArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform duration-300" />
+            <FiArrowRight className="w-4 h-4 ml-1" />
           </button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -180,31 +168,25 @@ const FeaturedProjects: React.FC = () => {
       <div className="">
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mb-12">
-          {projectsData.map((project, index) => (
+          {projectsData.map((project) => (
             <ProjectCard
               key={project.id}
               project={project}
-              index={index}
               onClick={() => navigate(`/doitac-duan/du-an/chi-tiet`)}
             />
           ))}
         </div>
 
         {/* Call to Action */}
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.8 }}
-        >
+        <div className="text-center">
           <a
             href="/doitac-duan/du-an"
-            className="inline-flex items-center bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer"
+            className="inline-flex items-center bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold px-8 py-4 rounded-full shadow-lg cursor-pointer"
           >
             Xem tất cả dự án
             <FiArrowRight className="w-5 h-5 ml-2" />
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
