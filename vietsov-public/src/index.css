@@ -196,4 +196,25 @@ body {
   .leading-sm-label {
     line-height: var(--line-height-sm-label);
   }
+
+  /* Partner Logos Swiper Pagination */
+  .partner-logos-swiper .swiper-pagination {
+    bottom: 8px !important;
+    margin-top: 12px;
+  }
+
+  .partner-logos-swiper .swiper-pagination-bullet {
+    background-color: #fce7f3;
+    width: 24px;
+    height: 6px;
+    border-radius: 3px;
+    transition: all 0.3s;
+    opacity: 1;
+    margin: 0 4px;
+  }
+
+  .partner-logos-swiper .swiper-pagination-bullet-active {
+    background-color: #f472b6;
+    width: 40px;
+  }
 }

@@ -15,6 +15,7 @@ export interface ArchivePhotosSectionProps {
   featuredPhoto?: ArchivePhoto;
   photos?: ArchivePhoto[];
   className?: string;
+  hideTitle?: boolean;
 }
 
 export const defaultFeaturedPhoto: ArchivePhoto = {

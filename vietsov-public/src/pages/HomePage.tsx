@@ -1,7 +1,6 @@
 import {
-  GradientImageOverlay,
   SliderHome,
-  PartnerSlider,
+  PartnerSection,
   VisionMission,
   TypicalProjects,
   PetroNews,
@@ -10,8 +9,6 @@ import { CapabilitiesSection } from "@/components/AboutPage";
 import { SectionWithTitle } from "@/components";
 // import { BreakingNewsSlider } from "@/components/PriviteSystem/HomePage";
 import AnimatedSection from "@/components/AnimatedSection";
-
-import bannerDanKhoan from "@/assets/banner-dankhoan.jpg";
 
 const HomePage: React.FC = () => {
   return (
@@ -74,14 +71,8 @@ const HomePage: React.FC = () => {
       </AnimatedSection>
 
       <AnimatedSection animation="fadeInUp" delay={100}>
-        <GradientImageOverlay imageUrl={bannerDanKhoan}></GradientImageOverlay>
-      </AnimatedSection>
-
-      <AnimatedSection animation="fadeInUp" delay={100}>
-        <div className="py-8 md:py-12 lg:py-16 inch32:py-15">
-          <div className="container mx-auto px-4">
-            <PartnerSlider />
-          </div>
+        <div className="pb-12 md:pb-16 lg:pb-20 inch32:pb-24">
+          <PartnerSection />
         </div>
       </AnimatedSection>
     </div>

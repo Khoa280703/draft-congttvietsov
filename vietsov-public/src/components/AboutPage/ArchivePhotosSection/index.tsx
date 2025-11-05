@@ -14,6 +14,7 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
   featuredPhoto = defaultFeaturedPhoto,
   photos = defaultPhotos,
   className = "",
+  hideTitle = false,
 }) => {
   const [activeCategory, setActiveCategory] = useState("Tất cả");
 
@@ -46,15 +47,19 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <motion.div
-            className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8"
+            className={`flex flex-col md:flex-row items-start md:items-center mb-8 ${
+              hideTitle ? "justify-start" : "justify-between"
+            }`}
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium mb-4 md:mb-0">
-              Hình ảnh tư liệu
-            </h2>
+            {!hideTitle && (
+              <h2 className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium mb-4 md:mb-0">
+                Hình ảnh tư liệu
+              </h2>
+            )}
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
                 <button

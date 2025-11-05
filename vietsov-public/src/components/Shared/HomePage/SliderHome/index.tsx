@@ -273,12 +273,17 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                             {activeIndex === index && (
                               <motion.span
                                 key={activeIndex}
-                                className="absolute left-0 -bottom-2 h-[3px] w-full bg-white"
-                                initial={{ width: 0 }}
-                                animate={{ width: "100%" }}
+                                className="absolute left-0 -bottom-2 h-[3px] w-full bg-white origin-left"
+                                style={{
+                                  willChange: "transform",
+                                  transformOrigin: "left center",
+                                }}
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
                                 transition={{
                                   duration: autoplayDelay / 1000,
                                   ease: "linear",
+                                  type: "tween",
                                 }}
                               />
                             )}

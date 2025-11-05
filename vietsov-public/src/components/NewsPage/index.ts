@@ -8,3 +8,4 @@ export { default as OtherArticles } from "./OtherArticles";
 export { default as ArticleDetail } from "./ArticleDetail";
 export { default as MediaLibrary } from "./MediaLibrary";
 export { default as MostView } from "./MostView";
+export { default as ActivitySectionWithCategories } from "./ActivitySectionWithCategories";

@@ -89,11 +89,9 @@ const AboutPage: React.FC = () => {
               </AnimatedSection>
               {/* Archive Photos */}
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
-                  <div className="container mx-auto px-4">
-                    <ArchivePhotosSection />
-                  </div>
-                </section>
+                <SectionWithTitle title="Hình ảnh tự liệu">
+                  <ArchivePhotosSection hideTitle={true} />
+                </SectionWithTitle>
               </AnimatedSection>
             </div>
           }

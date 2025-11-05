@@ -1,11 +1,12 @@
 import React from "react";
-import { PageHeader } from "@/components";
+import { PageHeader, SectionWithTitle } from "@/components";
 import {
-  ProductionActivitySection,
-  CommunityActivitySection,
-  OilNewsSection,
+  // ProductionActivitySection,
+  // CommunityActivitySection,
+  // OilNewsSection,
+  ActivitySectionWithCategories,
 } from "@/components/NewsPage";
-import { ArchivePhotosSection } from "@/components/AboutPage";
+// import { ArchivePhotosSection } from "@/components/AboutPage";
 import DetailPage from "@/pages/NewsPage/DetailPage";
 import MediaLibraryPage from "@/pages/NewsPage/MediaLibraryPage/index";
 import CommunityActivityPage from "@/pages/NewsPage/CommunityActivityPage";
@@ -72,6 +73,15 @@ const NewsPage: React.FC = () => {
               <AnimatedSection
                 animation="fadeInUp"
                 delay={100}
+                className="bg-vietsov-background"
+              >
+                <SectionWithTitle title="Tin tức nổi bật">
+                  <ActivitySectionWithCategories />
+                </SectionWithTitle>
+              </AnimatedSection>
+              {/* <AnimatedSection
+                animation="fadeInUp"
+                delay={100}
                 className="bg-white"
               >
                 <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
@@ -115,7 +125,7 @@ const NewsPage: React.FC = () => {
                     <ArchivePhotosSection />
                   </div>
                 </section>
-              </AnimatedSection>
+              </AnimatedSection> */}
             </div>
           }
         />
