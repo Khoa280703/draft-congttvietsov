@@ -72,7 +72,7 @@ const PlayButton = () => (
 
 const VideoNewsSection: React.FC = () => {
   return (
-    <div className="font-sans">
+    <div className="">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <div className="flex items-center">

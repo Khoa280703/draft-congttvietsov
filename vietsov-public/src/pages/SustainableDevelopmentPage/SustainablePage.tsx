@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const SustainablePage: React.FC = () => {
   return (
-    <section className="bg-white font-sans py-12 md:py-20">
+    <section className="bg-white  py-12 md:py-20">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center mb-16"

@@ -75,7 +75,7 @@ const enterpriseData = [
 
 const LandingUnits: React.FC = () => {
   return (
-    <section className="bg-white font-sans py-12 md:py-20">
+    <section className="bg-white  py-12 md:py-20">
       <div className="container mx-auto px-4">
         {enterpriseData.map((item, index) => (
           <motion.div

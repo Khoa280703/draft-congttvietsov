@@ -22,7 +22,7 @@ const ArrowIcon = () => (
 
 const SafetyInfoCard: React.FC = () => {
   return (
-    <div className="bg-white rounded-xl border-1 border-green-500 p-4 font-sans">
+    <div className="bg-white rounded-xl border-1 border-green-500 p-4 ">
       {/* Title */}
       <div className="flex items-center border-b-1 border-green-500 pb-3 mb-4">
         <PiShieldBold className="text-green-500 w-6 h-6" />

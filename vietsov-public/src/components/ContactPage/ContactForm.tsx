@@ -54,7 +54,7 @@ const ContactForm: React.FC = () => {
   return (
     <motion.section
       id="contact-form"
-      className="font-sans"
+      className=""
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-100px" }}

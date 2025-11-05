@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiArrowRight } from "react-icons/fi";
-import { FaQuoteLeft } from "react-icons/fa";
+// import { FaQuoteLeft } from "react-icons/fa";
 import { type EnterpriseCardData } from "./data";
 
 interface EnterpriseCardProps extends EnterpriseCardData {}

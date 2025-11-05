@@ -47,7 +47,7 @@ const relatedArticles = [
 
 const RelevantNews: React.FC = () => {
   return (
-    <section className="bg-white font-sans py-6">
+    <section className="bg-white  py-6">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-gray-900 mb-8">Tin liên quan</h2>
 

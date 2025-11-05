@@ -94,7 +94,9 @@ const SimpleArticleLink: React.FC<SimpleArticleLinkProps> = ({ article }) => {
         <h3 className="text-lg lg:text-base 2xl:text-lg font-bold leading-tight text-gray-800 group-hover:text-green-600 transition-colors">
           {article.title}
         </h3>
-        <p className="mt-2 text-sm lg:text-xs 2xl:text-sm text-gray-500">{article.timestamp}</p>
+        <p className="mt-2 text-sm lg:text-xs 2xl:text-sm text-gray-500">
+          {article.timestamp}
+        </p>
       </a>
     </article>
   );
@@ -102,7 +104,7 @@ const SimpleArticleLink: React.FC<SimpleArticleLinkProps> = ({ article }) => {
 
 const TrainingNews: React.FC = () => {
   return (
-    <section className="bg-white pb-4 md:pb-8 font-sans">
+    <section className="bg-white pb-4 md:pb-8 ">
       {/* Section Header */}
       <div className="flex justify-between items-center mb-8 md:mb-12 lg:mb-10 2xl:mb-12">
         <h2 className="text-2xl md:text-3xl lg:text-2xl 2xl:text-3xl font-medium text-gray-900">

@@ -23,7 +23,7 @@ const movementArticles = [
 
 const InternalMovement: React.FC = () => {
   return (
-    <div className="bg-white p-6 font-sans">
+    <div className="bg-white p-6 ">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h3 className="font-bold text-gray-800 uppercase flex items-center text-base">

@@ -30,7 +30,7 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
   return (
     <motion.section
       id="archive-photos"
-      className={`font-sans ${className}`}
+      className={` ${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-100px" }}

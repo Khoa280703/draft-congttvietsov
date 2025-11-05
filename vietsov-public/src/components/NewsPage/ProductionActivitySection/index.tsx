@@ -51,6 +51,7 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
                 <CardFullDetailHori
                   image={article.image}
                   imageAlt={article.title}
+                  category={article.category}
                   title={article.title}
                   timestamp={article.timestamp}
                   description={article.description}
@@ -69,6 +70,7 @@ const ProductionActivitySection: React.FC<ProductionActivitySectionProps> = ({
               <CardFullDetailHori
                 image={defaultSideArticles[3].image}
                 imageAlt={defaultSideArticles[3].title}
+                category={defaultSideArticles[3].category}
                 title={defaultSideArticles[3].title}
                 timestamp={defaultSideArticles[3].timestamp}
                 description={defaultSideArticles[3].description}

@@ -12,7 +12,7 @@ const RecruitmentSection: React.FC = () => {
 
   return (
     <motion.div
-      className="bg-white font-sans py-12"
+      className="bg-white  py-12"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}

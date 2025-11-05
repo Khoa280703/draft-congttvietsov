@@ -26,7 +26,7 @@ const briefingItems = [
 
 const DailyBriefing: React.FC = () => {
   return (
-    <div className="bg-gray-100 p-6 rounded-xl shadow-sm font-sans">
+    <div className="bg-gray-100 p-6 rounded-xl shadow-sm ">
       <div className="flex justify-between items-center mb-4">
         <h3 className="font-bold text-gray-800 uppercase flex items-center text-base">
           <IoNotificationsOutline className="mr-2 text-green-600 h-5 w-5" />

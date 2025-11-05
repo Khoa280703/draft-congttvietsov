@@ -52,10 +52,7 @@ const MediaLibrary: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section
-      id="pic-vid-library"
-      className="bg-[#F0F7F2] font-sans py-12 md:py-16"
-    >
+    <section id="pic-vid-library" className="bg-[#F0F7F2]  py-12 md:py-16">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-3xl md:text-4xl font-medium text-gray-800">

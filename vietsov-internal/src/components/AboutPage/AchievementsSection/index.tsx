@@ -65,7 +65,7 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
   if (isLoading) {
     return (
       <section
-        className={`relative font-sans py-16 md:py-24 lg:py-20 2xl:py-24 text-white overflow-hidden ${className}`}
+        className={`relative  py-16 md:py-24 lg:py-20 2xl:py-24 text-white overflow-hidden ${className}`}
       >
         <div className="relative container mx-auto px-4 md:px-12 lg:px-60 2xl:px-80 z-10">
           <div className="max-w-4xl">
@@ -86,7 +86,7 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
   if (error) {
     return (
       <section
-        className={`relative font-sans py-16 md:py-24 lg:py-20 2xl:py-24 text-white overflow-hidden ${className}`}
+        className={`relative  py-16 md:py-24 lg:py-20 2xl:py-24 text-white overflow-hidden ${className}`}
       >
         <div className="relative container mx-auto px-4 md:px-12 lg:px-60 2xl:px-80 z-10">
           <div className="max-w-4xl">
@@ -104,7 +104,7 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
   return (
     <motion.section
       id="achievements"
-      className={`relative font-sans py-16 md:py-24 lg:py-20 2xl:py-24 text-white overflow-hidden ${className}`}
+      className={`relative  py-16 md:py-24 lg:py-20 2xl:py-24 text-white overflow-hidden ${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-100px" }}

@@ -68,7 +68,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
   return (
     <motion.div
       ref={containerRef}
-      className={`relative font-sans ${className}`}
+      className={`relative  ${className}`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
       transition={{ duration: 0.8, ease: "easeOut" }}

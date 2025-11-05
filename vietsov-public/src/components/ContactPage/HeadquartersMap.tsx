@@ -5,7 +5,7 @@ import { FiNavigation } from "react-icons/fi";
 const HeadquartersMap: React.FC = () => {
   return (
     <motion.section
-      className="font-sans"
+      className=""
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-100px" }}

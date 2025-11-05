@@ -49,6 +49,7 @@ const OilNewsSection: React.FC<OilNewsSectionProps> = ({ className = "" }) => {
                 <CardFullDetailHori
                   image={article.image}
                   imageAlt={article.title}
+                  category={article.category}
                   title={article.title}
                   timestamp={article.timestamp}
                   description={article.description}
@@ -67,6 +68,7 @@ const OilNewsSection: React.FC<OilNewsSectionProps> = ({ className = "" }) => {
               <CardFullDetailHori
                 image={defaultSideArticles[3].image}
                 imageAlt={defaultSideArticles[3].title}
+                category={defaultSideArticles[3].category}
                 title={defaultSideArticles[3].title}
                 timestamp={defaultSideArticles[3].timestamp}
                 description={defaultSideArticles[3].description}

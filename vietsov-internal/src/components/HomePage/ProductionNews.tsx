@@ -39,7 +39,7 @@ const newsData: NewsArticle[] = [
 
 const ProductionNews: React.FC = () => {
   return (
-    <section className="py-4 md:py-8 font-sans">
+    <section className="py-4 md:py-8 ">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="flex justify-between items-center mb-2 pb-4">

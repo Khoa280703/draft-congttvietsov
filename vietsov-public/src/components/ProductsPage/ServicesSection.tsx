@@ -94,7 +94,7 @@ const ServiceCard: React.FC<{
 // Component chính
 const ServicesSection: React.FC = () => {
   return (
-    <section className="bg-gray-50 py-12 md:py-16 font-sans">
+    <section className="bg-gray-50 py-12 md:py-16 ">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mb-8">
           <h1 className="text-3xl md:text-4xl font-medium text-gray-800">

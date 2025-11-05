@@ -155,7 +155,7 @@ const KeyWords = () => (
 
 const NewsArticle: React.FC = () => {
   return (
-    <div className="bg-white font-sans">
+    <div className="bg-white ">
       <ArticleHeader />
       <ArticleSubTitle />
       <ArticleImage />

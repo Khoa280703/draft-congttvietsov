@@ -138,7 +138,7 @@ const ExplorationCard: React.FC<ExplorationCardProps> = ({
 
 const ExplorationSection: React.FC = () => {
   return (
-    <section className="bg-gray-50 font-sans py-12 md:py-20">
+    <section className="bg-gray-50  py-12 md:py-20">
       <div className="container mx-auto px-4">
         {explorationData.map((item, index) => (
           <motion.div
