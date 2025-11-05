@@ -23,7 +23,7 @@ const CommunityActivitySection: React.FC<CommunityActivitySectionProps> = ({
       </div>
 
       {/* Articles Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6 inch32:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 inch32:gap-8">
         {defaultCommunityActivityData.map((article) => (
           <CardFullDetail
             key={article.id}
