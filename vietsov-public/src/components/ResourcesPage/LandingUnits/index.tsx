@@ -13,7 +13,7 @@ const LandingUnits: React.FC = () => {
 
   return (
     <motion.section
-      className="bg-white  py-12 md:py-20"
+      className="bg-white py-12 lg:pt-20 lg:pb-32"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-100px" }}

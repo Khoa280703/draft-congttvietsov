@@ -137,11 +137,14 @@ const CardFullDetailHori: React.FC<CardFullDetailHoriProps> = ({
         </div>
 
         {detail && (
-          <div className="flex items-center gap-2 cursor-pointer mt-3 md:mt-4 lg:mt-3 inch32:mt-4">
-            <span className="text-sm lg:text-xs inch32:text-sm font-normal text-vietsov-black">
+          <div
+            className="flex items-center gap-2 cursor-pointer mt-3 md:mt-4 lg:mt-3 inch32:mt-4 text-vietsov-green"
+            onClick={onClick}
+          >
+            <span className="text-sm lg:text-xs inch32:text-sm font-normal">
               Chi tiết
             </span>
-            <HiArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 inch32:w-4 inch32:h-4 text-vietsov-green" />
+            <HiArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 inch32:w-4 inch32:h-4" />
           </div>
         )}
       </div>

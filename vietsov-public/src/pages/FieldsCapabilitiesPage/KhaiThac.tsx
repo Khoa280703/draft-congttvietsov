@@ -1,78 +1,91 @@
-import React from "react";
-import PageHeader from "@/components/PageHeader";
-import { PageWithSidebar } from "@/components";
-import { CardWithPadding } from "@/components/Card";
-import { SeeMoreButtonSimple } from "@/components/Button";
-import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
+import React, { useMemo } from "react";
+import NewsListPageTemplate, {
+  type NewsItem,
+} from "@/components/Shared/NewsListPageTemplate";
 import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
 import hoiNghiPetro from "@/assets/hoinghipetrovi.jpg";
 
 const KhaiThac: React.FC = () => {
-  const breadcrumbs = [
-    { label: "Trang chủ", href: "/" },
-    { label: "Lĩnh Vực & Năng Lực Hoạt Động", href: "/linhvuc-nangluc" },
-    { label: "Khai thác Dầu khí" },
-  ];
+  // Generate items from capabilities data
+  const generateItems = (): NewsItem[] => {
+    const baseItems: NewsItem[] = [
+      {
+        id: 1,
+        image: hoiNghiSuKien,
+        imageAlt: "Vận hành giàn khoan",
+        category: "KHAI THÁC DẦU KHÍ",
+        title: "Vận hành giàn khoan",
+        timestamp: new Date().toLocaleString("vi-VN"),
+        description:
+          "Quản lý vận hành an toàn - hiệu quả, tối ưu thời gian dừng máy, bảo dưỡng theo tình trạng.",
+        viewCount: Math.floor(Math.random() * 2000) + 100,
+        featured: false,
+      },
+      {
+        id: 2,
+        image: hoiNghiPetro,
+        imageAlt: "Xử lý & vận chuyển",
+        category: "KHAI THÁC DẦU KHÍ",
+        title: "Xử lý & vận chuyển",
+        timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000).toLocaleString(
+          "vi-VN"
+        ),
+        description:
+          "Thu gom, xử lý, tách dầu - khí - nước; xuất bán và vận chuyển tới điểm tiếp nhận.",
+        viewCount: Math.floor(Math.random() * 2000) + 100,
+        featured: false,
+      },
+      {
+        id: 3,
+        image: hoiNghiSuKien,
+        imageAlt: "An toàn & môi trường",
+        category: "KHAI THÁC DẦU KHÍ",
+        title: "An toàn & môi trường",
+        timestamp: new Date(
+          Date.now() - 2 * 24 * 60 * 60 * 1000
+        ).toLocaleString("vi-VN"),
+        description:
+          "Áp dụng tiêu chuẩn ATSKMT, ứng cứu sự cố, quan trắc môi trường liên tục và báo cáo định kỳ.",
+        viewCount: Math.floor(Math.random() * 2000) + 100,
+        featured: false,
+      },
+    ];
 
-  const capabilities = [
-    {
-      title: "Vận hành giàn khoan",
-      description:
-        "Quản lý vận hành an toàn - hiệu quả, tối ưu thời gian dừng máy, bảo dưỡng theo tình trạng.",
-      image: hoiNghiSuKien,
-    },
-    {
-      title: "Xử lý & vận chuyển",
-      description:
-        "Thu gom, xử lý, tách dầu - khí - nước; xuất bán và vận chuyển tới điểm tiếp nhận.",
-      image: hoiNghiPetro,
-    },
-    {
-      title: "An toàn & môi trường",
-      description:
-        "Áp dụng tiêu chuẩn ATSKMT, ứng cứu sự cố, quan trắc môi trường liên tục và báo cáo định kỳ.",
-      image: hoiNghiSuKien,
-    },
-  ];
+    // Add more items to test pagination (total ~20 items)
+    const additionalItems = Array.from({ length: 17 }, (_, i) => ({
+      id: baseItems.length + i + 1,
+      image: [hoiNghiSuKien, hoiNghiPetro][i % 2],
+      imageAlt: `Khai thác dầu khí ${i + 1}`,
+      category: "KHAI THÁC DẦU KHÍ",
+      title: `Khai thác dầu khí số ${i + 1}: ${
+        [
+          "Vận hành giàn khoan",
+          "Xử lý và vận chuyển",
+          "An toàn môi trường",
+          "Công nghệ khai thác",
+          "Quản lý dự án",
+        ][i % 5]
+      }`,
+      timestamp: new Date(
+        Date.now() - (i + 3) * 24 * 60 * 60 * 1000
+      ).toLocaleString("vi-VN"),
+      description: `Mô tả chi tiết về khai thác dầu khí số ${i + 1}...`,
+      viewCount: Math.floor(Math.random() * 2500) + 150,
+      featured: false,
+    }));
+
+    return [...baseItems, ...additionalItems];
+  };
+
+  const allItems = useMemo(() => generateItems(), []);
 
   return (
-    <PageWithSidebar activePath="/linhvuc-nangluc">
-      <PageHeader
-        title="Khai thác Dầu khí"
-        backgroundImage={danKhoanBackground}
-        breadcrumbs={breadcrumbs}
-      />
-
-      <section className="bg-white py-10 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-5 inch32:gap-6">
-            {capabilities.map((cap, idx) => (
-              <CardWithPadding
-                key={idx}
-                image={cap.image}
-                imageAlt={cap.title}
-                title={cap.title}
-                description={cap.description}
-                className="h-full"
-              />
-            ))}
-          </div>
-
-          <div className="mt-8 lg:mt-7 inch32:mt-8 flex items-center justify-between bg-gray-50 p-6 lg:p-5 inch32:p-6 rounded-xl">
-            <div>
-              <h3 className="text-xl lg:text-lg inch32:text-xl font-semibold text-gray-800">
-                Chuẩn ATSKMT
-              </h3>
-              <p className="text-gray-600 lg:text-sm inch32:text-base">
-                Tìm hiểu hệ thống an toàn, sức khỏe, môi trường áp dụng trong
-                khai thác.
-              </p>
-            </div>
-            <SeeMoreButtonSimple text="Xem chi tiết" href="/phattrien/atskmt" />
-          </div>
-        </div>
-      </section>
-    </PageWithSidebar>
+    <NewsListPageTemplate
+      activePath="/linhvuc-nangluc/khai-thac"
+      title="Khai thác Dầu khí"
+      articles={allItems}
+      searchPlaceholder="Tìm kiếm về khai thác dầu khí..."
+    />
   );
 };
 

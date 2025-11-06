@@ -14,17 +14,12 @@ import { NAVIGATION_CONFIG } from "@/config/navigation";
 import {
   HomePage,
   AboutPage,
-  UnitsPage,
-  ProductsServicesPage,
   NewsPage,
   ResourcesPage,
   PartnerProjectPage,
   SustainableDevelopmentPage,
+  FieldsCapabilitiesPage,
 } from "@/pages/index";
-import FieldsCapabilitiesPage from "@/pages/FieldsCapabilitiesPage";
-import ThamDo from "@/pages/FieldsCapabilitiesPage/ThamDo";
-import TimKiem from "@/pages/FieldsCapabilitiesPage/TimKiem";
-import KhaiThac from "@/pages/FieldsCapabilitiesPage/KhaiThac";
 import ContactPage from "@/pages/ContactPage/ContactPage";
 import SearchPage from "@/pages/SearchPage/SearchPage";
 import { useScrollToSection } from "@/hooks/useScrollToSection";
@@ -111,14 +106,9 @@ const PublicInterface: React.FC = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/gioithieu/*" element={<AboutPage />} />
-        <Route path="/donvi/*" element={<UnitsPage />} />
-        <Route path="/spvadichvu" element={<ProductsServicesPage />} />
         <Route path="/tintuc/*" element={<NewsPage />} />
         <Route path="/cacnguonchung/*" element={<ResourcesPage />} />
-        <Route path="/linhvuc-nangluc" element={<FieldsCapabilitiesPage />} />
-        <Route path="/linhvuc-nangluc/tham-do" element={<ThamDo />} />
-        <Route path="/linhvuc-nangluc/tim-kiem" element={<TimKiem />} />
-        <Route path="/linhvuc-nangluc/khai-thac" element={<KhaiThac />} />
+        <Route path="/linhvuc-nangluc/*" element={<FieldsCapabilitiesPage />} />
         <Route path="/doitac-duan/*" element={<PartnerProjectPage />} />
         <Route path="/phattrien/*" element={<SustainableDevelopmentPage />} />
         <Route path="/lienhe" element={<ContactPage />} />

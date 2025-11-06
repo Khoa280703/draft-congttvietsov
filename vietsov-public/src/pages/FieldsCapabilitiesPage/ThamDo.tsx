@@ -1,69 +1,91 @@
-import React from "react";
-import PageHeader from "@/components/PageHeader";
-import { PageWithSidebar } from "@/components";
-import { CardWithPadding } from "@/components/Card";
-import { SeeMoreButtonSimple } from "@/components/Button";
-import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
+import React, { useMemo } from "react";
+import NewsListPageTemplate, {
+  type NewsItem,
+} from "@/components/Shared/NewsListPageTemplate";
 import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
 import hoiNghiPetro from "@/assets/hoinghipetrovi.jpg";
 
 const ThamDo: React.FC = () => {
-  const breadcrumbs = [
-    { label: "Trang chủ", href: "/" },
-    { label: "Lĩnh Vực & Năng Lực Hoạt Động", href: "/linhvuc-nangluc" },
-    { label: "Thăm dò Dầu khí" },
-  ];
+  // Generate items from capabilities data
+  const generateItems = (): NewsItem[] => {
+    const baseItems: NewsItem[] = [
+      {
+        id: 1,
+        image: hoiNghiSuKien,
+        imageAlt: "Địa chất - Địa vật lý",
+        category: "THĂM DÒ DẦU KHÍ",
+        title: "Địa chất - Địa vật lý",
+        timestamp: new Date().toLocaleString("vi-VN"),
+        description:
+          "Khảo sát địa chấn 2D/3D, phân tích tài liệu địa chất, mô hình hóa cấu trúc và đánh giá tiềm năng chứa dầu khí.",
+        viewCount: Math.floor(Math.random() * 2000) + 100,
+        featured: false,
+      },
+      {
+        id: 2,
+        image: hoiNghiPetro,
+        imageAlt: "Khoan thăm dò",
+        category: "THĂM DÒ DẦU KHÍ",
+        title: "Khoan thăm dò",
+        timestamp: new Date(Date.now() - 24 * 60 * 60 * 1000).toLocaleString(
+          "vi-VN"
+        ),
+        description:
+          "Thiết kế giếng khoan, khoan xác minh, lấy mẫu và đo kiểm giếng phục vụ đánh giá mỏ ban đầu.",
+        viewCount: Math.floor(Math.random() * 2000) + 100,
+        featured: false,
+      },
+      {
+        id: 3,
+        image: hoiNghiSuKien,
+        imageAlt: "Đánh giá trữ lượng",
+        category: "THĂM DÒ DẦU KHÍ",
+        title: "Đánh giá trữ lượng",
+        timestamp: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000).toLocaleString(
+          "vi-VN"
+        ),
+        description:
+          "Tổng hợp dữ liệu để ước tính tài nguyên, lập báo cáo đánh giá trữ lượng và đề xuất phương án khai thác.",
+        viewCount: Math.floor(Math.random() * 2000) + 100,
+        featured: false,
+      },
+    ];
 
-  const capabilities = [
-    {
-      title: "Địa chất - Địa vật lý",
-      description:
-        "Khảo sát địa chấn 2D/3D, phân tích tài liệu địa chất, mô hình hóa cấu trúc và đánh giá tiềm năng chứa dầu khí.",
-      image: hoiNghiSuKien,
-    },
-    {
-      title: "Khoan thăm dò",
-      description:
-        "Thiết kế giếng khoan, khoan xác minh, lấy mẫu và đo kiểm giếng phục vụ đánh giá mỏ ban đầu.",
-      image: hoiNghiPetro,
-    },
-    {
-      title: "Đánh giá trữ lượng",
-      description:
-        "Tổng hợp dữ liệu để ước tính tài nguyên, lập báo cáo đánh giá trữ lượng và đề xuất phương án khai thác.",
-      image: hoiNghiSuKien,
-    },
-  ];
+    // Add more items to test pagination (total ~20 items)
+    const additionalItems = Array.from({ length: 17 }, (_, i) => ({
+      id: baseItems.length + i + 1,
+      image: [hoiNghiSuKien, hoiNghiPetro][i % 2],
+      imageAlt: `Thăm dò dầu khí ${i + 1}`,
+      category: "THĂM DÒ DẦU KHÍ",
+      title: `Thăm dò dầu khí số ${i + 1}: ${
+        [
+          "Địa chất địa vật lý",
+          "Khoan thăm dò",
+          "Đánh giá trữ lượng",
+          "Nghiên cứu mỏ",
+          "Quy trình thăm dò",
+        ][i % 5]
+      }`,
+      timestamp: new Date(
+        Date.now() - (i + 3) * 24 * 60 * 60 * 1000
+      ).toLocaleString("vi-VN"),
+      description: `Mô tả chi tiết về thăm dò dầu khí số ${i + 1}...`,
+      viewCount: Math.floor(Math.random() * 2500) + 150,
+      featured: false,
+    }));
+
+    return [...baseItems, ...additionalItems];
+  };
+
+  const allItems = useMemo(() => generateItems(), []);
 
   return (
-    <PageWithSidebar activePath="/linhvuc-nangluc">
-      <PageHeader title="Thăm dò Dầu khí" backgroundImage={danKhoanBackground} breadcrumbs={breadcrumbs} />
-
-      <section className="bg-white py-10 md:py-12 md:pt-18 md:pb-12 lg:py-10 lg:pt-14 lg:pb-10 inch32:pt-22 inch32:pb-15">
-        <div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-5 inch32:gap-6">
-            {capabilities.map((cap, idx) => (
-              <CardWithPadding
-                key={idx}
-                image={cap.image}
-                imageAlt={cap.title}
-                title={cap.title}
-                description={cap.description}
-                className="h-full"
-              />
-            ))}
-          </div>
-
-          <div className="mt-8 lg:mt-7 inch32:mt-8 flex items-center justify-between bg-gray-50 p-6 lg:p-5 inch32:p-6 rounded-xl">
-            <div>
-              <h3 className="text-xl lg:text-lg inch32:text-xl font-semibold text-gray-800">Tài liệu & Quy trình</h3>
-              <p className="text-gray-600 lg:text-sm inch32:text-base">Tham khảo quy trình, tiêu chuẩn kỹ thuật và hồ sơ năng lực thăm dò.</p>
-            </div>
-            <SeeMoreButtonSimple text="Xem tài liệu" href="/cacnguonchung/khcn" />
-          </div>
-        </div>
-      </section>
-    </PageWithSidebar>
+    <NewsListPageTemplate
+      activePath="/linhvuc-nangluc/tham-do"
+      title="Thăm dò Dầu khí"
+      articles={allItems}
+      searchPlaceholder="Tìm kiếm về thăm dò dầu khí..."
+    />
   );
 };
 

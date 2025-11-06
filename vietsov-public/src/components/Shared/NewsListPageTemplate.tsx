@@ -197,6 +197,11 @@ const NewsListPageTemplate: React.FC<NewsListPageTemplateProps> = ({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={
+                    index !== paginatedArticles.length - 1
+                      ? "border-b border-vietsov-green/30 pb-6 lg:pb-5 inch32:pb-6"
+                      : ""
+                  }
                 >
                   <CardFullDetailHori
                     image={article.image}
@@ -207,6 +212,7 @@ const NewsListPageTemplate: React.FC<NewsListPageTemplateProps> = ({
                     description={article.description}
                     className="h-48"
                     onClick={() => handleArticleClick(article)}
+                    detail={true}
                   />
                 </motion.div>
               ))}

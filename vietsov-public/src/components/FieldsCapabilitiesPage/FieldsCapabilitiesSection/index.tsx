@@ -10,7 +10,7 @@ const FieldsCapabilitiesSection: React.FC = () => {
       {/* Section 1: Thăm dò, tìm kiếm và KT dầu khí - Using LandingUnits */}
       <motion.section
         id="tham-do-tim-kiem-va-kt-dau-khi"
-        className="py-12 md:py-20 bg-gray-50"
+        className="pt-12 md:pt-20"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -42,7 +42,7 @@ const FieldsCapabilitiesSection: React.FC = () => {
       {/* Section 2: Dịch vụ - Grid of cards */}
       <motion.section
         id="dich-vu"
-        className="py-12 md:py-20 bg-white"
+        className="py-12 md:pb-20 lg:pb-32 bg-white"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}

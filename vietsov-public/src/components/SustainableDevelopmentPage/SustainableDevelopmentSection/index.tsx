@@ -5,7 +5,7 @@ import { sustainableDevelopmentData } from "./data";
 
 const SustainableDevelopmentSection: React.FC = () => {
   return (
-    <section className="bg-white  py-12 md:py-20">
+    <section className="bg-white pt-12 md:py-20 lg:pt-20 lg:pb-32">
       <div className="container mx-auto px-4">
         {sustainableDevelopmentData.map((item, index) => (
           <motion.div
