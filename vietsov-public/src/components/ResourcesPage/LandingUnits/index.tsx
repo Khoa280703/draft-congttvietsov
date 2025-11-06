@@ -36,6 +36,8 @@ const LandingUnits: React.FC = () => {
               description={item.description}
               image={item.image}
               imagePosition={item.imagePosition}
+              cardIndex={index}
+              totalCards={enterpriseData.length}
             />
           </motion.div>
         ))}

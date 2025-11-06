@@ -4,9 +4,7 @@ import { FiArrowRight, FiCheck } from "react-icons/fi";
 import { FaQuoteLeft } from "react-icons/fa";
 import { type EnterpriseCardData } from "./data";
 
-interface EnterpriseCardProps extends EnterpriseCardData {}
-
-const EnterpriseCard: React.FC<EnterpriseCardProps> = ({
+const EnterpriseCard: React.FC<EnterpriseCardData> = ({
   title,
   image,
   description,
@@ -16,12 +14,31 @@ const EnterpriseCard: React.FC<EnterpriseCardProps> = ({
   capabilities,
   imageHeight = "h-[500px] md:h-[700px] lg:h-[640px]",
   showQuoteIcon = false,
+  cardIndex,
+  totalCards,
 }) => {
   const imageOrder =
     imagePosition === "left" ? "lg:order-first" : "lg:order-last";
 
+  // Determine padding classes based on position and total cards
+  let paddingClass = "py-16";
+  if (totalCards && totalCards > 2 && cardIndex !== undefined) {
+    if (cardIndex === 0) {
+      // First card: remove pt
+      paddingClass = "pb-16";
+    } else if (cardIndex === totalCards - 1) {
+      // Last card: remove pb
+      paddingClass = "pt-16";
+    } else {
+      // Middle cards: keep py-16
+      paddingClass = "py-16";
+    }
+  }
+
   return (
-    <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-32 items-center mb-20 last:mb-0 py-16">
+    <div
+      className={`relative grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-32 items-center mb-20 last:mb-0 ${paddingClass}`}
+    >
       <motion.div
         className={imageOrder}
         initial={{ opacity: 0, x: imagePosition === "left" ? -50 : 50 }}

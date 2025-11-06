@@ -9,4 +9,6 @@ export interface EnterpriseCardData {
   capabilities?: string[];
   imageHeight?: string;
   showQuoteIcon?: boolean;
+  cardIndex?: number;
+  totalCards?: number;
 }

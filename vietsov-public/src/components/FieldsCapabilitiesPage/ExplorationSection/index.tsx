@@ -26,6 +26,8 @@ const ExplorationSection: React.FC = () => {
               capabilities={item.capabilities}
               imageHeight="h-[500px] md:h-[700px] lg:h-[850px]"
               showQuoteIcon={true}
+              cardIndex={index}
+              totalCards={explorationData.length}
             />
           </motion.div>
         ))}

@@ -73,9 +73,12 @@ const NewsPage: React.FC = () => {
               <AnimatedSection
                 animation="fadeInUp"
                 delay={100}
-                className="bg-vietsov-background"
+                className="bg-vietsov-background pb-16"
               >
-                <SectionWithTitle title="Tin tức nổi bật">
+                <SectionWithTitle
+                  title="Tin tức nổi bật"
+                  titleColor="text-vietsov-green"
+                >
                   <ActivitySectionWithCategories />
                 </SectionWithTitle>
               </AnimatedSection>

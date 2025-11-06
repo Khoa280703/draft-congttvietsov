@@ -1,30 +1,28 @@
 import React from "react";
-import { PageWithSidebar } from "@/components";
-import { ProjectDetail } from "@/components/PartnerProjectPage";
-import { Keyword } from "@/components";
+import ContentDetailPage from "@/components/Shared/ContentDetailPage";
+import { RelevantNews, OtherArticles, MostView } from "@/components/NewsPage";
 import {
-  RelevantProjects,
-  OtherProjects,
-  MostView,
-} from "@/components/PartnerProjectPage";
+  projectDetailData,
+  imageData,
+} from "@/components/PartnerProjectPage/ProjectDetail/data";
 
 const ProjectDetailPage: React.FC = () => {
   return (
-    <>
-      <PageWithSidebar
-        activePath="/doitac-duan/du-an"
-        sidebarContent={<MostView />}
-      >
-        <ProjectDetail />
-        <Keyword
-          tags={["Dự án dầu khí", "Khai thác", "Năng lượng", "Môi trường"]}
-          tagTextColor="green-500"
-          tagColor="gray-100"
-        />
-        <RelevantProjects />
-      </PageWithSidebar>
-      <OtherProjects />
-    </>
+    <ContentDetailPage
+      activePath="/doitac-duan/du-an"
+      sidebarContent={<MostView />}
+      detailContentData={{
+        title: projectDetailData.title,
+        category: projectDetailData.category,
+        status: projectDetailData.status,
+        paragraphs: projectDetailData.paragraphs,
+        imageSectionTitle: projectDetailData.imageSectionTitle,
+        images: imageData,
+      }}
+      keywords={["Dự án dầu khí", "Khai thác", "Năng lượng", "Môi trường"]}
+      relevantComponent={<RelevantNews />}
+      otherComponent={<OtherArticles />}
+    />
   );
 };
 

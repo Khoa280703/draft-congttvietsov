@@ -22,6 +22,8 @@ const SustainableDevelopmentSection: React.FC = () => {
               image={item.image}
               imagePosition={item.imagePosition}
               path={item.path}
+              cardIndex={index}
+              totalCards={sustainableDevelopmentData.length}
             />
           </motion.div>
         ))}

@@ -46,7 +46,10 @@ const AboutPage: React.FC = () => {
                 delay={100}
                 className="bg-vietsov-background"
               >
-                <SectionWithTitle title="Liên doanh Việt - Nga">
+                <SectionWithTitle
+                  title="Liên doanh Việt - Nga"
+                  titleColor="text-vietsov-green"
+                >
                   <JointVentureSection />
                 </SectionWithTitle>
               </AnimatedSection>
@@ -69,7 +72,10 @@ const AboutPage: React.FC = () => {
                 delay={100}
                 className="bg-vietsov-background"
               >
-                <SectionWithTitle title="Cơ cấu tổ chức">
+                <SectionWithTitle
+                  title="Cơ cấu tổ chức"
+                  titleColor="text-vietsov-green"
+                >
                   <OrgStructureSection />
                 </SectionWithTitle>
               </AnimatedSection>
@@ -88,8 +94,12 @@ const AboutPage: React.FC = () => {
                 </SectionWithTitle>
               </AnimatedSection>
               {/* Archive Photos */}
-              <AnimatedSection animation="fadeInUp" delay={100}>
-                <SectionWithTitle title="Hình ảnh tự liệu">
+              <AnimatedSection
+                animation="fadeInUp"
+                delay={100}
+                className="pb-16"
+              >
+                <SectionWithTitle title="Hình ảnh tư liệu">
                   <ArchivePhotosSection hideTitle={true} />
                 </SectionWithTitle>
               </AnimatedSection>

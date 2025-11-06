@@ -37,7 +37,7 @@ const CardFullDetailHori: React.FC<CardFullDetailHoriProps> = ({
     
     // Title height: text-lg (18px) với leading-tight, mỗi dòng ≈ 22px
     // text-base (16px) với leading-tight, mỗi dòng ≈ 20px
-    // text-lg 2xl (18px) với leading-tight, mỗi dòng ≈ 22px
+    // text-lg inch32 (18px) với leading-tight, mỗi dòng ≈ 22px
     // Tính trung bình 21px/dòng
     const titleHeight = maxTitleLines * 21;
     
@@ -90,21 +90,21 @@ const CardFullDetailHori: React.FC<CardFullDetailHoriProps> = ({
         <img
           src={image}
           alt={imageAlt}
-          className="w-full h-full object-cover rounded-2xl"
+          className="w-full h-full object-cover"
         />
       </div>
 
-      <div className="w-3/5 pl-4 md:pl-6 lg:pl-5 2xl:pl-6 py-2 flex flex-col justify-center h-full">
-        <div className="space-y-2 md:space-y-3 lg:space-y-2 2xl:space-y-3">
+      <div className="w-3/5 pl-4 md:pl-6 lg:pl-5 inch32:pl-6 py-2 flex flex-col h-full">
+        <div className="space-y-2 md:space-y-3 lg:space-y-2 inch32:space-y-3">
           {category && (
-            <div className="font-bold text-[10px] lg:text-[9px] 2xl:text-[10px] leading-none tracking-[1.5px] lg:tracking-[1px] 2xl:tracking-[1.5px] text-vietsov-green uppercase">
+            <div className="font-bold text-[10px] lg:text-[9px] inch32:text-[10px] leading-none tracking-[1.5px] lg:tracking-[1px] inch32:tracking-[1.5px] text-vietsov-green uppercase">
               {category}
             </div>
           )}
 
           {/* Title */}
           <h3
-            className="text-lg lg:text-base 2xl:text-lg font-semibold leading-tight text-vietsov-black"
+            className="text-lg lg:text-base inch32:text-lg font-semibold leading-tight text-vietsov-black"
             style={{
               display: "-webkit-box",
               WebkitLineClamp: maxTitleLines,
@@ -116,14 +116,14 @@ const CardFullDetailHori: React.FC<CardFullDetailHoriProps> = ({
           </h3>
 
           {timestamp && (
-            <div className="text-sm lg:text-xs 2xl:text-sm font-normal leading-none text-vietsov-light-gray">
+            <div className="text-sm lg:text-xs inch32:text-sm font-normal leading-none text-vietsov-light-gray">
               {timestamp}
             </div>
           )}
 
           {description && (
             <p
-              className="text-sm lg:text-xs 2xl:text-sm leading-relaxed text-vietsov-black/80"
+              className="text-sm lg:text-xs inch32:text-sm leading-relaxed text-vietsov-black/80"
               style={{
                 display: "-webkit-box",
                 WebkitLineClamp: maxDescriptionLines,
@@ -137,11 +137,11 @@ const CardFullDetailHori: React.FC<CardFullDetailHoriProps> = ({
         </div>
 
         {detail && (
-          <div className="flex items-center gap-2 cursor-pointer mt-3 md:mt-4 lg:mt-3 2xl:mt-4">
-            <span className="text-sm lg:text-xs 2xl:text-sm font-normal text-vietsov-black">
+          <div className="flex items-center gap-2 cursor-pointer mt-3 md:mt-4 lg:mt-3 inch32:mt-4">
+            <span className="text-sm lg:text-xs inch32:text-sm font-normal text-vietsov-black">
               Chi tiết
             </span>
-            <HiArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 2xl:w-4 2xl:h-4 text-vietsov-green" />
+            <HiArrowRight className="w-4 h-4 lg:w-3.5 lg:h-3.5 inch32:w-4 inch32:h-4 text-vietsov-green" />
           </div>
         )}
       </div>

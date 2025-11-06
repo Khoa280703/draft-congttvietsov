@@ -82,7 +82,7 @@ const FieldsCapabilitiesSection: React.FC = () => {
                   title={service.title}
                   description={service.description}
                   readMoreLink={service.readMoreLink}
-                  readMoreText="Tìm hiểu thêm"
+                  readMoreText="Xem thêm"
                   className="h-full"
                 />
               </motion.div>

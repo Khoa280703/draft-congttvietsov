@@ -89,10 +89,10 @@ const PartnerMetricsSection: React.FC = () => {
       <div className="relative z-30 container mx-auto px-4">
         {/* Title */}
         <div className="text-center mb-12 md:mb-16">
-          <h3 className="text-white text-lg md:text-xl mb-2 font-medium">
+          <h3 className="text-white text-base md:text-lg mb-4 font-base">
             ĐỐI TÁC - KHÁCH HÀNG
           </h3>
-          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl inch32:text-6xl font-bold">
+          <h2 className="text-white text-2xl md:text-43l lg:text-4xl inch32:text-5xl font-semibold">
             ĐỒNG HÀNH CÙNG CHÚNG TÔI
           </h2>
         </div>

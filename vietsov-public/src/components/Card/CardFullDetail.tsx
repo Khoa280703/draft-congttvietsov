@@ -28,9 +28,12 @@ const CardFullDetail: React.FC<CardFullDetailProps> = ({
 }) => {
   return (
     <div
-      className={`overflow-hidden border-1 border-vietsov-green/30 h-full flex flex-col ${
+      className={`overflow-hidden  h-full flex flex-col bg-white ${
         onClick ? "cursor-pointer" : ""
       } ${className}`}
+      style={{
+        boxShadow: "0 5px 16px 0 rgba(2, 55, 102, 0.09)",
+      }}
       onClick={onClick}
     >
       <img
@@ -65,11 +68,11 @@ const CardFullDetail: React.FC<CardFullDetailProps> = ({
 
         {detail && (
           <div
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center gap-2 cursor-pointer text-vietsov-green"
             onClick={onClick}
           >
             <span className="text-sm font-normal">Chi tiết</span>
-            <HiArrowRight className="w-4 h-4 text-vietsov-green" />
+            <HiArrowRight className="w-4 h-4" />
           </div>
         )}
       </div>

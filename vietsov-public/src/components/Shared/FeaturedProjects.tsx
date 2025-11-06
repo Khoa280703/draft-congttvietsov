@@ -67,10 +67,7 @@ interface ProjectCardProps {
   onClick: () => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
-  project,
-  onClick,
-}) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Hoàn thành":
@@ -181,7 +178,7 @@ const FeaturedProjects: React.FC = () => {
         <div className="text-center">
           <a
             href="/doitac-duan/du-an"
-            className="inline-flex items-center bg-gradient-to-r from-green-600 to-green-700 text-white font-semibold px-8 py-4 rounded-full shadow-lg cursor-pointer"
+            className="inline-flex items-center bg-vietsov-green text-white font-semibold px-8 py-4 rounded-full shadow-lg cursor-pointer"
           >
             Xem tất cả dự án
             <FiArrowRight className="w-5 h-5 ml-2" />

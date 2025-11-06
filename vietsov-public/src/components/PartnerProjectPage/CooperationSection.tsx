@@ -1,7 +1,25 @@
 import React from "react";
 import YouTube from "react-youtube";
 
-const CooperationSection: React.FC = () => {
+interface CooperationSectionProps {
+  titleColor?: string;
+  className?: string;
+}
+
+const CooperationSection: React.FC<CooperationSectionProps> = ({
+  titleColor,
+  className = "",
+}) => {
+  // Auto-detect if background is one of the specified classes and apply vietsov-green
+  // Note: bg-vietsov-background2 is excluded
+  const hasSpecialBackground =
+    className.includes("bg-vietsov-background") ||
+    className.includes("bg-vietsov-skin") ||
+    className.includes("bg-vietsov-skin2");
+
+  const finalTitleColor =
+    titleColor ||
+    (hasSpecialBackground ? "text-vietsov-green" : "text-gray-900");
   const youTubeVideoId = "pOZZdPBLX3g";
 
   const playerOptions = {
@@ -20,11 +38,13 @@ const CooperationSection: React.FC = () => {
   };
 
   return (
-    <section className="">
+    <section className={className}>
       <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
           <div className="text-center lg:text-left">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+            <h2
+              className={`text-3xl md:text-4xl font-bold ${finalTitleColor} leading-tight`}
+            >
               Hợp Tác Với Liên Doanh
               <br />
               Vietsovpetro

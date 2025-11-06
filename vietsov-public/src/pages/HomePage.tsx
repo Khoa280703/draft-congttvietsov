@@ -36,6 +36,7 @@ const HomePage: React.FC = () => {
         <SectionWithTitle
           title="Lĩnh Vực Hoạt Động"
           sectionClassName="py-8 md:py-12 lg:py-16 inch32:py-15"
+          titleColor="text-vietsov-green"
         >
           <CapabilitiesSection />
         </SectionWithTitle>
@@ -65,6 +66,7 @@ const HomePage: React.FC = () => {
         <SectionWithTitle
           title="Tin tức Dầu khí"
           sectionClassName="py-8 md:py-12 lg:pt-16 lg:pb-16 inch32:py-15"
+          titleColor="text-vietsov-green"
         >
           <PetroNews />
         </SectionWithTitle>

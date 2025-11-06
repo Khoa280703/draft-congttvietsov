@@ -1,4 +1,5 @@
 import React from "react";
+import DetailContent from "@/components/Shared/DetailContent";
 
 import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
 import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
@@ -83,45 +84,13 @@ const imageData = [
 
 const ArticleDetail: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl overflow-hidden">
-        <article className="">
-          {/* Article Header */}
-          <header>
-            <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight">
-              {articleData.title}
-            </h1>
-            <p className="mt-3 text-sm text-gray-500">
-              {articleData.timestamp}
-            </p>
-            <hr className="my-6 border-gray-200" />
-          </header>
-
-          {/* Article Body */}
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
-            {articleData.paragraphs.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </div>
-
-          <div className="mt-8">
-            <p className="text-gray-700">{articleData.imageSectionTitle}</p>
-
-            <div className="mt-4 grid grid-cols-3 gap-2 auto-rows-fr grid-flow-dense">
-              {imageData.map((image) => (
-                <div key={image.id} className={image.className}>
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
+    <DetailContent
+      title={articleData.title}
+      timestamp={articleData.timestamp}
+      paragraphs={articleData.paragraphs}
+      imageSectionTitle={articleData.imageSectionTitle}
+      images={imageData}
+    />
   );
 };
 

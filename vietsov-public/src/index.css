@@ -113,6 +113,10 @@ body {
     color: #10954f;
   }
 
+  .text-vietsov-green-label {
+    color: #10954f;
+  }
+
   .bg-vietsov-background {
     background-image: linear-gradient(to bottom, #edf8f2, #ffffff);
   }
@@ -199,8 +203,8 @@ body {
 
   /* Partner Logos Swiper Pagination */
   .partner-logos-swiper .swiper-pagination {
-    bottom: 8px !important;
-    margin-top: 12px;
+    bottom: 0px !important;
+    margin-top: 10px !important;
   }
 
   .partner-logos-swiper .swiper-pagination-bullet {

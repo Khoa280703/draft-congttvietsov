@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Autoplay } from "swiper/modules";
+import type { Swiper as SwiperCore } from "swiper";
+import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/pagination";
 
 export interface PartnerLogo {
   id: string;
@@ -79,6 +79,9 @@ const partnerLogosData: PartnerLogo[] = [
 ];
 
 const PartnerLogosGrid: React.FC = () => {
+  const swiperRef = useRef<SwiperCore | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
   // Chia logos thành các trang, mỗi trang 12 logos (2 rows x 6 cols)
   const logosPerPage = 12;
   const pages: PartnerLogo[][] = [];
@@ -86,34 +89,43 @@ const PartnerLogosGrid: React.FC = () => {
     pages.push(partnerLogosData.slice(i, i + logosPerPage));
   }
 
+  const handlePaginationClick = (index: number) => {
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(index);
+      setActiveIndex(index);
+    }
+  };
+
   return (
     <div className="relative -mt-20 md:-mt-24 lg:-mt-32 inch32:-mt-36 z-10">
       <div className="pt-8 pb-12 md:pb-16">
-        <div className="container mx-auto px-4 shadow-2xl rounded-lg py-16 px-24 bg-white">
+        <div className="container mx-auto px-8 shadow-2xl rounded-lg py-16 px-24 bg-white">
           {/* Logos Slider */}
-          <div className="relative mb-8">
+          <div className="relative">
             <Swiper
-              modules={[Pagination, Autoplay]}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+              onSlideChange={(swiper) => {
+                setActiveIndex(swiper.realIndex);
+              }}
+              modules={[Autoplay]}
               spaceBetween={16}
               slidesPerView={1}
               loop={pages.length > 1}
-              pagination={{
-                clickable: true,
-                enabled: pages.length > 1,
-              }}
               autoplay={{
                 delay: 3000,
                 disableOnInteraction: false,
               }}
-              className="partner-logos-swiper"
+              className="partner-logos-swiper lg:h-76"
             >
               {pages.map((pageLogos, pageIndex) => (
                 <SwiperSlide key={pageIndex}>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mb-8">
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
                     {pageLogos.map((logo) => (
                       <div
                         key={logo.id}
-                        className="bg-white rounded-lg shadow-md p-4 h-32 flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow"
+                        className="bg-white rounded-lg shadow-xl p-4 h-32 flex items-center justify-center cursor-pointer hover:shadow-lg transition-shadow"
                       >
                         <a
                           href={logo.link}
@@ -133,12 +145,25 @@ const PartnerLogosGrid: React.FC = () => {
                 </SwiperSlide>
               ))}
             </Swiper>
-          </div>
 
-          {/* Bottom Text */}
-          <p className="text-center text-gray-700 text-sm md:text-base font-semibold">
-            VÀ HÀNG TRĂM DOANH NGHIỆP KHÁC ĐÃ TIN TƯỞNG VIETSOVPETRO
-          </p>
+            {/* Custom Pagination */}
+            {pages.length > 1 && (
+              <div className="flex justify-center items-center gap-2 mt-4 lg:mt-8">
+                {pages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handlePaginationClick(index)}
+                    className={`transition-all duration-300 cursor-pointer rounded-full ${
+                      activeIndex === index
+                        ? "bg-[#f472b6] w-10 h-1.5"
+                        : "bg-[#fce7f3] w-6 h-1.5"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
