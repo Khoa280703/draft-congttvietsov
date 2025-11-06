@@ -27,7 +27,7 @@ const FieldsCapabilitiesSection: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Thăm dò, Tìm kiếm và Khai thác Dầu khí
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base md:text-base lg:text-sm inch32:text-base font-normal leading-relaxed max-w-2xl mx-auto">
               Năng lực toàn diện trong lĩnh vực thăm dò, tìm kiếm và khai thác
               dầu khí với công nghệ tiên tiến và đội ngũ chuyên gia giàu kinh
               nghiệm.
