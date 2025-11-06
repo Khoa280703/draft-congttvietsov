@@ -22,7 +22,7 @@ const CardWithPadding: React.FC<CardWithPaddingProps> = ({
 }) => {
   return (
     <div
-      className={`bg-white backdrop-blur-sm border-1 border-vietsov-green/30 overflow-hidden ${className}`}
+      className={`bg-white backdrop-blur-sm overflow-hidden ${className}`}
       style={{
         boxShadow: "0 5px 16px 0 rgba(2, 55, 102, 0.09)",
       }}

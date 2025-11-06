@@ -196,32 +196,122 @@ const NodeModal: React.FC<NodeModalProps> = ({
                 </div>
               )}
 
-              {/* Leadership Grid - Ban lãnh đạo */}
+              {/* Leadership Tree - Ban lãnh đạo */}
               <div>
-                <h4 className="text-sm font-semibold text-gray-900 mb-4">
+                <h4 className="text-sm font-semibold text-gray-900 mb-6">
                   Ban lãnh đạo
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {defaultLeaders.map((leader) => (
-                    <div
-                      key={leader.id}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        if (onLeaderClick) {
-                          onLeaderClick(leader);
-                        }
-                      }}
-                      className="cursor-pointer"
-                    >
-                      <CardSimple
-                        imageUrl={leader.image}
-                        imageAlt={leader.name}
-                        position={leader.title}
-                        name={leader.name}
-                        className="h-full hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  ))}
+                <div className="flex flex-col items-center space-y-8">
+                  {/* Level 1: Tổng giám đốc */}
+                  {defaultLeaders
+                    .filter((leader) => leader.title === "TỔNG GIÁM ĐỐC")
+                    .map((leader) => (
+                      <div
+                        key={leader.id}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (onLeaderClick) {
+                            onLeaderClick(leader);
+                          }
+                        }}
+                        className="cursor-pointer"
+                      >
+                        <CardSimple
+                          imageUrl={leader.image}
+                          imageAlt={leader.name}
+                          position={leader.title}
+                          name={leader.name}
+                          className="hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    ))}
+
+                  {/* Connecting line from Level 1 to Level 2 */}
+                  {defaultLeaders.some(
+                    (l) => l.title === "PHÓ TỔNG GIÁM ĐỐC THỨ NHẤT"
+                  ) && <div className="w-0.5 h-8 bg-vietsov-green/30"></div>}
+
+                  {/* Level 2: Phó Tổng giám đốc thứ nhất */}
+                  {defaultLeaders
+                    .filter(
+                      (leader) => leader.title === "PHÓ TỔNG GIÁM ĐỐC THỨ NHẤT"
+                    )
+                    .map((leader) => (
+                      <div
+                        key={leader.id}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (onLeaderClick) {
+                            onLeaderClick(leader);
+                          }
+                        }}
+                        className="cursor-pointer"
+                      >
+                        <CardSimple
+                          imageUrl={leader.image}
+                          imageAlt={leader.name}
+                          position={leader.title}
+                          name={leader.name}
+                          className="hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    ))}
+
+                  {/* Connecting line from Level 2 to Level 3 */}
+                  {defaultLeaders.some(
+                    (l) => l.title === "PHÓ TỔNG GIÁM ĐỐC"
+                  ) && <div className="w-0.5 h-8 bg-vietsov-green/30"></div>}
+
+                  {/* Level 3: Phó Tổng giám đốc */}
+                  {(() => {
+                    const deputyLeaders = defaultLeaders.filter(
+                      (leader) => leader.title === "PHÓ TỔNG GIÁM ĐỐC"
+                    );
+                    const count = deputyLeaders.length;
+
+                    // Tự động điều chỉnh số cột dựa trên số lượng
+                    let gridCols = "grid-cols-1";
+                    if (count <= 2) {
+                      gridCols = "sm:grid-cols-2";
+                    } else if (count <= 3) {
+                      gridCols = "sm:grid-cols-2 lg:grid-cols-3";
+                    } else if (count <= 4) {
+                      gridCols = "sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4";
+                    } else if (count <= 6) {
+                      gridCols =
+                        "sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6";
+                    } else {
+                      gridCols =
+                        "sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6";
+                    }
+
+                    return (
+                      <div
+                        className={`grid ${gridCols} gap-6 w-full max-w-7xl justify-items-center`}
+                      >
+                        {deputyLeaders.map((leader) => (
+                          <div
+                            key={leader.id}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              if (onLeaderClick) {
+                                onLeaderClick(leader);
+                              }
+                            }}
+                            className="cursor-pointer w-full max-w-[280px]"
+                          >
+                            <CardSimple
+                              imageUrl={leader.image}
+                              imageAlt={leader.name}
+                              position={leader.title}
+                              name={leader.name}
+                              className="h-full hover:scale-105 transition-transform duration-300"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
             </>

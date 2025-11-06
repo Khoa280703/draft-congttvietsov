@@ -7,6 +7,7 @@ interface SeeMoreButtonProps {
   onClick?: () => void;
   className?: string;
   variant?: "default" | "outline" | "filled";
+  reverse?: boolean;
 }
 
 const SeeMoreButton: React.FC<SeeMoreButtonProps> = ({
@@ -15,17 +16,21 @@ const SeeMoreButton: React.FC<SeeMoreButtonProps> = ({
   onClick,
   className = "",
   variant = "outline",
+  reverse = false,
 }) => {
   const baseClasses =
     "inline-flex items-center px-6 py-3 rounded-lg font-medium transition-all duration-200 lg:w-58 text-center justify-center cursor-pointer";
 
   const variantClasses = {
-    default:
-      "text-[#4CAF50] hover:text-[#45a049] font-semibold text-base leading-none tracking-normal",
-    outline:
-      "border-2 border-[#4CAF50] text-[#4CAF50] hover:bg-[#4CAF50] hover:text-white font-semibold text-base leading-none tracking-normal",
-    filled:
-      "bg-[#4CAF50] text-white hover:bg-[#45a049] font-semibold text-base leading-none tracking-normal",
+    default: reverse
+      ? "text-vietsov-green hover:text-vietsov-green font-semibold text-base leading-none tracking-normal"
+      : "text-vietsov-green hover:text-vietsov-green font-semibold text-base leading-none tracking-normal",
+    outline: reverse
+      ? "bg-vietsov-green text-white hover:bg-transparent hover:text-vietsov-green border-2 border-vietsov-green font-semibold text-base leading-none tracking-normal"
+      : "border-2 border-vietsov-green text-vietsov-green hover:bg-vietsov-green hover:text-white font-semibold text-base leading-none tracking-normal",
+    filled: reverse
+      ? "bg-vietsov-green text-white hover:bg-vietsov-green font-semibold text-base leading-none tracking-normal"
+      : "bg-vietsov-green text-white hover:bg-vietsov-green font-semibold text-base leading-none tracking-normal",
   };
 
   const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${className}`;
