@@ -1,4 +1,4 @@
-import leader from "@/assets/MrVuMaiKhanh.jpg";
+import leader from "@/assets/ban-lanh-dao/Vu_Mai_Khanh.jpeg";
 
 export interface Leader {
   id: number;

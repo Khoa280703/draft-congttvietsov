@@ -214,14 +214,14 @@ const NodeModal: React.FC<NodeModalProps> = ({
                             onLeaderClick(leader);
                           }
                         }}
-                        className="cursor-pointer"
+                        className="cursor-pointer w-full max-w-[280px]"
                       >
                         <CardSimple
                           imageUrl={leader.image}
                           imageAlt={leader.name}
                           position={leader.title}
                           name={leader.name}
-                          className="hover:scale-105 transition-transform duration-300"
+                          className="h-full hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     ))}
@@ -245,14 +245,14 @@ const NodeModal: React.FC<NodeModalProps> = ({
                             onLeaderClick(leader);
                           }
                         }}
-                        className="cursor-pointer"
+                        className="cursor-pointer w-full max-w-[280px]"
                       >
                         <CardSimple
                           imageUrl={leader.image}
                           imageAlt={leader.name}
                           position={leader.title}
                           name={leader.name}
-                          className="hover:scale-105 transition-transform duration-300"
+                          className="h-full hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     ))}

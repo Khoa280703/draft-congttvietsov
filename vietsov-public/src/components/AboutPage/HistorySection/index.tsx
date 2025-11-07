@@ -93,7 +93,7 @@ const HistorySection: React.FC<HistorySectionProps> = ({
                   key={yearData.year}
                   onClick={() => handleYearClick(index)}
                   className={`
-                  flex-shrink-0 px-2 py-1 rounded-full text-base font-bold transition-all duration-300 cursor-pointer
+                  flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer
                   ${
                     activeYearIndex === index
                       ? "bg-white text-green-800 scale-130"

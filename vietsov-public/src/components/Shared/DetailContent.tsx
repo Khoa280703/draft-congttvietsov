@@ -34,7 +34,7 @@ const DetailContent: React.FC<DetailContentProps> = ({
   overviewTitle = "Tổng quan dự án",
 }) => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen">
       <div className="max-w-4xl overflow-hidden">
         <motion.article
           initial={{ opacity: 0, y: 20 }}

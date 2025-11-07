@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { PageHeader, SectionWithTitle } from "@/components";
 import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import {
@@ -10,12 +11,58 @@ import {
   CoreValuesSection,
   ArchivePhotosSection,
 } from "@/components/AboutPage";
+import { FullScreenBackgroundImage } from "@/components/Shared";
 import LeaderPage from "./LeaderPage";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const AboutPage: React.FC = () => {
   const location = useLocation();
+  const jointVentureRef = useRef<HTMLDivElement>(null);
+  const [sectionHeight, setSectionHeight] = useState(0);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (jointVentureRef.current) {
+        const height = jointVentureRef.current.offsetHeight;
+        setSectionHeight(height);
+      }
+    };
+
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateHeight();
+    });
+
+    if (jointVentureRef.current) {
+      resizeObserver.observe(jointVentureRef.current);
+    }
+
+    return () => {
+      window.removeEventListener("resize", updateHeight);
+      resizeObserver.disconnect();
+    };
+  }, []);
+
+  const { scrollYProgress } = useScroll({
+    target: jointVentureRef,
+    offset: ["start end", "center center"],
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.7, 1],
+    [1, 1, 1, 0.9]
+  );
+
+  const nextSectionMargin = useTransform(
+    scrollYProgress,
+    (progress) => progress * sectionHeight * -0.3
+  );
 
   const getBreadcrumbs = () => {
     switch (location.pathname) {
@@ -40,22 +87,45 @@ const AboutPage: React.FC = () => {
         <Route
           path="/"
           element={
-            <div className="bg-vietsov-background">
-              <AnimatedSection
-                animation="fadeInUp"
-                delay={100}
-                className="bg-vietsov-background"
-              >
-                <SectionWithTitle
-                  title="Liên doanh Việt - Nga"
-                  titleColor="text-vietsov-green"
+            <div className="">
+              <div className="relative">
+                <motion.div
+                  ref={jointVentureRef}
+                  className="sticky top-0 z-10"
+                  style={{
+                    y,
+                    opacity,
+                  }}
                 >
-                  <JointVentureSection />
-                </SectionWithTitle>
-              </AnimatedSection>
-              <AnimatedSection animation="fadeInUp" delay={100}>
-                <HistorySection />
-              </AnimatedSection>
+                  <AnimatedSection
+                    animation="fadeInUp"
+                    delay={100}
+                    className="bg-vietsov-background"
+                  >
+                    <SectionWithTitle
+                      title="Liên doanh Việt - Nga"
+                      titleColor="text-vietsov-green"
+                    >
+                      <JointVentureSection />
+                    </SectionWithTitle>
+                  </AnimatedSection>
+                </motion.div>
+              </div>
+
+              {/* Section tiếp theo với negative margin để bù cho transform */}
+              <motion.div
+                style={{
+                  marginTop: useTransform(
+                    nextSectionMargin,
+                    (value) => `${value}px`
+                  ),
+                }}
+              >
+                <FullScreenBackgroundImage image={danKhoanBackground} />
+                <AnimatedSection animation="fadeInUp" delay={100}>
+                  <HistorySection />
+                </AnimatedSection>
+              </motion.div>
               {/* Core Values Section */}
               <AnimatedSection
                 animation="fadeInUp"
