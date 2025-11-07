@@ -50,11 +50,7 @@ const HomePage: React.FC = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
 
   // Opacity fade in
-  const opacity = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [1, 1, 1, 0.9]
-  );
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 1, 1]);
 
   const nextSectionMargin = useTransform(
     scrollYProgress,
