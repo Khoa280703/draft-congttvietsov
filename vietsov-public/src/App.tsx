@@ -6,7 +6,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { Header } from "@/components/Shared";
+import { Header } from "@/components";
 import { Navigation } from "@/components";
 import PreFooter from "@/components/PreFooter";
 import Footer from "@/components/Footer";

@@ -1,5 +1,5 @@
 import React from "react";
-import DetailContent from "@/components/Shared/DetailContent";
+import { DetailContent } from "@/components";
 import { projectDetailData, imageData } from "./data";
 
 const ProjectDetail: React.FC = () => {

@@ -12,7 +12,7 @@ import {
   CoreValuesSectionV2,
   ArchivePhotosSection,
 } from "@/components/AboutPage";
-import { FullScreenBackgroundImage } from "@/components/Shared";
+import { FullScreenBackgroundImage } from "@/components/AboutPage";
 import LeaderPage from "./LeaderPage";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";

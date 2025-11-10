@@ -10,3 +10,5 @@ export { default as HistorySection } from "./HistorySection";
 export { default as CoreValuesSection } from "./CoreValuesSection";
 export { default as ArchivePhotosSection } from "./ArchivePhotosSection";
 export { default as CoreValuesSectionV2 } from "./CoreValuesSectionV2";
+export { default as FullScreenBackgroundImage } from "./FullScreenBackgroundImage";
+export * from "./FullScreenBackgroundImage";

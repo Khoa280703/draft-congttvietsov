@@ -1,5 +1,7 @@
 import vietNga from "@/assets/homepage/viet-nga.jpg";
-
+import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
+import hoiNghiPetro from "@/assets/hoinghipetrovi.jpg";
+import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
 export interface CoreValue {
   id: string;
   title: string;
@@ -21,21 +23,21 @@ export const vietsovPetroValues: CoreValue[] = [
     id: "khat-vong",
     title: "Khát vọng",
     description: "Luôn hướng tới những mục tiêu cao cả và phát triển bền vững",
-    image: vietNga,
+    image: hoiNghiPetro,
     url: "/gia-tri/khat-vong",
   },
   {
     id: "tin-cay",
     title: "Tin cậy",
     description: "Xây dựng niềm tin thông qua sự minh bạch và cam kết",
-    image: vietNga,
+    image: hoiNghiSuKien,
     url: "/gia-tri/tin-cay",
   },
   {
     id: "ben-vung",
     title: "Bền vững",
     description: "Phát triển bền vững cho tương lai và môi trường",
-    image: vietNga,
+    image: danKhoanVietsov,
     url: "/gia-tri/ben-vung",
   },
 ];
@@ -52,21 +54,21 @@ export const humanValues: CoreValue[] = [
     id: "thich-ung",
     title: "Thích ứng linh hoạt",
     description: "Linh hoạt thích ứng với mọi thay đổi và thách thức",
-    image: vietNga,
+    image: hoiNghiSuKien,
     url: "/gia-tri/thich-ung",
   },
   {
     id: "trach-nhiem",
     title: "Trách nhiệm",
     description: "Thực hiện trách nhiệm với xã hội và cộng đồng",
-    image: vietNga,
+    image: danKhoanVietsov,
     url: "/gia-tri/trach-nhiem",
   },
   {
     id: "se-chia",
     title: "Sẻ chia",
     description: "Chia sẻ kiến thức, kinh nghiệm và giá trị với nhau",
-    image: vietNga,
+    image: hoiNghiSuKien,
     url: "/gia-tri/se-chia",
   },
 ];

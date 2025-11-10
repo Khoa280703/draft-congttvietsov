@@ -3,7 +3,12 @@ export { default as Navigation } from "./Navigation";
 export { default as PageHeader } from "./PageHeader";
 export { default as SidebarNavigation } from "./SidebarNavigation";
 export { default as PageWithSidebar } from "./PageWithSidebar";
-export { default as SectionWithTitle } from "./Shared/SectionWithTitle";
+export { default as SectionWithTitle } from "./SectionWithTitle";
+export { default as Header } from "./Header";
+export { default as NewsListPageTemplate } from "./NewsListPageTemplate";
+export * from "./NewsListPageTemplate";
+export { default as ContentDetailPage } from "./ContentDetailPage";
+export { default as DetailContent } from "./DetailContent";
 
 export { default as GradientImageOverlay } from "./HomePage/GradientImageOverlay";
 export { default as VisionMission } from "./HomePage/VisionMission";

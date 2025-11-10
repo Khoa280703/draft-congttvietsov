@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import NewsListPageTemplate, {
   type NewsItem,
-} from "@/components/Shared/NewsListPageTemplate";
+} from "@/components/NewsListPageTemplate";
 import {
   defaultMainArticle as prodMain,
   defaultSideArticles as prodSides,

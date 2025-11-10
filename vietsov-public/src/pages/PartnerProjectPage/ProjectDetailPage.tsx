@@ -1,5 +1,5 @@
 import React from "react";
-import ContentDetailPage from "@/components/Shared/ContentDetailPage";
+import { ContentDetailPage } from "@/components";
 import { RelevantNews, OtherArticles, MostView } from "@/components/NewsPage";
 import {
   projectDetailData,

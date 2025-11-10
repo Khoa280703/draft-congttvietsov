@@ -1,5 +1,5 @@
 import React from "react";
-import DetailContent from "@/components/Shared/DetailContent";
+import { DetailContent } from "@/components";
 
 import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
 import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";

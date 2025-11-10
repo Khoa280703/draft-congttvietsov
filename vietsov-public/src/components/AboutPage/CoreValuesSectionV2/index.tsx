@@ -89,13 +89,13 @@ const Card: React.FC<{
       )}
 
       {/* Title */}
-      <h3 className="font-bold text-white m-0 p-0 mb-3 px-6 text-[28px] tracking-[1.5px] leading-tight">
+      <h3 className="font-bold text-white m-0 p-0 mb-3 px-6 text-xl md:text-2xl tracking-[1.5px] leading-tight">
         {value.title}
       </h3>
 
       {/* Description */}
       {value.description && (
-        <p className="text-white/90 text-sm leading-relaxed mb-4 flex-1 px-6 line-clamp-3">
+        <p className="text-white/90 text-xs md:text-sm leading-relaxed mb-4 flex-1 px-6 line-clamp-3">
           {value.description}
         </p>
       )}
