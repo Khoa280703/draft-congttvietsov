@@ -271,5 +271,46 @@ export const defaultFullScreenBackgroundImageData: FullScreenBackgroundImageData
           },
         ],
       },
+      {
+        year: 2026,
+        events: [
+          {
+            id: 15,
+            title: "Vietsovpetro thăm Việt Nam",
+            description:
+              "Vietsovpetro thăm Việt Nam năm 2025. Một sự kiện quan trọng đánh dấu sự quan tâm của Vietsovpetro đối với Việt Nam.",
+            buttonText: "Xem chi tiết",
+            buttonLink: "#",
+            image: gianKhoan,
+            imageAlt: "Vietsovpetro thăm Việt Nam",
+            imageTitle: "2026 - Vietsovpetro thăm Việt Nam",
+            imageSubtitle: "Sự kiện quan trọng đánh dấu sự quan tâm",
+          },
+          {
+            id: 16,
+            title: "Vietsovpetro thăm Việt Nam",
+            description:
+              "Vietsovpetro thăm Việt Nam năm 2025. Một sự kiện quan trọng đánh dấu sự quan tâm của Vietsovpetro đối với Việt Nam.",
+            buttonText: "Xem chi tiết",
+            buttonLink: "#",
+            image: gianKhoan,
+            imageAlt: "Vietsovpetro thăm Việt Nam",
+            imageTitle: "2026 - Vietsovpetro thăm Việt Nam",
+            imageSubtitle: "Sự kiện quan trọng đánh dấu sự quan tâm",
+          },
+          {
+            id: 17,
+            title: "Vietsovpetro thăm Việt Nam",
+            description:
+              "Vietsovpetro thăm Việt Nam năm 2025. Một sự kiện quan trọng đánh dấu sự quan tâm của Vietsovpetro đối với Việt Nam.",
+            buttonText: "Xem chi tiết",
+            buttonLink: "#",
+            image: gianKhoan,
+            imageAlt: "Vietsovpetro thăm Việt Nam",
+            imageTitle: "2026 - Vietsovpetro thăm Việt Nam",
+            imageSubtitle: "Sự kiện quan trọng đánh dấu sự quan tâm",
+          },
+        ],
+      },
     ],
   };

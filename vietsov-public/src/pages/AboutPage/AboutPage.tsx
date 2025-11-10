@@ -4,11 +4,12 @@ import { PageHeader, SectionWithTitle } from "@/components";
 import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import {
   JointVentureSection,
-  HistorySection,
+  // HistorySection,
   OrgStructureSection,
   AchievementsSection,
   CapabilitiesSection,
-  CoreValuesSection,
+  // CoreValuesSection,
+  CoreValuesSectionV2,
   ArchivePhotosSection,
 } from "@/components/AboutPage";
 import { FullScreenBackgroundImage } from "@/components/Shared";
@@ -118,9 +119,9 @@ const AboutPage: React.FC = () => {
                 }}
               >
                 <FullScreenBackgroundImage image={danKhoanBackground} />
-                <AnimatedSection animation="fadeInUp" delay={100}>
+                {/* <AnimatedSection animation="fadeInUp" delay={100}>
                   <HistorySection />
-                </AnimatedSection>
+                </AnimatedSection> */}
               </motion.div>
               {/* Core Values Section */}
               <AnimatedSection
@@ -128,9 +129,7 @@ const AboutPage: React.FC = () => {
                 delay={100}
                 className="bg-vietsov-background2"
               >
-                <SectionWithTitle title="Giá trị cốt lõi" showGradientLine>
-                  <CoreValuesSection />
-                </SectionWithTitle>
+                <CoreValuesSectionV2 />
               </AnimatedSection>
               {/* Organization Structure */}
               <AnimatedSection

@@ -1,0 +1,18 @@
+/* Card Stack Styles - Only gradient backgrounds remain */
+
+/* Gradient backgrounds for cards */
+.card-gradient-0 {
+  background: linear-gradient(135deg, #10954f 0%, #0d7a3d 100%);
+}
+
+.card-gradient-1 {
+  background: linear-gradient(135deg, #16a085 0%, #10954f 100%);
+}
+
+.card-gradient-2 {
+  background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);
+}
+
+.card-gradient-3 {
+  background: linear-gradient(135deg, #2ecc71 0%, #1abc9c 100%);
+}

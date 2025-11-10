@@ -135,10 +135,11 @@ const FullScreenBackgroundImage: React.FC<FullScreenBackgroundImageProps> = ({
   return (
     <div
       ref={containerRef}
-      className={`relative w-full min-h-[100vh] overflow-hidden ${containerClassName}`}
+      className={`relative w-full min-h-[140vh] overflow-hidden ${containerClassName}`}
     >
       {/* Sticky container để ảnh cố định khi scroll */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <div className="sticky top-0 h-[140vh] w-full overflow-hidden">
+        {" "}
         <motion.div
           className={`absolute inset-0 w-full h-full ${className}`}
           style={{
@@ -160,7 +161,6 @@ const FullScreenBackgroundImage: React.FC<FullScreenBackgroundImageProps> = ({
           />
           <div className="absolute inset-0 bg-black/50" />
         </motion.div>
-
         {/* Content Overlay */}
         {data && (
           <div className="relative z-10 h-full flex items-center w-full">
