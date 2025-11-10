@@ -4,15 +4,12 @@ import { PageHeader, SectionWithTitle } from "@/components";
 import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import {
   JointVentureSection,
-  // HistorySection,
   OrgStructureSection,
   AchievementsSection,
   CapabilitiesSection,
-  // CoreValuesSection,
   CoreValuesSectionV2,
   ArchivePhotosSection,
 } from "@/components/AboutPage";
-import { FullScreenBackgroundImage } from "@/components/AboutPage";
 import LeaderPage from "./LeaderPage";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -120,10 +117,6 @@ const InternalAboutPage: React.FC = () => {
                   ),
                 }}
               >
-                <FullScreenBackgroundImage image={danKhoanBackground} />
-                {/* <AnimatedSection animation="fadeInUp" delay={100}>
-                  <HistorySection />
-                </AnimatedSection> */}
               </motion.div>
               {/* Core Values Section */}
               <AnimatedSection

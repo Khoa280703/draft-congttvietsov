@@ -12,9 +12,7 @@ export { default as Header } from "./Header";
 
 // AboutPage exports
 export { default as JointVentureSection } from "./AboutPage/JointVentureSection";
-export { default as HistorySection } from "./AboutPage/HistorySection";
 export { default as OrgStructureSection } from "./AboutPage/OrgStructureSection";
 export { default as AchievementsSection } from "./AboutPage/AchievementsSection";
 export { default as CapabilitiesSection } from "./AboutPage/CapabilitiesSection";
-export { default as CoreValuesSection } from "./AboutPage/CoreValuesSection";
 export { default as ArchivePhotosSection } from "./AboutPage/ArchivePhotosSection";

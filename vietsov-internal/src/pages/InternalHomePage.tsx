@@ -54,7 +54,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* <CoreValuesSection />
+      {/* 
       <FeaturedProjects />
       <div className="bg-gray-100">
         <ActivitySlider />

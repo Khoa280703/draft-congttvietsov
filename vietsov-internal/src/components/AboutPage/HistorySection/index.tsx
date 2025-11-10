@@ -1,223 +1,201 @@
-import React, { useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
-import { type HistorySectionProps, defaultHistoryEvents } from "./data";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { type HistorySectionProps, defaultHistorySectionData } from "./data";
+import { useBackgroundScrollAnimation } from "./hooks/useBackgroundScrollAnimation";
+import Timeline from "./components/Timeline";
+import ContentSection from "./components/ContentSection";
+import ImageGrid from "./components/ImageGrid";
 
 const HistorySection: React.FC<HistorySectionProps> = ({
-  events = defaultHistoryEvents,
+  image,
+  alt = "Background image",
   className = "",
+  containerClassName = "",
+  animationDuration = 1.2,
+  expandThreshold = 0.3,
+  data = defaultHistorySectionData,
 }) => {
-  const sortedEvents = [...events].sort((a, b) => a.year - b.year);
-  const [activeIndex, setActiveIndex] = useState(
-    sortedEvents.findIndex((event) => event.year === 2009) !== -1
-      ? sortedEvents.findIndex((event) => event.year === 2009)
-      : 0
-  );
-  const timelineRef = useRef<HTMLDivElement>(null);
+  const [activeYearIndex, setActiveYearIndex] = useState(0);
+  const [activeEventIndex, setActiveEventIndex] = useState(0);
 
-  const currentEvent = sortedEvents[activeIndex];
+  const { containerRef, opacity, scale, blur, y } =
+    useBackgroundScrollAnimation({ expandThreshold });
 
-  const navigateEvent = (direction: "left" | "right") => {
+  // Lấy năm hiện tại và events của năm đó
+  const currentYear = data?.years[activeYearIndex];
+  const currentEvents = currentYear?.events || [];
+  const currentEvent = currentEvents[activeEventIndex];
+
+  // Tính combined index cho animation key (unique cho mỗi event)
+  const getCombinedIndex = () => {
+    if (!data?.years) return 0;
+    let index = 0;
+    for (let i = 0; i < activeYearIndex; i++) {
+      index += data.years[i]?.events.length || 0;
+    }
+    return index + activeEventIndex;
+  };
+  const combinedIndex = getCombinedIndex();
+
+  // Navigation functions cho events trong năm
+  const navigateEvents = (direction: "left" | "right") => {
+    if (!currentEvents.length) return;
+    const total = currentEvents.length;
+
     if (direction === "left") {
-      setActiveIndex((prev) => (prev > 0 ? prev - 1 : sortedEvents.length - 1));
+      setActiveEventIndex(
+        activeEventIndex > 0 ? activeEventIndex - 1 : total - 1
+      );
     } else {
-      setActiveIndex((prev) => (prev < sortedEvents.length - 1 ? prev + 1 : 0));
+      setActiveEventIndex(
+        activeEventIndex < total - 1 ? activeEventIndex + 1 : 0
+      );
     }
   };
 
+  // Navigation functions cho images - CHỈ chuyển năm, không chuyển event
+  const navigateImages = (direction: "left" | "right") => {
+    if (!data?.years) return;
+    const totalYears = data.years.length;
+
+    if (direction === "left") {
+      // Chuyển sang năm trước, giữ nguyên event index (hoặc event cuối nếu năm trước có ít events hơn)
+      const prevYearIndex =
+        activeYearIndex > 0 ? activeYearIndex - 1 : totalYears - 1;
+      setActiveYearIndex(prevYearIndex);
+      const prevYearEvents = data.years[prevYearIndex]?.events || [];
+      setActiveEventIndex(
+        Math.min(activeEventIndex, prevYearEvents.length - 1)
+      );
+    } else {
+      // Chuyển sang năm sau, giữ nguyên event index (hoặc 0 nếu năm sau có ít events hơn)
+      const nextYearIndex =
+        activeYearIndex < totalYears - 1 ? activeYearIndex + 1 : 0;
+      setActiveYearIndex(nextYearIndex);
+      const nextYearEvents = data.years[nextYearIndex]?.events || [];
+      setActiveEventIndex(
+        Math.min(activeEventIndex, nextYearEvents.length - 1)
+      );
+    }
+  };
+
+  // Khi chọn năm mới, reset event về 0
+  const handleYearClick = (yearIndex: number) => {
+    setActiveYearIndex(yearIndex);
+    setActiveEventIndex(0);
+  };
+
+  // Lấy event đầu tiên của mỗi năm (chỉ hiển thị ảnh của các năm)
+  const getYearEvents = () => {
+    if (!data?.years) return [];
+    return data.years.map((year) => year.events[0]).filter(Boolean);
+  };
+
+  const yearEvents = getYearEvents();
+  const safeYearIndex = activeYearIndex;
+
+  // Lấy visible images: luôn hiển thị grid 3 ảnh (active + next + next+1)
+  // Chỉ hiển thị event đầu tiên của mỗi năm, nhưng ảnh active hiển thị event đang được chọn
+  const getVisibleImages = () => {
+    if (yearEvents.length <= 2) {
+      // Nếu có ít hơn 3 năm, chỉ hiển thị những gì có
+      // Ảnh đầu tiên là currentEvent (nếu năm có nhiều events) hoặc event đầu tiên của năm
+      const firstImage = currentEvent || yearEvents[0];
+      return [firstImage, ...yearEvents.slice(1, 2)].filter(Boolean);
+    }
+
+    // Always show active image first (leftmost), then next, then next+1
+    // Ảnh active luôn ở vị trí đầu tiên (ngoài rìa bên trái)
+    // Ảnh active hiển thị currentEvent (event đang được chọn), các ảnh khác hiển thị event đầu tiên của năm
+    const getNextIndex = (current: number, offset: number) => {
+      return (current + offset) % yearEvents.length;
+    };
+
+    return [
+      currentEvent || yearEvents[safeYearIndex] || yearEvents[0], // Active image - event đang được chọn
+      yearEvents[getNextIndex(safeYearIndex, 1)], // Next image - event đầu tiên của năm tiếp theo
+      yearEvents[getNextIndex(safeYearIndex, 2)], // Next+1 image - event đầu tiên của năm tiếp theo nữa (bị cắt)
+    ];
+  };
+
+  const visibleImages = getVisibleImages();
+
+  // Handler để click vào image - chỉ chuyển năm
+  const handleImageClick = (yearIndex: number) => {
+    setActiveYearIndex(yearIndex);
+    const clickedYearEvents = data.years[yearIndex]?.events || [];
+    setActiveEventIndex(
+      Math.min(activeEventIndex, clickedYearEvents.length - 1)
+    );
+  };
+
   return (
-    <motion.section
-      className={`relative py-16 md:py-24 overflow-hidden ${className}`}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+    <div
+      ref={containerRef}
+      className={`relative w-full min-h-[140vh] overflow-hidden ${containerClassName}`}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-teal-800 via-green-800 to-teal-700">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-10 left-10 w-64 h-48 bg-white/20 rounded-lg blur-sm"></div>
-          <div className="absolute top-32 right-20 w-48 h-36 bg-white/20 rounded-lg blur-sm"></div>
-          <div className="absolute bottom-20 left-1/4 w-56 h-40 bg-white/20 rounded-lg blur-sm"></div>
-          <div className="absolute bottom-32 right-1/3 w-40 h-32 bg-white/20 rounded-lg blur-sm"></div>
-        </div>
-      </div>
-
-      <div className="relative container mx-auto px-4 md:px-12 lg:px-60 inch32:px-80 z-10">
-        <motion.h2
-          className="text-white text-4xl md:text-4xl lg:text-4xl inch32:text-5xl leading-none tracking-[-0.4px] font-bold mb-8 md:mb-12 lg:mb-10 inch32:mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-        >
-          Lịch sử hình thành
-        </motion.h2>
+      {/* Sticky container để ảnh cố định khi scroll */}
+      <div className="sticky top-0 h-[140vh] w-full overflow-hidden">
+        {" "}
         <motion.div
-          className="flex items-center justify-start mb-4 md:mb-6 space-x-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          className={`absolute inset-0 w-full h-full ${className}`}
+          style={{
+            opacity,
+            scale,
+            filter: `blur(${blur}px)`,
+            y,
+          }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: animationDuration, ease: "easeOut" }}
         >
-          {/* Left arrow - no background */}
-          <button
-            onClick={() => navigateEvent("left")}
-            className="pr-4 text-white hover:text-green-300 transition-colors duration-200"
-            aria-label="Previous event"
-          >
-            <HiArrowLeft className="w-6 h-6" />
-          </button>
-
-          <div
-            ref={timelineRef}
-            className="flex overflow-x-auto scrollbar-hide space-x-8 py-2"
-          >
-            {sortedEvents.map((event, index) => (
-              <button
-                key={event.year}
-                onClick={() => setActiveIndex(index)}
-                className={`
-                  flex-shrink-0 px-4 py-2 rounded-full text-lg font-bold transition-all duration-300
-                  ${
-                    activeIndex === index
-                      ? "bg-white text-green-800 scale-130"
-                      : "bg-white/40 text-white hover:bg-white/60"
-                  }
-                `}
-              >
-                {event.year}
-              </button>
-            ))}
-          </div>
-
-          {/* Right arrow - no background */}
-          <button
-            onClick={() => navigateEvent("right")}
-            className="pl-4 text-white hover:text-green-300 transition-colors duration-200"
-            aria-label="Next event"
-          >
-            <HiArrowRight className="w-6 h-6" />
-          </button>
+          <img
+            src={image}
+            alt={alt}
+            className="w-full h-full object-cover"
+            style={{
+              objectPosition: "center",
+            }}
+          />
+          <div className="absolute inset-0 bg-black/50" />
         </motion.div>
-        <AnimatePresence mode="wait">
-          {currentEvent && (
-            <motion.div
-              key={currentEvent.year}
-              className="relative x-auto"
-              initial={{ opacity: 0, scale: 0.95, y: 30 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -30 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              {/* Main white card - responsive layout */}
-              <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8 lg:p-10 inch32:p-12 relative z-10 h-[22rem] md:h-[26rem] lg:h-[28rem] inch32:h-[34rem]">
-                <div className="flex flex-col lg:flex-row gap-6 lg:gap-16 h-full">
-                  {/* Content Section */}
-                  <div className="w-full lg:w-5/8 flex flex-col justify-between lg:pr-0">
-                    <div className="space-y-4 md:space-y-6 lg:space-y-5 inch32:space-y-6">
-                      <motion.h3
-                        className="text-2xl md:text-3xl lg:text-3xl inch32:text-5xl font-bold bg-clip-text text-transparent bg-[linear-gradient(to_right,_#3b82f6_0%,_#22c55e_50%)]"
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.6,
-                          delay: 0.2,
-                          ease: "easeOut",
-                        }}
-                      >
-                        {currentEvent.date}
-                      </motion.h3>
-
-                      <motion.div
-                        className="space-y-4"
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                          duration: 0.6,
-                          delay: 0.3,
-                          ease: "easeOut",
-                        }}
-                      >
-                        <p className="text-sm md:text-base lg:text-sm inch32:text-lg text-gray-700 leading-relaxed whitespace-pre-line">
-                          {currentEvent.description}
-                        </p>
-                      </motion.div>
-                    </div>
-
-                    {/* Navigation buttons - hidden on mobile, shown on desktop */}
-                    <motion.div
-                      className="hidden lg:flex space-x-4 pt-4"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        duration: 0.6,
-                        delay: 0.5,
-                        ease: "easeOut",
-                      }}
-                    >
-                      <button
-                        onClick={() => navigateEvent("left")}
-                        className="p-2 text-gray-600 rounded-full hover:bg-gray-100 hover:text-green-600 transition-colors duration-200"
-                        aria-label="Previous"
-                      >
-                        <HiArrowLeft className="w-5 h-5" />
-                      </button>
-                      <button
-                        onClick={() => navigateEvent("right")}
-                        className="p-2 text-gray-600 rounded-full hover:bg-gray-100 hover:text-green-600 transition-colors duration-200"
-                        aria-label="Next"
-                      >
-                        <HiArrowRight className="w-5 h-5" />
-                      </button>
-                    </motion.div>
-                  </div>
-
-                  {/* Image Section */}
-                  <motion.div
-                    className="w-full lg:w-3/8 flex-shrink-0 mt-6 lg:mt-0"
-                    initial={{ opacity: 0, x: 30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-                  >
-                    {/* Image inside card for all screen sizes */}
-                    <div className="w-full h-64 md:h-80 lg:h-full rounded-2xl overflow-hidden overflow-hidden p-2 border-2 border-vietsov-green">
-                      <img
-                        src={currentEvent.imageUrl}
-                        alt={currentEvent.imageAlt}
-                        className="w-full h-full object-cover rounded-xl"
-                      />
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* Navigation buttons - shown on mobile, hidden on desktop */}
-                <motion.div
-                  className="flex lg:hidden justify-center space-x-4 mt-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-                >
-                  <button
-                    onClick={() => navigateEvent("left")}
-                    className="p-3 text-gray-600 rounded-full bg-gray-100 hover:bg-gray-200 hover:text-green-600 transition-colors duration-200"
-                    aria-label="Previous"
-                  >
-                    <HiArrowLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={() => navigateEvent("right")}
-                    className="p-3 text-gray-600 rounded-full bg-gray-100 hover:bg-gray-200 hover:text-green-600 transition-colors duration-200"
-                    aria-label="Next"
-                  >
-                    <HiArrowRight className="w-5 h-5" />
-                  </button>
-                </motion.div>
+        {/* Content Overlay */}
+        {data && (
+          <div className="relative z-10 h-full flex items-center w-full">
+            {/* Left: Timeline and Content */}
+            <div className="container px-4 md:px-6 lg:px-8 w-full">
+              <div className="grid grid-cols-12 gap-4 md:gap-6 lg:gap-8 items-start w-4/6">
+                <Timeline
+                  years={data.years}
+                  activeYearIndex={activeYearIndex}
+                  onYearClick={handleYearClick}
+                />
+                {currentEvent && (
+                  <ContentSection
+                    content={currentEvent}
+                    events={currentEvents}
+                    activeEventIndex={activeEventIndex}
+                    activeIndex={combinedIndex}
+                    onEventSelect={setActiveEventIndex}
+                    onEventNavigate={navigateEvents}
+                  />
+                )}
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+
+            {/* Right: Image Grid */}
+            <ImageGrid
+              images={visibleImages}
+              currentEvents={currentEvents}
+              activeEventIndex={activeEventIndex}
+              activeYearIndex={activeYearIndex}
+              onImageClick={handleImageClick}
+              onNavigate={navigateImages}
+            />
+          </div>
+        )}
       </div>
-    </motion.section>
+    </div>
   );
 };
+
 export default HistorySection;
