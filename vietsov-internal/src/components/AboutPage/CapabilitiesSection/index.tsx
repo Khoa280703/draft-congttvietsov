@@ -18,10 +18,10 @@ const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-14 2xl:gap-32 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-14 inch32:gap-32 items-center">
           {/* Left: Image Section */}
           <motion.div
-            className="relative w-full h-64 md:h-80 lg:h-[26rem] 2xl:h-[32rem] overflow-hidden rounded-2xl shadow-xl"
+            className="relative w-full h-64 md:h-80 lg:h-[26rem] inch32:h-[32rem] overflow-hidden rounded-2xl shadow-xl"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -37,14 +37,14 @@ const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({
 
           {/* Right: Content Section */}
           <motion.div
-            className="space-y-6 md:space-y-8 lg:space-y-6 2xl:space-y-8 mt-6 md:mt-0"
+            className="space-y-6 md:space-y-8 lg:space-y-6 inch32:space-y-8 mt-6 md:mt-0"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
             <motion.h3
-              className="text-sm md:text-base lg:text-sm 2xl:text-base font-semibold"
+              className="text-sm md:text-base lg:text-sm inch32:text-base font-semibold"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -66,8 +66,8 @@ const CapabilitiesSection: React.FC<CapabilitiesSectionProps> = ({
                     ease: "easeOut",
                   }}
                 >
-                  <HiCheck className="w-6 h-6 lg:w-5 lg:h-5 2xl:w-6 2xl:h-6 text-vietsov-green flex-shrink-0 mt-1 bg-vietsov-green/12 rounded-2xl p-1" />
-                  <p className="text-base lg:text-sm 2xl:text-base text-gray-700 leading-relaxed font-normal">
+                  <HiCheck className="w-6 h-6 lg:w-5 lg:h-5 inch32:w-6 inch32:h-6 text-vietsov-green flex-shrink-0 mt-1 bg-vietsov-green/12 rounded-2xl p-1" />
+                  <p className="text-base lg:text-sm inch32:text-base text-gray-700 leading-relaxed font-normal">
                     {item.description}
                   </p>
                 </motion.li>

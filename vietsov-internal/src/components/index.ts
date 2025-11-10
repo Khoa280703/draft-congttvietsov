@@ -7,7 +7,8 @@ export { default as Sidebar } from "./Sidebar";
 export { default as PageHeader } from "./PageHeader";
 export { default as PageWithSidebar } from "./PageWithSidebar";
 export { default as SidebarNavigation } from "./SidebarNavigation";
-export { default as SectionWithTitle } from "./Shared/SectionWithTitle";
+export { default as SectionWithTitle } from "./SectionWithTitle";
+export { default as Header } from "./Header";
 
 // AboutPage exports
 export { default as JointVentureSection } from "./AboutPage/JointVentureSection";

@@ -56,7 +56,7 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             {!hideTitle && (
-              <h2 className="text-3xl md:text-4xl lg:text-4xl 2xl:text-5xl font-bold mb-4 md:mb-0">
+              <h2 className="text-3xl md:text-4xl lg:text-4xl inch32:text-5xl font-bold mb-4 md:mb-0">
                 Hình ảnh tư liệu
               </h2>
             )}
@@ -78,10 +78,10 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
           </motion.div>
 
           {/* Featured Content - Top Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 2xl:gap-8 mb-8 lg:mb-6 2xl:mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 inch32:gap-8 mb-8 lg:mb-6 inch32:mb-8">
             {/* Featured Image/Video */}
             <motion.div
-              className="relative w-full h-80 lg:h-[340px] 2xl:h-96 overflow-hidden rounded-lg"
+              className="relative w-full h-80 lg:h-[340px] inch32:h-96 overflow-hidden rounded-lg"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -118,7 +118,7 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <h3 className="text-2xl lg:text-2xl 2xl:text-3xl font-bold text-gray-900 leading-tight">
+              <h3 className="text-2xl lg:text-2xl inch32:text-3xl font-bold text-gray-900 leading-tight">
                 {featuredPhoto.title}
               </h3>
 
@@ -146,7 +146,7 @@ const ArchivePhotosSection: React.FC<ArchivePhotosSectionProps> = ({
 
           {/* News Cards - Single Row (1x4) */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 2xl:gap-6 mb-8 lg:mb-6 2xl:mb-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4 inch32:gap-6 mb-8 lg:mb-6 inch32:mb-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}

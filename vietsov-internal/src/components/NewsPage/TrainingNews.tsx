@@ -59,10 +59,10 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
             className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </div>
-        <h3 className="mt-4 text-lg lg:text-base 2xl:text-lg font-bold leading-tight text-gray-800 group-hover:text-green-600 transition-colors">
+        <h3 className="mt-4 text-lg lg:text-base inch32:text-lg font-bold leading-tight text-gray-800 group-hover:text-green-600 transition-colors">
           {article.title}
         </h3>
-        <p className="mt-2 text-sm lg:text-xs 2xl:text-sm text-gray-600 line-clamp-2">
+        <p className="mt-2 text-sm lg:text-xs inch32:text-sm text-gray-600 line-clamp-2">
           {article.summary}
         </p>
         <div className="mt-3 flex items-center space-x-4 text-xs text-gray-500">
@@ -91,10 +91,10 @@ const SimpleArticleLink: React.FC<SimpleArticleLinkProps> = ({ article }) => {
   return (
     <article className="group">
       <a href="#">
-        <h3 className="text-lg lg:text-base 2xl:text-lg font-bold leading-tight text-gray-800 group-hover:text-green-600 transition-colors">
+        <h3 className="text-lg lg:text-base inch32:text-lg font-bold leading-tight text-gray-800 group-hover:text-green-600 transition-colors">
           {article.title}
         </h3>
-        <p className="mt-2 text-sm lg:text-xs 2xl:text-sm text-gray-500">
+        <p className="mt-2 text-sm lg:text-xs inch32:text-sm text-gray-500">
           {article.timestamp}
         </p>
       </a>
@@ -106,8 +106,8 @@ const TrainingNews: React.FC = () => {
   return (
     <section className="bg-white pb-4 md:pb-8 ">
       {/* Section Header */}
-      <div className="flex justify-between items-center mb-8 md:mb-12 lg:mb-10 2xl:mb-12">
-        <h2 className="text-2xl md:text-3xl lg:text-2xl 2xl:text-3xl font-medium text-gray-900">
+      <div className="flex justify-between items-center mb-8 md:mb-12 lg:mb-10 inch32:mb-12">
+        <h2 className="text-2xl md:text-3xl lg:text-2xl inch32:text-3xl font-medium text-gray-900">
           Tin đào tạo – phát triển nhân sự
         </h2>
         <a
@@ -119,17 +119,17 @@ const TrainingNews: React.FC = () => {
       </div>
 
       {/* Top Row - Featured Articles */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-6 2xl:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-6 inch32:gap-8">
         {topArticles.map((article) => (
           <ArticleCard key={article.id} article={article} />
         ))}
       </div>
 
       {/* Separator */}
-      <hr className="my-8 md:my-10 lg:my-8 2xl:my-10 border-gray-200" />
+      <hr className="my-8 md:my-10 lg:my-8 inch32:my-10 border-gray-200" />
 
       {/* Bottom Row - Simple Links */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-6 2xl:gap-x-8 gap-y-6 lg:gap-y-5 2xl:gap-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-6 inch32:gap-x-8 gap-y-6 lg:gap-y-5 inch32:gap-y-6">
         {bottomArticles.map((article) => (
           <SimpleArticleLink key={article.id} article={article} />
         ))}
