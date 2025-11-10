@@ -1,5 +1,5 @@
 import React from "react";
-import { FiArrowRight, FiMapPin, FiUsers } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 import { SeeMoreButton } from "@/components/Button";
 
