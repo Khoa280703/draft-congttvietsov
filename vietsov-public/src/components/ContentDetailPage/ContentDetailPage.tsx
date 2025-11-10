@@ -1,6 +1,8 @@
 import React from "react";
 import { PageWithSidebar } from "@/components";
-import DetailContent, { type DetailContentProps } from "../DetailContent";
+import DetailContent, {
+  type DetailContentProps,
+} from "@/components/DetailContent";
 import Keywords from "@/components/Keyword";
 
 export interface ContentDetailPageProps {
