@@ -59,7 +59,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   return (
     <div className="relative">
       <div
-        className="relative h-96 bg-cover bg-center bg-no-repeat"
+        className="relative h-64 md:h-80 lg:h-96 inch32:h-[28rem] bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${bgUrl})`,
         }}

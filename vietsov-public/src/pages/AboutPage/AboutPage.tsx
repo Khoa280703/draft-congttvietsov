@@ -1,5 +1,5 @@
-import React, { useRef, useEffect, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React from "react";
+import { motion, useTransform } from "framer-motion";
 import { PageHeader, SectionWithTitle } from "@/components";
 import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import {
@@ -14,50 +14,12 @@ import {
 import LeaderPage from "./LeaderPage";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useStickyScroll } from "@/hooks/useStickyScroll";
 
 const AboutPage: React.FC = () => {
   const location = useLocation();
-  const jointVentureRef = useRef<HTMLDivElement>(null);
-  const [sectionHeight, setSectionHeight] = useState(0);
-
-  useEffect(() => {
-    const updateHeight = () => {
-      if (jointVentureRef.current) {
-        const height = jointVentureRef.current.offsetHeight;
-        setSectionHeight(height);
-      }
-    };
-
-    updateHeight();
-    window.addEventListener("resize", updateHeight);
-
-    const resizeObserver = new ResizeObserver(() => {
-      updateHeight();
-    });
-
-    if (jointVentureRef.current) {
-      resizeObserver.observe(jointVentureRef.current);
-    }
-
-    return () => {
-      window.removeEventListener("resize", updateHeight);
-      resizeObserver.disconnect();
-    };
-  }, []);
-
-  const { scrollYProgress } = useScroll({
-    target: jointVentureRef,
-    offset: ["start end", "center center"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
-
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [1, 1, 1, 1]);
-
-  const nextSectionMargin = useTransform(
-    scrollYProgress,
-    (progress) => progress * sectionHeight * -0.3
-  );
+  const { ref, y, opacity, nextSectionMargin, wrapperMinHeight } =
+    useStickyScroll();
 
   const getBreadcrumbs = () => {
     switch (location.pathname) {
@@ -83,13 +45,18 @@ const AboutPage: React.FC = () => {
           path="/"
           element={
             <div className="">
-              <div className="relative">
+              {/* Wrapper để tạo không gian scroll - quan trọng để tránh giật */}
+              <div
+                className="relative"
+                style={{ minHeight: `${wrapperMinHeight}px` }}
+              >
                 <motion.div
-                  ref={jointVentureRef}
+                  ref={ref}
                   className="sticky top-0 z-10"
                   style={{
                     y,
                     opacity,
+                    willChange: "transform, opacity", // Tối ưu performance
                   }}
                 >
                   <AnimatedSection
@@ -122,7 +89,7 @@ const AboutPage: React.FC = () => {
               <AnimatedSection
                 animation="fadeInUp"
                 delay={100}
-                className="bg-vietsov-background2"
+                className="bg-vietsov-background"
               >
                 <CoreValuesSectionV2 />
               </AnimatedSection>
