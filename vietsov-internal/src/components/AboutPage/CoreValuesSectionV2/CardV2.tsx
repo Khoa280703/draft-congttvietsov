@@ -8,7 +8,7 @@ interface CardV2Props {
   index: number;
 }
 
-const CardV2: React.FC<CardV2Props> = ({ value, index }) => {
+const CardV2: React.FC<CardV2Props> = ({ value }) => {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
