@@ -153,16 +153,24 @@ export const useStickyScroll = (
 
   // Transform với range mượt mà hơn
   // Chỉ apply khi đã initialized để tránh giật
+  // Giới hạn transform để không che mất nội dung phía trên
   const y = useTransform(scrollYProgress, (value) => {
     if (!isInitialized) return "0%";
     const progress = value;
     if (progress <= 0) return "0%";
-    if (progress <= 0.5) {
+    // Chỉ bắt đầu transform khi scroll đã đủ xa (progress > 0.1)
+    // để tránh che mất nội dung phía trên
+    if (progress <= 0.1) return "0%";
+    const adjustedProgress = (progress - 0.1) / 0.9; // Normalize từ 0.1 -> 1 thành 0 -> 1
+    if (adjustedProgress <= 0.5) {
       // Map từ 0 -> 0.5 thành start -> mid
-      return `${(progress / 0.5) * transformRange.mid}%`;
+      return `${(adjustedProgress / 0.5) * transformRange.mid}%`;
     }
     // Map từ 0.5 -> 1 thành mid -> end
-    return `${transformRange.mid + ((progress - 0.5) / 0.5) * (transformRange.end - transformRange.mid)}%`;
+    return `${
+      transformRange.mid +
+      ((adjustedProgress - 0.5) / 0.5) * (transformRange.end - transformRange.mid)
+    }%`;
   });
 
   const opacity = useTransform(

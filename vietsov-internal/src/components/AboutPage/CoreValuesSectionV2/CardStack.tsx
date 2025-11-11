@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { type CoreValue } from "./data";
-import Card from "./Card";
+import CardV2 from "./CardV2";
 
 interface CardStackProps {
   values: CoreValue[];
@@ -68,10 +68,9 @@ const CardStack: React.FC<CardStackProps> = ({
           transition={{ duration: 0.8, delay: 0.4 }}
         />
       </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         {values.map((value, index) => (
-          <Card key={value.id} value={value} index={index} />
+          <CardV2 key={value.id} value={value} index={index} />
         ))}
       </div>
     </motion.div>
@@ -79,4 +78,3 @@ const CardStack: React.FC<CardStackProps> = ({
 };
 
 export default CardStack;
-

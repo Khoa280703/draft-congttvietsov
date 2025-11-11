@@ -9,3 +9,4 @@ export { default as HomeTrainingSchedule } from "./HomeTrainingSchedule";
 export { default as ProductionNews } from "./ProductionNews";
 export { default as ActivitySlider } from "./ActivitySlider/ActivitySlider";
 export { default as SpotlightNews } from "./SpotlightNews";
+export { default as VisionMission } from "./VisionMission";

@@ -9,6 +9,7 @@ import {
   CapabilitiesSection,
   CoreValuesSectionV2,
   ArchivePhotosSection,
+  HistorySection,
 } from "@/components/AboutPage";
 import LeaderPage from "./LeaderPage";
 import { Routes, Route, useLocation } from "react-router-dom";
@@ -55,7 +56,7 @@ const InternalAboutPage: React.FC = () => {
               >
                 <motion.div
                   ref={ref}
-                  className="sticky top-0 z-10"
+                  className="sticky top-0 z-[5]"
                   style={{
                     y,
                     opacity,
@@ -86,12 +87,13 @@ const InternalAboutPage: React.FC = () => {
                   ),
                 }}
               >
+                <HistorySection image={danKhoanBackground} />
               </motion.div>
               {/* Core Values Section */}
               <AnimatedSection
                 animation="fadeInUp"
                 delay={100}
-                className="bg-vietsov-background2"
+                className="bg-[#f0faf4]"
               >
                 <CoreValuesSectionV2 />
               </AnimatedSection>

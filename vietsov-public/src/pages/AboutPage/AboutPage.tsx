@@ -52,7 +52,7 @@ const AboutPage: React.FC = () => {
               >
                 <motion.div
                   ref={ref}
-                  className="sticky top-0 z-10"
+                  className="sticky top-0 z-[5]"
                   style={{
                     y,
                     opacity,
@@ -89,7 +89,7 @@ const AboutPage: React.FC = () => {
               <AnimatedSection
                 animation="fadeInUp"
                 delay={100}
-                className="bg-vietsov-background"
+                className="bg-[#f0faf4]"
               >
                 <CoreValuesSectionV2 />
               </AnimatedSection>
