@@ -8,11 +8,13 @@ export const CAPABILITIES_THEME_COLORS = {
     background: "bg-white",
     sectionBackground: "bg-white",
     title: "text-vietsov-green",
+    titlePrefix: "text-vietsov-green", // "LĨNH VỰC"
+    titleSuffix: "text-gray-700", // "HOẠT ĐỘNG"
     description: "text-gray-700",
     link: "text-vietsov-green",
     button: {
       active: "bg-vietsov-green text-white",
-      inactive: "bg-gray-200 text-gray-700 hover:bg-gray-300",
+      inactive: "bg-[#0d7377] text-white hover:bg-[#0d7377]/80",
     },
     checkIcon: "text-vietsov-green",
     checkIconBg: "bg-vietsov-green/15",
@@ -21,11 +23,13 @@ export const CAPABILITIES_THEME_COLORS = {
     background: "bg-vietsov-green-bold",
     sectionBackground: "bg-vietsov-green-bold",
     title: "text-vietsov-yellow",
+    titlePrefix: "text-white", // "LĨNH VỰC"
+    titleSuffix: "text-vietsov-yellow", // "HOẠT ĐỘNG"
     description: "text-gray-200",
     link: "text-vietsov-yellow",
     button: {
       active: "bg-vietsov-yellow text-[#006d38]",
-      inactive: "bg-gray-700 text-gray-300 hover:bg-gray-600",
+      inactive: "bg-[#0d7377] text-white hover:bg-[#0d7377]/80",
     },
     checkIcon: "text-vietsov-yellow",
     checkIconBg: "bg-vietsov-yellow/15",
