@@ -37,7 +37,7 @@ const CapabilitiesSectionParallax: React.FC<
   });
 
   // Transform values for parallax effect - optimized for performance
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+  const imageY = useTransform(scrollYProgress, [0, 2], ["0%", "-15%"]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-8%"]);
   // Simplified scale - removed complex keyframes
   const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1.05]);
@@ -48,7 +48,6 @@ const CapabilitiesSectionParallax: React.FC<
   const selectedCategory =
     categories.find((cat) => cat.id === selectedCategoryId) || categories[0];
 
-  // Optimized: Only 3 layers instead of 5, reduced from 5 separate hooks
   const layerY0 = useTransform(scrollYProgress, [0, 1], [0, 0]);
   const layerY1 = useTransform(scrollYProgress, [0, 1], [5, -15]); // Reduced movement
   const layerY2 = useTransform(scrollYProgress, [0, 1], [10, -30]); // Reduced movement
@@ -101,24 +100,24 @@ const CapabilitiesSectionParallax: React.FC<
     <motion.section
       ref={sectionRef}
       id="capabilities"
-      className={`relative min-h-[120vh] flex items-center ${theme.sectionBackground} transition-colors duration-700 py-8 md:py-12 lg:py-16 inch32:py-15 ${className}`}
+      className={`relative min-h-[120vh] flex items-center ${theme.sectionBackground} transition-colors duration-700 py-8 md:py-12 lg:py-14 laptop:py-16 fhd:py-20 qhd:py-24 ${className}`}
     >
-      <div className="container px-16 mx-auto w-full">
+      <div className="container px-4 md:px-8 lg:px-12 laptop:px-16 fhd:px-20 qhd:px-24 mx-auto w-full">
         {/* Title */}
         <motion.div
-          className="text-center mb-8 md:mb-12 lg:mb-32 inch32:mb-20"
+          className="text-center mb-6 md:mb-8 lg:mb-12 laptop:mb-14 fhd:mb-16 qhd:mb-18"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
         >
           <span
-            className={`text-3xl md:text-4xl lg:text-5xl font-bold uppercase leading-tight transition-colors duration-700 mr-4 ${theme.titlePrefix}`}
+            className={`text-2xl md:text-3xl lg:text-4xl laptop:text-5xl fhd:text-6xl qhd:text-7xl font-bold uppercase leading-tight transition-colors duration-700 mr-4 ${theme.titlePrefix}`}
           >
             LĨNH VỰC
           </span>
           <span> </span>
           <span
-            className={`text-3xl md:text-4xl lg:text-5xl font-bold uppercase leading-tight transition-colors duration-700 ${theme.titleSuffix}`}
+            className={`text-2xl md:text-3xl lg:text-4xl laptop:text-5xl fhd:text-6xl qhd:text-7xl font-bold uppercase leading-tight transition-colors duration-700 ${theme.titleSuffix}`}
           >
             HOẠT ĐỘNG
           </span>
@@ -126,7 +125,7 @@ const CapabilitiesSectionParallax: React.FC<
 
         {/* Categories List - Centered below title */}
         <motion.div
-          className="flex items-center justify-center gap-2 md:gap-3 mb-12 md:mb-16 lg:mb-24 inch32:mb-32"
+          className="flex items-center justify-center gap-2 md:gap-3 laptop:gap-4 fhd:gap-5 qhd:gap-6 mb-8 md:mb-10 lg:mb-12 laptop:mb-14 fhd:mb-16 qhd:mb-18"
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -134,15 +133,15 @@ const CapabilitiesSectionParallax: React.FC<
           {/* Left Arrow */}
           <button
             onClick={() => navigateCategory("left")}
-            className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-700 hover:text-vietsov-green hover:scale-110 transition-all duration-300 rounded-full hover:bg-vietsov-green/10"
+            className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 laptop:w-12 laptop:h-12 fhd:w-14 fhd:h-14 qhd:w-16 qhd:h-16 flex items-center justify-center text-gray-700 hover:text-vietsov-green hover:scale-110 transition-all duration-300 rounded-full hover:bg-vietsov-green/10"
             aria-label="Previous category"
           >
-            <HiArrowLeft className="w-5 h-5 md:w-6 md:h-6" />
+            <HiArrowLeft className="w-4 h-4 md:w-5 md:h-5 laptop:w-6 laptop:h-6 fhd:w-7 fhd:h-7 qhd:w-8 qhd:h-8" />
           </button>
 
           <div
             ref={scrollContainerRef}
-            className="flex gap-2 md:gap-3 overflow-x-auto scrollbar-hide justify-center"
+            className="flex gap-2 md:gap-3 laptop:gap-4 fhd:gap-5 qhd:gap-6 overflow-x-auto scrollbar-hide justify-center"
             style={{
               scrollbarWidth: "none",
               msOverflowStyle: "none",
@@ -158,7 +157,7 @@ const CapabilitiesSectionParallax: React.FC<
                 key={category.id}
                 data-category-id={category.id}
                 onClick={() => setSelectedCategoryId(category.id)}
-                className={`px-8 mx-4 py-3 text-sm md:text-base font-medium transition-all duration-500 cursor-pointer whitespace-nowrap ${
+                className={`px-4 md:px-6 laptop:px-8 fhd:px-10 qhd:px-12 mx-2 md:mx-3 laptop:mx-4 fhd:mx-5 qhd:mx-6 py-2 md:py-2.5 laptop:py-3 fhd:py-3.5 qhd:py-4 text-xs md:text-sm laptop:text-base fhd:text-lg qhd:text-xl font-medium transition-all duration-500 cursor-pointer whitespace-nowrap ${
                   selectedCategoryId === category.id
                     ? `${theme.button.active} scale-105 shadow-lg`
                     : `${theme.button.inactive} hover:scale-105`
@@ -175,18 +174,18 @@ const CapabilitiesSectionParallax: React.FC<
           {/* Right Arrow */}
           <button
             onClick={() => navigateCategory("right")}
-            className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center text-gray-700 hover:text-vietsov-green hover:scale-110 transition-all duration-300 rounded-full hover:bg-vietsov-green/10"
+            className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 laptop:w-12 laptop:h-12 fhd:w-14 fhd:h-14 qhd:w-16 qhd:h-16 flex items-center justify-center text-gray-700 hover:text-vietsov-green hover:scale-110 transition-all duration-300 rounded-full hover:bg-vietsov-green/10"
             aria-label="Next category"
           >
-            <HiArrowRight className="w-5 h-5 md:w-6 md:h-6" />
+            <HiArrowRight className="w-4 h-4 md:w-5 md:h-5 laptop:w-6 laptop:h-6 fhd:w-7 fhd:h-7 qhd:w-8 qhd:h-8" />
           </button>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 md:gap-12 lg:gap-64 inch32:gap-26 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 laptop:gap-16 fhd:gap-20 qhd:gap-24 items-center">
           {/* Left: Parallax Image Gallery Section */}
           <motion.div
             ref={imageRef}
-            className="relative w-full h-[30vh] md:h-[40vh] lg:h-[50vh] col-span-3"
+            className="relative w-full h-[30vh] md:h-[40vh] lg:h-[50vh] laptop:h-[55vh] fhd:h-[60vh] qhd:h-[65vh] col-span-3"
             style={{
               y: imageY,
               scale,
@@ -277,7 +276,7 @@ const CapabilitiesSectionParallax: React.FC<
           {/* Right: Parallax Content Section */}
           <motion.div
             ref={contentRef}
-            className="space-y-6 md:space-y-8 lg:space-y-6 inch32:space-y-8 col-span-2"
+            className="space-y-6 md:space-y-8 lg:space-y-6 laptop:space-y-8 fhd:space-y-10 qhd:space-y-12 col-span-2"
             style={{
               y: contentY,
               willChange: "transform",
@@ -301,18 +300,18 @@ const CapabilitiesSectionParallax: React.FC<
                 }}
               >
                 <motion.h3
-                  className={`text-xl md:text-2xl lg:text-3xl inch32:text-4xl font-bold mb-6 md:mb-8 ${theme.title}`}
+                  className={`text-lg md:text-xl lg:text-2xl laptop:text-3xl fhd:text-4xl qhd:text-5xl font-bold mb-4 md:mb-5 laptop:mb-6 fhd:mb-7 qhd:mb-8 ${theme.title}`}
                   initial={{ opacity: 0, x: -30 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                 >
                   {selectedCategory?.title.toUpperCase()}
                 </motion.h3>
-                <ul className="space-y-4 md:space-y-5">
+                <ul className="space-y-3 md:space-y-4 laptop:space-y-5 fhd:space-y-6 qhd:space-y-7">
                   {selectedCategory?.capabilities.map((item, index) => (
                     <motion.li
                       key={item.id}
-                      className="flex items-start gap-3 md:gap-4 group"
+                      className="flex items-start gap-3 md:gap-4 laptop:gap-5 fhd:gap-6 qhd:gap-8 group"
                       initial={{ opacity: 0, x: 50 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{
@@ -327,11 +326,11 @@ const CapabilitiesSectionParallax: React.FC<
                         transition={{ duration: 0.6 }}
                       >
                         <HiCheck
-                          className={`w-6 h-6 lg:w-5 lg:h-5 inch32:w-6 inch32:h-6 ${theme.checkIcon} flex-shrink-0 mt-1 ${theme.checkIconBg} rounded-full p-1 transition-all duration-300`}
+                          className={`w-6 h-6 lg:w-5 lg:h-5 laptop:w-6 laptop:h-6 fhd:w-7 fhd:h-7 qhd:w-8 qhd:h-8 ${theme.checkIcon} flex-shrink-0 mt-1 ${theme.checkIconBg} rounded-full p-1 laptop:p-1.5 fhd:p-2 qhd:p-2.5 transition-all duration-300`}
                         />
                       </motion.div>
                       <p
-                        className={`text-base md:text-lg ${theme.description} leading-relaxed font-normal group-hover:opacity-80 transition-colors duration-300`}
+                        className={`text-sm md:text-base laptop:text-lg fhd:text-xl qhd:text-2xl ${theme.description} leading-relaxed font-normal group-hover:opacity-80 transition-colors duration-300`}
                       >
                         {item.description}
                       </p>
@@ -343,22 +342,6 @@ const CapabilitiesSectionParallax: React.FC<
           </motion.div>
         </div>
       </div>
-
-      {/* Background Decorative Elements - Simplified parallax for performance */}
-      <motion.div
-        className="absolute top-0 right-0 w-96 h-96 bg-vietsov-green/5 rounded-full blur-3xl pointer-events-none"
-        style={{
-          y: useTransform(scrollYProgress, [0, 1], ["-50px", "100px"]), // Reduced movement
-          willChange: "transform",
-        }}
-      />
-      <motion.div
-        className="absolute bottom-0 left-0 w-80 h-80 bg-vietsov-green/5 rounded-full blur-3xl pointer-events-none"
-        style={{
-          y: useTransform(scrollYProgress, [0, 1], ["50px", "-100px"]), // Reduced movement
-          willChange: "transform",
-        }}
-      />
     </motion.section>
   );
 };

@@ -7,7 +7,7 @@ import type { RefObject } from "react";
 export const useLinePosition = (
   titleRef: RefObject<HTMLElement | null> | null,
   containerRef: RefObject<HTMLElement | null>,
-  offset: number = 60
+  offset: number = 120
 ) => {
   const [lineTop, setLineTop] = useState(0);
 

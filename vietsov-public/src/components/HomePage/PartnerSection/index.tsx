@@ -114,17 +114,17 @@ const PartnerSection: React.FC<PartnerSectionProps> = () => {
       <motion.div className="relative z-20" style={{ opacity }}>
         {/* Title Section với Parallax */}
         <motion.div
-          className="container mx-auto px-4 pt-24 md:pt-32 lg:pt-40"
+          className="container mx-auto px-4 md:px-8 lg:px-12 laptop:px-16 fhd:px-20 qhd:px-24 pt-16 md:pt-20 lg:pt-24 laptop:pt-28 fhd:pt-32 qhd:pt-36"
           style={{ y: titleY }}
         >
           <motion.div
-            className="text-center mb-12 md:mb-16"
+            className="text-center mb-8 md:mb-10 lg:mb-12 laptop:mb-14 fhd:mb-16 qhd:mb-18"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8 }}
           >
             <motion.h3
-              className="text-white/90 text-sm md:text-base uppercase tracking-wider mb-4 font-medium"
+              className="text-white/90 text-xs md:text-sm laptop:text-base fhd:text-lg qhd:text-xl uppercase tracking-wider mb-3 md:mb-4 laptop:mb-5 fhd:mb-6 qhd:mb-7 font-medium"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : { opacity: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -132,7 +132,7 @@ const PartnerSection: React.FC<PartnerSectionProps> = () => {
               ĐỐI TÁC - KHÁCH HÀNG
             </motion.h3>
             <motion.h2
-              className="text-white text-3xl md:text-4xl lg:text-5xl inch32:text-6xl font-bold leading-tight"
+              className="text-white text-2xl md:text-3xl lg:text-4xl laptop:text-5xl fhd:text-6xl qhd:text-7xl font-bold leading-tight"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={
                 isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }

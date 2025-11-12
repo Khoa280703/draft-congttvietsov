@@ -42,21 +42,26 @@ const MissionSection: React.FC<MissionSectionProps> = ({
     offset: ["start end", "end start"],
   }).scrollYProgress;
 
+  // Responsive line width based on viewport
   const lineWidth = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["350px", "250px", "150px"]
+    [
+      "clamp(200px, 25vw, 600px)",
+      "clamp(150px, 20vw, 450px)",
+      "clamp(100px, 15vw, 300px)",
+    ]
   );
 
   const lineTop = useLinePosition(titleRef, containerRef);
 
   return (
     <div
-      className={`py-8 md:py-12 relative min-h-[120vh] flex items-center z-10 transition-colors duration-700 ${theme.background}`}
+      className={`py-8 md:py-12 lg:py-14 laptop:py-16 fhd:py-20 qhd:py-24 relative min-h-[120vh] flex items-center z-10 transition-colors duration-700 ${theme.background}`}
       ref={containerRef}
     >
-      <div className="container mx-auto px-4 md:px-12 lg:px-48">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 laptop:px-16 fhd:px-20 qhd:px-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 laptop:gap-16 fhd:gap-20 qhd:gap-24 items-center">
           {/* Left Column - Content */}
           <motion.div
             ref={contentRef}
@@ -68,24 +73,27 @@ const MissionSection: React.FC<MissionSectionProps> = ({
           >
             {/* Title */}
             <motion.div
-              className="mb-6"
+              className="mb-4 md:mb-5 laptop:mb-6 fhd:mb-7 qhd:mb-8"
               ref={titleRef}
               variants={fadeInUp}
               transition={{ duration: 0.6, delay: ANIMATION_CONFIG.titleDelay }}
             >
               <h2
-                className={`text-3xl md:text-4xl lg:text-5xl font-bold uppercase leading-tight transition-colors duration-700 ${theme.title}`}
+                className={`text-2xl md:text-3xl lg:text-4xl laptop:text-5xl fhd:text-6xl qhd:text-7xl font-bold uppercase leading-tight transition-colors duration-700 ${theme.title}`}
               >
                 {data.title}
               </h2>
             </motion.div>
 
             {/* Description */}
-            <div ref={descriptionRef} className="mb-8 space-y-4">
+            <div
+              ref={descriptionRef}
+              className="mb-6 md:mb-7 laptop:mb-8 fhd:mb-9 qhd:mb-10 space-y-3 md:space-y-4 laptop:space-y-5 fhd:space-y-6 qhd:space-y-7"
+            >
               {data.description.map((text, index) => (
                 <motion.p
                   key={index}
-                  className={`text-base md:text-lg leading-relaxed transition-colors duration-700 ${theme.description}`}
+                  className={`text-sm md:text-base laptop:text-lg fhd:text-xl qhd:text-2xl leading-relaxed transition-colors duration-700 ${theme.description}`}
                   variants={fadeInUp}
                   initial="hidden"
                   animate={contentInView ? "visible" : "hidden"}
@@ -118,7 +126,7 @@ const MissionSection: React.FC<MissionSectionProps> = ({
                       index * ANIMATION_CONFIG.staggerDelay,
                   }}
                 >
-                  <span className="font-semibold uppercase text-sm md:text-base underline">
+                  <span className="font-semibold uppercase text-xs md:text-sm laptop:text-base fhd:text-lg qhd:text-xl underline">
                     {link.text}
                   </span>
                 </motion.a>
@@ -135,7 +143,7 @@ const MissionSection: React.FC<MissionSectionProps> = ({
             variants={fadeInRight}
             transition={ANIMATION_CONFIG}
           >
-            <div className="relative w-full max-w-md aspect-[4/5]">
+            <div className="relative w-full max-w-md laptop:max-w-lg fhd:max-w-xl qhd:max-w-2xl aspect-[4/5]">
               {image || data.image ? (
                 <img
                   src={image || data.image}
@@ -154,7 +162,7 @@ const MissionSection: React.FC<MissionSectionProps> = ({
 
       {/* DotLine on the left */}
       <div
-        className="absolute flex justify-start"
+        className="hidden md:flex absolute justify-start laptop:left-4 fhd:left-8 qhd:left-12"
         style={{
           left: 0,
           right: "max(1rem, calc((100vw - 1280px) / 2 + 1rem))",

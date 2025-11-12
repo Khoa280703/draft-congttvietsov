@@ -69,14 +69,14 @@ const TypicalProjectsSection: React.FC<TypicalProjectsSectionProps> = ({
   return (
     <motion.section
       ref={containerRef}
-      className={`${theme.sectionBackground} transition-colors duration-700 py-8 md:py-12 lg:py-16 inch32:py-15 relative ${className}`}
+      className={`${theme.sectionBackground} transition-colors duration-700 py-8 md:py-12 lg:py-14 laptop:py-16 fhd:py-20 qhd:py-24 relative ${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div
-        className="absolute right-0 w-90 pointer-events-none z-10 overflow-visible"
+        className="hidden md:block absolute right-0 w-90 pointer-events-none z-10 overflow-visible"
         style={{
           height: "120px",
           top: `${lineTop}px`,
@@ -93,9 +93,9 @@ const TypicalProjectsSection: React.FC<TypicalProjectsSectionProps> = ({
         />
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 lg:px-18 h-[120vh] flex items-center">
+      <div className="container mx-auto px-4 md:px-8 lg:px-12 laptop:px-16 fhd:px-20 qhd:px-24 h-[120vh] flex items-center">
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-64">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 laptop:gap-16 fhd:gap-20 qhd:gap-24">
           {/* Left Column - Featured Project */}
           <div className="lg:sticky lg:top-24 lg:self-start col-span-3">
             <FeaturedProject

@@ -126,7 +126,7 @@ const DotLineL: React.FC<DotLineLProps> = ({
       {/* Dot - At the bottom end of vertical line */}
       {isVerticalMotionValue ? (
         <motion.div
-          className="absolute rounded-full"
+          className="absolute rounded-full laptop:w-6 laptop:h-6 fhd:w-8 fhd:h-8 qhd:w-10 qhd:h-10"
           style={{
             width: `${dotSize}px`,
             height: `${dotSize}px`,
@@ -139,7 +139,7 @@ const DotLineL: React.FC<DotLineLProps> = ({
         />
       ) : (
         <div
-          className="absolute rounded-full"
+          className="absolute rounded-full laptop:w-6 laptop:h-6 fhd:w-8 fhd:h-8 qhd:w-10 qhd:h-10"
           style={{
             width: `${dotSize}px`,
             height: `${dotSize}px`,

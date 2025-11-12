@@ -30,7 +30,7 @@ const DotLine: React.FC<DotLineProps> = ({
     return (
       <div className={`flex items-center ${flexDirection} ${className}`}>
         <motion.div
-          className="flex-shrink-0"
+          className="flex-shrink-0 laptop:h-2.5 fhd:h-3 qhd:h-4"
           style={{
             height: `${lineHeight}px`,
             backgroundColor: lineColor,
@@ -38,7 +38,7 @@ const DotLine: React.FC<DotLineProps> = ({
           }}
         />
         <div
-          className="rounded-full flex-shrink-0"
+          className="rounded-full flex-shrink-0 laptop:w-6 laptop:h-6 fhd:w-8 fhd:h-8 qhd:w-10 qhd:h-10"
           style={{
             width: `${dotSize}px`,
             height: `${dotSize}px`,
@@ -58,7 +58,7 @@ const DotLine: React.FC<DotLineProps> = ({
   return (
     <div className={`flex items-center ${flexDirection} ${className}`}>
       <div
-        className="flex-shrink-0"
+        className="flex-shrink-0 laptop:h-2.5 fhd:h-3 qhd:h-4"
         style={{
           height: `${lineHeight}px`,
           backgroundColor: lineColor,
@@ -66,7 +66,7 @@ const DotLine: React.FC<DotLineProps> = ({
         }}
       />
       <div
-        className="rounded-full flex-shrink-0"
+        className="rounded-full flex-shrink-0 laptop:w-6 laptop:h-6 fhd:w-8 fhd:h-8 qhd:w-10 qhd:h-10"
         style={{
           width: `${dotSize}px`,
           height: `${dotSize}px`,

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { HiArrowRight } from "react-icons/hi";
 import { getTypicalProjectsSectionThemeColors } from "../theme";
@@ -43,6 +43,32 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
     ["0%", "-20%", "-40%"]
   );
 
+  // Calculate line clamp based on screen size
+  const [lineClamp, setLineClamp] = useState(4);
+
+  useEffect(() => {
+    const updateLineClamp = () => {
+      const width = window.innerWidth;
+      if (width >= 2560) {
+        setLineClamp(8);
+      } else if (width >= 1920) {
+        setLineClamp(7);
+      } else if (width >= 1366) {
+        setLineClamp(6);
+      } else if (width >= 1024) {
+        setLineClamp(5);
+      } else if (width >= 768) {
+        setLineClamp(4);
+      } else {
+        setLineClamp(3);
+      }
+    };
+
+    updateLineClamp();
+    window.addEventListener("resize", updateLineClamp);
+    return () => window.removeEventListener("resize", updateLineClamp);
+  }, []);
+
   return (
     <motion.div
       ref={containerRef}
@@ -52,11 +78,59 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
     >
-      <div
-        className={`relative w-300 min-h-[500px] md:min-h-[600px] lg:min-h-[700px] inch32:min-h-[800px] overflow-hidden transition-colors duration-700`}
-      >
+      {/* Mobile: Simple stacked layout */}
+      <div className="md:hidden flex flex-col gap-4">
+        {/* Image - Full width */}
+        <div className="relative w-full h-[250px] rounded-lg overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.imageAlt || project.title}
+            className="w-full h-full object-cover"
+          />
+          {/* Date Bar */}
+          <div
+            className={`absolute top-4 right-4 ${theme.featuredProjectDateBar} text-white px-3 py-1.5 text-xs font-medium`}
+          >
+            {project.date}
+          </div>
+        </div>
+
+        {/* Content Card */}
+        <div
+          className={`${theme.featuredProjectContentBox} p-4 rounded-lg shadow-lg flex flex-col`}
+        >
+          <h2
+            className={`text-xl font-bold ${theme.featuredProjectTitle} mb-3 leading-tight transition-colors duration-700`}
+          >
+            {project.title}
+          </h2>
+
+          <div
+            className={`${theme.featuredProjectType} font-bold text-[10px] uppercase tracking-wide mb-3 transition-colors duration-700`}
+          >
+            {project.projectType} - {project.location}
+          </div>
+
+          <p
+            className={`${theme.featuredProjectDescription} text-xs tracking-wide leading-loose mb-4 line-clamp-4 transition-colors duration-700`}
+          >
+            {project.description}
+          </p>
+
+          <a
+            href={project.link}
+            className={`inline-flex items-center ${theme.featuredProjectLink} ${theme.featuredProjectLinkHover} font-bold text-xs uppercase tracking-wide underline underline-offset-4`}
+          >
+            <span>{viewProjectText}</span>
+            <HiArrowRight className="ml-2 w-3 h-3" />
+          </a>
+        </div>
+      </div>
+
+      {/* Desktop: Complex overlapping layout */}
+      <div className="hidden md:block relative w-300 lg:w-400 laptop:w-200 fhd:w-300 qhd:w-400 min-h-[550px] lg:min-h-[600px] laptop:min-h-[700px] fhd:min-h-[800px] qhd:min-h-[900px] transition-colors duration-700">
         {/* Small Image - Top Left, skewed */}
-        <div className="absolute top-0 left-0 md:left-4 lg:left-8 inch32:left-12 w-[55%] md:w-[50%] lg:w-[45%] inch32:w-[40%] h-[40%] md:h-[45%] lg:h-[50%] inch32:h-[55%] z-10 transform -rotate-2 md:-rotate-1.5 lg:-rotate-1 origin-top-left">
+        <div className="absolute top-0 left-4 lg:left-8 laptop:left-12 fhd:left-16 qhd:left-20 w-[60%] h-[45%] lg:h-[50%] laptop:h-[55%] fhd:h-[58%] qhd:h-[60%] z-10 transform -rotate-1.5 lg:-rotate-1 laptop:-rotate-0.5 origin-top-left">
           <img
             src={project.image}
             alt={project.imageAlt || project.title}
@@ -66,33 +140,41 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
 
         {/* White Card - Front, overlapping image */}
         <motion.div
-          style={{ y: cardY }}
-          className={`absolute bottom-0 md:bottom-4 lg:-bottom-20 inch32:bottom-12 left-40 w-2/3 md:w-[50%] lg:w-[55%] inch32:w-[60%] h-[50%] md:h-[50%] lg:h-[70%] inch32:h-[50%] ${theme.featuredProjectContentBox} p-4 md:p-6 lg:p-8 inch32:p-10 z-20 shadow-2xl`}
+          style={{
+            y: cardY,
+          }}
+          className={`absolute lg:top-20 laptop:top-90 fhd:top-120 qhd:top-140 left-40 laptop:left-48 fhd:left-56 qhd:left-64 w-[50%] lg:w-[55%] laptop:w-[60%] fhd:w-[62%] qhd:w-[65%] ${theme.featuredProjectContentBox} p-5 lg:p-6 laptop:p-8 fhd:p-10 qhd:p-12 z-20 shadow-2xl flex flex-col -translate-y-[60px] lg:-translate-y-[80px] laptop:-translate-y-[100px] fhd:-translate-y-[120px] qhd:-translate-y-[140px]`}
         >
           {/* Date Bar - Overlapping with image, positioned above card */}
           <div
-            className={`absolute -top-6 md:-top-8 lg:-top-5 inch32:-top-12 left-4 md:left-6 lg:left-8 inch32:left-10 ${theme.featuredProjectDateBar} text-white px-3 md:px-4 py-1.5 md:py-2 text-xs md:text-sm lg:text-base font-medium z-30`}
+            className={`absolute -top-5 lg:-top-5 laptop:-top-5 fhd:-top-5 qhd:-top-14 left-6 lg:left-8 laptop:left-10 fhd:left-12 qhd:left-14 ${theme.featuredProjectDateBar} text-white px-4 laptop:px-4 fhd:px-5 qhd:px-6 py-2 laptop:py-2 fhd:py-2.5 qhd:py-3 text-sm lg:text-sm laptop:text-base fhd:text-lg qhd:text-xl font-medium z-30`}
           >
             {project.date}
           </div>
 
           {/* Title */}
           <h2
-            className={`text-xl md:text-2xl lg:text-3xl inch32:text-4xl font-bold ${theme.featuredProjectTitle} mb-3 md:mb-4 leading-tight transition-colors duration-700 mt-2 md:mt-0`}
+            className={`text-2xl lg:text-2xl laptop:text-3xl fhd:text-4xl qhd:text-5xl font-bold ${theme.featuredProjectTitle} mb-4 laptop:mb-4 fhd:mb-5 qhd:mb-6 leading-tight transition-colors duration-700`}
           >
             {project.title}
           </h2>
 
           {/* Project Type & Location */}
           <div
-            className={`${theme.featuredProjectType} font-bold text-[10px] md:text-xs lg:text-sm uppercase tracking-wide mb-3 md:mb-4 transition-colors duration-700`}
+            className={`${theme.featuredProjectType} font-bold text-xs lg:text-xs laptop:text-sm fhd:text-base qhd:text-lg uppercase tracking-wide mb-4 laptop:mb-4 fhd:mb-5 qhd:mb-6 transition-colors duration-700`}
           >
             {project.projectType} - {project.location}
           </div>
 
           {/* Description */}
           <p
-            className={`${theme.featuredProjectDescription} text-xs md:text-sm lg:text-base tracking-wide leading-loose mb-4 md:mb-6 md:line-clamp-4 lg:line-clamp-none transition-colors duration-700`}
+            className={`${theme.featuredProjectDescription} text-sm lg:text-sm laptop:text-base fhd:text-lg qhd:text-xl tracking-wide leading-relaxed mb-4 laptop:mb-5 fhd:mb-6 qhd:mb-6 transition-colors duration-700`}
+            style={{
+              display: "-webkit-box",
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden",
+              WebkitLineClamp: lineClamp,
+            }}
           >
             {project.description}
           </p>
@@ -100,10 +182,10 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
           {/* View Project Link */}
           <a
             href={project.link}
-            className={`inline-flex items-center ${theme.featuredProjectLink} ${theme.featuredProjectLinkHover} font-bold text-xs md:text-sm lg:text-base uppercase tracking-wide underline underline-offset-4`}
+            className={`inline-flex items-center ${theme.featuredProjectLink} ${theme.featuredProjectLinkHover} font-bold text-sm lg:text-sm laptop:text-base fhd:text-lg qhd:text-xl uppercase tracking-wide underline underline-offset-4`}
           >
             <span>{viewProjectText}</span>
-            <HiArrowRight className="ml-2 w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5" />
+            <HiArrowRight className="ml-2 w-4 h-4 lg:w-4 lg:h-4 laptop:w-5 laptop:h-5 fhd:w-6 fhd:h-6 qhd:w-7 qhd:h-7" />
           </a>
         </motion.div>
       </div>
@@ -112,4 +194,3 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
 };
 
 export default FeaturedProject;
-

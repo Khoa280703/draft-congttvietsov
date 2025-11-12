@@ -72,7 +72,9 @@
 }
 
 @theme {
-  --breakpoint-inch32: 140rem;
+  --breakpoint-laptop: 85.375rem;
+  --breakpoint-fhd: 120rem;
+  --breakpoint-qhd: 160rem;
 
   --font-family-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui,
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
