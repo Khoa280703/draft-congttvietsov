@@ -3,101 +3,127 @@ import { motion, useTransform } from "framer-motion";
 import {
   SliderHome,
   PartnerSection,
-  TypicalProjects,
-  PetroNews,
   VisionMission,
+  TypicalProjectsSection,
+  PetroNewsSection,
 } from "@/components/HomePage";
-import { CapabilitiesSection } from "@/components/AboutPage";
-import { SectionWithTitle } from "@/components";
+import type { VisionMissionRef } from "@/components/HomePage/VisionMission";
+import { CapabilitiesSectionParallax } from "@/components/AboutPage";
 // import { BreakingNewsSlider } from "@/components/PriviteSystem/HomePage";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useStickyScroll } from "@/hooks/useStickyScroll";
+import { useHomePageTheme } from "@/hooks/useHomePageTheme";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+import HomePageNavigation from "@/components/HomePage/HomePageNavigation";
 
 const HomePage: React.FC = () => {
+  // Enable smooth scroll for HomePage
+  useSmoothScroll();
+
   const containerRef = useRef<HTMLDivElement>(null);
-  const { ref, y, opacity, nextSectionMargin, wrapperMinHeight } =
-    useStickyScroll();
+  const visionMissionRef = useRef<VisionMissionRef>(null);
+  const visionMissionWrapperRef = useRef<HTMLDivElement>(null);
+  const capabilitiesSectionRef = useRef<HTMLDivElement>(null);
+  const typicalProjectsSectionRef = useRef<HTMLDivElement>(null);
+  const petroNewsSectionRef = useRef<HTMLDivElement>(null);
+  const partnerSectionRef = useRef<HTMLDivElement>(null);
+  const sliderHomeRef = useRef<HTMLDivElement>(null);
+
+  const { ref, y, nextSectionMargin, wrapperMinHeight } = useStickyScroll({
+    transformRange: { start: 0, mid: -8, end: -15 },
+    defaultHeight: 800,
+    marginMultiplier: { mid: -0.08, end: -0.15 },
+  });
+
+  const { isLightMode } = useHomePageTheme(
+    visionMissionRef.current?.missionSectionRef || null,
+    capabilitiesSectionRef,
+    typicalProjectsSectionRef,
+    petroNewsSectionRef
+  );
+
+  // Navigation sections
+  const navigationSections = [
+    { id: "slider", label: "Trang chủ", ref: sliderHomeRef },
+    {
+      id: "vision-mission",
+      label: "Tầm nhìn - Sứ mệnh",
+      ref: visionMissionWrapperRef,
+    },
+    {
+      id: "capabilities",
+      label: "Lĩnh vực hoạt động",
+      ref: capabilitiesSectionRef,
+    },
+    {
+      id: "projects",
+      label: "Dự án tiêu biểu",
+      ref: typicalProjectsSectionRef,
+    },
+    {
+      id: "news",
+      label: "Tin tức dầu khí",
+      ref: petroNewsSectionRef,
+    },
+    { id: "partners", label: "Đối tác", ref: partnerSectionRef },
+  ];
 
   return (
     <div ref={containerRef}>
-      <SliderHome basePath="public" />
+      <div ref={sliderHomeRef}>
+        <SliderHome basePath="public" />
+      </div>
 
-      <div className="relative" style={{ minHeight: `${wrapperMinHeight}px` }}>
+      <div
+        className="relative"
+        style={{ minHeight: `${wrapperMinHeight}px` }}
+        ref={visionMissionWrapperRef}
+      >
         <motion.div
           ref={ref}
           className="sticky top-0 z-[5]"
           style={{
             y,
-            opacity,
-            willChange: "transform, opacity",
+            willChange: "transform",
           }}
         >
-          <AnimatedSection
-            animation="fadeInUp"
-            delay={100}
-            className="bg-vietsov-background2"
-          >
-            <VisionMission />
+          <AnimatedSection animation="fadeInUp" delay={100}>
+            <div>
+              <VisionMission ref={visionMissionRef} isLightMode={isLightMode} />
+            </div>
           </AnimatedSection>
         </motion.div>
       </div>
 
-      {/* Section tiếp theo với negative margin để bù cho transform của VisionMission */}
       <motion.div
         style={{
           marginTop: useTransform(nextSectionMargin, (value) => `${value}px`),
         }}
       >
-        <AnimatedSection
-          animation="fadeInUp"
-          delay={100}
-          className="bg-vietsov-background"
-        >
-          <SectionWithTitle
-            title="Lĩnh Vực Hoạt Động"
-            sectionClassName="py-8 md:py-12 lg:py-16 inch32:py-15"
-            titleColor="text-vietsov-green"
-          >
-            <CapabilitiesSection />
-          </SectionWithTitle>
-        </AnimatedSection>
+        <div ref={capabilitiesSectionRef}>
+          <CapabilitiesSectionParallax isLightMode={isLightMode} />
+        </div>
       </motion.div>
 
-      <AnimatedSection
-        animation="fadeInUp"
-        delay={100}
-        className="bg-vietsov-background2"
-      >
-        <div className="bg-white">
-          <SectionWithTitle
-            title="Dự án tiêu biểu"
-            sectionClassName="py-8 md:py-12 lg:py-16 inch32:py-15"
-          >
-            <TypicalProjects />
-          </SectionWithTitle>
-        </div>
-      </AnimatedSection>
+      <div ref={typicalProjectsSectionRef}>
+        <TypicalProjectsSection isLightMode={isLightMode} />
+      </div>
 
-      {/* Petro News Section */}
-      <AnimatedSection
-        animation="fadeInUp"
-        delay={100}
-        className="bg-vietsov-background"
-      >
-        <SectionWithTitle
-          title="Tin tức Dầu khí"
-          sectionClassName="py-8 md:py-12 lg:pt-16 lg:pb-16 inch32:py-15"
-          titleColor="text-vietsov-green"
-        >
-          <PetroNews />
-        </SectionWithTitle>
-      </AnimatedSection>
+      <div ref={petroNewsSectionRef}>
+        <PetroNewsSection isLightMode={isLightMode} />
+      </div>
 
       <AnimatedSection animation="fadeInUp" delay={100}>
-        <div className="pb-12 md:pb-16 lg:pb-20 inch32:pb-24">
-          <PartnerSection />
+        <div
+          ref={partnerSectionRef}
+          className="pt-16 md:pt-20 lg:pt-24 inch32:pt-32"
+        >
+          <PartnerSection isLightMode={isLightMode} />
         </div>
       </AnimatedSection>
+
+      {/* Navigation */}
+      <HomePageNavigation sections={navigationSections} />
     </div>
   );
 };

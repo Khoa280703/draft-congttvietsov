@@ -1,43 +1,66 @@
-import React from "react";
-import IsometricCubeBackground from "./IsometricCubeBackground";
+import React, { useRef, forwardRef, useImperativeHandle } from "react";
 import VisionSection from "./VisionSection";
 import MissionSection from "./MissionSection";
-import { vision } from "./data";
-import { mission } from "./data";
+import { vision, mission } from "./data";
 
 export interface VisionMissionProps {
   visionImage?: string;
   visionImageAlt?: string;
   missionImage?: string;
   missionImageAlt?: string;
+  isLightMode?: boolean;
 }
 
-const VisionMission: React.FC<VisionMissionProps> = ({
-  visionImage,
-  visionImageAlt,
-  missionImage,
-  missionImageAlt,
-}) => {
-  return (
-    <div className="w-full bg-white relative overflow-hidden">
+export interface VisionMissionRef {
+  missionSectionRef: React.RefObject<HTMLDivElement | null>;
+}
+
+const VisionMission = forwardRef<VisionMissionRef, VisionMissionProps>(
+  (
+    {
+      visionImage,
+      visionImageAlt,
+      missionImage,
+      missionImageAlt,
+      isLightMode = true,
+    },
+    ref
+  ) => {
+    // Ref cho MissionSection để HomePage có thể track
+    const missionSectionRef = useRef<HTMLDivElement>(null);
+
+    // Expose ref ra ngoài để HomePage có thể sử dụng
+    useImperativeHandle(ref, () => ({
+      missionSectionRef,
+    }));
+
+    // Convert isLightMode sang isDarkTheme cho VisionMission
+    // isLightMode = true -> isDarkTheme = false (light theme)
+    // isLightMode = false -> isDarkTheme = true (dark theme)
+    const isDarkTheme = !isLightMode;
+
+    return (
       <div
-        className="absolute overflow-visible"
-        style={{ top: "-100%", bottom: 0, left: 0, right: 0 }}
+        className="w-full bg-white relative overflow-hidden"
+        id="vision-mission"
       >
-        <IsometricCubeBackground />
+        <VisionSection
+          data={vision}
+          image={visionImage}
+          imageAlt={visionImageAlt}
+          isDarkTheme={isDarkTheme}
+        />
+        <div ref={missionSectionRef}>
+          <MissionSection
+            data={mission}
+            image={missionImage}
+            imageAlt={missionImageAlt}
+            isDarkTheme={isDarkTheme}
+          />
+        </div>
       </div>
-      <VisionSection
-        data={vision}
-        image={visionImage}
-        imageAlt={visionImageAlt}
-      />
-      <MissionSection
-        data={mission}
-        image={missionImage}
-        imageAlt={missionImageAlt}
-      />
-    </div>
-  );
-};
+    );
+  }
+);
 
 export default VisionMission;

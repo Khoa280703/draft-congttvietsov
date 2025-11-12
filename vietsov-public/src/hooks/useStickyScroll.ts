@@ -169,7 +169,8 @@ export const useStickyScroll = (
     // Map từ 0.5 -> 1 thành mid -> end
     return `${
       transformRange.mid +
-      ((adjustedProgress - 0.5) / 0.5) * (transformRange.end - transformRange.mid)
+      ((adjustedProgress - 0.5) / 0.5) *
+        (transformRange.end - transformRange.mid)
     }%`;
   });
 

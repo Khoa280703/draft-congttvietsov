@@ -190,7 +190,7 @@ const VisionSection: React.FC<VisionSectionProps> = ({
         <DotLine
           dotColor="#10954f"
           lineColor="#242424"
-          dotSize={18}
+          dotSize={24}
           lineHeight={2}
           lineWidth={lineWidth}
         />

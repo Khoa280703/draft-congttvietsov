@@ -1,39 +1,33 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef } from "react";
 import { useScroll, useTransform, motion, useInView } from "framer-motion";
 import DotLine from "./DotLine";
 import type { VisionMissionSection } from "./data";
 import { visionData } from "./data";
+import { getThemeColors } from "./theme";
+import { fadeInUp, fadeInLeft, ANIMATION_CONFIG } from "./animations";
+import { useLinePosition } from "./useLinePosition";
 
 interface VisionSectionProps {
   data?: VisionMissionSection;
   image?: string;
   imageAlt?: string;
+  isDarkTheme?: boolean;
 }
 
 const VisionSection: React.FC<VisionSectionProps> = ({
   data = visionData,
   image,
   imageAlt,
+  isDarkTheme = false,
 }) => {
   const titleRef = useRef<HTMLDivElement>(null);
   const descriptionRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const [lineTop, setLineTop] = useState(0);
 
-  // Animation variants
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 },
-  };
+  const theme = getThemeColors(isDarkTheme);
 
-  const fadeInLeft = {
-    hidden: { opacity: 0, x: -50 },
-    visible: { opacity: 1, x: 0 },
-  };
-
-  // Check if elements are in view
   const imageInView = useInView(imageRef, {
     once: true,
     margin: "-100px",
@@ -43,7 +37,6 @@ const VisionSection: React.FC<VisionSectionProps> = ({
     margin: "-100px",
   });
 
-  // Scroll animations
   const scrollYProgress = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
@@ -52,35 +45,17 @@ const VisionSection: React.FC<VisionSectionProps> = ({
   const lineWidth = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["300px", "220px", "150px"]
+    ["400px", "300px", "200px"]
   );
 
-  // Update line position - đặt giữa title và description
-  useEffect(() => {
-    const updateLinePosition = () => {
-      if (!titleRef.current || !descriptionRef.current || !containerRef.current)
-        return;
-      const titleRect = titleRef.current.getBoundingClientRect();
-      const descriptionRect = descriptionRef.current.getBoundingClientRect();
-      const containerRect = containerRef.current.getBoundingClientRect();
-      const middleY =
-        (titleRect.bottom + descriptionRect.top) / 2 - containerRect.top;
-      setLineTop(middleY - 55);
-    };
-
-    updateLinePosition();
-    window.addEventListener("resize", updateLinePosition);
-    return () => {
-      window.removeEventListener("resize", updateLinePosition);
-    };
-  }, []);
+  const lineTop = useLinePosition(titleRef, containerRef);
 
   return (
     <div
-      className="py-8 md:py-12 relative min-h-screen flex items-center z-10"
+      className={`py-8 md:py-12 relative min-h-[120vh] flex items-center z-10 transition-colors duration-700 ${theme.background}`}
       ref={containerRef}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 md:px-12 lg:px-48 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Image */}
           <motion.div
@@ -89,17 +64,17 @@ const VisionSection: React.FC<VisionSectionProps> = ({
             initial="hidden"
             animate={imageInView ? "visible" : "hidden"}
             variants={fadeInLeft}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={ANIMATION_CONFIG}
           >
-            <div className="relative w-full max-w-md">
-              {image ? (
+            <div className="relative w-full max-w-md aspect-[4/5]">
+              {image || data.image ? (
                 <img
-                  src={image}
-                  alt={imageAlt || data.title}
-                  className="w-full h-auto rounded-lg shadow-2xl object-cover"
+                  src={image || data.image}
+                  alt={imageAlt || data.imageAlt || data.title}
+                  className="w-full h-full rounded-lg shadow-2xl object-cover"
                 />
               ) : (
-                <div className="w-full aspect-[4/5] bg-gray-200 rounded-lg shadow-2xl flex items-center justify-center">
+                <div className="w-full h-full bg-gray-200 rounded-lg shadow-2xl flex items-center justify-center">
                   <span className="text-gray-400 text-sm">No image</span>
                 </div>
               )}
@@ -113,16 +88,18 @@ const VisionSection: React.FC<VisionSectionProps> = ({
             initial="hidden"
             animate={contentInView ? "visible" : "hidden"}
             variants={fadeInUp}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={ANIMATION_CONFIG}
           >
             {/* Title */}
             <motion.div
               className="mb-6"
               ref={titleRef}
               variants={fadeInUp}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6, delay: ANIMATION_CONFIG.titleDelay }}
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase leading-tight text-vietsov-green">
+              <h2
+                className={`text-3xl md:text-4xl lg:text-5xl font-bold uppercase leading-tight transition-colors duration-700 ${theme.title}`}
+              >
                 {data.title}
               </h2>
             </motion.div>
@@ -132,11 +109,16 @@ const VisionSection: React.FC<VisionSectionProps> = ({
               {data.description.map((text, index) => (
                 <motion.p
                   key={index}
-                  className="text-base md:text-lg leading-relaxed text-vietsov-black"
+                  className={`text-base md:text-lg leading-relaxed transition-colors duration-700 ${theme.description}`}
                   variants={fadeInUp}
                   initial="hidden"
                   animate={contentInView ? "visible" : "hidden"}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                  transition={{
+                    duration: 0.6,
+                    delay:
+                      ANIMATION_CONFIG.descriptionDelay +
+                      index * ANIMATION_CONFIG.staggerDelay,
+                  }}
                 >
                   {text}
                 </motion.p>
@@ -149,25 +131,17 @@ const VisionSection: React.FC<VisionSectionProps> = ({
                 <motion.a
                   key={index}
                   href={link.url}
-                  className="flex items-center group hover:opacity-80 transition-opacity text-vietsov-green"
+                  className={`flex items-center group hover:opacity-80 transition-all duration-700 ${theme.link}`}
                   variants={fadeInUp}
                   initial="hidden"
                   animate={contentInView ? "visible" : "hidden"}
-                  transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
+                  transition={{
+                    duration: 0.6,
+                    delay:
+                      ANIMATION_CONFIG.linkDelay +
+                      index * ANIMATION_CONFIG.staggerDelay,
+                  }}
                 >
-                  <svg
-                    className="w-5 h-5 mr-3 transition-transform group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
                   <span className="font-semibold uppercase text-sm md:text-base underline">
                     {link.text}
                   </span>
@@ -188,9 +162,9 @@ const VisionSection: React.FC<VisionSectionProps> = ({
         }}
       >
         <DotLine
-          dotColor="#10954f"
-          lineColor="#242424"
-          dotSize={18}
+          dotColor={theme.dotLine.dot}
+          lineColor={theme.dotLine.line}
+          dotSize={24}
           lineHeight={2}
           lineWidth={lineWidth}
         />

@@ -152,7 +152,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                       <div className="mb-8 lg:mb-6 inch32:mb-8">
                         {/* Category Text */}
                         <motion.p
-                          className="text-sm md:text-base lg:text-sm inch32:text-base font-medium uppercase tracking-wider mb-4 lg:mb-3 inch32:mb-4"
+                          className="text-sm md:text-base lg:text-lg inch32:text-base font-medium uppercase tracking-wider mb-4 lg:mb-4 inch32:mb-4"
                           style={{ color: slide.textColor || "white" }}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -167,7 +167,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
 
                         {/* Main Title */}
                         <motion.h1
-                          className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl inch32:text-6xl font-bold leading-[100px] lg:leading-[80px] inch32:leading-[100px] tracking-normal mb-4 lg:mb-3 inch32:mb-4"
+                          className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl inch32:text-6xl font-bold leading-[50px] lg:leading-[60px] inch32:leading-[70px] tracking-normal mb-4 lg:mb-4 inch32:mb-4"
                           style={{ color: slide.textColor || "white" }}
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -203,7 +203,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
 
                         {/* Description */}
                         <motion.p
-                          className="text-base md:text-lg lg:text-base inch32:text-lg leading-relaxed mb-6 lg:mb-5 inch32:mb-6 max-w-2xl lg:max-w-xl inch32:max-w-2xl"
+                          className="text-base md:text-lg lg:text-lg inch32:text-lg leading-relaxed mb-6 lg:mb-8 inch32:mb-6 max-w-2xl lg:max-w-xl inch32:max-w-2xl"
                           style={{ color: slide.textColor || "white" }}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -219,7 +219,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                         {/* CTA Button */}
                         <motion.button
                           onClick={() => handleButtonClick(slide.buttonLink)}
-                          className="inline-flex items-center px-6 py-3 lg:px-5 lg:py-2.5 inch32:px-6 inch32:py-3 rounded-lg font-semibold lg:text-sm inch32:text-base cursor-pointer"
+                          className="inline-flex items-center px-6 py-3 lg:px-5 lg:py-2.5 inch32:px-6 inch32:py-3 font-semibold lg:text-base inch32:text-base cursor-pointer"
                           style={{
                             backgroundColor:
                               slide.buttonBackgroundColor || "white",

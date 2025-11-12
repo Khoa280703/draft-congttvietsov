@@ -9,6 +9,7 @@ interface SectionWithTitleProps {
   showGradientLine?: boolean;
   titleMarginBottom?: string;
   titleColor?: string;
+  background?: string;
 }
 
 const SectionWithTitle: React.FC<SectionWithTitleProps> = ({
@@ -20,19 +21,30 @@ const SectionWithTitle: React.FC<SectionWithTitleProps> = ({
   showGradientLine = false,
   titleMarginBottom = "mb-8 md:mb-12 lg:mb-16 inch32:mb-16",
   titleColor,
+  background,
 }) => {
   // Auto-detect if background is one of the specified classes and apply vietsov-green
   // Note: bg-vietsov-background2 is excluded
   const hasSpecialBackground =
     className.includes("bg-vietsov-background") ||
     className.includes("bg-vietsov-skin") ||
-    className.includes("bg-vietsov-skin2");
+    className.includes("bg-vietsov-skin2") ||
+    (background && (
+      background.includes("bg-vietsov-background") ||
+      background.includes("bg-vietsov-skin") ||
+      background.includes("bg-vietsov-skin2")
+    ));
 
   const finalTitleColor =
     titleColor || (hasSpecialBackground ? "text-vietsov-green-label" : "");
 
+  // Combine background with className, background takes priority
+  const finalClassName = background
+    ? `${sectionClassName} ${background} ${className} transition-colors duration-700`
+    : `${sectionClassName} ${className}`;
+
   return (
-    <section className={`${sectionClassName} ${className}`}>
+    <section className={finalClassName}>
       <div className="container mx-auto px-4">
         <div className={`text-center ${titleMarginBottom}`}>
           <h2

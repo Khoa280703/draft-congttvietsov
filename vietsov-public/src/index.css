@@ -90,6 +90,10 @@
   --color-vietsov-light-gray: #919296;
   --color-vietsov-skin: #ebf7f0;
   --color-vietsov-skin2: #edf8f2;
+  --color-vietsov-green-bold: #014f29;
+  --color-vietsov-yellow: #fad882;
+
+  --color-vietsov-green-label: #10954f;
 
   /* Custom Font Sizes */
   --font-size-xs-label: 11px;
@@ -102,6 +106,7 @@
 /* Global Font Application */
 
 html {
+  scroll-behavior: smooth;
   height: 100%;
 }
 
