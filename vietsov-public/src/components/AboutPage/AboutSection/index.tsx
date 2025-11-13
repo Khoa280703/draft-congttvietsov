@@ -92,7 +92,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ className = "" }) => {
         // Sau 2 giây, ẩn title
         timeoutRef.current = setTimeout(() => {
           setTitleVisible(false);
-        }, 1000);
+        }, 200);
       }
     });
 
