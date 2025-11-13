@@ -22,13 +22,11 @@ const AboutSection: React.FC<AboutSectionProps> = ({ className = "" }) => {
     if (isDevelopment) {
       const loadVideo = async () => {
         try {
-          const videoModule = await import(
-            /* @vite-ignore */
-            "@/assets/video-intro.mp4"
-          );
+          const videoName = "video-intro";
+          const videoModule = await import(`@/assets/${videoName}.mp4`);
           setVideoIntroSrc(videoModule.default);
-        } catch {
-          // File không tồn tại, sẽ dùng YouTube
+        } catch (error) {
+          console.warn("Local video file not found, using YouTube.", error);
           setVideoIntroSrc(null);
         }
       };
