@@ -17,7 +17,7 @@ export const visionData: VisionMissionSection = {
   description: [
     "Doanh nghiệp dầu khí và năng lượng hàng đầu khu vực, phát triển bền vững và tiên phong trong chuyển đổi năng lượng, đồng thời khai thác hiệu quả tài nguyên.",
   ],
-  links: [{ text: "Tìm hiểu thêm", url: "/about" }],
+  links: [{ text: "Tìm hiểu thêm", url: "/tintuc/chi-tiet" }],
   image: vietNga,
   imageAlt: "Vietsovpetro",
 };
@@ -27,7 +27,7 @@ export const missionData: VisionMissionSection = {
   description: [
     "Sứ mệnh của chúng tôi là phát triển bền vững, đóng góp vào sự phát triển của ngành dầu khí Việt Nam và khu vực.",
   ],
-  links: [{ text: "Tìm hiểu thêm", url: "/about" }],
+  links: [{ text: "Tìm hiểu thêm", url: "/tintuc/chi-tiet" }],
   image: hoiNghiPetro,
   imageAlt: "Vietsovpetro",
 };

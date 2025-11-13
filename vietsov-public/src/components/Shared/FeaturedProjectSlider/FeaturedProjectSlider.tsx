@@ -5,7 +5,6 @@ import type { Swiper as SwiperCore } from "swiper";
 import { Navigation, Autoplay, EffectCoverflow } from "swiper/modules";
 import { HiArrowRight, HiArrowLeft } from "react-icons/hi";
 import type { FeaturedProjectData } from "@/components/HomePage/TypicalProjectsSection/FeaturedProject";
-import { SeeMoreButton } from "@/components/Button";
 import { getFeaturedProjectSliderThemeColors } from "./theme";
 
 // Import CSS của Swiper
@@ -202,11 +201,11 @@ const FeaturedProjectSlider: React.FC<FeaturedProjectSliderProps> = ({
       {/* See More Button */}
       {seeMoreLink && (
         <div className="flex justify-center mt-8 md:mt-10 laptop:mt-12 fhd:mt-14 qhd:mt-16">
-          <SeeMoreButton
-            href={seeMoreLink}
-            className={theme.seeMoreButton}
-            variant={isLightMode ? "filled" : "outline"}
-          />
+          <div
+            className={`px-5 md:px-6 laptop:px-4 laptop:py-2 fhd:px-10 qhd:px-14 py-2.5 md:py-3 fhd:py-4 qhd:py-6 text-black font-semibold text-sm md:text-base lg:text-base laptop:text-base fhd:text-lg qhd:text-xl hover:bg-white/90 transition-colors cursor-pointer ${theme.seeMoreButton}`}
+          >
+            Xem thêm
+          </div>
         </div>
       )}
     </div>

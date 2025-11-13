@@ -116,6 +116,7 @@ const TypicalProjectsSection: React.FC<TypicalProjectsSectionProps> = ({
               viewAllText="XEM TẤT CẢ"
               isLightMode={isLightMode}
               className="w-full"
+              viewAllLink="/doitac-duan/du-an"
             />
           </div>
         </div>

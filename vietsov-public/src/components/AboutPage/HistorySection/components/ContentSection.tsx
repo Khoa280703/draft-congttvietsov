@@ -40,14 +40,14 @@ const ContentSection: React.FC<ContentSectionProps> = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="text-xl md:text-2xl lg:text-3xl laptop:text-[1.5rem] fhd:text-5xl qhd:text-7xl font-bold mb-2 md:mb-4 laptop:mb-3 fhd:mb-6 qhd:mb-8 text-white"
+            className="text-base md:text-lg lg:text-lg laptop:text-lg fhd:text-xl qhd:text-2xl font-bold mb-2 md:mb-4 laptop:mb-3 fhd:mb-6 qhd:mb-8 text-white"
           >
             {content.title}
           </motion.h2>
         </AnimatePresence>
 
         {/* Description - text morphing */}
-        <div className="text-xs md:text-sm lg:text-base laptop:text-[0.8125rem] fhd:text-xl qhd:text-2xl mb-3 md:mb-6 laptop:mb-4 fhd:mb-8 qhd:mb-10 leading-relaxed text-white/90">
+        <div className="text-base md:text-lg lg:text-lg laptop:text-lg fhd:text-xl qhd:text-2xl mb-3 md:mb-6 laptop:mb-4 fhd:mb-8 qhd:mb-10 leading-relaxed text-white/90">
           <TextMorphing morphKey={activeIndex} text={content.description} />
         </div>
 
@@ -59,7 +59,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
                 window.location.href = content.buttonLink;
               }
             }}
-            className="px-5 md:px-6 laptop:px-4 laptop:py-2 fhd:px-10 qhd:px-14 py-2.5 md:py-3 fhd:py-4 qhd:py-6 bg-white text-black rounded-lg font-semibold text-xs md:text-sm laptop:text-[0.75rem] fhd:text-lg qhd:text-2xl hover:bg-white/90 transition-colors cursor-pointer"
+            className="px-5 md:px-6 laptop:px-4 laptop:py-2 fhd:px-10 qhd:px-14 py-2.5 md:py-3 fhd:py-4 qhd:py-6 bg-white text-black font-semibold text-sm md:text-base lg:text-base laptop:text-base fhd:text-lg qhd:text-xl hover:bg-white/90 transition-colors cursor-pointer"
           >
             {content.buttonText}
           </button>

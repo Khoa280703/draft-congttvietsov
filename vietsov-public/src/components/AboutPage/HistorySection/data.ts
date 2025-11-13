@@ -76,7 +76,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Tầm Đảo-01 phát hiện dầu tại Giếng khoan trong tầng móng tại Đông Nam Rồng. Đây là một cột mốc quan trọng trong hoạt động thăm dò của Vietsovpetro, đánh dấu bước tiến đáng kể trong công nghệ khai thác dầu khí.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: daiHoiDaiBieu,
           imageAlt: "Phát hiện dầu tại Tầm Đảo-01",
           imageTitle: "2005 - Phát hiện dầu tại Tầm Đảo-01",
@@ -88,7 +88,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Khởi công dự án khai thác dầu khí mới tại khu vực Đông Nam Rồng, mở ra triển vọng phát triển cho ngành năng lượng.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: hoiNghiSuKien,
           imageAlt: "Khởi công dự án mới",
           imageTitle: "2005 - Khởi công dự án mới",
@@ -100,7 +100,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Khởi công dự án khai thác dầu khí mới tại khu vực Đông Nam Rồng, mở ra triển vọng phát triển cho ngành năng lượng.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: hoiNghiSuKien,
           imageAlt: "Khởi công dự án mới",
           imageTitle: "2005 - Khởi công dự án mới",
@@ -112,7 +112,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Khởi công dự án khai thác dầu khí mới tại khu vực Đông Nam Rồng, mở ra triển vọng phát triển cho ngành năng lượng.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: hoiNghiSuKien,
           imageAlt: "Khởi công dự án mới",
           imageTitle: "2005 - Khởi công dự án mới",
@@ -124,7 +124,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Khởi công dự án khai thác dầu khí mới tại khu vực Đông Nam Rồng, mở ra triển vọng phát triển cho ngành năng lượng.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: hoiNghiSuKien,
           imageAlt: "Khởi công dự án mới",
           imageTitle: "2005 - Khởi công dự án mới",
@@ -141,7 +141,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Chủ tịch nước CHXHCN Việt Nam ký Quyết định số 449/QĐ-CTN trao tặng Huân chương Hồ Chí Minh cho Liên doanh Việt – Nga Vietsovpetro, ghi nhận thành tích đặc biệt xuất sắc trong sản xuất, kinh doanh dầu khí và đóng góp to lớn vào sự nghiệp xây dựng, bảo vệ Tổ quốc.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: hoiNghiSuKien,
           imageAlt: "Huân chương Hồ Chí Minh",
           imageTitle: "2009 - Huân chương Hồ Chí Minh",
@@ -153,7 +153,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Chủ tịch nước CHXHCN Việt Nam ký Quyết định số 449/QĐ-CTN trao tặng Huân chương Hồ Chí Minh cho Liên doanh Việt – Nga Vietsovpetro, ghi nhận thành tích đặc biệt xuất sắc trong sản xuất, kinh doanh dầu khí và đóng góp to lớn vào sự nghiệp xây dựng, bảo vệ Tổ quốc.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: hoiNghiSuKien,
           imageAlt: "Huân chương Hồ Chí Minh",
           imageTitle: "2009 - Huân chương Hồ Chí Minh",
@@ -165,7 +165,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Chủ tịch nước CHXHCN Việt Nam ký Quyết định số 449/QĐ-CTN trao tặng Huân chương Hồ Chí Minh cho Liên doanh Việt – Nga Vietsovpetro, ghi nhận thành tích đặc biệt xuất sắc trong sản xuất, kinh doanh dầu khí và đóng góp to lớn vào sự nghiệp xây dựng, bảo vệ Tổ quốc.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: hoiNghiSuKien,
           imageAlt: "Huân chương Hồ Chí Minh",
           imageTitle: "2009 - Huân chương Hồ Chí Minh",
@@ -199,7 +199,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Cung cấp khí cho nhà máy nhiệt điện Bà Rịa - Đình Cô năm 1995. Đóng góp vào an ninh năng lượng quốc gia và phát triển công nghiệp điện lực, góp phần đảm bảo nguồn cung năng lượng ổn định cho đất nước.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: dankhoanvietsov,
           imageAlt: "Cung cấp khí cho nhà máy điện",
           imageTitle: "2012 - Cung cấp khí cho nhà máy điện",
@@ -216,7 +216,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Bác Phạm Văn Đồng đến thăm và làm việc với XNLD năm 1981. Sự kiện lịch sử đánh dấu sự quan tâm của lãnh đạo cấp cao đối với ngành dầu khí, thể hiện tầm quan trọng của ngành trong phát triển kinh tế đất nước.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: bannerDankhoan,
           imageAlt: "Bác Phạm Văn Đồng thăm XNLD",
           imageTitle: "2016 - Bác Phạm Văn Đồng thăm XNLD",
@@ -228,7 +228,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Bác Phạm Văn Đồng đến thăm và làm việc với XNLD năm 1981. Sự kiện lịch sử đánh dấu sự quan tâm của lãnh đạo cấp cao đối với ngành dầu khí, thể hiện tầm quan trọng của ngành trong phát triển kinh tế đất nước.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: bannerDankhoan,
           imageAlt: "Bác Phạm Văn Đồng thăm XNLD",
           imageTitle: "2016 - Bác Phạm Văn Đồng thăm XNLD",
@@ -245,7 +245,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Đại tướng Võ Nguyên Giáp đến thăm Vietsovpetro năm 2001. Một vinh dự lớn và nguồn động viên to lớn cho toàn thể cán bộ công nhân viên, khẳng định vai trò quan trọng của Vietsovpetro trong sự nghiệp phát triển đất nước.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: gianKhoan,
           imageAlt: "Đại tướng Võ Nguyên Giáp thăm Vietsovpetro",
           imageTitle: "2019 - Đại tướng Võ Nguyên Giáp thăm Vietsovpetro",
@@ -262,7 +262,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Vietsovpetro thăm Việt Nam năm 2025. Một sự kiện quan trọng đánh dấu sự quan tâm của Vietsovpetro đối với Việt Nam.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: gianKhoan,
           imageAlt: "Vietsovpetro thăm Việt Nam",
           imageTitle: "2025 - Vietsovpetro thăm Việt Nam",
@@ -279,7 +279,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Vietsovpetro thăm Việt Nam năm 2025. Một sự kiện quan trọng đánh dấu sự quan tâm của Vietsovpetro đối với Việt Nam.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: gianKhoan,
           imageAlt: "Vietsovpetro thăm Việt Nam",
           imageTitle: "2026 - Vietsovpetro thăm Việt Nam",
@@ -291,7 +291,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Vietsovpetro thăm Việt Nam năm 2025. Một sự kiện quan trọng đánh dấu sự quan tâm của Vietsovpetro đối với Việt Nam.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: gianKhoan,
           imageAlt: "Vietsovpetro thăm Việt Nam",
           imageTitle: "2026 - Vietsovpetro thăm Việt Nam",
@@ -303,7 +303,7 @@ export const defaultHistorySectionData: HistorySectionData = {
           description:
             "Vietsovpetro thăm Việt Nam năm 2025. Một sự kiện quan trọng đánh dấu sự quan tâm của Vietsovpetro đối với Việt Nam.",
           buttonText: "Xem chi tiết",
-          buttonLink: "#",
+          buttonLink: "tintuc/chi-tiet",
           image: gianKhoan,
           imageAlt: "Vietsovpetro thăm Việt Nam",
           imageTitle: "2026 - Vietsovpetro thăm Việt Nam",

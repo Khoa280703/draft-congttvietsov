@@ -111,6 +111,7 @@ const PetroNewsSection: React.FC<PetroNewsSectionProps> = ({
               viewAllText="XEM TẤT CẢ"
               isLightMode={isLightMode}
               className="w-full"
+              viewAllLink="/tintuc/tin-dau-khi"
             />
           </div>
 

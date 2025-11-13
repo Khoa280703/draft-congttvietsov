@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import YouTube from "react-youtube";
 
 interface AboutSectionProps {
@@ -70,21 +70,43 @@ const AboutSection: React.FC<AboutSectionProps> = ({ className = "" }) => {
     [0.4, 0.5, 0.6]
   );
 
-  // Subtitle opacity: ẩn ban đầu, hiện khi scroll xuống
-  // Sử dụng window scroll để detect khi user scroll
-  const { scrollYProgress: windowScrollProgress } = useScroll();
-  const subtitleOpacity = useTransform(
-    windowScrollProgress,
-    [0, 0.02, 0.1],
-    [0, 0, 1]
-  );
-  const subtitleY = useTransform(
-    windowScrollProgress,
-    [0, 0.02, 0.1],
-    [30, 30, 0]
-  );
+  // Title opacity: hiện khi scroll, sau 2s tự ẩn
+  const [titleVisible, setTitleVisible] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
+  // Detect scroll để hiển thị title
+  const { scrollYProgress: windowScrollProgress } = useScroll();
+
+  useEffect(() => {
+    // Subscribe to scroll progress changes
+    const unsubscribe = windowScrollProgress.on("change", (latest) => {
+      if (latest > 0.01) {
+        // Có scroll, hiển thị title
+        setTitleVisible(true);
+
+        // Clear timeout cũ nếu có
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+        }
+
+        // Sau 2 giây, ẩn title
+        timeoutRef.current = setTimeout(() => {
+          setTitleVisible(false);
+        }, 2000);
+      }
+    });
+
+    return () => {
+      unsubscribe();
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [windowScrollProgress]);
+
+  // Animation cho title
+  const titleOpacity = titleVisible ? 1 : 0;
+  const titleY = titleVisible ? 0 : 20;
 
   return (
     <section
@@ -156,40 +178,26 @@ const AboutSection: React.FC<AboutSectionProps> = ({ className = "" }) => {
         style={{ y: contentY }}
       >
         <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem] py-20 md:py-32 lg:py-40">
-          <motion.div
-            className="text-center space-y-6 md:space-y-8 lg:space-y-10"
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            {/* Title */}
+          <div className="text-center">
+            {/* Title - Hiện khi scroll, sau 2s tự ẩn */}
             <motion.h1
               className="text-5xl md:text-6xl lg:text-7xl laptop:text-8xl fhd:text-9xl qhd:text-[10rem] font-bold text-white leading-tight drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
               style={{
                 textShadow:
                   "0 4px 12px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.6)",
               }}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              animate={{
+                opacity: titleOpacity,
+                y: titleY,
+              }}
+              transition={{
+                duration: 0.3,
+                ease: "easeOut",
+              }}
             >
               Về Chúng Tôi
             </motion.h1>
-
-            {/* Subtitle - Hiện khi scroll xuống */}
-            <motion.p
-              className="text-xl md:text-2xl lg:text-3xl laptop:text-4xl fhd:text-5xl qhd:text-6xl text-white font-light max-w-5xl lg:max-w-6xl laptop:max-w-7xl fhd:max-w-8xl qhd:max-w-9xl mx-auto leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]"
-              style={{
-                textShadow:
-                  "0 2px 8px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)",
-                opacity: subtitleOpacity,
-                y: subtitleY,
-              }}
-            >
-              Khám phá hành trình 44 năm phát triển và những thành tựu nổi bật
-              của Vietsovpetro
-            </motion.p>
-          </motion.div>
+          </div>
         </div>
       </motion.div>
 

@@ -38,17 +38,17 @@ const LeadershipModal: React.FC<LeadershipModalProps> = ({
           {/* Close Button - Outside the card */}
 
           <motion.div
-            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-6xl h-[70vh]"
+            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 h-full relative">
+            <div className="grid grid-cols-1 lg:grid-cols-2 h-[70vh] lg:h-[80vh] relative overflow-hidden">
               {/* Left Panel - Text Information */}
               <div
-                className="p-8 lg:p-12 flex flex-col overflow-y-auto custom-scrollbar"
+                className="p-8 lg:p-12 flex flex-col overflow-y-auto custom-scrollbar min-h-0"
                 style={{
                   scrollbarWidth: "thin",
                   scrollbarColor: "#9CA3AFrgb(16, 248, 117)",
