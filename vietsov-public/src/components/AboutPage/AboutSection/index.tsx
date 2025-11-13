@@ -2,12 +2,6 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import YouTube from "react-youtube";
 
-// Import video file - chỉ dùng khi ở development
-// Production sẽ dùng YouTube thay thế
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore - File có thể không tồn tại trong production
-import videoIntroSrc from "@/assets/video-intro.mp4";
-
 interface AboutSectionProps {
   className?: string;
 }
@@ -16,9 +10,31 @@ const AboutSection: React.FC<AboutSectionProps> = ({ className = "" }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Detect environment: production dùng YouTube, development dùng video file
+  // Detect environment: production luôn dùng YouTube
   const isDevelopment = import.meta.env.MODE === "development";
   const youtubeVideoId = "pOZZdPBLX3g";
+
+  // Dynamic import video file - chỉ khi ở development
+  // Production luôn dùng YouTube (không import file)
+  const [videoIntroSrc, setVideoIntroSrc] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    if (isDevelopment) {
+      const loadVideo = async () => {
+        try {
+          const videoModule = await import(
+            /* @vite-ignore */
+            "@/assets/video-intro.mp4"
+          );
+          setVideoIntroSrc(videoModule.default);
+        } catch {
+          // File không tồn tại, sẽ dùng YouTube
+          setVideoIntroSrc(null);
+        }
+      };
+      loadVideo();
+    }
+  }, [isDevelopment]);
 
   // Chỉ dùng video file khi ở development và file tồn tại
   const useVideoFile = isDevelopment && videoIntroSrc;
