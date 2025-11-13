@@ -31,7 +31,7 @@ const CardStack: React.FC<CardStackProps> = ({
   return (
     <motion.div
       ref={stackRef}
-      className="mb-24 md:mb-32"
+      className="mb-24 md:mb-32 lg:mb-36 laptop:mb-40 fhd:mb-44 qhd:mb-48"
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.8 }}
@@ -40,9 +40,9 @@ const CardStack: React.FC<CardStackProps> = ({
       }}
     >
       {/* Title */}
-      <div className="text-center mb-12 md:mb-16">
+      <div className="text-center mb-12 md:mb-16 lg:mb-20 laptop:mb-24 fhd:mb-28 qhd:mb-32">
         <motion.h2
-          className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4"
+          className="text-2xl md:text-3xl lg:text-4xl laptop:text-5xl fhd:text-6xl qhd:text-7xl font-bold mb-4 md:mb-5 lg:mb-6 laptop:mb-7 fhd:mb-8 qhd:mb-10"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={
             isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
@@ -62,13 +62,13 @@ const CardStack: React.FC<CardStackProps> = ({
           )}
         </motion.h2>
         <motion.div
-          className="w-24 h-1 bg-gradient-to-r from-transparent via-vietsov-green to-transparent mx-auto"
+          className="w-24 md:w-32 laptop:w-40 fhd:w-48 qhd:w-56 h-1 md:h-[2px] laptop:h-[3px] fhd:h-[4px] qhd:h-[5px] bg-gradient-to-r from-transparent via-vietsov-green to-transparent mx-auto"
           initial={{ width: 0 }}
-          animate={isInView ? { width: 96 } : { width: 0 }}
+          animate={isInView ? { width: "100%" } : { width: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 laptop:gap-12 fhd:gap-14 qhd:gap-16">
         {values.map((value, index) => (
           <CardV2 key={value.id} value={value} index={index} />
         ))}

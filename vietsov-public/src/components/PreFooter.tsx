@@ -177,8 +177,8 @@ const PreFooter: React.FC = () => {
   }, []);
 
   return (
-    <footer className="bg-gray-100 py-12 px-4 border-t border-gray-200">
-      <div className="container mx-auto">
+    <footer className="bg-gray-100 py-12 border-t border-gray-200">
+      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-8">
           {preFooterLinks.map((column) => {
             const isExpanded = expandedSections[column.title];

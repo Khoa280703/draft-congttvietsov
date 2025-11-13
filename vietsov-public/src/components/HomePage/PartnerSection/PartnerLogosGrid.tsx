@@ -35,7 +35,7 @@ const PartnerLogosGrid: React.FC = () => {
   return (
     <div className="relative z-10">
       <div className="pt-8 pb-12 md:pb-16">
-        <div className="container mx-auto px-4 md:px-8">
+        <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
           <div className="bg-white shadow-2xl rounded-2xl py-12 md:py-16 lg:py-20 px-6 md:px-12 lg:px-16">
             <div className="w-full overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_80px,_black_calc(100%-80px),transparent_100%)]">
               <motion.div

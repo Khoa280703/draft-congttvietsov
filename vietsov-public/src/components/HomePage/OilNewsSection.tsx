@@ -40,7 +40,7 @@ const newsData: NewsArticle[] = [
 const OilNewsSection: React.FC = () => {
   return (
     <section className="bg-white py-12 md:py-16 ">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
         {/* Header */}
         <div className="flex justify-between items-center mb-8 border-b-1 border-gray-300 pb-4">
           <h2 className="text-3xl md:text-4xl font-medium text-gray-800">

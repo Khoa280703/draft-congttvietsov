@@ -60,7 +60,7 @@ const MissionSection: React.FC<MissionSectionProps> = ({
       className={`py-8 md:py-12 lg:py-14 laptop:py-16 fhd:py-20 qhd:py-24 relative min-h-[120vh] flex items-center z-10 transition-colors duration-700 ${theme.background}`}
       ref={containerRef}
     >
-      <div className="container mx-auto px-4 md:px-8 lg:px-12 laptop:px-16 fhd:px-20 qhd:px-24">
+      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 laptop:gap-16 fhd:gap-20 qhd:gap-24 items-center">
           {/* Left Column - Content */}
           <motion.div

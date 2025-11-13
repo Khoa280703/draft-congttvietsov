@@ -9,26 +9,9 @@ const OrgStructureSection: React.FC<OrgStructureSectionProps> = ({
   className = "",
 }) => {
   return (
-    <motion.section
-      id="organization-structure"
-      className={`${className}`}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
+    <div className={className}>
       <div className="relative z-10">
-        <motion.h1
-          className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium left-1/10 mb-6 lg:mb-5 inch32:mb-6 leading-tight"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-        >
-          {data.title}
-        </motion.h1>
-
-        <div className="grid grid-cols-1 gap-8 md:gap-16 lg:gap-12 inch32:gap-16">
+        <div className="grid grid-cols-1 gap-8 md:gap-16 lg:gap-12 laptop:gap-14 fhd:gap-16 qhd:gap-18">
           <motion.div
             className="text-gray-700"
             initial={{ opacity: 0, x: -30 }}
@@ -88,7 +71,7 @@ const OrgStructureSection: React.FC<OrgStructureSectionProps> = ({
           </motion.div>
         </div>
       </div>
-    </motion.section>
+    </div>
   );
 };
 

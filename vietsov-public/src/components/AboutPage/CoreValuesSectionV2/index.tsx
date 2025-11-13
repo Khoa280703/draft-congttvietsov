@@ -33,10 +33,10 @@ const CoreValuesSectionV2: React.FC<CoreValuesSectionV2Props> = ({
   return (
     <section
       ref={sectionRef}
-      className={`relative py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15 overflow-hidden ${className}`}
+      className={`relative py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 laptop:py-20 fhd:py-24 qhd:py-28 overflow-hidden ${className}`}
     >
       <motion.div
-        className="container mx-auto px-4 relative z-10"
+        className="container mx-auto px-4 md:px-6 lg:px-8 laptop:px-12 fhd:px-16 qhd:px-20 relative z-10"
         style={{
           y: parallaxY,
           opacity,
@@ -52,19 +52,19 @@ const CoreValuesSectionV2: React.FC<CoreValuesSectionV2Props> = ({
 
         {/* Divider */}
         <motion.div
-          className="flex items-center justify-center my-16 md:my-24"
+          className="flex items-center justify-center my-16 md:my-24 lg:my-28 laptop:my-32 fhd:my-36 qhd:my-40"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <div className="flex items-center gap-4 w-full max-w-2xl">
-            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-vietsov-green/30 to-vietsov-green/30" />
+          <div className="flex items-center gap-4 md:gap-6 laptop:gap-8 fhd:gap-10 qhd:gap-12 w-full max-w-2xl laptop:max-w-3xl fhd:max-w-4xl qhd:max-w-5xl">
+            <div className="flex-1 h-px md:h-[2px] laptop:h-[3px] fhd:h-[4px] qhd:h-[5px] bg-gradient-to-r from-transparent via-vietsov-green/30 to-vietsov-green/30" />
             <motion.div
-              className="w-3 h-3 rounded-full bg-vietsov-green"
+              className="w-3 h-3 md:w-4 md:h-4 laptop:w-5 laptop:h-5 fhd:w-6 fhd:h-6 qhd:w-8 qhd:h-8 rounded-full bg-vietsov-green"
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
-            <div className="flex-1 h-px bg-gradient-to-l from-transparent via-vietsov-green/30 to-vietsov-green/30" />
+            <div className="flex-1 h-px md:h-[2px] laptop:h-[3px] fhd:h-[4px] qhd:h-[5px] bg-gradient-to-l from-transparent via-vietsov-green/30 to-vietsov-green/30" />
           </div>
         </motion.div>
 

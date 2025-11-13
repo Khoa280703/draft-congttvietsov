@@ -160,38 +160,77 @@ const HistorySection: React.FC<HistorySectionProps> = ({
         </motion.div>
         {/* Content Overlay */}
         {data && (
-          <div className="relative z-10 h-full flex items-center w-full">
-            {/* Left: Timeline and Content */}
-            <div className="container px-4 md:px-6 lg:px-8 w-full">
-              <div className="grid grid-cols-12 gap-4 md:gap-6 lg:gap-8 items-start w-4/6">
-                <Timeline
-                  years={data.years}
-                  activeYearIndex={activeYearIndex}
-                  onYearClick={handleYearClick}
-                />
-                {currentEvent && (
-                  <ContentSection
-                    content={currentEvent}
-                    events={currentEvents}
-                    activeEventIndex={activeEventIndex}
-                    activeIndex={combinedIndex}
-                    onEventSelect={setActiveEventIndex}
-                    onEventNavigate={navigateEvents}
+          <>
+            {/* Desktop Layout */}
+            <div className="hidden md:relative md:z-10 md:h-full md:flex md:items-center md:w-full">
+              {/* Left: Timeline and Content */}
+              <div className="container px-4 md:px-8 lg:px-12 laptop:px-16 fhd:px-20 qhd:px-24 w-full">
+                <div className="grid grid-cols-12 gap-4 md:gap-6 lg:gap-8 laptop:gap-10 fhd:gap-12 qhd:gap-14 items-start w-4/6">
+                  <Timeline
+                    years={data.years}
+                    activeYearIndex={activeYearIndex}
+                    onYearClick={handleYearClick}
                   />
-                )}
+                  {currentEvent && (
+                    <ContentSection
+                      content={currentEvent}
+                      events={currentEvents}
+                      activeEventIndex={activeEventIndex}
+                      activeIndex={combinedIndex}
+                      onEventSelect={setActiveEventIndex}
+                      onEventNavigate={navigateEvents}
+                    />
+                  )}
+                </div>
               </div>
+
+              {/* Right: Image Grid */}
+              <ImageGrid
+                images={visibleImages}
+                currentEvents={currentEvents}
+                activeEventIndex={activeEventIndex}
+                activeYearIndex={activeYearIndex}
+                onImageClick={handleImageClick}
+                onNavigate={navigateImages}
+              />
             </div>
 
-            {/* Right: Image Grid */}
-            <ImageGrid
-              images={visibleImages}
-              currentEvents={currentEvents}
-              activeEventIndex={activeEventIndex}
-              activeYearIndex={activeYearIndex}
-              onImageClick={handleImageClick}
-              onNavigate={navigateImages}
-            />
-          </div>
+            {/* Mobile Layout - Dọc: Ảnh trên, Content dưới */}
+            <div className="block md:hidden relative z-10 w-full h-full flex flex-col">
+              {/* Top: Image - Chiếm 50% chiều cao */}
+              <div className="w-full h-1/2 flex items-end justify-center px-3 pt-2 pb-0">
+                <ImageGrid
+                  images={visibleImages}
+                  currentEvents={currentEvents}
+                  activeEventIndex={activeEventIndex}
+                  activeYearIndex={activeYearIndex}
+                  onImageClick={handleImageClick}
+                  onNavigate={navigateImages}
+                />
+              </div>
+
+              {/* Bottom: Timeline and Content - Chiếm 50% chiều cao */}
+              <div className="w-full h-1/2 flex flex-col items-start justify-start px-3 -mt-4 pb-4 overflow-y-auto">
+                <div className="w-full max-w-md">
+                  <Timeline
+                    years={data.years}
+                    activeYearIndex={activeYearIndex}
+                    onYearClick={handleYearClick}
+                  />
+                  {currentEvent && (
+                    <ContentSection
+                      content={currentEvent}
+                      events={currentEvents}
+                      activeEventIndex={activeEventIndex}
+                      activeIndex={combinedIndex}
+                      onEventSelect={setActiveEventIndex}
+                      onEventNavigate={navigateEvents}
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
+          </>
         )}
       </div>
     </div>

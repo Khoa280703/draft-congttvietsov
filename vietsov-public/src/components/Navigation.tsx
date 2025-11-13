@@ -91,7 +91,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
 
   return (
     <nav className="bg-white w-full border-t border-gray-200 relative z-40">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-12">
           <div className="flex justify-center lg:justify-start items-center self-stretch">
             <img

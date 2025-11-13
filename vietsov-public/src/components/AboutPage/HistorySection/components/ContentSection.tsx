@@ -23,7 +23,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
 }) => {
   return (
     <div className="col-span-12 md:col-span-11 lg:col-span-11 text-white flex items-center">
-      <div className="w-full max-w-xl mt-32">
+      <div className="w-full max-w-lg md:max-w-xl laptop:max-w-[32rem] fhd:max-w-3xl qhd:max-w-5xl mt-4 md:mt-24 lg:mt-28 laptop:mt-20 fhd:mt-36 qhd:mt-44">
         {/* Event Selector - phía trên title */}
         <EventSelector
           events={events}
@@ -40,14 +40,14 @@ const ContentSection: React.FC<ContentSectionProps> = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6 text-white"
+            className="text-xl md:text-2xl lg:text-3xl laptop:text-[1.5rem] fhd:text-5xl qhd:text-7xl font-bold mb-2 md:mb-4 laptop:mb-3 fhd:mb-6 qhd:mb-8 text-white"
           >
             {content.title}
           </motion.h2>
         </AnimatePresence>
 
         {/* Description - text morphing */}
-        <div className="text-xs md:text-sm lg:text-base mb-6 md:mb-8 leading-relaxed text-white/90">
+        <div className="text-xs md:text-sm lg:text-base laptop:text-[0.8125rem] fhd:text-xl qhd:text-2xl mb-3 md:mb-6 laptop:mb-4 fhd:mb-8 qhd:mb-10 leading-relaxed text-white/90">
           <TextMorphing morphKey={activeIndex} text={content.description} />
         </div>
 
@@ -59,7 +59,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
                 window.location.href = content.buttonLink;
               }
             }}
-            className="px-6 py-3 bg-white text-black rounded-lg font-semibold hover:bg-white/90 transition-colors cursor-pointer"
+            className="px-5 md:px-6 laptop:px-4 laptop:py-2 fhd:px-10 qhd:px-14 py-2.5 md:py-3 fhd:py-4 qhd:py-6 bg-white text-black rounded-lg font-semibold text-xs md:text-sm laptop:text-[0.75rem] fhd:text-lg qhd:text-2xl hover:bg-white/90 transition-colors cursor-pointer"
           >
             {content.buttonText}
           </button>

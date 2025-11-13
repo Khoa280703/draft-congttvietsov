@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion, useTransform } from "framer-motion";
 import { PageHeader, SectionWithTitle } from "@/components";
 import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
@@ -11,15 +11,46 @@ import {
   ArchivePhotosSection,
   HistorySection,
 } from "@/components/AboutPage";
+import {
+  FeaturedProjectSlider,
+  defaultFeaturedProjects,
+} from "@/components/Shared";
 import LeaderPage from "./LeaderPage";
 import { Routes, Route, useLocation } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useStickyScroll } from "@/hooks/useStickyScroll";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+import { useHomePageTheme } from "@/hooks/useHomePageTheme";
+import HomePageNavigation from "@/components/HomePage/HomePageNavigation";
 
 const AboutPage: React.FC = () => {
+  // Enable smooth scroll for AboutPage
+  useSmoothScroll();
+
   const location = useLocation();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const jointVentureSectionRef = useRef<HTMLDivElement>(null);
+  const historySectionRef = useRef<HTMLDivElement>(null);
+  const coreValuesSectionRef = useRef<HTMLDivElement>(null);
+  const orgStructureSectionRef = useRef<HTMLDivElement>(null);
+  const achievementsSectionRef = useRef<HTMLDivElement>(null);
+  const capabilitiesSectionRef = useRef<HTMLDivElement>(null);
+  const archivePhotosSectionRef = useRef<HTMLDivElement>(null);
+  // Empty refs for sections not in AboutPage (required by useHomePageTheme)
+  const emptyRef = useRef<HTMLDivElement>(null);
+
   const { ref, y, opacity, nextSectionMargin, wrapperMinHeight } =
     useStickyScroll();
+
+  // Theme management - similar to HomePage
+  // Note: isLightMode is kept for future use when replacing child components
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { isLightMode } = useHomePageTheme(
+    emptyRef, // No mission section in AboutPage - using empty ref
+    capabilitiesSectionRef,
+    emptyRef, // No typical projects section - using empty ref
+    archivePhotosSectionRef // Use archive photos as light mode trigger
+  );
 
   const getBreadcrumbs = () => {
     switch (location.pathname) {
@@ -33,8 +64,48 @@ const AboutPage: React.FC = () => {
         ];
     }
   };
+
+  // Navigation sections
+  const navigationSections = [
+    {
+      id: "joint-venture",
+      label: "Liên doanh Việt - Nga",
+      ref: jointVentureSectionRef,
+    },
+    {
+      id: "history",
+      label: "Lịch sử",
+      ref: historySectionRef,
+    },
+    {
+      id: "core-values",
+      label: "Giá trị cốt lõi",
+      ref: coreValuesSectionRef,
+    },
+    {
+      id: "org-structure",
+      label: "Cơ cấu tổ chức",
+      ref: orgStructureSectionRef,
+    },
+    {
+      id: "achievements",
+      label: "Thành tựu",
+      ref: achievementsSectionRef,
+    },
+    {
+      id: "capabilities",
+      label: "Lĩnh vực hoạt động",
+      ref: capabilitiesSectionRef,
+    },
+    {
+      id: "archive-photos",
+      label: "Hình ảnh tư liệu",
+      ref: archivePhotosSectionRef,
+    },
+  ];
+
   return (
-    <>
+    <div ref={containerRef}>
       <PageHeader
         title="Về chúng tôi"
         backgroundImage={danKhoanBackground}
@@ -44,7 +115,7 @@ const AboutPage: React.FC = () => {
         <Route
           path="/"
           element={
-            <div className="">
+            <div>
               {/* Wrapper để tạo không gian scroll - quan trọng để tránh giật */}
               <div
                 className="relative"
@@ -64,12 +135,14 @@ const AboutPage: React.FC = () => {
                     delay={100}
                     className="bg-vietsov-background"
                   >
-                    <SectionWithTitle
-                      title="Liên doanh Việt - Nga"
-                      titleColor="text-vietsov-green"
-                    >
-                      <JointVentureSection />
-                    </SectionWithTitle>
+                    <div ref={jointVentureSectionRef}>
+                      <SectionWithTitle
+                        title="Liên doanh Việt - Nga"
+                        titleColor="text-vietsov-green"
+                      >
+                        <JointVentureSection />
+                      </SectionWithTitle>
+                    </div>
                   </AnimatedSection>
                 </motion.div>
               </div>
@@ -83,7 +156,9 @@ const AboutPage: React.FC = () => {
                   ),
                 }}
               >
-                <HistorySection image={danKhoanBackground} />
+                <div ref={historySectionRef}>
+                  <HistorySection image={danKhoanBackground} />
+                </div>
               </motion.div>
               {/* Core Values Section */}
               <AnimatedSection
@@ -91,7 +166,9 @@ const AboutPage: React.FC = () => {
                 delay={100}
                 className="bg-[#f0faf4]"
               >
-                <CoreValuesSectionV2 />
+                <div ref={coreValuesSectionRef}>
+                  <CoreValuesSectionV2 />
+                </div>
               </AnimatedSection>
               {/* Organization Structure */}
               <AnimatedSection
@@ -99,16 +176,20 @@ const AboutPage: React.FC = () => {
                 delay={100}
                 className="bg-vietsov-background"
               >
-                <SectionWithTitle
-                  title="Cơ cấu tổ chức"
-                  titleColor="text-vietsov-green"
-                >
-                  <OrgStructureSection />
-                </SectionWithTitle>
+                <div ref={orgStructureSectionRef}>
+                  <SectionWithTitle
+                    title="Cơ cấu tổ chức"
+                    titleColor="text-vietsov-green"
+                  >
+                    <OrgStructureSection />
+                  </SectionWithTitle>
+                </div>
               </AnimatedSection>
               {/* Achievements */}
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <AchievementsSection />
+                <div ref={achievementsSectionRef}>
+                  <AchievementsSection />
+                </div>
               </AnimatedSection>
               {/* Capabilities */}
               <AnimatedSection
@@ -116,9 +197,11 @@ const AboutPage: React.FC = () => {
                 delay={100}
                 className="bg-vietsov-background2"
               >
-                <SectionWithTitle title="Lĩnh Vực Hoạt Động">
-                  <CapabilitiesSection />
-                </SectionWithTitle>
+                <div ref={capabilitiesSectionRef}>
+                  <SectionWithTitle title="Lĩnh Vực Hoạt Động">
+                    <CapabilitiesSection />
+                  </SectionWithTitle>
+                </div>
               </AnimatedSection>
               {/* Archive Photos */}
               <AnimatedSection
@@ -126,16 +209,25 @@ const AboutPage: React.FC = () => {
                 delay={100}
                 className="pb-16"
               >
-                <SectionWithTitle title="Hình ảnh tư liệu">
-                  <ArchivePhotosSection hideTitle={true} />
-                </SectionWithTitle>
+                <div ref={archivePhotosSectionRef}>
+                  <SectionWithTitle title="Hình ảnh tư liệu">
+                    <ArchivePhotosSection hideTitle={true} />
+                  </SectionWithTitle>
+                </div>
               </AnimatedSection>
+
+              <div ref={capabilitiesSectionRef}>
+                <FeaturedProjectSlider projects={defaultFeaturedProjects} />
+              </div>
+
+              {/* Navigation */}
+              <HomePageNavigation sections={navigationSections} />
             </div>
           }
         />
         <Route path="/ban-lanh-dao" element={<LeaderPage />} />
       </Routes>
-    </>
+    </div>
   );
 };
 

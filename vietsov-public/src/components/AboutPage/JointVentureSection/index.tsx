@@ -23,53 +23,37 @@ const JointVentureSection: React.FC<JointVentureSectionProps> = ({
   };
 
   return (
-    <>
-      <motion.section
-        id="introdution"
-        className={`${className}`}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <div className="container mx-auto">
-          <motion.h1
-            className="text-3xl md:text-4xl lg:text-3xl inch32:text-4xl font-medium mb-6 lg:mb-5 inch32:mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-          >
-            {data.title}
-          </motion.h1>
+    <div className={className}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-8 lg:gap-8 laptop:gap-8 fhd:gap-16 qhd:gap-24 items-start">
+        {/* Video Section */}
+        <motion.div
+          className="p-2 qhd:p-4 border-2 border-vietsov-green rounded-3xl"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+        >
+          <div className="relative w-full aspect-video overflow-hidden rounded-2xl">
+            <YouTube
+              videoId={data.videoId}
+              opts={playerOptions}
+              className="absolute top-0 left-0 w-full h-full pointer-events-none"
+            />
+          </div>
+        </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-14 inch32:gap-16 items-center">
-            {/* Video Section */}
-            <motion.div
-              className="p-2 border-2 border-vietsov-green rounded-3xl"
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            >
-              <div className="relative w-full aspect-video overflow-hidden rounded-2xl">
-                <YouTube
-                  videoId={data.videoId}
-                  opts={playerOptions}
-                  className="absolute top-0 left-0 w-full h-full pointer-events-none"
-                />
-              </div>
-            </motion.div>
-
-            {/* Content Section */}
-            <motion.div
-              className="text-gray-700"
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-            >
-              <div className="space-y-4 lg:space-y-3 inch32:space-y-4 text-gray-600 leading-relaxed text-base lg:text-sm inch32:text-base">
+        {/* Content Section - Cùng chiều cao với video */}
+        <motion.div
+          className="text-gray-700 h-full flex flex-col"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+        >
+          {/* Wrapper để match chiều cao với video container (bao gồm padding và border) */}
+          <div className="p-2 md:p-3 lg:p-4 laptop:p-5 fhd:p-6 qhd:p-8 border-2 border-transparent h-full flex flex-col">
+            <div className="relative w-full aspect-video overflow-y-auto overflow-x-hidden flex flex-col justify-center">
+              <div className="space-y-2 md:space-y-3 lg:space-y-4 laptop:space-y-5 fhd:space-y-6 qhd:space-y-7 text-gray-600 leading-relaxed text-xs md:text-sm lg:text-base laptop:text-lg fhd:text-xl qhd:text-2xl pr-2 md:pr-3 lg:pr-4 laptop:pr-5 fhd:pr-6 qhd:pr-8">
                 {data.description.split("\n\n").map((paragraph, index) => (
                   <motion.p
                     key={index}
@@ -86,11 +70,11 @@ const JointVentureSection: React.FC<JointVentureSectionProps> = ({
                   </motion.p>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
-        </div>
-      </motion.section>
-    </>
+        </motion.div>
+      </div>
+    </div>
   );
 };
 

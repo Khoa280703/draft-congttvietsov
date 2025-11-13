@@ -146,7 +146,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
               >
                 {/* Main Content - Centered */}
                 <div className="flex-1 flex items-center">
-                  <div className="container mx-auto px-6 md:px-12 lg:px-20 inch32:px-12">
+                  <div className="mx-auto px-6 md:px-12 lg:px-20 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
                     <div className="max-w-3xl lg:max-w-2xl inch32:max-w-3xl">
                       {/* Content Section */}
                       <div className="mb-8 lg:mb-6 inch32:mb-8">
@@ -249,7 +249,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                 {/* Pagination - Bottom */}
                 {showPagination && (
                   <motion.div
-                    className="container mx-auto px-6 md:px-12 lg:px-20 inch32:px-12 pb-16 md:pb-10 lg:pb-8 inch32:pb-10"
+                    className="mx-auto px-6 md:px-12 lg:px-20 laptop:px-24 fhd:px-32 qhd:px-40 pb-16 md:pb-10 lg:pb-8 laptop:pb-10 fhd:pb-12 qhd:pb-14 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 1.5, ease: "easeOut" }}
