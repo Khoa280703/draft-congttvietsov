@@ -4,14 +4,15 @@ import { useLocation } from "react-router-dom";
 
 /**
  * Hook to enable smooth scroll using Lenis
- * Only applies to HomePage for parallax effect
+ * Applies to HomePage and AboutPage for parallax effect
  */
 export const useSmoothScroll = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const isAboutPage = location.pathname.startsWith("/gioithieu");
 
   useEffect(() => {
-    if (!isHomePage) return;
+    if (!isHomePage && !isAboutPage) return;
 
     const lenis = new Lenis({
       duration: 2, // Duration for programmatic scroll (in seconds)
@@ -37,5 +38,5 @@ export const useSmoothScroll = () => {
     return () => {
       lenis.destroy();
     };
-  }, [isHomePage]);
+  }, [isHomePage, isAboutPage]);
 };

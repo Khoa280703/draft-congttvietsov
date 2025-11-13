@@ -45,7 +45,7 @@ export const vietsovPetroValues: CoreValue[] = [
     id: "doan-ket-huu-nghi",
     title: "Đoàn kết – Hữu nghị",
     description:
-      "Luôn giữ gìn tình đồng đội cao, hỗ trợ lẫn nhau giữa các bộ phận, giữ gìn lập trường trong các công trình trong cũng như ngoài khơi. Đoàn kết góp phần tạo nên sức mạnh tập thể, giúp vượt qua những thách thức trong môi trường dầu khí đầy biến động.",
+      "Luôn giữ gìn tình đồng đội cao, hỗ trợ lẫn nhau giữa các bộ phận",
     image: vietNga,
     url: "/gia-tri/doan-ket-huu-nghi",
     iconType: "frame1",

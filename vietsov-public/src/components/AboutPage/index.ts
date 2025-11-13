@@ -1,5 +1,5 @@
 // AboutPage components exports
-export { default as JointVentureSection } from "./JointVentureSection";
+export { default as AboutSection } from "./AboutSection";
 export { default as OrgStructureSection } from "./OrgStructureSection";
 export { default as LeadershipSection } from "./LeadershipSection";
 export { default as LeadershipPage } from "./LeadershipPage";
