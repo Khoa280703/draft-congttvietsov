@@ -35,7 +35,7 @@ const DetailContent: React.FC<DetailContentProps> = ({
 }) => {
   return (
     <div className="min-h-screen">
-      <div className="max-w-4xl overflow-hidden">
+      <div className="overflow-hidden">
         <motion.article
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ const DetailContent: React.FC<DetailContentProps> = ({
                 {images.map((image) => (
                   <motion.div
                     key={image.id}
-                    className={`${image.className} overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300`}
+                    className={`${image.className} overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300`}
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.2 }}
                   >

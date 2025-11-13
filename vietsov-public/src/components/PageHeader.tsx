@@ -69,7 +69,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
 
         {/* Content */}
         <div className="relative z-10 h-full flex flex-col justify-center">
-          <div className="container mx-auto px-4">
+          <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
             {/* Breadcrumbs */}
             <nav className="flex items-center space-x-2 text-sm text-white mb-4">
               <HiHome className="w-4 h-4" />

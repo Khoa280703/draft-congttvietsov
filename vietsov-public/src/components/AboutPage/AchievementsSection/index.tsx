@@ -67,7 +67,7 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
       <section
         className={`relative py-16 md:py-24 lg:py-20 inch32:py-24 text-white overflow-hidden ${className}`}
       >
-        <div className="relative container mx-auto px-4 md:px-12 lg:px-60 inch32:px-80 z-10">
+        <div className="relative mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem] z-10">
           <div className="max-w-4xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -88,7 +88,7 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
       <section
         className={`relative py-16 md:py-24 lg:py-20 inch32:py-24 text-white overflow-hidden ${className}`}
       >
-        <div className="relative container mx-auto px-4 md:px-12 lg:px-60 inch32:px-80 z-10">
+        <div className="relative mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem] z-10">
           <div className="max-w-4xl">
             <div className="text-center">
               <p className="text-red-300">
@@ -123,7 +123,7 @@ const AchievementsSection: React.FC<AchievementsSectionProps> = ({
         ></div>
       </div>
 
-      <div className="relative container mx-auto z-10">
+      <div className="relative mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem] z-10">
         <div className="max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {achievements.map((achievement, index) => (

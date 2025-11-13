@@ -37,7 +37,7 @@ const achievementsData = [
 const AchievementsSection: React.FC = () => {
   return (
     <section className="relative  py-16 md:py-24 bg-cover bg-center">
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem] relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="flex justify-center">
             <img

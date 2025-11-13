@@ -36,7 +36,7 @@ const CoreValuesSectionV2: React.FC<CoreValuesSectionV2Props> = ({
       className={`relative py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 laptop:py-20 fhd:py-24 qhd:py-28 overflow-hidden ${className}`}
     >
       <motion.div
-        className="container mx-auto px-4 md:px-6 lg:px-8 laptop:px-12 fhd:px-16 qhd:px-20 relative z-10"
+        className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem] relative z-10"
         style={{
           y: parallaxY,
           opacity,

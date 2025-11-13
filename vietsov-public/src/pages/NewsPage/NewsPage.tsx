@@ -79,7 +79,7 @@ const NewsPage: React.FC = () => {
                   title="Tin tức nổi bật"
                   titleColor="text-vietsov-green"
                 > */}
-                <div className="container mx-auto px-4 py-12 lg:pt-20 lg:pb-16">
+                <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 py-12 lg:pt-20 lg:pb-16 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
                   <ActivitySectionWithCategories />
                 </div>
                 {/* </SectionWithTitle> */}
@@ -90,7 +90,7 @@ const NewsPage: React.FC = () => {
                 className="bg-white"
               >
                 <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
-                  <div className="container mx-auto px-4">
+                  <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
                     <ProductionActivitySection />
                   </div>
                 </section>
@@ -102,7 +102,7 @@ const NewsPage: React.FC = () => {
                 className="bg-vietsov-skin"
               >
                 <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
-                  <div className="container mx-auto px-4">
+                  <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
                     <CommunityActivitySection />
                   </div>
                 </section>
@@ -114,7 +114,7 @@ const NewsPage: React.FC = () => {
                 className="bg-white"
               >
                 <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
-                  <div className="container mx-auto px-4">
+                  <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
                     <OilNewsSection />
                   </div>
                 </section>
@@ -126,7 +126,7 @@ const NewsPage: React.FC = () => {
                 className="bg-vietsov-skin2"
               >
                 <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
-                  <div className="container mx-auto px-4">
+                  <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
                     <ArchivePhotosSection />
                   </div>
                 </section>

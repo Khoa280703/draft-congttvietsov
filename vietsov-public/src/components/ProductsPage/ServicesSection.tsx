@@ -95,7 +95,7 @@ const ServiceCard: React.FC<{
 const ServicesSection: React.FC = () => {
   return (
     <section className="bg-gray-50 py-12 md:py-16 ">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
         <div className="max-w-2xl mb-8">
           <h1 className="text-3xl md:text-4xl font-medium text-gray-800">
             Sản phẩm & Dịch vụ

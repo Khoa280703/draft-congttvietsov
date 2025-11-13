@@ -102,7 +102,7 @@ const CapabilitiesSectionParallax: React.FC<
       id="capabilities"
       className={`relative min-h-[120vh] flex items-center ${theme.sectionBackground} transition-colors duration-700 py-8 md:py-12 lg:py-14 laptop:py-16 fhd:py-20 qhd:py-24 ${className}`}
     >
-      <div className="container px-4 md:px-8 lg:px-12 laptop:px-16 fhd:px-20 qhd:px-24 mx-auto w-full">
+      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
         {/* Title */}
         <motion.div
           className="text-center mb-6 md:mb-8 lg:mb-12 laptop:mb-14 fhd:mb-16 qhd:mb-18"
