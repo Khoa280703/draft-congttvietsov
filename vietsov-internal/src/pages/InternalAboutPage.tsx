@@ -1,145 +1,155 @@
-import React from "react";
-import { motion, useTransform } from "framer-motion";
-import { PageHeader, SectionWithTitle } from "@/components";
+import React, { useRef, useEffect } from "react";
 import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import {
-  JointVentureSection,
+  AboutSection,
   OrgStructureSection,
   AchievementsSection,
-  CapabilitiesSection,
+  CapabilitiesSectionParallax,
   CoreValuesSectionV2,
-  ArchivePhotosSection,
   HistorySection,
 } from "@/components/AboutPage";
+import {
+  FeaturedProjectSlider,
+  defaultFeaturedProjects,
+} from "@/components/Shared";
 import LeaderPage from "./LeaderPage";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
-import { useStickyScroll } from "@/hooks/useStickyScroll";
+import { useSmoothScroll } from "@/hooks/useSmoothScroll";
+import { useAboutPageTheme } from "@/hooks/useAboutPageTheme";
+import HomePageNavigation from "@/components/HomePage/HomePageNavigation";
 
 const InternalAboutPage: React.FC = () => {
-  const location = useLocation();
-  const { ref, y, opacity, nextSectionMargin, wrapperMinHeight } =
-    useStickyScroll();
+  // Enable smooth scroll for AboutPage
+  useSmoothScroll();
 
-  const getBreadcrumbs = () => {
-    switch (location.pathname) {
-      case "/internal/gioithieu":
-        return [
-          { label: "Trang chủ", href: "/internal" },
-          { label: "Giới thiệu" },
-        ];
-      case "/internal/gioithieu/ban-lanh-dao":
-        return [
-          { label: "Trang chủ", href: "/internal" },
-          { label: "Giới thiệu", href: "/internal/gioithieu" },
-          { label: "Ban lãnh đạo" },
-        ];
+  const containerRef = useRef<HTMLDivElement>(null);
+  const aboutSectionRef = useRef<HTMLDivElement>(null);
+  const historySectionRef = useRef<HTMLDivElement>(null);
+  const coreValuesSectionRef = useRef<HTMLDivElement>(null);
+  const humanValuesRef = useRef<HTMLDivElement>(null);
+  const orgStructureSectionRef = useRef<HTMLDivElement>(null);
+  const achievementsSectionRef = useRef<HTMLDivElement>(null);
+  const capabilitiesSectionRef = useRef<HTMLDivElement>(null);
+  const archivePhotosSectionRef = useRef<HTMLDivElement>(null);
+
+  // Theme management for AboutPage
+  // Detect khi scroll đến CardStack thứ 2 (Giá trị Con người) để chuyển sang dark mode
+  const { isLightMode } = useAboutPageTheme(
+    coreValuesSectionRef,
+    humanValuesRef,
+    orgStructureSectionRef,
+    capabilitiesSectionRef,
+    archivePhotosSectionRef
+  );
+
+  useEffect(() => {
+    if (aboutSectionRef.current) {
+      // Small delay to ensure page is fully rendered
+      const timer = setTimeout(() => {
+        aboutSectionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 100);
+
+      return () => clearTimeout(timer);
     }
-  };
+  }, []);
+
+  // Navigation sections
+  const navigationSections = [
+    {
+      id: "about",
+      label: "Về chúng tôi",
+      ref: aboutSectionRef,
+    },
+    {
+      id: "history",
+      label: "Lịch sử",
+      ref: historySectionRef,
+    },
+    {
+      id: "core-values",
+      label: "Giá trị cốt lõi",
+      ref: coreValuesSectionRef,
+    },
+    {
+      id: "org-structure",
+      label: "Cơ cấu tổ chức",
+      ref: orgStructureSectionRef,
+    },
+    {
+      id: "achievements",
+      label: "Thành tựu",
+      ref: achievementsSectionRef,
+    },
+    {
+      id: "capabilities",
+      label: "Lĩnh vực hoạt động",
+      ref: capabilitiesSectionRef,
+    },
+    {
+      id: "archive-photos",
+      label: "Hình ảnh tư liệu",
+      ref: archivePhotosSectionRef,
+    },
+  ];
 
   return (
-    <>
-      <PageHeader
-        title="Về chúng tôi"
-        backgroundImage={danKhoanBackground}
-        breadcrumbs={getBreadcrumbs()}
-      />
+    <div ref={containerRef}>
       <Routes>
         <Route
           path="/"
           element={
-            <div className="">
-              {/* Wrapper để tạo không gian scroll - quan trọng để tránh giật */}
-              <div
-                className="relative"
-                style={{ minHeight: `${wrapperMinHeight}px` }}
-              >
-                <motion.div
-                  ref={ref}
-                  className="sticky top-0 z-[5]"
-                  style={{
-                    y,
-                    opacity,
-                    willChange: "transform, opacity", // Tối ưu performance
-                  }}
-                >
-                  <AnimatedSection
-                    animation="fadeInUp"
-                    delay={100}
-                    className="bg-vietsov-background"
-                  >
-                    <SectionWithTitle
-                      title="Liên doanh Việt - Nga"
-                      titleColor="text-vietsov-green"
-                    >
-                      <JointVentureSection />
-                    </SectionWithTitle>
-                  </AnimatedSection>
-                </motion.div>
+            <div>
+              <div ref={aboutSectionRef}>
+                <AboutSection />
               </div>
-
-              {/* Section tiếp theo với negative margin để bù cho transform */}
-              <motion.div
-                style={{
-                  marginTop: useTransform(
-                    nextSectionMargin,
-                    (value) => `${value}px`
-                  ),
-                }}
-              >
+              <div ref={historySectionRef}>
                 <HistorySection image={danKhoanBackground} />
-              </motion.div>
+              </div>
               {/* Core Values Section */}
-              <AnimatedSection
-                animation="fadeInUp"
-                delay={100}
-                className="bg-[#f0faf4]"
-              >
-                <CoreValuesSectionV2 />
-              </AnimatedSection>
+              <div ref={coreValuesSectionRef}>
+                <CoreValuesSectionV2
+                  isLightMode={isLightMode}
+                  humanValuesRef={humanValuesRef}
+                />
+              </div>
               {/* Organization Structure */}
-              <AnimatedSection
-                animation="fadeInUp"
-                delay={100}
-                className="bg-vietsov-background"
-              >
-                <SectionWithTitle
-                  title="Cơ cấu tổ chức"
-                  titleColor="text-vietsov-green"
-                >
-                  <OrgStructureSection />
-                </SectionWithTitle>
-              </AnimatedSection>
+              <div ref={orgStructureSectionRef}>
+                <OrgStructureSection isLightMode={isLightMode} />
+              </div>
               {/* Achievements */}
               <AnimatedSection animation="fadeInUp" delay={100}>
-                <AchievementsSection />
+                <div ref={achievementsSectionRef}>
+                  <AchievementsSection />
+                </div>
               </AnimatedSection>
               {/* Capabilities */}
-              <AnimatedSection
-                animation="fadeInUp"
-                delay={100}
-                className="bg-vietsov-background2"
-              >
-                <SectionWithTitle title="Lĩnh Vực Hoạt Động">
-                  <CapabilitiesSection />
-                </SectionWithTitle>
+              <AnimatedSection animation="fadeInUp" delay={100}>
+                <div ref={capabilitiesSectionRef}>
+                  <CapabilitiesSectionParallax isLightMode={isLightMode} />
+                </div>
               </AnimatedSection>
               {/* Archive Photos */}
-              <AnimatedSection
-                animation="fadeInUp"
-                delay={100}
-                className="pb-16"
-              >
-                <SectionWithTitle title="Hình ảnh tư liệu">
-                  <ArchivePhotosSection hideTitle={true} />
-                </SectionWithTitle>
-              </AnimatedSection>
+              <div ref={archivePhotosSectionRef}>
+                <FeaturedProjectSlider
+                  projects={defaultFeaturedProjects}
+                  title="Hình ảnh tư liệu"
+                  seeMoreLink="/internal/tintuc/thu-vien-anh-video"
+                  isLightMode={isLightMode}
+                />
+              </div>
+
+              {/* Navigation */}
+              <HomePageNavigation sections={navigationSections} />
             </div>
           }
         />
         <Route path="/ban-lanh-dao" element={<LeaderPage />} />
       </Routes>
-    </>
+    </div>
   );
 };
 

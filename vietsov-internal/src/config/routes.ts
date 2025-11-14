@@ -7,6 +7,7 @@ export const INTERNAL_ROUTES = {
   REPORTS: "/baocao",
   APPLICATIONS: "/ungdung",
   SEARCH: "/tracuu",
+  CONTACT: "/lienhe",
 } as const;
 
 // All routes

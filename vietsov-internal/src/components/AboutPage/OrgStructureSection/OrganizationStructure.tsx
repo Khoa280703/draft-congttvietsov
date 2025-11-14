@@ -84,13 +84,23 @@ const NodeModal: React.FC<NodeModalProps> = ({
   onClose,
   onLeaderClick,
 }) => {
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (node) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [node]);
+
   if (!node) return null;
 
   const isLeadershipNode = node.id === "ban-tong-giam-doc";
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/20"
+      className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/20 overflow-hidden"
       onClick={onClose}
     >
       <div
@@ -98,8 +108,12 @@ const NodeModal: React.FC<NodeModalProps> = ({
           isLeadershipNode
             ? "w-[90vw] max-w-6xl"
             : "w-[32rem] sm:w-[36rem] max-w-[90vw]"
-        } max-h-[80vh] overflow-y-auto transform transition-all duration-300 ease-out animate-fade-scale-in`}
+        } max-h-[85vh] my-4 overflow-y-auto custom-scrollbar transform transition-all duration-300 ease-out animate-fade-scale-in`}
         onClick={(e) => e.stopPropagation()}
+        onWheel={(e) => {
+          // Allow scroll inside modal
+          e.stopPropagation();
+        }}
       >
         {/* Header with gradient background */}
         <div className="flex justify-between items-start pb-4 border-b border-gray-100 mb-6">
@@ -314,6 +328,22 @@ const NodeModal: React.FC<NodeModalProps> = ({
           )}
         </div>
       </div>
+      <style>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: #f3f4f6;
+          border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #9ca3af;
+          border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #6b7280;
+        }
+      `}</style>
     </div>
   );
 };

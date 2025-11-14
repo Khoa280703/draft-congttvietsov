@@ -14,5 +14,4 @@ export { default as Header } from "./Header";
 export { default as JointVentureSection } from "./AboutPage/JointVentureSection";
 export { default as OrgStructureSection } from "./AboutPage/OrgStructureSection";
 export { default as AchievementsSection } from "./AboutPage/AchievementsSection";
-export { default as CapabilitiesSection } from "./AboutPage/CapabilitiesSection";
 export { default as ArchivePhotosSection } from "./AboutPage/ArchivePhotosSection";

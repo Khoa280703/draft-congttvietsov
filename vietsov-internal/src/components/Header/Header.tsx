@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { HiMenu, HiX, HiOutlineLocationMarker } from "react-icons/hi";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import { ROUTES } from "@/config/navigation";
 
 // Flag URLs
 const russianFlagUrl = "https://flagcdn.com/w40/ru.png";
@@ -16,7 +17,7 @@ const Header: React.FC<HeaderProps> = () => {
   const navigate = useNavigate();
   return (
     <header className="bg-vietsov-gradient-green text-white shadow-lg">
-      <div className="px-4 lg:px-80 py-2">
+      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 py-2 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
         <div className="flex justify-between items-center">
           {/* Left Section - Language Selection - Desktop only */}
           <div className="hidden lg:flex items-center space-x-4">
@@ -66,7 +67,7 @@ const Header: React.FC<HeaderProps> = () => {
             {/* Desktop buttons - hidden on mobile */}
             <button
               className="hidden lg:flex items-center space-x-2 hover:text-gray-300 transition-colors cursor-pointer"
-              onClick={() => navigate("/lienhe")}
+              onClick={() => navigate(ROUTES.INTERNAL.CONTACT)}
             >
               <HiOutlineLocationMarker className="w-4 h-4" />
               <span className="font-medium text-sm-label leading-sm-label tracking-normal">
@@ -139,7 +140,7 @@ const Header: React.FC<HeaderProps> = () => {
             </div>
             <button
               className="flex items-center space-x-2 py-2 hover:bg-white/10 rounded px-2 w-full text-left cursor-pointer"
-              onClick={() => navigate("/lienhe")}
+              onClick={() => navigate(ROUTES.INTERNAL.CONTACT)}
             >
               <HiOutlineLocationMarker className="w-4 h-4" />
               <span className="font-medium text-sm-label leading-sm-label tracking-normal">

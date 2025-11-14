@@ -162,8 +162,19 @@ const HistorySection: React.FC<HistorySectionProps> = ({
         {data && (
           <div className="relative z-10 h-full flex items-center w-full">
             {/* Left: Timeline and Content */}
-            <div className="container px-4 md:px-6 lg:px-8 w-full">
-              <div className="grid grid-cols-12 gap-4 md:gap-6 lg:gap-8 items-start w-4/6">
+            <div className="mx-auto px-4 lg:px-6 laptop:px-8 fhd:px-16 qhd:px-24 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
+              <motion.div
+                className="text-center mb-6 md:mb-8 lg:mb-12 laptop:mb-14 fhd:mb-24 qhd:mb-18 flex justify-start"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl laptop:text-6xl fhd:text-7xl qhd:text-8xl font-bold uppercase leading-tight text-white">
+                  LỊCH SỬ HÌNH THÀNH
+                </h2>
+              </motion.div>
+              <div className="grid grid-cols-12 gap-4 md:gap-6 lg:gap-8 laptop:gap-10 fhd:gap-12 qhd:gap-14 items-start w-4/6">
                 <Timeline
                   years={data.years}
                   activeYearIndex={activeYearIndex}

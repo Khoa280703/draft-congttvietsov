@@ -2,12 +2,14 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { type CoreValue } from "./data";
 import CardV2 from "./CardV2";
+import { getCoreValuesThemeColors } from "./theme";
 
 interface CardStackProps {
   values: CoreValue[];
   titleColor: "green" | "black";
   isInView: boolean;
   parallaxSpeed?: number;
+  isLightMode?: boolean;
 }
 
 const CardStack: React.FC<CardStackProps> = ({
@@ -15,7 +17,9 @@ const CardStack: React.FC<CardStackProps> = ({
   titleColor,
   isInView,
   parallaxSpeed = 0,
+  isLightMode = true,
 }) => {
+  const theme = getCoreValuesThemeColors(isLightMode);
   const stackRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: stackRef,
@@ -31,7 +35,7 @@ const CardStack: React.FC<CardStackProps> = ({
   return (
     <motion.div
       ref={stackRef}
-      className="mb-24 md:mb-32"
+      className="mb-24 md:mb-32 lg:mb-36 laptop:mb-40 fhd:mb-44 qhd:mb-48"
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.8 }}
@@ -40,37 +44,52 @@ const CardStack: React.FC<CardStackProps> = ({
       }}
     >
       {/* Title */}
-      <div className="text-center mb-12 md:mb-16">
+      <div className="text-center mb-6 md:mb-8 lg:mb-12 laptop:mb-14 fhd:mb-24 qhd:mb-18">
         <motion.h2
-          className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4"
+          className="text-2xl md:text-3xl lg:text-4xl laptop:text-5xl fhd:text-6xl qhd:text-7xl font-bold uppercase leading-tight transition-colors duration-700"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={
             isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
           }
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          {titleColor === "green" ? (
+          {titleColor == "green" ? (
             <>
-              <span className="text-vietsov-green-label mr-1">Giá trị</span>{" "}
-              <span className="text-vietsov-black">Vietsovpetro</span>
+              <span
+                className={`${theme.cardStackTitleGreen} mr-4 transition-colors duration-700`}
+              >
+                GIÁ TRỊ
+              </span>
+              <span
+                className={`${theme.cardStackTitleBlack} transition-colors duration-700`}
+              >
+                VIETSOVPETRO
+              </span>
             </>
           ) : (
             <>
-              <span className="text-vietsov-black mr-1">Giá trị</span>{" "}
-              <span className="text-vietsov-green-label">Con người</span>
+              <span
+                className={`${theme.cardStackTitleBlack} mr-4 transition-colors duration-700`}
+              >
+                GIÁ TRỊ
+              </span>
+              <span
+                className={`${theme.cardStackTitleGreen} transition-colors duration-700`}
+              >
+                CON NGƯỜI
+              </span>
             </>
           )}
         </motion.h2>
-        <motion.div
-          className="w-24 h-1 bg-gradient-to-r from-transparent via-vietsov-green to-transparent mx-auto"
-          initial={{ width: 0 }}
-          animate={isInView ? { width: 96 } : { width: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 laptop:gap-12 fhd:gap-14 qhd:gap-16">
         {values.map((value, index) => (
-          <CardV2 key={value.id} value={value} index={index} />
+          <CardV2
+            key={value.id}
+            value={value}
+            index={index}
+            isLightMode={isLightMode}
+          />
         ))}
       </div>
     </motion.div>

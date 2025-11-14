@@ -1,14 +1,17 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { type CoreValue, getIconComponent } from "./data";
+import { type CoreValue } from "./data";
+import { getCoreValuesThemeColors } from "./theme";
 
 interface CardV2Props {
   value: CoreValue;
   index: number;
+  isLightMode?: boolean;
 }
 
-const CardV2: React.FC<CardV2Props> = ({ value }) => {
+const CardV2: React.FC<CardV2Props> = ({ value, isLightMode = true }) => {
+  const theme = getCoreValuesThemeColors(isLightMode);
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -52,7 +55,7 @@ const CardV2: React.FC<CardV2Props> = ({ value }) => {
   return (
     <motion.div
       ref={cardRef}
-      className="relative flex items-end overflow-hidden p-4 w-full text-center text-white bg-white shadow-[0_1px_1px_rgba(0,0,0,0.1),0_2px_2px_rgba(0,0,0,0.1),0_4px_4px_rgba(0,0,0,0.1),0_8px_8px_rgba(0,0,0,0.1),0_16px_16px_rgba(0,0,0,0.1)] md:h-[460px] group"
+      className={`relative flex items-end overflow-hidden p-4 md:p-5 lg:p-6 laptop:p-7 fhd:p-8 qhd:p-10 w-full text-center ${theme.cardText} ${theme.cardBackground} shadow-[0_1px_1px_rgba(0,0,0,0.1),0_2px_2px_rgba(0,0,0,0.1),0_4px_4px_rgba(0,0,0,0.1),0_8px_8px_rgba(0,0,0,0.1),0_16px_16px_rgba(0,0,0,0.1)] h-[300px] md:h-[300px] lg:h-[400px] laptop:h-[400px] fhd:h-[600px] qhd:h-[700px] group transition-colors duration-700`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
@@ -60,7 +63,9 @@ const CardV2: React.FC<CardV2Props> = ({ value }) => {
         opacity,
       }}
     >
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-black/50 z-10"></div>
+      <div
+        className={`absolute top-0 left-0 w-full h-full ${theme.cardGradientOverlay} z-10 transition-colors duration-700`}
+      ></div>
       {/* Background Image */}
       {value.image && (
         <div
@@ -103,37 +108,22 @@ const CardV2: React.FC<CardV2Props> = ({ value }) => {
 
       {/* Content */}
       <div
-        className="relative flex flex-col items-center w-full p-4 z-10 md:transition-transform md:duration-[700ms] md:ease-[cubic-bezier(0.19,1,0.22,1)]"
+        className="relative flex flex-col items-center w-full p-4 md:p-5 lg:p-6 laptop:p-7 fhd:p-8 qhd:p-10 z-10 md:transition-transform md:duration-[700ms] md:ease-[cubic-bezier(0.19,1,0.22,1)]"
         style={{
           transform: isHovered
             ? "translateY(-2rem)"
-            : "translateY(calc(100% - 4.5rem))",
+            : "translateY(calc(100% - 7rem))",
         }}
       >
-        {getIconComponent(value.iconType) && (
-          <div
-            className="mb-8 md:absolute md:-top-12 md:mb-0"
-            style={{
-              opacity: isHovered ? 1 : 0,
-              transform: isHovered ? "translateY(0)" : "translateY(1rem)",
-              transition: isHovered
-                ? "transform 700ms cubic-bezier(0.19, 1, 0.22, 1) 87.5ms, opacity 700ms cubic-bezier(0.19, 1, 0.22, 1) 87.5ms"
-                : "transform 700ms cubic-bezier(0.19, 1, 0.22, 1), opacity 700ms cubic-bezier(0.19, 1, 0.22, 1)",
-              pointerEvents: isHovered ? "auto" : "none",
-            }}
-          >
-            {getIconComponent(value.iconType)}
-          </div>
-        )}
         {/* Title - Always visible */}
-        <h2 className="text-[1.3rem] font-bold leading-tight mb-0">
+        <h2 className="text-[1.3rem] md:text-[1.5rem] lg:text-[1.75rem] laptop:text-xl fhd:text-3xl qhd:text-4xl font-bold leading-tight mb-0">
           {value.title}
         </h2>
 
         {/* Description - Fade in on hover (desktop only) */}
         {value.description && (
           <p
-            className="text-[1.125rem] italic leading-[1.35] mt-4 md:opacity-0 md:translate-y-4 md:transition-[transform,opacity] md:duration-[700ms] md:ease-[cubic-bezier(0.19,1,0.22,1)]"
+            className="text-[1.125rem] md:text-[1.25rem] line-clamp-3  lg:text-[1.375rem] laptop:text-lg fhd:text-2xl qhd:text-3xl italic leading-[1.35] mt-4 md:mt-5 lg:mt-6 laptop:mt-7 fhd:mt-8 qhd:mt-10 md:opacity-0 md:translate-y-4 md:transition-[transform,opacity] md:duration-[700ms] md:ease-[cubic-bezier(0.19,1,0.22,1)]"
             style={{
               opacity: isHovered ? 1 : undefined,
               transform: isHovered ? "translateY(0)" : undefined,
@@ -149,7 +139,7 @@ const CardV2: React.FC<CardV2Props> = ({ value }) => {
         {value.url && (
           <Link
             to={value.url}
-            className="cursor-pointer mt-6 px-6 py-3 text-[0.65rem] font-bold tracking-[0.025rem] uppercase text-white bg-black border-none hover:bg-[#0d0d0d] focus:outline focus:outline-1 focus:outline-dashed focus:outline-yellow-400 focus:outline-offset-[3px] transition-colors duration-200 md:opacity-0 md:translate-y-4 md:transition-[transform,opacity] md:duration-[700ms] md:ease-[cubic-bezier(0.19,1,0.22,1)]"
+            className={`cursor-pointer mt-6 md:mt-7 lg:mt-8 laptop:mt-9 fhd:mt-10 qhd:mt-12 px-6 md:px-7 lg:px-8 laptop:px-9 fhd:px-10 qhd:px-12 py-3 md:py-3.5 lg:py-4 laptop:py-4.5 fhd:py-5 qhd:py-6 text-[0.65rem] md:text-[0.75rem] lg:text-sm laptop:text-sm fhd:text-lg qhd:text-xl font-bold tracking-[0.025rem] uppercase text-white ${theme.cardButtonBackground} border-none ${theme.cardButtonHover} focus:outline focus:outline-1 focus:outline-dashed ${theme.cardButtonFocus} focus:outline-offset-[3px] transition-colors duration-200 md:opacity-0 md:translate-y-4 md:transition-[transform,opacity] md:duration-[700ms] md:ease-[cubic-bezier(0.19,1,0.22,1)]`}
             onClick={(e) => {
               e.stopPropagation();
             }}
