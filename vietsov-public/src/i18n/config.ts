@@ -38,11 +38,10 @@ i18n
       caches: ["localStorage", "cookie"],
       cookieOptions: {
         path: "/",
-        sameSite: "Lax",
+        sameSite: "lax",
         maxAge: 365 * 24 * 60 * 60, // 1 year
       },
     },
   });
 
 export default i18n;
-
