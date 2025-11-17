@@ -1,5 +1,6 @@
 import type { ApiResponse } from "@/types/api";
 import { API_CONFIG } from "@/config/api";
+import { getLanguageForAPI } from "@/utils/language";
 
 // API Client Class
 export class ApiClient {
@@ -19,11 +20,15 @@ export class ApiClient {
     const timeoutId = setTimeout(() => controller.abort(), this.timeout);
 
     try {
+      // Get current language and add Accept-Language header
+      const acceptLanguage = getLanguageForAPI();
+      
       const response = await fetch(`${this.baseUrl}${endpoint}`, {
         ...options,
         signal: controller.signal,
         headers: {
           "Content-Type": "application/json",
+          "Accept-Language": acceptLanguage,
           ...options.headers,
         },
       });

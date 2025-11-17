@@ -111,7 +111,10 @@ const PartnerSection: React.FC<PartnerSectionProps> = () => {
       </div>
 
       {/* Content */}
-      <motion.div className="relative z-20" style={{ opacity }}>
+      <motion.div
+        className="relative z-20 mt-8 md:mt-10 lg:mt-12 laptop:mt-14 fhd:mt-16 qhd:mt-18"
+        style={{ opacity }}
+      >
         {/* Title Section với Parallax */}
         <motion.div
           className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 pt-16 md:pt-20 lg:pt-24 laptop:pt-28 fhd:pt-32 qhd:pt-36 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]"

@@ -5,6 +5,8 @@ import "./index.css";
 import "./types";
 import "./types/global";
 import { QueryProvider } from "./providers";
+// Initialize i18n before app renders
+import "./i18n/config";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

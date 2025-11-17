@@ -149,7 +149,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                   <div className="mx-auto px-6 md:px-12 lg:px-20 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
                     <div className="max-w-3xl lg:max-w-2xl laptop:max-w-3xl fhd:max-w-4xl qhd:max-w-5xl">
                       {/* Content Section */}
-                      <div className="mb-8 lg:mb-6 laptop:mb-8 fhd:mb-10 qhd:mb-12">
+                      <div className="mb-8 lg:mb-6 laptop:mb-8 fhd:mb-10 qhd:mb-12 lg:ml-8">
                         {/* Category Text */}
                         <motion.p
                           className="text-sm md:text-base lg:text-lg laptop:text-base fhd:text-lg qhd:text-xl font-medium uppercase tracking-wider mb-4 lg:mb-4 laptop:mb-4 fhd:mb-5 qhd:mb-6"

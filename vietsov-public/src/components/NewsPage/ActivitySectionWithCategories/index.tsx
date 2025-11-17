@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { CardFullDetail } from "@/components/Card";
 import { SeeMoreButtonSimple } from "@/components/Button";
+import Pagination from "@/components/Pagination";
 import {
   type ActivitySectionWithCategoriesProps,
   defaultActivitiesData,
@@ -16,8 +17,11 @@ const ActivitySectionWithCategories: React.FC<
   viewMoreLink = "/tintuc",
   className = "",
   activities = defaultActivitiesData,
+  itemsPerPage = 6,
 }) => {
   const [activeCategory, setActiveCategory] = useState("Tất cả");
+  const [currentPage, setCurrentPage] = useState(1);
+  const paginationRef = useRef<HTMLDivElement>(null);
 
   // Filter activities based on selected category
   const filteredActivities = useMemo(() => {
@@ -28,6 +32,31 @@ const ActivitySectionWithCategories: React.FC<
       (activity) => activity.category === activeCategory
     );
   }, [activeCategory, activities]);
+
+  // Reset to page 1 when category changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeCategory]);
+
+  // Scroll to pagination when page changes
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Scroll to pagination after a short delay to ensure DOM is updated
+    setTimeout(() => {
+      paginationRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 100);
+  };
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredActivities.length / itemsPerPage);
+  const paginatedActivities = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return filteredActivities.slice(startIndex, endIndex);
+  }, [filteredActivities, currentPage, itemsPerPage]);
 
   // Get dynamic title and URL based on active category
   // Use props as fallback for "Tất cả" category, otherwise use config
@@ -90,7 +119,7 @@ const ActivitySectionWithCategories: React.FC<
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        {filteredActivities.map((activity) => (
+        {paginatedActivities.map((activity) => (
           <motion.div
             key={activity.id}
             initial={{ opacity: 0, y: 20 }}
@@ -113,6 +142,24 @@ const ActivitySectionWithCategories: React.FC<
           </motion.div>
         ))}
       </motion.div>
+
+      {/* Pagination - Fixed position */}
+      {totalPages > 1 && (
+        <div ref={paginationRef} className="mt-12">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          </motion.div>
+        </div>
+      )}
     </motion.div>
   );
 };

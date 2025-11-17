@@ -46,65 +46,80 @@ const TextMorphing: React.FC<TextMorphingProps> = ({
     };
   };
 
-  // Tách text thành các ký tự
-  const currentChars = isScattering ? prevText.split("") : text.split("");
+  // Tách text thành CÁC TỪ và KHOẢNG TRẮNG, giữ lại khoảng trắng
+  // Ví dụ: "Hello world" -> ["Hello", " ", "world"]
+  const elements = text.split(/(\s+)/);
+  let charIndex = 0; // Index ký tự toàn cục cho animation
 
   return (
-    <span className={`inline-block ${className}`}>
-      {currentChars.map((char, index) => {
-        const isSpace = char === " ";
-        const randomValues = getRandomValues(index);
+    <span className={`inline ${className}`}>
+      {elements.map((element, elementIndex) => {
+        // Nếu là khoảng trắng, chỉ render nó (cho phép ngắt dòng)
+        if (/^\s+$/.test(element)) {
+          return <span key={elementIndex}>{"\u00A0"}</span>;
+        }
 
+        // Nếu là MỘT TỪ, bọc nó trong 1 span inline-block
         return (
-          <motion.span
-            key={`${morphKey}-${index}-${char}-${
-              isScattering ? "scatter" : "assemble"
-            }`}
-            className="inline-block"
-            initial={
-              isScattering
-                ? {
-                    opacity: 1,
-                    x: 0,
-                    y: 0,
-                    rotate: 0,
-                    scale: 1,
+          <span key={elementIndex} className="inline-block">
+            {element.split("").map((char) => {
+              const randomValues = getRandomValues(charIndex);
+              const key = `${morphKey}-${charIndex}-${char}-${
+                isScattering ? "scatter" : "assemble"
+              }`;
+              charIndex++; // Tăng index toàn cục
+
+              return (
+                <motion.span
+                  key={key}
+                  className="inline-block" // Bọc KÝ TỰ
+                  initial={
+                    isScattering
+                      ? {
+                          opacity: 1,
+                          x: 0,
+                          y: 0,
+                          rotate: 0,
+                          scale: 1,
+                        }
+                      : {
+                          opacity: 0,
+                          x: randomValues.x,
+                          y: randomValues.y,
+                          rotate: randomValues.rotate,
+                          scale: 0.5,
+                        }
                   }
-                : {
-                    opacity: 0,
-                    x: randomValues.x,
-                    y: randomValues.y,
-                    rotate: randomValues.rotate,
-                    scale: 0.5,
+                  animate={
+                    isScattering
+                      ? {
+                          opacity: 0,
+                          x: randomValues.x,
+                          y: randomValues.y,
+                          rotate: randomValues.rotate,
+                          scale: 0.3,
+                        }
+                      : {
+                          opacity: 1,
+                          x: 0,
+                          y: 0,
+                          rotate: 0,
+                          scale: 1,
+                        }
                   }
-            }
-            animate={
-              isScattering
-                ? {
-                    opacity: 0,
-                    x: randomValues.x,
-                    y: randomValues.y,
-                    rotate: randomValues.rotate,
-                    scale: 0.3,
-                  }
-                : {
-                    opacity: 1,
-                    x: 0,
-                    y: 0,
-                    rotate: 0,
-                    scale: 1,
-                  }
-            }
-            transition={{
-              duration: isScattering ? 0.6 : 0.8,
-              ease: isScattering
-                ? [0.4, 0, 0.2, 1] // Ease out cho scatter
-                : [0.34, 1.56, 0.64, 1], // Elastic ease cho assemble (tạo hiệu ứng "bounce")
-              delay: randomValues.delay, // Random delay nhỏ để tự nhiên hơn
-            }}
-          >
-            {isSpace ? "\u00A0" : char}
-          </motion.span>
+                  transition={{
+                    duration: isScattering ? 0.6 : 0.8,
+                    ease: isScattering
+                      ? [0.4, 0, 0.2, 1] // Ease out cho scatter
+                      : [0.34, 1.56, 0.64, 1], // Elastic ease cho assemble (tạo hiệu ứng "bounce")
+                    delay: randomValues.delay, // Random delay nhỏ để tự nhiên hơn
+                  }}
+                >
+                  {char}
+                </motion.span>
+              );
+            })}
+          </span>
         );
       })}
     </span>

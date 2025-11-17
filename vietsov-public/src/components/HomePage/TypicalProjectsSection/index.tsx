@@ -1,5 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import FeaturedProject, { type FeaturedProjectData } from "./FeaturedProject";
 import RelatedProjects, {
   type Project,
@@ -8,6 +13,7 @@ import RelatedProjects, {
 import { getTypicalProjectsSectionThemeColors } from "./theme";
 import DotLineL from "./DotLineL";
 import { useLinePosition } from "../VisionMission/useLinePosition";
+import { categories } from "./data";
 
 interface TypicalProjectsSectionProps {
   featuredProject?: FeaturedProjectData;
@@ -25,6 +31,24 @@ const TypicalProjectsSection: React.FC<TypicalProjectsSectionProps> = ({
   const theme = getTypicalProjectsSectionThemeColors(isLightMode);
   const containerRef = useRef<HTMLElement>(null);
   const relatedProjectsRef = useRef<RelatedProjectsRef>(null);
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
+  const currentCategory = categories[currentCategoryIndex];
+
+  // Use provided data or fallback to category data
+  const displayFeaturedProject =
+    featuredProject || currentCategory.featuredProject;
+  const displayRelatedProjects =
+    relatedProjects || currentCategory.relatedProjects;
+
+  const handleNextCategory = () => {
+    setCurrentCategoryIndex((prev) => (prev + 1) % categories.length);
+  };
+
+  const handlePrevCategory = () => {
+    setCurrentCategoryIndex(
+      (prev) => (prev - 1 + categories.length) % categories.length
+    );
+  };
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -93,26 +117,40 @@ const TypicalProjectsSection: React.FC<TypicalProjectsSectionProps> = ({
         />
       </div>
 
-      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 h-[120vh] flex items-center w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
+      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 h-[120vh] flex items-center w-full">
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 laptop:gap-16 fhd:gap-20 qhd:gap-24">
           {/* Left Column - Featured Project */}
           <div className="lg:sticky lg:top-24 lg:self-start col-span-3">
-            <FeaturedProject
-              project={featuredProject}
-              isLightMode={isLightMode}
-            />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentCategoryIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <FeaturedProject
+                  project={displayFeaturedProject}
+                  isLightMode={isLightMode}
+                  category={currentCategory.name}
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           {/* Right Column - Related Projects */}
           <div className="flex items-stretch col-span-2">
             <RelatedProjects
               ref={relatedProjectsRef}
-              projects={relatedProjects}
+              projects={displayRelatedProjects}
               title={{
                 prefix: "DỰ ÁN",
                 suffix: "TIÊU BIỂU",
+                category: currentCategory.name,
               }}
+              onPrevCategory={handlePrevCategory}
+              onNextCategory={handleNextCategory}
               viewAllText="XEM TẤT CẢ"
               isLightMode={isLightMode}
               className="w-full"

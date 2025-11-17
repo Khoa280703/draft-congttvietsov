@@ -16,6 +16,7 @@ export interface ActivitySectionWithCategoriesProps {
   viewMoreLink?: string;
   className?: string;
   activities?: ActivityItem[];
+  itemsPerPage?: number;
 }
 
 export const defaultActivityCategories = [
@@ -93,8 +94,7 @@ export const defaultActivitiesData: ActivityItem[] = [
   {
     id: 4,
     category: "Hoạt động kinh doanh",
-    title:
-      "Vietsovpetro mở rộng hợp tác thương mại với các đối tác quốc tế",
+    title: "Vietsovpetro mở rộng hợp tác thương mại với các đối tác quốc tế",
     timestamp: "10/5/2024 11:30:00 AM",
     description:
       "Vietsovpetro đã ký kết các thỏa thuận hợp tác mới với nhiều đối tác quốc tế, mở rộng cơ hội kinh doanh và phát triển thị trường.",
@@ -113,12 +113,154 @@ export const defaultActivitiesData: ActivityItem[] = [
   {
     id: 6,
     category: "Hoạt động sản xuất",
-    title:
-      "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 7,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 8,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 9,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 10,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 11,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 12,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 13,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 14,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 15,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 16,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 17,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 18,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 19,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 20,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 21,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
+    timestamp: "10/10/2024 9:00:00 AM",
+    description:
+      "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
+    image: hoiNghiSuKien,
+  },
+  {
+    id: 22,
+    category: "Hoạt động sản xuất",
+    title: "Nâng cao hiệu quả sản xuất thông qua ứng dụng công nghệ mới",
     timestamp: "10/10/2024 9:00:00 AM",
     description:
       "Vietsovpetro tiếp tục đầu tư vào công nghệ mới để nâng cao hiệu quả sản xuất và đảm bảo chất lượng sản phẩm.",
     image: hoiNghiSuKien,
   },
 ];
-

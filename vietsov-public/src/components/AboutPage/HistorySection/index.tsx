@@ -172,8 +172,8 @@ const HistorySection: React.FC<HistorySectionProps> = ({
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                 >
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl laptop:text-6xl fhd:text-7xl qhd:text-8xl font-bold uppercase leading-tight text-white">
-                    LỊCH SỬ HÌNH THÀNH
+                  <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl laptop:text-5xl fhd:text-6xl qhd:text-8xl font-bold uppercase leading-tight text-white">
+                    CÁC CỘT MỐC QUAN TRỌNG
                   </h2>
                 </motion.div>
 
@@ -233,7 +233,7 @@ const HistorySection: React.FC<HistorySectionProps> = ({
                     transition={{ duration: 0.6, ease: "easeOut" }}
                   >
                     <h2 className="text-2xl md:text-3xl lg:text-4xl laptop:text-5xl fhd:text-6xl qhd:text-7xl font-bold uppercase leading-tight text-white">
-                      LỊCH SỬ HÌNH THÀNH
+                      CÁC CỘT MỐC QUAN TRỌNG
                     </h2>
                   </motion.div>
 

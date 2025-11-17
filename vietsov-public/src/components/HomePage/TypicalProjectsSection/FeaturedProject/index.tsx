@@ -21,6 +21,7 @@ interface FeaturedProjectProps {
   viewProjectText?: string;
   isLightMode?: boolean;
   className?: string;
+  category?: string;
 }
 
 const FeaturedProject: React.FC<FeaturedProjectProps> = ({
@@ -28,6 +29,7 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
   viewProjectText = "XEM CHI TIẾT",
   isLightMode = true,
   className = "",
+  category,
 }) => {
   const theme = getTypicalProjectsSectionThemeColors(isLightMode);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -87,6 +89,18 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
             alt={project.imageAlt || project.title}
             className="w-full h-full object-cover"
           />
+          {/* Category Card - Top Left, Diagonal - Stamp Style */}
+          {category && (
+            <div
+              className="absolute top-3 left-3 bg-white px-3 py-1.5 text-xs font-bold text-gray-800 shadow-lg transform -rotate-6 origin-top-left z-0"
+              style={{
+                clipPath:
+                  "polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px)",
+              }}
+            >
+              {category}
+            </div>
+          )}
           {/* Date Bar */}
           <div
             className={`absolute top-4 right-4 ${theme.featuredProjectDateBar} text-white px-3 py-1.5 text-xs font-medium`}
@@ -128,14 +142,20 @@ const FeaturedProject: React.FC<FeaturedProjectProps> = ({
       </div>
 
       {/* Desktop: Complex overlapping layout */}
-      <div className="hidden md:block relative w-300 lg:w-400 laptop:w-200 fhd:w-300 qhd:w-400 min-h-[550px] lg:min-h-[600px] laptop:min-h-[700px] fhd:min-h-[800px] qhd:min-h-[900px] transition-colors duration-700">
+      <div className="hidden md:block relative w-300 lg:w-400 laptop:w-200 fhd:w-250 qhd:w-400 min-h-[550px] lg:min-h-[600px] laptop:min-h-[700px] fhd:min-h-[800px] qhd:min-h-[900px] transition-colors duration-700">
         {/* Small Image - Top Left, skewed */}
-        <div className="absolute top-0 left-4 lg:left-8 laptop:left-12 fhd:left-16 qhd:left-20 w-[60%] h-[45%] lg:h-[50%] laptop:h-[55%] fhd:h-[58%] qhd:h-[60%] z-10 transform -rotate-1.5 lg:-rotate-1 laptop:-rotate-0.5 origin-top-left">
+        <div className="absolute top-0 left-4 lg:left-8 laptop:left-12 fhd:left-20 qhd:left-20 w-[60%] h-[45%] lg:h-[50%] laptop:h-[55%] fhd:h-[58%] qhd:h-[60%] z-10 transform -rotate-1.5 lg:-rotate-1 laptop:-rotate-0.5 origin-top-left relative">
           <img
             src={project.image}
             alt={project.imageAlt || project.title}
             className="w-full h-full object-cover shadow-2xl"
           />
+          {/* Category Card - Top Left, Diagonal - Behind image */}
+          {category && (
+            <div className="absolute top-0 left-0 bg-white px-4 py-2 lg:px-5 lg:py-2.5 laptop:px-6 laptop:py-3 fhd:px-7 fhd:py-3.5 qhd:px-8 qhd:py-4 text-sm lg:text-base laptop:text-lg fhd:text-xl qhd:text-2xl font-bold text-gray-800 shadow-2xl transform origin-top-left z-0">
+              {category}
+            </div>
+          )}
         </div>
 
         {/* White Card - Front, overlapping image */}
