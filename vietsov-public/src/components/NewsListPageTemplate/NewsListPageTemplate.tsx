@@ -1,6 +1,13 @@
-import React, { useState, useMemo, useRef } from "react";
+import React, { useState, useMemo, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
-import { PageWithSidebar, Select, Pagination } from "@/components";
+import {
+  PageWithSidebar,
+  Select,
+  Pagination,
+  useSidebarState,
+} from "@/components";
+import { FeaturedNewsLayout } from "@/components/Shared";
+import type { FeaturedNewsItem } from "@/components/Shared/FeaturedNewsLayout";
 import type { SelectOption } from "@/components";
 import { CardFullDetailHori } from "@/components/Card";
 import { FiSearch, FiArrowUp, FiArrowDown } from "react-icons/fi";
@@ -28,6 +35,24 @@ export interface NewsListPageTemplateProps {
   usePageWrapper?: boolean;
 }
 
+type FeaturedHighlightData = {
+  mainCard: FeaturedNewsItem;
+  sideCards: FeaturedNewsItem[];
+};
+
+const FeaturedNewsWithSidebar: React.FC<{ data: FeaturedHighlightData }> = ({
+  data,
+}) => {
+  const isSidebarOpen = useSidebarState();
+  return (
+    <FeaturedNewsLayout
+      mainCard={data.mainCard}
+      sideCards={data.sideCards}
+      isSidebarOpen={isSidebarOpen}
+    />
+  );
+};
+
 const NewsListPageTemplate: React.FC<NewsListPageTemplateProps> = ({
   activePath,
   title,
@@ -50,10 +75,74 @@ const NewsListPageTemplate: React.FC<NewsListPageTemplateProps> = ({
   // Use all articles
   const regularArticles = useMemo(() => articles, [articles]);
 
-  // Filter by search term
+  // Handle article click
+  const handleArticleClick = useCallback(
+    (article: NewsItem) => {
+      if (onArticleClick) {
+        onArticleClick(article);
+      } else {
+        window.location.href = "/tintuc/chi-tiet";
+      }
+    },
+    [onArticleClick]
+  );
+
+  // Get featured articles for FeaturedNewsLayout
+  const featuredArticles = useMemo(() => {
+    const featured = regularArticles.filter(
+      (article) => article.featured === true
+    );
+    // If no featured articles, use first 4 articles
+    if (featured.length === 0 && regularArticles.length > 0) {
+      return regularArticles.slice(0, 4);
+    }
+    // If less than 4 featured, add regular articles to fill
+    if (featured.length < 4) {
+      const remaining = regularArticles
+        .filter((article) => !article.featured)
+        .slice(0, 4 - featured.length);
+      return [...featured, ...remaining].slice(0, 4);
+    }
+    return featured.slice(0, 4);
+  }, [regularArticles]);
+
+  // Prepare FeaturedNewsLayout data
+  const featuredNewsData: FeaturedHighlightData | null = useMemo(() => {
+    if (featuredArticles.length === 0) return null;
+    const mainCard = featuredArticles[0];
+    const sideCards = featuredArticles.slice(1, 4);
+    return {
+      mainCard: {
+        image: mainCard.image,
+        imageAlt: mainCard.imageAlt,
+        category: mainCard.category,
+        title: mainCard.title,
+        timestamp: mainCard.timestamp,
+        description: mainCard.description || "",
+        onClick: () => handleArticleClick(mainCard),
+      },
+      sideCards: sideCards.map((card) => ({
+        image: card.image,
+        imageAlt: card.imageAlt,
+        category: card.category,
+        title: card.title,
+        timestamp: card.timestamp,
+        description: card.description || "",
+        onClick: () => handleArticleClick(card),
+      })),
+    };
+  }, [featuredArticles, handleArticleClick]);
+
+  // Filter by search term and exclude featured articles from list
   const filteredArticles = useMemo(() => {
-    if (!searchTerm) return regularArticles;
-    return regularArticles.filter(
+    let filtered = regularArticles;
+
+    // Exclude featured articles from the list (to avoid duplication)
+    const featuredIds = new Set(featuredArticles.map((a) => a.id));
+    filtered = filtered.filter((article) => !featuredIds.has(article.id));
+
+    if (!searchTerm) return filtered;
+    return filtered.filter(
       (article) =>
         article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         (article.description &&
@@ -63,7 +152,7 @@ const NewsListPageTemplate: React.FC<NewsListPageTemplateProps> = ({
         (article.category &&
           article.category.toLowerCase().includes(searchTerm.toLowerCase()))
     );
-  }, [regularArticles, searchTerm]);
+  }, [regularArticles, searchTerm, featuredArticles]);
 
   // Sort articles
   const sortedArticles = useMemo(() => {
@@ -99,16 +188,20 @@ const NewsListPageTemplate: React.FC<NewsListPageTemplateProps> = ({
     }
   };
 
-  const handleArticleClick = (article: NewsItem) => {
-    if (onArticleClick) {
-      onArticleClick(article);
-    } else {
-      window.location.href = "/tintuc/chi-tiet";
-    }
-  };
-
   const content = (
     <div className={usePageWrapper ? "min-h-screen" : "space-y-8"}>
+      {/* Featured News Layout - Only show when no search term */}
+      {!searchTerm && featuredNewsData && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mb-12"
+        >
+          <FeaturedNewsWithSidebar data={featuredNewsData} />
+        </motion.div>
+      )}
+
       {/* Articles Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

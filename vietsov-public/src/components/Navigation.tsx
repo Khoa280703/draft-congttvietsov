@@ -91,14 +91,23 @@ const NavigationBar: React.FC<NavigationProps> = ({
 
   return (
     <nav className="bg-white w-full border-t border-gray-200 relative z-40">
-      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-12">
+      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-0 fhd:px-32 qhd:px-40 w-full">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div className="flex justify-center lg:justify-start items-center self-stretch">
-            <img
-              src={VietsopetroLogo}
-              alt="Vietsopetro Logo"
-              className="w-26 h-18"
-            />
+            <button
+              onClick={() => {
+                if (onUrlNavigation) {
+                  onUrlNavigation("/");
+                }
+              }}
+              className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
+            >
+              <img
+                src={VietsopetroLogo}
+                alt="Vietsopetro Logo"
+                className="w-26 h-18"
+              />
+            </button>
           </div>
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:py-7 gap-4 lg:gap-4 flex-1 relative">
             <ul className="hidden lg:flex justify-center items-start flex-wrap flex-1 gap-y-2">
@@ -121,7 +130,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                           onItemClick(item.label);
                         }}
                         className={`
-                        px-4 py-2 text-sm leading-6 tracking-normal text-center font-semibold
+                        px-4 py-2 text-sm leading-6 tracking-normal text-center font-semibold uppercase
                         transition-all duration-300 flex items-center justify-center relative
                         hover:scale-105 whitespace-nowrap cursor-pointer
                         ${
@@ -140,7 +149,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       {/* Generic dropdown for any menu item with children */}
                       {isDropdownOpen && (
                         <div
-                          className="absolute top-full left-1/2 -translate-x-1/2 w-80 bg-white border border-gray-200 shadow-xl z-[100] dropdown-container mt-2"
+                          className="absolute top-full left-0 w-80 bg-white border border-gray-200 shadow-xl z-[100] dropdown-container mt-2"
                           onMouseEnter={() => handleDropdownMouseEnter(item.id)}
                           onMouseLeave={handleDropdownMouseLeave}
                         >
@@ -152,10 +161,10 @@ const NavigationBar: React.FC<NavigationProps> = ({
                                     e.preventDefault();
                                     handleChildItemClick(child);
                                   }}
-                                  className="group block w-full text-center py-3 text-sm text-gray-600 hover:bg-gray-100 hover:px-4 transition-all duration-200 flex items-center justify-center rounded-md cursor-pointer"
+                                  className="group block w-full text-left py-3 text-sm text-gray-600 hover:bg-gray-100 transition-all duration-200 flex items-center justify-start rounded-md cursor-pointer"
                                 >
                                   <span>{child.title}</span>
-                                  <HiArrowRight className="w-4 h-4 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ml-2" />
+                                  <HiArrowRight className="w-4 h-4 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ml-auto" />
                                 </button>
                               </div>
                             ))}
@@ -175,7 +184,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                         onItemClick(item.label);
                       }}
                       className={`
-                      px-3 py-2 text-sm leading-6 tracking-normal text-center font-semibold
+                      px-3 py-2 text-sm leading-6 tracking-normal text-center font-semibold uppercase
                       transition-all duration-300 inline-block relative
                       hover:scale-105 whitespace-nowrap
                       ${
@@ -246,7 +255,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       setIsMenuOpen(false);
                     }}
                     className={`
-                      block w-full text-center py-3 text-sm font-normal
+                      block w-full text-center py-3 text-sm font-normal uppercase
                       transition-all duration-200 hover:scale-105
                       ${
                         activeItem === item.label

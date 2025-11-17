@@ -84,7 +84,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
         }}
         onSwiper={setSwiperInstance}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        className="h-[80vh] md:h-[800px] lg:h-[700px] laptop:h-[800px] fhd:h-[900px] qhd:h-[1000px] w-full"
+        className="h-[66.666vh] w-full"
       >
         {finalSlides.map((slide) => (
           <SwiperSlide key={slide.id}>

@@ -3,6 +3,7 @@ export { default as Navigation } from "./Navigation";
 export { default as PageHeader } from "./PageHeader";
 export { default as SidebarNavigation } from "./SidebarNavigation";
 export { default as PageWithSidebar } from "./PageWithSidebar";
+export { useSidebarState } from "./PageWithSidebarContext";
 export { default as SectionWithTitle } from "./SectionWithTitle";
 export { default as Header } from "./Header";
 export { default as NewsListPageTemplate } from "./NewsListPageTemplate";
