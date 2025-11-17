@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { HiMenu, HiX, HiOutlineLocationMarker } from "react-icons/hi";
-import { FaRegCircleUser } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "@/config/navigation";
 import { useTranslation } from "react-i18next";
