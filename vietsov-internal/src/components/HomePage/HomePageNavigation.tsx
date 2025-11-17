@@ -118,7 +118,7 @@ const HomePageNavigation: React.FC<HomePageNavigationProps> = ({
       animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="bg-[#1a1a2e] rounded-full px-3 py-6 flex flex-col items-center gap-4 shadow-2xl">
+      <div className="bg-[#1a1a2e] rounded-full px-3 py-6 flex flex-col items-center gap-4 shadow-2xl opacity-20 hover:opacity-100 transition-opacity duration-300">
         {sections.map((section) => {
           const isActive = activeSection === section.id;
           return (
