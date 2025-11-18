@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
 import FeaturedProject, {
   type FeaturedProjectData,
 } from "../TypicalProjectsSection/FeaturedProject";
@@ -26,26 +26,6 @@ const PetroNewsSection: React.FC<PetroNewsSectionProps> = ({
   const theme = getTypicalProjectsSectionThemeColors(isLightMode);
   const containerRef = useRef<HTMLElement>(null);
   const relatedProjectsRef = useRef<RelatedProjectsRef>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  // Animate horizontal line width - shorten from right as scroll
-  const horizontalLineWidth = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    ["100%", "70%", "40%"]
-  );
-
-  // Animate vertical line height - shorten from bottom as scroll
-  const verticalLineHeight = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    ["120px", "90px", "60px"]
-  );
-
 
   return (
     <motion.section

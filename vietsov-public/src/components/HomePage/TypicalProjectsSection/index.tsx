@@ -1,8 +1,6 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import {
   motion,
-  useScroll,
-  useTransform,
   AnimatePresence,
 } from "framer-motion";
 import FeaturedProject, { type FeaturedProjectData } from "./FeaturedProject";
@@ -47,26 +45,6 @@ const TypicalProjectsSection: React.FC<TypicalProjectsSectionProps> = ({
       (prev) => (prev - 1 + categories.length) % categories.length
     );
   };
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  });
-
-  // Animate horizontal line width - shorten from right as scroll
-  const horizontalLineWidth = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    ["200%", "180%", "160%"]
-  );
-
-  // Animate vertical line height - shorten from bottom as scroll
-  const verticalLineHeight = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    ["50px", "50px", "50px"]
-  );
-
 
   return (
     <motion.section

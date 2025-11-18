@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useScroll, useTransform, motion, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import type { VisionMissionSection } from "./data";
 import { missionData } from "./data";
 import { getThemeColors } from "./theme";
@@ -34,23 +34,6 @@ const MissionSection: React.FC<MissionSectionProps> = ({
     once: true,
     margin: "-100px",
   });
-
-  const scrollYProgress = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"],
-  }).scrollYProgress;
-
-  // Responsive line width based on viewport
-  const lineWidth = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    [
-      "clamp(200px, 25vw, 600px)",
-      "clamp(150px, 20vw, 450px)",
-      "clamp(100px, 15vw, 300px)",
-    ]
-  );
-
 
   return (
     <div

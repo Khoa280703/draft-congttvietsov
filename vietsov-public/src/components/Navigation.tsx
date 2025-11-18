@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { HiMenu, HiX, HiArrowRight, HiSearch } from "react-icons/hi";
 import VietsopetroLogo from "@/assets/logo/vsp_logo.png";
 import { MAIN_NAVIGATION_ITEMS } from "@/config/navigation";
