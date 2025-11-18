@@ -27,14 +27,14 @@ const FeaturedNewsLayout: React.FC<FeaturedNewsLayoutProps> = ({
   label = "Tin nổi bật",
 }) => {
   return (
-    <div className="space-y-6">
-      <div className="flex items-center gap-3">
-        <h2 className="text-lg md:text-xl laptop:text-2xl font-bold tracking-wide">
+    <div className="space-y-4 md:space-y-5 lg:space-y-6 laptop:space-y-6 fhd:space-y-8 qhd:space-y-10">
+      <div className="flex items-center mb-6 md:mb-8 lg:mb-10 laptop:mb-12 fhd:mb-14 qhd:mb-16">
+        <h2 className="text-lg md:text-xl lg:text-xl laptop:text-2xl fhd:text-3xl qhd:text-4xl font-medium">
           {label}
         </h2>
       </div>
       <div
-        className={`grid grid-cols-1 gap-6 lg:gap-8 ${
+        className={`grid grid-cols-1 gap-4 md:gap-5 lg:gap-6 laptop:gap-8 fhd:gap-10 qhd:gap-12 ${
           isSidebarOpen
             ? "laptop:grid-cols-1 fhd:grid-cols-2"
             : "laptop:grid-cols-2"
@@ -50,14 +50,15 @@ const FeaturedNewsLayout: React.FC<FeaturedNewsLayoutProps> = ({
             timestamp={mainCard.timestamp}
             description={mainCard.description}
             onClick={mainCard.onClick}
-            imageHeight="h-64 md:h-80 lg:h-96"
+            imageHeight="h-64 md:h-72 lg:h-80 laptop:h-88 fhd:h-[28rem] qhd:h-[32rem]"
             className="h-full"
+            compact={true}
           />
         </div>
 
         {/* Side Cards - Right Side (Horizontal) */}
         <div
-          className={`lg:col-span-1 flex flex-col gap-4 md:gap-5 lg:gap-6 ${
+          className={`lg:col-span-1 flex flex-col gap-3 md:gap-4 lg:gap-5 laptop:gap-6 fhd:gap-7 qhd:gap-8 ${
             isSidebarOpen ? "laptop:hidden fhd:flex" : ""
           }`}
         >
@@ -73,6 +74,7 @@ const FeaturedNewsLayout: React.FC<FeaturedNewsLayoutProps> = ({
               onClick={card.onClick}
               maxTitleLines={2}
               maxDescriptionLines={3}
+              compact={true}
             />
           ))}
         </div>

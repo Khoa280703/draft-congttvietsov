@@ -28,18 +28,22 @@ const NavigationBar: React.FC<NavigationProps> = ({
 
   // Measure header height dynamically
   useEffect(() => {
-    const header = document.querySelector('header');
+    const header = document.querySelector("header");
     if (header) {
       const updateHeaderHeight = () => {
         setHeaderHeight(header.offsetHeight);
       };
       updateHeaderHeight();
-      window.addEventListener('resize', updateHeaderHeight);
+      window.addEventListener("resize", updateHeaderHeight);
       // Use MutationObserver to watch for header content changes
       const observer = new MutationObserver(updateHeaderHeight);
-      observer.observe(header, { childList: true, subtree: true, attributes: true });
+      observer.observe(header, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+      });
       return () => {
-        window.removeEventListener('resize', updateHeaderHeight);
+        window.removeEventListener("resize", updateHeaderHeight);
         observer.disconnect();
       };
     }
@@ -110,8 +114,8 @@ const NavigationBar: React.FC<NavigationProps> = ({
   }, [hoverTimeout]);
 
   return (
-    <nav 
-      className="fixed left-0 right-0 bg-white w-full border-t border-gray-200 z-40 uppercase"
+    <nav
+      className="fixed left-0 right-0 bg-white w-full border-t border-gray-200 shadow-md z-40 uppercase"
       style={{ top: `${headerHeight}px` }}
     >
       <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-0 fhd:px-32 qhd:px-40 w-full">

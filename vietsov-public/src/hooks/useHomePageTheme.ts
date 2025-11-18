@@ -68,7 +68,7 @@ export const useHomePageTheme = (
     : isCapabilitiesInView
     ? true
     : isMissionInView
-    ? false
+    ? true
     : true;
   const currentTheme = isLightMode ? "light" : "dark";
 

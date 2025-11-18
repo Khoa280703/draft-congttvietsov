@@ -9,3 +9,5 @@ export { default as ArticleDetail } from "./ArticleDetail";
 export { default as MediaLibrary } from "./MediaLibrary";
 export { default as MostView } from "./MostView";
 export { default as ActivitySectionWithCategories } from "./ActivitySectionWithCategories";
+export { default as NewsGridSection } from "./NewsGridSection";
+export type { NewsGridItem, NewsGridSectionProps } from "./NewsGridSection";

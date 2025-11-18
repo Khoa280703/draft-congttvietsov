@@ -1,40 +1,58 @@
-import type { FeaturedProjectData } from "../TypicalProjectsSection/FeaturedProject";
-import type { Project } from "../TypicalProjectsSection/RelatedProjects";
-import dankhoanvietsov from "@/assets/dankhoanvietsov.jpg";
+import vietNga from "@/assets/homepage/viet-nga.jpg";
+import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
+import hoiNghiPetro from "@/assets/hoinghipetrovi.jpg";
+import danKhoanVietsov from "@/assets/dankhoanvietsov.jpg";
 
-export const defaultFeaturedNews: FeaturedProjectData = {
-  id: "1",
-  date: "20 Tháng 4, 2024",
-  title: "Vietsovpetro đạt mốc sản lượng khai thác mới",
-  projectType: "TIN TỨC",
-  location: "VŨNG TÀU, VIỆT NAM",
-  description:
-    "Vietsovpetro vừa công bố đạt mốc sản lượng khai thác dầu khí mới trong quý đầu năm 2024, thể hiện sự phát triển bền vững và hiệu quả trong hoạt động khai thác. Thành tựu này là kết quả của việc ứng dụng công nghệ tiên tiến, quản lý chuyên nghiệp và sự nỗ lực không ngừng của đội ngũ nhân viên. Vietsovpetro tiếp tục khẳng định vị thế là một trong những doanh nghiệp dầu khí hàng đầu tại Việt Nam, đóng góp quan trọng vào sự phát triển kinh tế của đất nước.",
-  image: dankhoanvietsov,
+export interface PetroNewsArticle {
+  image: string;
+  imageAlt: string;
+  category?: string;
+  title: string;
+  timestamp?: string;
+  description: string;
+  link?: string;
+}
+
+export const defaultPetroMainArticle: PetroNewsArticle = {
+  image: danKhoanVietsov,
   imageAlt: "Vietsovpetro đạt mốc sản lượng khai thác mới",
-  link: "tintuc/chi-tiet",
+  category: "TIN TỨC",
+  title: "Vietsovpetro đạt mốc sản lượng khai thác mới",
+  timestamp: "20 Tháng 4, 2024",
+  description:
+    "Thành tựu sản lượng mới của Vietsovpetro là minh chứng cho chiến lược chuyển đổi số và tối ưu vận hành giàn khoan trong năm 2024, góp phần giữ vững vị thế thương hiệu dầu khí quốc gia.",
+  link: "/tintuc/chi-tiet",
 };
 
-export const defaultRelatedNews: Project[] = [
+export const defaultPetroSideArticles: PetroNewsArticle[] = [
   {
-    id: "1",
-    date: "18 Tháng 4, 2024",
-    title:
-      "Hội nghị tổng kết hoạt động sản xuất kinh doanh quý I/2024: Những thành tựu nổi bật và định hướng phát triển",
-    link: "tintuc/chi-tiet",
+    image: vietNga,
+    imageAlt: "Hội nghị tổng kết hoạt động sản xuất kinh doanh quý I",
+    category: "HOẠT ĐỘNG SXKD",
+    title: "Hội nghị tổng kết hoạt động sản xuất kinh doanh quý I/2024",
+    timestamp: "18 Tháng 4, 2024",
+    description:
+      "Những định hướng then chốt giúp Vietsovpetro duy trì đà tăng trưởng trong bối cảnh thị trường biến động mạnh.",
+    link: "/tintuc/chi-tiet",
   },
   {
-    id: "2",
-    date: "12 Tháng 4, 2024",
-    title:
-      "Vietsovpetro ký kết hợp tác chiến lược với các đối tác quốc tế trong lĩnh vực công nghệ khai thác dầu khí",
-    link: "tintuc/chi-tiet",
+    image: hoiNghiSuKien,
+    imageAlt: "Ký kết hợp tác chiến lược",
+    category: "CHIẾN LƯỢC",
+    title: "Ký kết hợp tác chiến lược cùng đối tác quốc tế về công nghệ khoan",
+    timestamp: "12 Tháng 4, 2024",
+    description:
+      "Thỏa thuận chuyển giao công nghệ nâng cao hiệu suất khai thác và giảm phát thải trong các mỏ dầu chủ lực.",
+    link: "/tintuc/chi-tiet",
   },
   {
-    id: "3",
-    date: "05 Tháng 4, 2024",
-    title:
-      "Chương trình đào tạo nâng cao năng lực cho đội ngũ kỹ sư: Đầu tư vào con người để phát triển bền vững",
-    link: "tintuc/chi-tiet",
+    image: hoiNghiPetro,
+    imageAlt: "Đào tạo kỹ sư trẻ",
+    category: "NHÂN SỰ",
+    title: "Chương trình đào tạo kỹ sư trẻ – Đầu tư dài hạn cho lực lượng kế thừa",
+    timestamp: "05 Tháng 4, 2024",
+    description:
+      "Lộ trình đào tạo mới giúp kỹ sư trẻ nhanh chóng làm chủ dây chuyền sản xuất hiện đại tại các mỏ biển.",
+    link: "/tintuc/chi-tiet",
   },
 ];

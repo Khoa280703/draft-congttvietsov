@@ -1,6 +1,7 @@
 import daiHoiDaiBieu from "@/assets/daihoidaibieuivpvn.jpg";
 import hoiNghiSuKien from "@/assets/hoinghicongtacpvn.jpg";
 import hoiNghiPetro from "@/assets/hoinghipetrovi.jpg";
+import chuyenTham1996 from "@/assets/1996.jpg";
 
 export interface CommunityActivityItem {
   id: number;
@@ -45,5 +46,15 @@ export const defaultCommunityActivityData: CommunityActivityItem[] = [
     description:
       "Nằm trong chương trình hợp tác thường niên trong lĩnh vực đào tạo của Tập đoàn Dầu khí Việt Nam (Petrovietnam) và Tập đoàn Gazprom (Nga).",
     image: hoiNghiPetro,
+  },
+  {
+    id: 4,
+    category: "HOẠT ĐỘNG ĐOÀN THỂ",
+    title:
+      "Công đoàn Vietsovpetro khai mạc giải Bóng chuyền năm 2024",
+    timestamp: "10/5/2024 11:50:00 AM",
+    description:
+      "Giải đấu bóng chuyền năm 2024 được khai mạc với sự tham gia của nhiều đội bóng, tạo cơ hội giao lưu và rèn luyện sức khỏe cho cán bộ nhân viên.",
+    image: chuyenTham1996,
   },
 ];

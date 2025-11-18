@@ -25,8 +25,8 @@ export const CORE_VALUES_THEME_COLORS = {
   },
   dark: {
     sectionBackground: "bg-vietsov-green-bold",
-    title: "text-vietsov-yellow",
-    description: "text-gray-200",
+    title: "text-white",
+    description: "text-gray-100",
     // CardStack colors
     cardStackTitleGreen: "text-vietsov-yellow",
     cardStackTitleBlack: "text-white",

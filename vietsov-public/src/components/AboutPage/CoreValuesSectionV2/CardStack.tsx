@@ -1,8 +1,11 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { type CoreValue } from "./data";
-import CardV2 from "./CardV2";
 import { getCoreValuesThemeColors } from "./theme";
+import CoreValue1 from "@/assets/icon/CoreValue1";
+import CoreValue2 from "@/assets/icon/CoreValue2";
+import CoreValue3 from "@/assets/icon/CoreValue3";
+import CoreValue4 from "@/assets/icon/CoreValue4";
 
 interface CardStackProps {
   values: CoreValue[];
@@ -81,22 +84,51 @@ const CardStack: React.FC<CardStackProps> = ({
             </>
           )}
         </motion.h2>
-        {/* <motion.div
-          className={`w-24 md:w-32 laptop:w-40 fhd:w-48 qhd:w-56 h-1 md:h-[2px] laptop:h-[3px] fhd:h-[4px] qhd:h-[5px] ${theme.cardStackGradientLine} mx-auto transition-colors duration-700`}
-          initial={{ width: 0 }}
-          animate={isInView ? { width: "100%" } : { width: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        /> */}
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-10 laptop:gap-12 fhd:gap-14 qhd:gap-16">
-        {values.map((value, index) => (
-          <CardV2
-            key={value.id}
-            value={value}
-            index={index}
-            isLightMode={isLightMode}
-          />
-        ))}
+        {values.map((value, index) => {
+          const CoreValueIcon = [
+            CoreValue1,
+            CoreValue2,
+            CoreValue3,
+            CoreValue4,
+          ][index];
+
+          return (
+            <motion.div
+              key={value.id}
+              className="flex flex-col items-center text-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+            >
+              {/* Icon */}
+              <div className="mb-5 md:mb-7 lg:mb-9 laptop:mb-12 fhd:mb-14 qhd:mb-16">
+                <CoreValueIcon
+                  width="240"
+                  height="240"
+                  className="w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 laptop:w-52 laptop:h-52 fhd:w-64 fhd:h-64 qhd:w-80 qhd:h-80"
+                />
+              </div>
+
+              {/* Title */}
+              <h3
+                className={`text-lg md:text-xl lg:text-2xl laptop:text-2xl fhd:text-3xl qhd:text-4xl font-bold mb-3 md:mb-4 lg:mb-5 laptop:mb-6 fhd:mb-7 qhd:mb-8 transition-colors duration-700 ${theme.title}`}
+              >
+                {value.title}
+              </h3>
+
+              {/* Description */}
+              {value.description && (
+                <p
+                  className={`text-sm md:text-base lg:text-lg laptop:text-lg fhd:text-xl qhd:text-2xl leading-relaxed transition-colors duration-700 ${theme.description} opacity-80`}
+                >
+                  {value.description}
+                </p>
+              )}
+            </motion.div>
+          );
+        })}
       </div>
     </motion.div>
   );

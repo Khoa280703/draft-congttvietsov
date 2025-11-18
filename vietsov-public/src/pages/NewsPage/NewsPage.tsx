@@ -1,20 +1,13 @@
 import React from "react";
 import { PageHeader } from "@/components";
-import {
-  // ProductionActivitySection,
-  // CommunityActivitySection,
-  // OilNewsSection,
-  ActivitySectionWithCategories,
-} from "@/components/NewsPage";
-// import { ArchivePhotosSection } from "@/components/AboutPage";
 import DetailPage from "@/pages/NewsPage/DetailPage";
 import MediaLibraryPage from "@/pages/NewsPage/MediaLibraryPage/index";
 import CommunityActivityPage from "@/pages/NewsPage/CommunityActivityPage";
 import ProductionActivityPage from "@/pages/NewsPage/ProductionActivityPage";
 import OilNewsPage from "@/pages/NewsPage/OilNewsPage";
+import NewsHomePage from "@/pages/NewsPage/NewsHomePage";
 import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import { Routes, Route, useLocation } from "react-router-dom";
-import AnimatedSection from "@/components/AnimatedSection";
 
 const NewsPage: React.FC = () => {
   const location = useLocation();
@@ -66,74 +59,7 @@ const NewsPage: React.FC = () => {
         breadcrumbs={getBreadcrumbs()}
       />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <div className="bg-vietsov-background">
-              <AnimatedSection
-                animation="fadeInUp"
-                delay={100}
-                className="bg-vietsov-background pb-16"
-              >
-                {/* <SectionWithTitle
-                  title="Tin tức nổi bật"
-                  titleColor="text-vietsov-green"
-                > */}
-                <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 py-12 lg:pt-20 lg:pb-16 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
-                  <ActivitySectionWithCategories />
-                </div>
-                {/* </SectionWithTitle> */}
-              </AnimatedSection>
-              {/* <AnimatedSection
-                animation="fadeInUp"
-                delay={100}
-                className="bg-white"
-              >
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
-                  <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
-                    <ProductionActivitySection />
-                  </div>
-                </section>
-              </AnimatedSection>
-
-              <AnimatedSection
-                animation="fadeInUp"
-                delay={200}
-                className="bg-vietsov-skin"
-              >
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
-                  <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
-                    <CommunityActivitySection />
-                  </div>
-                </section>
-              </AnimatedSection>
-
-              <AnimatedSection
-                animation="fadeInUp"
-                delay={300}
-                className="bg-white"
-              >
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
-                  <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
-                    <OilNewsSection />
-                  </div>
-                </section>
-              </AnimatedSection>
-
-              <AnimatedSection
-                animation="fadeInUp"
-                delay={400}
-                className="bg-vietsov-skin2"
-              >
-                <section className="py-8 md:py-12 md:pt-18 md:pb-12 lg:py-16 inch32:pt-22 inch32:pb-15">
-                  <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
-                    <ArchivePhotosSection />
-                  </div>
-                </section>
-              </AnimatedSection> */}
-            </div>
-          }
-        />
+        <Route path="/" element={<NewsHomePage />} />
         <Route path="/chi-tiet" element={<DetailPage />} />
         <Route path="/hoat-dong-sx-kd" element={<ProductionActivityPage />} />
         <Route path="/hoat-dong-doan-the" element={<CommunityActivityPage />} />
