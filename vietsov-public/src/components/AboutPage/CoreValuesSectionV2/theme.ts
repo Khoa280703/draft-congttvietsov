@@ -11,8 +11,8 @@ export const CORE_VALUES_THEME_COLORS = {
     title: "text-vietsov-green",
     description: "text-gray-700",
     // CardStack colors
-    cardStackTitleGreen: "text-vietsov-green-label",
-    cardStackTitleBlack: "text-vietsov-black",
+    cardStackTitleGreen: "text-pvn-blue", // pvn-blue
+    cardStackTitleBlack: "text-vietsov-green",
     cardStackGradientLine:
       "bg-gradient-to-r from-transparent via-vietsov-green to-transparent",
     // CardV2 colors

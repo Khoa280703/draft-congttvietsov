@@ -9,8 +9,8 @@ export const FEATURED_PROJECT_SLIDER_THEME_COLORS = {
   light: {
     sectionBackground: "bg-white",
     title: "text-vietsov-green",
-    titlePrefix: "text-vietsov-green", // "HÌNH ẢNH"
-    titleSuffix: "text-gray-700", // "TƯ LIỆU"
+    titlePrefix: "text-pvn-blue", // "HÌNH ẢNH"
+    titleSuffix: "text-vietsov-green", // "TƯ LIỆU"
     dateBar: "bg-vietsov-green",
     dateText: "text-white",
     titleText: "text-white",

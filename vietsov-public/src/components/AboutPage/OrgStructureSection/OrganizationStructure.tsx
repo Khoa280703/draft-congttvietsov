@@ -54,7 +54,7 @@ const OrgNode = forwardRef<OrgNodeRef, OrgNodeProps>(
         ref={nodeRef}
         onClick={(e) => onClick(data.id, e)}
         className={`
-            relative px-6 py-4 rounded-lg cursor-pointer transition-all duration-200
+            relative px-8 py-5 rounded-lg cursor-pointer transition-all duration-200
             ${
               isBlueVariant
                 ? "bg-gradient-to-br from-vietsov-green to-green-400 text-white font-semibold"
@@ -62,7 +62,7 @@ const OrgNode = forwardRef<OrgNodeRef, OrgNodeProps>(
             }
             ${isActive ? "ring-4 ring-yellow-400 scale-105" : "hover:scale-105"}
             shadow-md hover:shadow-lg
-            min-w-[200px] max-w-[280px] text-center
+            min-w-[240px] max-w-[320px] text-center
           `}
         style={{ zIndex: 1 }}
       >
@@ -71,7 +71,7 @@ const OrgNode = forwardRef<OrgNodeRef, OrgNodeProps>(
           <div className="absolute top-2 left-4 right-4 h-1 bg-white/30 rounded-full" />
         )}
 
-        <div className="text-sm leading-tight">{data.label}</div>
+        <div className="text-base leading-tight">{data.label}</div>
       </div>
     );
   }
@@ -97,6 +97,14 @@ const NodeModal: React.FC<NodeModalProps> = ({
   if (!node) return null;
 
   const isLeadershipNode = node.id === "ban-tong-giam-doc";
+  const hasChildren = node.children && node.children.length > 0;
+  const isBoMayDieuHanh = node.id === "bo-may-dieu-hanh";
+  const isDonViTrucThuoc = node.id === "don-vi-truc-thuoc";
+  const needsLargeModal =
+    isLeadershipNode ||
+    isBoMayDieuHanh ||
+    isDonViTrucThuoc ||
+    (hasChildren && node.children!.length > 10);
 
   return (
     <div
@@ -105,10 +113,10 @@ const NodeModal: React.FC<NodeModalProps> = ({
     >
       <div
         className={`node-modal bg-white border border-gray-200 rounded-2xl shadow-2xl p-6 sm:p-8 ${
-          isLeadershipNode
-            ? "w-[90vw] max-w-6xl"
+          needsLargeModal
+            ? "w-[95vw] max-w-7xl"
             : "w-[32rem] sm:w-[36rem] max-w-[90vw]"
-        } max-h-[85vh] my-4 overflow-y-auto custom-scrollbar transform transition-all duration-300 ease-out animate-fade-scale-in`}
+        } max-h-[90vh] my-4 overflow-y-auto custom-scrollbar transform transition-all duration-300 ease-out animate-fade-scale-in`}
         onClick={(e) => e.stopPropagation()}
         onWheel={(e) => {
           // Allow scroll inside modal
@@ -361,9 +369,9 @@ const NodeModal: React.FC<NodeModalProps> = ({
                 </div>
               </div>
 
-              {/* Sub-units */}
+              {/* Sub-units - For "Bộ máy điều hành" and "Đơn vị trực thuộc", show children in a grid */}
               {node.children && node.children.length > 0 && (
-                <div className=" rounded-xl p-4 border border-green-100">
+                <div className="rounded-xl p-4 border border-green-100">
                   <div className="flex items-start space-x-3">
                     <div className="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
                       <svg
@@ -381,22 +389,40 @@ const NodeModal: React.FC<NodeModalProps> = ({
                       </svg>
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-sm font-semibold text-gray-900 mb-3">
-                        Đơn vị trực thuộc
+                      <h4 className="text-sm font-semibold text-gray-900 mb-4">
+                        {isBoMayDieuHanh || isDonViTrucThuoc
+                          ? "Danh sách phòng ban"
+                          : "Đơn vị trực thuộc"}
                       </h4>
-                      <div className="grid grid-cols-1 gap-2">
-                        {node.children.map((child) => (
-                          <div
-                            key={child.id}
-                            className="flex items-center space-x-2 p-2 bg-white hover:border-green-200 transition-colors"
-                          >
-                            <div className="w-2 h-2 bg-vietsov-green rounded-full"></div>
-                            <span className="text-sm text-gray-700">
-                              {child.label}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
+                      {isBoMayDieuHanh || isDonViTrucThuoc ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                          {node.children.map((child) => (
+                            <div
+                              key={child.id}
+                              className="flex items-center space-x-2 p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-green-300 hover:bg-green-50 transition-all duration-200"
+                            >
+                              <div className="w-2 h-2 bg-vietsov-green rounded-full flex-shrink-0"></div>
+                              <span className="text-sm text-gray-700 font-medium">
+                                {child.label}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="grid grid-cols-1 gap-2">
+                          {node.children.map((child) => (
+                            <div
+                              key={child.id}
+                              className="flex items-center space-x-2 p-2 bg-white rounded-lg border border-gray-100 hover:border-green-200 transition-colors"
+                            >
+                              <div className="w-2 h-2 bg-vietsov-green rounded-full"></div>
+                              <span className="text-sm text-gray-700">
+                                {child.label}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -587,7 +613,8 @@ const renderNodes = (
   level: number,
   refs: React.MutableRefObject<Map<string, React.RefObject<OrgNodeRef | null>>>,
   onNodeClick: (nodeId: string, event: React.MouseEvent) => void,
-  activeNodeId: string | null
+  activeNodeId: string | null,
+  expandedNodeIds: Set<string>
 ) => {
   if (level === 3 && nodes.length > 1) {
     const midPoint = Math.ceil(nodes.length / 2);
@@ -633,6 +660,18 @@ const renderNodes = (
     );
   }
 
+  // Filter nodes: always show blue variant nodes, and show non-blue children only if parent is expanded
+  const visibleNodes = nodes.filter((node) => {
+    // Always show blue variant nodes
+    if (node.variant === "blue") {
+      return true;
+    }
+    // For non-blue nodes, check if their parent is expanded
+    // Since we're rendering children of expanded nodes, all nodes passed here should be visible
+    // But we need to check: if this is a child of a blue node, only show if parent is expanded
+    return true; // All nodes at this level are children of expanded parent
+  });
+
   return (
     <div
       className="flex justify-center w-full relative"
@@ -641,11 +680,44 @@ const renderNodes = (
         marginTop: level === 1 ? "40px" : level === 2 ? "60px" : "0px",
       }}
     >
-      {nodes.map((node) => {
+      {visibleNodes.map((node) => {
         if (!refs.current.has(node.id)) {
           refs.current.set(node.id, createRef<OrgNodeRef | null>());
         }
         const nodeRef = refs.current.get(node.id)!;
+        const isExpanded = expandedNodeIds.has(node.id);
+        const hasChildren = node.children && node.children.length > 0;
+
+        if (!hasChildren) {
+          return (
+            <div key={node.id} className="flex flex-col items-center">
+              <OrgNode
+                ref={nodeRef}
+                data={node}
+                onClick={onNodeClick}
+                isActive={activeNodeId === node.id}
+              />
+            </div>
+          );
+        }
+
+        // Check if children have blue variant nodes
+        const hasBlueChildren = node.children!.some(
+          (child) => child.variant === "blue"
+        );
+
+        // Don't show children for "Bộ máy điều hành" and "Đơn vị trực thuộc"
+        // They will be shown in the modal instead
+        const isBoMayDieuHanh = node.id === "bo-may-dieu-hanh";
+        const isDonViTrucThuoc = node.id === "don-vi-truc-thuoc";
+        const shouldHideChildren = isBoMayDieuHanh || isDonViTrucThuoc;
+
+        // Show children if:
+        // 1. This node has blue children - always show them (they are always visible)
+        // 2. This node is expanded - show non-blue children
+        // 3. But NOT if this is "Bộ máy điều hành" or "Đơn vị trực thuộc"
+        const shouldShowChildren =
+          !shouldHideChildren && (hasBlueChildren || isExpanded);
 
         return (
           <div key={node.id} className="flex flex-col items-center">
@@ -655,14 +727,17 @@ const renderNodes = (
               onClick={onNodeClick}
               isActive={activeNodeId === node.id}
             />
-            {node.children &&
-              node.children.length > 0 &&
+            {shouldShowChildren &&
               renderNodes(
-                node.children,
+                // Filter children: show all blue nodes, and non-blue nodes only if parent is expanded
+                node.children!.filter(
+                  (child) => child.variant === "blue" || isExpanded
+                ),
                 level + 1,
                 refs,
                 onNodeClick,
-                activeNodeId
+                activeNodeId,
+                expandedNodeIds
               )}
           </div>
         );
@@ -682,6 +757,9 @@ const OrganizationStructure = () => {
   const [isLeadershipModalOpen, setIsLeadershipModalOpen] = useState(false);
   const [selectedLeader, setSelectedLeader] = useState<Leader | undefined>(
     undefined
+  );
+  const [expandedNodeIds, setExpandedNodeIds] = useState<Set<string>>(
+    new Set()
   );
 
   const calculateConnectorLines = useCallback(() => {
@@ -781,21 +859,43 @@ const OrganizationStructure = () => {
   }, []);
 
   const handleNodeClick = (nodeId: string) => {
-    setActiveNodeId((prevId) => (prevId === nodeId ? null : nodeId));
-
     // Find the node data
     const nodeData = findNodeById(orgChartData, nodeId);
-    if (nodeData) {
-      // Get the actual node element from refs
-      const nodeRef = nodeRefs.current.get(nodeId);
-      const nodeElement = nodeRef?.current?.getElement();
+    if (!nodeData) return;
 
-      if (!nodeElement) return;
+    const isBoMayDieuHanh = nodeId === "bo-may-dieu-hanh";
+    const isDonViTrucThuoc = nodeId === "don-vi-truc-thuoc";
 
-      // Get node position relative to viewport
-
-      setModalNode(nodeData);
+    // If it's a blue variant node with children, toggle expansion
+    // But NOT for "Bộ máy điều hành" and "Đơn vị trực thuộc" (their children are shown in modal)
+    if (
+      nodeData.variant === "blue" &&
+      nodeData.children &&
+      nodeData.children.length > 0 &&
+      !isBoMayDieuHanh &&
+      !isDonViTrucThuoc
+    ) {
+      setExpandedNodeIds((prev) => {
+        const newSet = new Set(prev);
+        if (newSet.has(nodeId)) {
+          newSet.delete(nodeId);
+        } else {
+          newSet.add(nodeId);
+        }
+        return newSet;
+      });
     }
+
+    setActiveNodeId((prevId) => (prevId === nodeId ? null : nodeId));
+
+    // Get the actual node element from refs
+    const nodeRef = nodeRefs.current.get(nodeId);
+    const nodeElement = nodeRef?.current?.getElement();
+
+    if (!nodeElement) return;
+
+    // Get node position relative to viewport
+    setModalNode(nodeData);
   };
 
   const handleCloseModal = () => {
@@ -823,7 +923,7 @@ const OrganizationStructure = () => {
       window.removeEventListener("scroll", calculateConnectorLines);
       window.removeEventListener("resize", calculateConnectorLines);
     };
-  }, [calculateConnectorLines]);
+  }, [calculateConnectorLines, expandedNodeIds]);
 
   return (
     <div className="relative p-8 overflow-x-auto">
@@ -840,7 +940,8 @@ const OrganizationStructure = () => {
           0,
           nodeRefs,
           handleNodeClick,
-          activeNodeId
+          activeNodeId,
+          expandedNodeIds
         )}
       </div>
 

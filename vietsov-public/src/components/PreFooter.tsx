@@ -33,6 +33,10 @@ const PreFooter: React.FC = () => {
 
   const handleLogoClick = () => {
     navigate(homePath);
+    // Scroll to top after navigation
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 100);
   };
 
   // Close dropdowns when clicking outside

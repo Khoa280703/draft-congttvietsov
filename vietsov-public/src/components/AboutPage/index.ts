@@ -9,3 +9,10 @@ export { default as LeadershipModal } from "./LeadershipModal";
 export { default as ArchivePhotosSection } from "./ArchivePhotosSection";
 export { default as CoreValuesSectionV2 } from "./CoreValuesSectionV2";
 export { default as HistorySection } from "./HistorySection";
+export { default as HistorySectionV2 } from "./HistorySectionV2";
+export type {
+  DevelopmentHistoryProps,
+  DevelopmentHistoryData,
+  DevelopmentHistoryYear,
+} from "./HistorySectionV2/data";
+export { defaultDevelopmentHistoryData } from "./HistorySectionV2/data";

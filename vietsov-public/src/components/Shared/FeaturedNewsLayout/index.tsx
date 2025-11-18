@@ -41,7 +41,7 @@ const FeaturedNewsLayout: React.FC<FeaturedNewsLayoutProps> = ({
         } ${className}`}
       >
         {/* Main Card - Left Side (Vertical) */}
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-1 featured-news-card-wrapper [&>div]:!bg-transparent">
           <CardFullDetail
             image={mainCard.image}
             imageAlt={mainCard.imageAlt}
@@ -77,6 +77,11 @@ const FeaturedNewsLayout: React.FC<FeaturedNewsLayoutProps> = ({
           ))}
         </div>
       </div>
+      <style>{`
+        .featured-news-card-wrapper > div {
+          box-shadow: none !important;
+        }
+      `}</style>
     </div>
   );
 };

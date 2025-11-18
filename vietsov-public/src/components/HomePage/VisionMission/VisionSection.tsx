@@ -1,11 +1,9 @@
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, useInView } from "framer-motion";
-import DotLine from "./DotLine";
 import type { VisionMissionSection } from "./data";
 import { visionData } from "./data";
 import { getThemeColors } from "./theme";
 import { fadeInUp, fadeInLeft, ANIMATION_CONFIG } from "./animations";
-import { useLinePosition } from "./useLinePosition";
 
 interface VisionSectionProps {
   data?: VisionMissionSection;
@@ -53,7 +51,6 @@ const VisionSection: React.FC<VisionSectionProps> = ({
     ]
   );
 
-  const lineTop = useLinePosition(titleRef, containerRef);
 
   return (
     <div
@@ -160,23 +157,6 @@ const VisionSection: React.FC<VisionSectionProps> = ({
         </div>
       </div>
 
-      {/* DotLine on the right */}
-      <div
-        className="hidden md:flex absolute justify-end laptop:right-4 fhd:right-8 qhd:right-12"
-        style={{
-          left: "max(1rem, calc((100vw - 1280px) / 2 + 1rem))",
-          right: 0,
-          top: `${lineTop}px`,
-        }}
-      >
-        <DotLine
-          dotColor={theme.dotLine.dot}
-          lineColor={theme.dotLine.line}
-          dotSize={24}
-          lineHeight={2}
-          lineWidth={lineWidth}
-        />
-      </div>
     </div>
   );
 };

@@ -102,6 +102,8 @@ const PublicInterface: React.FC = () => {
         onUrlNavigation={(url) => navigate(url)}
         interfaceType="public"
       />
+      {/* Spacer to prevent content from being hidden behind fixed header/nav */}
+      <div className="h-[12rem] lg:h-[8rem]"></div>
 
       <Routes>
         <Route path="/" element={<HomePage />} />

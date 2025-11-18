@@ -15,8 +15,8 @@ export const TYPICAL_PROJECTS_SECTION_THEME_COLORS = {
     featuredProjectLink: "text-vietsov-green",
     featuredProjectLinkHover: "hover:text-gray-900",
     featuredProjectContentBox: "bg-white",
-    relatedProjectsTitlePrefix: "text-vietsov-black",
-    relatedProjectsTitleSuffix: "text-vietsov-green",
+    relatedProjectsTitlePrefix: "text-pvn-blue", // pvn-blue
+    relatedProjectsTitleSuffix: "text-vietsov-green", // pvn-green
     relatedProjectsDateBox: "bg-[#0d7377]",
     relatedProjectsTitle: "text-vietsov-black",
     relatedProjectsTitleHover: "group-hover:text-vietsov-green",

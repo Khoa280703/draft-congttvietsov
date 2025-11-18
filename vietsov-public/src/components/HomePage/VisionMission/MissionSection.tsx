@@ -1,11 +1,9 @@
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, useInView } from "framer-motion";
-import DotLine from "./DotLine";
 import type { VisionMissionSection } from "./data";
 import { missionData } from "./data";
 import { getThemeColors } from "./theme";
 import { fadeInUp, fadeInRight, ANIMATION_CONFIG } from "./animations";
-import { useLinePosition } from "./useLinePosition";
 
 interface MissionSectionProps {
   data?: VisionMissionSection;
@@ -53,7 +51,6 @@ const MissionSection: React.FC<MissionSectionProps> = ({
     ]
   );
 
-  const lineTop = useLinePosition(titleRef, containerRef);
 
   return (
     <div
@@ -160,24 +157,6 @@ const MissionSection: React.FC<MissionSectionProps> = ({
         </div>
       </div>
 
-      {/* DotLine on the left */}
-      <div
-        className="hidden md:flex absolute justify-start laptop:left-4 fhd:left-8 qhd:left-12"
-        style={{
-          left: 0,
-          right: "max(1rem, calc((100vw - 1280px) / 2 + 1rem))",
-          top: `${lineTop}px`,
-        }}
-      >
-        <DotLine
-          dotColor={theme.dotLine.dot}
-          lineColor={theme.dotLine.line}
-          dotSize={24}
-          lineHeight={2}
-          lineWidth={lineWidth}
-          reverse={true}
-        />
-      </div>
     </div>
   );
 };

@@ -11,8 +11,6 @@ import RelatedProjects, {
   type RelatedProjectsRef,
 } from "./RelatedProjects";
 import { getTypicalProjectsSectionThemeColors } from "./theme";
-import DotLineL from "./DotLineL";
-import { useLinePosition } from "../VisionMission/useLinePosition";
 import { categories } from "./data";
 
 interface TypicalProjectsSectionProps {
@@ -69,26 +67,6 @@ const TypicalProjectsSection: React.FC<TypicalProjectsSectionProps> = ({
     ["50px", "50px", "50px"]
   );
 
-  // Track titleRef for DotLine position
-  const [titleRef, setTitleRef] =
-    useState<React.RefObject<HTMLElement | null> | null>(null);
-
-  useEffect(() => {
-    // Check for titleRef periodically until it's available
-    const checkTitleRef = () => {
-      if (relatedProjectsRef.current?.titleRef) {
-        setTitleRef(relatedProjectsRef.current.titleRef);
-      }
-    };
-
-    checkTitleRef();
-    const interval = setInterval(checkTitleRef, 100);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Calculate DotLine position based on title
-  const lineTop = useLinePosition(titleRef, containerRef, 150);
 
   return (
     <motion.section
@@ -99,23 +77,6 @@ const TypicalProjectsSection: React.FC<TypicalProjectsSectionProps> = ({
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <div
-        className="hidden md:block absolute right-0 w-90 pointer-events-none z-10 overflow-visible"
-        style={{
-          height: "120px",
-          top: `${lineTop}px`,
-        }}
-      >
-        <DotLineL
-          dotColor="#F07B22"
-          lineColor={isLightMode ? "#222E50" : "#ffffff"}
-          dotSize={24}
-          lineWidth={2}
-          horizontalLineWidth={horizontalLineWidth}
-          verticalLineHeight={verticalLineHeight}
-          className="w-full"
-        />
-      </div>
 
       <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 h-[120vh] flex items-center w-full">
         {/* Two Column Layout */}

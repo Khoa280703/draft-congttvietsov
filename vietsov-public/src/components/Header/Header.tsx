@@ -68,7 +68,7 @@ const Header: React.FC<HeaderProps> = () => {
     (lang) => lang.code !== currentLanguageCode
   );
   return (
-    <header className="bg-vietsov-gradient-green text-white shadow-lg">
+    <header className="fixed top-0 left-0 right-0 bg-vietsov-gradient-green text-white shadow-lg z-50">
       <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 py-2 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
         <div className="flex justify-between items-center">
           {/* Left Section - Language Selection - Desktop only */}

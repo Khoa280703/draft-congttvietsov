@@ -152,7 +152,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                       <div className="mb-8 lg:mb-6 laptop:mb-8 fhd:mb-10 qhd:mb-12 lg:ml-8">
                         {/* Category Text */}
                         <motion.p
-                          className="text-sm md:text-base lg:text-lg laptop:text-base fhd:text-lg qhd:text-xl font-medium uppercase tracking-wider mb-4 lg:mb-4 laptop:mb-4 fhd:mb-5 qhd:mb-6"
+                          className="text-xs md:text-sm lg:text-base laptop:text-sm fhd:text-base qhd:text-lg font-medium uppercase tracking-wider mb-4 lg:mb-4 laptop:mb-4 fhd:mb-5 qhd:mb-6"
                           style={{ color: slide.textColor || "white" }}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -167,7 +167,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
 
                         {/* Main Title */}
                         <motion.h1
-                          className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl laptop:text-6xl fhd:text-7xl qhd:text-8xl font-bold leading-[50px] lg:leading-[60px] laptop:leading-[70px] fhd:leading-[80px] qhd:leading-[90px] tracking-normal mb-4 lg:mb-4 laptop:mb-4 fhd:mb-5 qhd:mb-6"
+                          className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl laptop:text-5xl fhd:text-6xl qhd:text-7xl font-bold leading-[40px] lg:leading-[50px] laptop:leading-[60px] fhd:leading-[70px] qhd:leading-[80px] tracking-normal mb-4 lg:mb-4 laptop:mb-4 fhd:mb-5 qhd:mb-6"
                           style={{ color: slide.textColor || "white" }}
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -203,7 +203,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
 
                         {/* Description */}
                         <motion.p
-                          className="text-base md:text-lg lg:text-lg laptop:text-lg fhd:text-xl qhd:text-2xl leading-relaxed mb-6 lg:mb-8 laptop:mb-6 fhd:mb-8 qhd:mb-10 max-w-2xl lg:max-w-xl laptop:max-w-2xl fhd:max-w-3xl qhd:max-w-4xl"
+                          className="text-sm md:text-base lg:text-base laptop:text-base fhd:text-lg qhd:text-xl leading-relaxed mb-6 lg:mb-8 laptop:mb-6 fhd:mb-8 qhd:mb-10 max-w-2xl lg:max-w-xl laptop:max-w-2xl fhd:max-w-3xl qhd:max-w-4xl"
                           style={{ color: slide.textColor || "white" }}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -219,7 +219,7 @@ const HeroSlider: React.FC<HeroSliderProps> = ({
                         {/* CTA Button */}
                         <motion.button
                           onClick={() => handleButtonClick(slide.buttonLink)}
-                          className="inline-flex items-center px-6 py-3 lg:px-5 lg:py-2.5 laptop:px-6 laptop:py-3 fhd:px-8 fhd:py-4 qhd:px-10 qhd:py-5 font-semibold lg:text-base laptop:text-base fhd:text-lg qhd:text-xl cursor-pointer"
+                          className="inline-flex items-center px-6 py-3 lg:px-5 lg:py-2.5 laptop:px-6 laptop:py-3 fhd:px-8 fhd:py-4 qhd:px-10 qhd:py-5 font-semibold lg:text-sm laptop:text-sm fhd:text-base qhd:text-lg cursor-pointer"
                           style={{
                             backgroundColor:
                               slide.buttonBackgroundColor || "white",

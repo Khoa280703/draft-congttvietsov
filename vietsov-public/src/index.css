@@ -84,7 +84,7 @@
   --animate-marquee: marquee 40s linear infinite;
 
   /* Vietsovpetro Brand Colors */
-  --color-vietsov-green: #10954f;
+  --color-vietsov-green: #006d38;
   --color-vietsov-black: #242424;
   --color-vietsov-blue: #2563eb;
   --color-vietsov-cyan: #06b6d4;
@@ -94,6 +94,8 @@
   --color-vietsov-skin2: #edf8f2;
   --color-vietsov-green-bold: #014f29;
   --color-vietsov-yellow: #fad882;
+  --color-pvn-blue: #364185;
+  --color-pvn-green: #009d48;
 
   --color-vietsov-green-label: #10954f;
 

@@ -13,8 +13,8 @@ export const ORG_STRUCTURE_THEME_COLORS = {
     link: "text-vietsov-green",
     linkHover: "hover:text-vietsov-green",
     title: "text-vietsov-green",
-    titlePrefix: "text-vietsov-green", // "CƠ CẤU"
-    titleSuffix: "text-gray-700", // "TỔ CHỨC"
+    titlePrefix: "text-pvn-blue", // "CƠ CẤU" - pvn-blue
+    titleSuffix: "text-vietsov-green", // "TỔ CHỨC" - pvn-green
   },
   dark: {
     sectionBackground: "bg-vietsov-green-bold",
