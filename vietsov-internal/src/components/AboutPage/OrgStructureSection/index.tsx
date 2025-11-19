@@ -54,7 +54,7 @@ const OrgStructureSection: React.FC<ExtendedOrgStructureSectionProps> = ({
               }}
             >
               <div
-                className={`space-y-4 lg:space-y-3 qhd:space-y-4 ${theme.textSecondary} leading-relaxed text-base lg:text-sm qhd:text-base transition-colors duration-700`}
+                className={`space-y-4 lg:space-y-3 inch32:space-y-4 ${theme.textSecondary} leading-relaxed text-base lg:text-sm inch32:text-base transition-colors duration-700`}
               >
                 {data.paragraphs.map((paragraph, index) => (
                   <motion.p

@@ -12,7 +12,7 @@ const EnterpriseCard: React.FC<EnterpriseCardData> = ({
   path,
   categoryLabel = "PHÁT TRIỂN BỀN VỮNG",
   capabilities,
-  imageHeight = "h-[500px] md:h-[700px] lg:h-[640px]",
+  imageHeight = "[400px] md:h-[300px] lg:h-[320px] laptop:h-[360px] fhd:h-[420px] qhd:h-[500px]",
   showQuoteIcon = false,
   cardIndex,
   totalCards,

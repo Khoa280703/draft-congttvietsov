@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 @import "tailwindcss";
 
+@font-face {
+  font-family: "BrushFont";
+  src: url("/fonts/brush-font.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -64,7 +72,10 @@
 }
 
 @theme {
-  /* Font Family */
+  --breakpoint-laptop: 85.375rem;
+  --breakpoint-fhd: 120rem;
+  --breakpoint-qhd: 160rem;
+
   --font-family-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui,
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, "Noto Sans", sans-serif;
@@ -73,43 +84,43 @@
   --animate-marquee: marquee 40s linear infinite;
 
   /* Vietsovpetro Brand Colors */
-  --color-vietsov-green: #10954f;
+  --color-vietsov-green: #006d38;
   --color-vietsov-black: #242424;
   --color-vietsov-blue: #2563eb;
   --color-vietsov-cyan: #06b6d4;
   --color-vietsov-gray: #6b7280;
   --color-vietsov-light-gray: #919296;
+  --color-vietsov-skin: #ebf7f0;
+  --color-vietsov-skin2: #edf8f2;
+  --color-vietsov-green-bold: #014f29;
+  --color-vietsov-yellow: #fad882;
+  --color-pvn-blue: #364185;
+  --color-pvn-green: #009d48;
+
+  --color-vietsov-green-label: #10954f;
 
   /* Custom Font Sizes */
   --font-size-xs-label: 11px;
   --font-size-sm-label: 13px;
 
-  /* Custom Line Heights */
   --line-height-xs-label: 22px;
   --line-height-sm-label: 18px;
-
-  /* Custom Breakpoints */
-  /* 
-    Breakpoint mặc định của Tailwind:
-    - sm: 640px
-    - md: 768px  
-    - lg: 1024px
-    - xl: 1280px
-    - 2xl: 1536px
-    
-    Thêm breakpoint custom:
-    --breakpoint-{tên}: {giá trị};
-  */
-  --breakpoint-xs: 480px;
-  --breakpoint-3xl: 1920px;
 }
 
 /* Global Font Application */
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
 body {
   font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
     sans-serif;
   color: var(--color-vietsov-black);
+  margin: 0;
+  padding: 0;
 }
 
 /* Custom Utility Classes */
@@ -119,8 +130,16 @@ body {
     color: #10954f;
   }
 
+  .text-vietsov-green-label {
+    color: #10954f;
+  }
+
   .bg-vietsov-background {
     background-image: linear-gradient(to bottom, #edf8f2, #ffffff);
+  }
+
+  .bg-vietsov-background2 {
+    background-image: linear-gradient(to bottom, #ffffff, #ecf7f1);
   }
 
   .bg-vietsov-gradient-green {
@@ -197,5 +216,36 @@ body {
 
   .leading-sm-label {
     line-height: var(--line-height-sm-label);
+  }
+
+  /* Partner Logos Swiper Pagination */
+  .partner-logos-swiper .swiper-pagination {
+    bottom: 0px !important;
+    margin-top: 10px !important;
+  }
+
+  .partner-logos-swiper .swiper-pagination-bullet {
+    background-color: #fce7f3;
+    width: 24px;
+    height: 6px;
+    border-radius: 3px;
+    transition: all 0.3s;
+    opacity: 1;
+    margin: 0 4px;
+  }
+
+  .partner-logos-swiper .swiper-pagination-bullet-active {
+    background-color: #f472b6;
+    width: 40px;
+  }
+
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
   }
 }

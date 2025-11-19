@@ -25,7 +25,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
     <div className="col-span-12 md:col-span-11 lg:col-span-11 text-white flex items-center">
       <div className="w-full max-w-lg md:max-w-xl laptop:max-w-[32rem] fhd:max-w-4xl qhd:max-w-5xl mt-2 md:mt-20 lg:mt-24 laptop:mt-16 fhd:mt-16 qhd:mt-40">
         {/* Event Selector - phía trên title - Cố định height */}
-        <div className="min-h-[60px] md:min-h-[80px] laptop:min-h-[70px] fhd:min-h-[110px] qhd:min-h-[120px] mb-2 md:mb-6 laptop:mb-4 fhd:mb-8 qhd:mb-10">
+        <div className="min-h-[60px] md:min-h-[50px] laptop:min-h-[70px] fhd:min-h-[110px] qhd:min-h-[150px] mb-2 md:mb-6 laptop:mb-4 fhd:mb-8 qhd:mb-10">
           <EventSelector
             events={events}
             activeEventIndex={activeEventIndex}
@@ -35,7 +35,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
         </div>
 
         {/* Title - chỉ có fade in/out - Cố định height */}
-        <div className="min-h-[40px] md:min-h-[50px] laptop:min-h-[45px] fhd:min-h-[30px] qhd:min-h-[80px] mb-2 md:mb-4 laptop:mb-3 fhd:mb-6 qhd:mb-8">
+        <div className="min-h-[40px] md:min-h-[50px] laptop:min-h-[25px] fhd:min-h-[30px] qhd:min-h-[70px] mb-2 md:mb-4 laptop:mb-2 fhd:mb-2 qhd:mb-2">
           <AnimatePresence mode="wait">
             <motion.h2
               key={activeIndex}
@@ -51,7 +51,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({
         </div>
 
         {/* Description - text morphing - Cố định height */}
-        <div className="min-h-[120px] md:min-h-[150px] laptop:min-h-[140px] fhd:min-h-[140px] qhd:min-h-[220px] max-h-[120px] md:max-h-[150px] laptop:max-h-[140px] fhd:max-h-[140px] qhd:max-h-[220px] mb-3 md:mb-6 laptop:mb-4 fhd:mb-8 qhd:mb-10 overflow-hidden">
+        <div className="min-h-[120px] md:min-h-[150px] laptop:min-h-[120px] fhd:min-h-[140px] qhd:min-h-[150px] max-h-[120px] md:max-h-[150px] laptop:max-h-[140px] fhd:max-h-[140px] qhd:max-h-[150px] mb-3 md:mb-6 laptop:mb-8 fhd:mb-8 qhd:mb-10 overflow-hidden">
           <div className="text-base md:text-lg lg:text-lg laptop:text-lg fhd:text-xl qhd:text-2xl leading-relaxed text-white/90">
             <TextMorphing morphKey={activeIndex} text={content.description} />
           </div>

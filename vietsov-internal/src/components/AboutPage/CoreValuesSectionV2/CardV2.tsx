@@ -115,6 +115,21 @@ const CardV2: React.FC<CardV2Props> = ({ value, isLightMode = true }) => {
             : "translateY(calc(100% - 7rem))",
         }}
       >
+        {/* {getIconComponent(value.iconType) && (
+          <div
+            className="mb-8 md:absolute md:-top-12 lg:-top-14 laptop:-top-16 fhd:-top-20 qhd:-top-24 md:mb-0"
+            style={{
+              opacity: isHovered ? 1 : 0,
+              transform: isHovered ? "translateY(0)" : "translateY(1rem)",
+              transition: isHovered
+                ? "transform 700ms cubic-bezier(0.19, 1, 0.22, 1) 87.5ms, opacity 700ms cubic-bezier(0.19, 1, 0.22, 1) 87.5ms"
+                : "transform 700ms cubic-bezier(0.19, 1, 0.22, 1), opacity 700ms cubic-bezier(0.19, 1, 0.22, 1)",
+              pointerEvents: isHovered ? "auto" : "none",
+            }}
+          >
+            {getIconComponent(value.iconType)}
+          </div>
+        )} */}
         {/* Title - Always visible */}
         <h2 className="text-[1.3rem] md:text-[1.5rem] lg:text-[1.75rem] laptop:text-xl fhd:text-3xl qhd:text-4xl font-bold leading-tight mb-0">
           {value.title}

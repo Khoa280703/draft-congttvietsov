@@ -1,12 +1,12 @@
 import React, { useRef, useEffect } from "react";
-import danKhoanBackground from "@/assets/background-slider/gian-khoan.jpg";
 import {
   AboutSection,
   OrgStructureSection,
   AchievementsSection,
   CapabilitiesSectionParallax,
   CoreValuesSectionV2,
-  HistorySection,
+  HistorySectionV2,
+  defaultDevelopmentHistoryData,
 } from "@/components/AboutPage";
 import {
   FeaturedProjectSlider,
@@ -107,7 +107,10 @@ const InternalAboutPage: React.FC = () => {
                 <AboutSection />
               </div>
               <div ref={historySectionRef}>
-                <HistorySection image={danKhoanBackground} />
+                <HistorySectionV2
+                  data={defaultDevelopmentHistoryData}
+                  isLightMode={isLightMode}
+                />
               </div>
               {/* Core Values Section */}
               <div ref={coreValuesSectionRef}>

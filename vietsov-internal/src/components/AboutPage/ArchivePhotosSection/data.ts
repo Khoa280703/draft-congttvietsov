@@ -38,7 +38,7 @@ export const defaultPhotos: ArchivePhoto[] = [
     imageUrl: "/src/assets/1996.jpg",
     imageAlt: "Vietsovpetro đã tổ chức thành công chương trình tham quan",
     title:
-      "Vietsovpetro đã tổ chức thành công chương trình tham quan dành cho các...",
+      "Vietsovpetro đã tổ chức thành công chương trình tham quan dành cho các",
     description:
       "Chương trình tham quan được tổ chức nhằm giới thiệu về hoạt động sản xuất và phát triển của công ty.",
     likes: 20,

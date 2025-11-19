@@ -45,9 +45,9 @@ export const vietsovPetroValues: CoreValue[] = [
     id: "doan-ket-huu-nghi",
     title: "Đoàn kết – Hữu nghị",
     description:
-      "Luôn giữ gìn tình đồng đội cao, hỗ trợ lẫn nhau giữa các bộ phận, giữ gìn lập trường trong các công trình trong cũng như ngoài khơi. Đoàn kết góp phần tạo nên sức mạnh tập thể, giúp vượt qua những thách thức trong môi trường dầu khí đầy biến động.",
+      "Luôn giữ gìn tình đồng đội cao, hỗ trợ lẫn nhau giữa các bộ phận",
     image: vietNga,
-    url: "/gia-tri/doan-ket-huu-nghi",
+    url: "/tintuc/chi-tiet",
     iconType: "frame1",
   },
   {
@@ -55,7 +55,7 @@ export const vietsovPetroValues: CoreValue[] = [
     title: "Khát vọng",
     description: "Luôn hướng tới những mục tiêu cao cả và phát triển bền vững",
     image: hoiNghiPetro,
-    url: "/gia-tri/khat-vong",
+    url: "/tintuc/chi-tiet",
     iconType: "frame2",
   },
   {
@@ -63,7 +63,7 @@ export const vietsovPetroValues: CoreValue[] = [
     title: "Tin cậy",
     description: "Xây dựng niềm tin thông qua sự minh bạch và cam kết",
     image: hoiNghiSuKien,
-    url: "/gia-tri/tin-cay",
+    url: "/tintuc/chi-tiet",
     iconType: "frame3",
   },
   {
@@ -71,7 +71,7 @@ export const vietsovPetroValues: CoreValue[] = [
     title: "Bền vững",
     description: "Phát triển bền vững cho tương lai và môi trường",
     image: danKhoanVietsov,
-    url: "/gia-tri/ben-vung",
+    url: "/tintuc/chi-tiet",
     iconType: "frame",
   },
 ];
@@ -82,7 +82,7 @@ export const humanValues: CoreValue[] = [
     title: "Sáng tạo đổi mới",
     description: "Khuyến khích tư duy sáng tạo và đổi mới trong mọi hoạt động",
     image: vietNga,
-    url: "/gia-tri/sang-tao",
+    url: "/tintuc/chi-tiet",
     iconType: "frame1",
   },
   {
@@ -90,7 +90,7 @@ export const humanValues: CoreValue[] = [
     title: "Thích ứng linh hoạt",
     description: "Linh hoạt thích ứng với mọi thay đổi và thách thức",
     image: hoiNghiSuKien,
-    url: "/gia-tri/thich-ung",
+    url: "/tintuc/chi-tiet",
     iconType: "frame2",
   },
   {
@@ -98,7 +98,7 @@ export const humanValues: CoreValue[] = [
     title: "Trách nhiệm",
     description: "Thực hiện trách nhiệm với xã hội và cộng đồng",
     image: danKhoanVietsov,
-    url: "/gia-tri/trach-nhiem",
+    url: "/tintuc/chi-tiet",
     iconType: "frame3",
   },
   {
@@ -106,7 +106,7 @@ export const humanValues: CoreValue[] = [
     title: "Sẻ chia",
     description: "Chia sẻ kiến thức, kinh nghiệm và giá trị với nhau",
     image: hoiNghiSuKien,
-    url: "/gia-tri/se-chia",
+    url: "/tintuc/chi-tiet",
     iconType: "frame",
   },
 ];

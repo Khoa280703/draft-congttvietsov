@@ -1,6 +1,6 @@
 import React, { useRef, forwardRef, useImperativeHandle } from "react";
 import { motion } from "framer-motion";
-import { vision } from "./data";
+import { vision, mission } from "./data";
 import Frame1 from "@/assets/icon/Frame-1";
 import Frame2 from "@/assets/icon/Frame-2";
 
@@ -59,7 +59,7 @@ const VisionMission = forwardRef<VisionMissionRef, VisionMissionProps>(
                 color={iconColor}
                 className="mx-auto mb-4 md:mb-5"
               />
-              <h3 className="text-center text-vietsov-green font-bold text-sm md:text-base lg:text-lg laptop:text-xl fhd:text-2xl qhd:text-3xl tracking-[0.08em] md:tracking-[0.15em] laptop:tracking-[0.2em] uppercase mb-2 lg:mb-3 laptop:mb-4 fhd:mb-8 qhd:mb-12">
+              <h3 className="text-center text-pvn-blue font-bold text-sm md:text-base lg:text-lg laptop:text-xl fhd:text-2xl qhd:text-3xl tracking-[0.08em] md:tracking-[0.15em] laptop:tracking-[0.2em] uppercase mb-2 lg:mb-3 laptop:mb-4 fhd:mb-8 qhd:mb-12">
                 {vision.title}
               </h3>
               {vision.description.map((paragraph) => (
@@ -85,10 +85,10 @@ const VisionMission = forwardRef<VisionMissionRef, VisionMissionProps>(
                 color={iconColor}
                 className="mx-auto mb-4 md:mb-5"
               />
-              <h3 className="text-center text-vietsov-green font-bold text-sm md:text-base lg:text-lg laptop:text-xl fhd:text-2xl qhd:text-3xl tracking-[0.08em] md:tracking-[0.15em] laptop:tracking-[0.2em] uppercase mb-2 lg:mb-3 laptop:mb-4 fhd:mb-8 qhd:mb-12">
-                {vision.title}
+              <h3 className="text-center text-pvn-blue font-bold text-sm md:text-base lg:text-lg laptop:text-xl fhd:text-2xl qhd:text-3xl tracking-[0.08em] md:tracking-[0.15em] laptop:tracking-[0.2em] uppercase mb-2 lg:mb-3 laptop:mb-4 fhd:mb-8 qhd:mb-12">
+                {mission.title}
               </h3>
-              {vision.description.map((paragraph) => (
+              {mission.description.map((paragraph) => (
                 <p
                   key={paragraph}
                   className="text-center text-xs sm:text-md:text-sm lg:text-base laptop:text-lg fhd:text-xl qhd:text-2xl leading-relaxed opacity-90"

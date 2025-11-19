@@ -136,7 +136,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
               <img
                 src={VietsopetroLogo}
                 alt="Vietsopetro Logo"
-                className="w-26 h-18"
+                className="w-30 h-18"
               />
             </button>
           </div>

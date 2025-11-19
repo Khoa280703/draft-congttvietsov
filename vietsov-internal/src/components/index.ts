@@ -11,7 +11,6 @@ export { default as SectionWithTitle } from "./SectionWithTitle";
 export { default as Header } from "./Header";
 
 // AboutPage exports
-export { default as JointVentureSection } from "./AboutPage/JointVentureSection";
 export { default as OrgStructureSection } from "./AboutPage/OrgStructureSection";
 export { default as AchievementsSection } from "./AboutPage/AchievementsSection";
 export { default as ArchivePhotosSection } from "./AboutPage/ArchivePhotosSection";

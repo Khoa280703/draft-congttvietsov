@@ -22,7 +22,31 @@ const NavigationBar: React.FC<NavigationProps> = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
   const [hoverTimeout, setHoverTimeout] = useState<number | null>(null);
+  const [headerHeight, setHeaderHeight] = useState(48);
   const menuItems = INTERNAL_MENU_ITEMS;
+
+  useEffect(() => {
+    const header = document.querySelector("header");
+    if (!header) return;
+
+    const updateHeaderHeight = () => {
+      setHeaderHeight(header.offsetHeight);
+    };
+
+    updateHeaderHeight();
+    window.addEventListener("resize", updateHeaderHeight);
+    const observer = new MutationObserver(updateHeaderHeight);
+    observer.observe(header, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+    });
+
+    return () => {
+      window.removeEventListener("resize", updateHeaderHeight);
+      observer.disconnect();
+    };
+  }, []);
 
   const handleDropdownMouseEnter = (itemId: string) => {
     if (hoverTimeout) {
@@ -33,35 +57,27 @@ const NavigationBar: React.FC<NavigationProps> = ({
   };
 
   const handleDropdownMouseLeave = () => {
-    const timeout = setTimeout(() => {
+    const timeout = window.setTimeout(() => {
       setOpenDropdownId(null);
-    }, 300); // 300ms delay before closing for easier interaction
+    }, 300);
     setHoverTimeout(timeout);
   };
 
   const handleChildItemClick = (child: { title: string; href: string }) => {
-    // Check if href contains a hash (section ID)
     if (child.href.includes("#")) {
-      // Extract section ID from href (e.g., "/gioithieu#history" -> "history")
       const sectionId = child.href.split("#")[1];
       if (sectionId) {
-        // Check if it's an About page section
         if (child.href.startsWith("/gioithieu") && onAboutSectionClick) {
           onAboutSectionClick(sectionId);
-        }
-        // Check if it's a Fields page section
-        else if (
+        } else if (
           child.href.startsWith("/linhvuc-nangluc") &&
           onFieldsSectionClick
         ) {
           onFieldsSectionClick(sectionId);
         }
       }
-    } else {
-      // It's a regular URL, navigate to it
-      if (onUrlNavigation) {
-        onUrlNavigation(child.href);
-      }
+    } else if (onUrlNavigation) {
+      onUrlNavigation(child.href);
     }
   };
 
@@ -74,12 +90,9 @@ const NavigationBar: React.FC<NavigationProps> = ({
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [openDropdownId]);
 
-  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (hoverTimeout) {
@@ -89,14 +102,20 @@ const NavigationBar: React.FC<NavigationProps> = ({
   }, [hoverTimeout]);
 
   return (
-    <nav className="bg-white w-full border-t border-gray-200 relative z-40">
-      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-12">
+    <nav
+      className="fixed left-0 right-0 bg-white w-full border-t border-gray-200 shadow-md z-40 uppercase"
+      style={{ top: `${headerHeight}px` }}
+    >
+      <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-0 fhd:px-32 qhd:px-40 w-full">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div className="flex justify-center lg:justify-start items-center self-stretch">
             <button
               onClick={() => {
                 if (onUrlNavigation) {
                   onUrlNavigation("/");
+                  setTimeout(() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }, 100);
                 }
               }}
               className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
@@ -104,7 +123,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
               <img
                 src={VietsopetroLogo}
                 alt="Vietsopetro Logo"
-                className="w-26 h-18"
+                className="w-30 h-18"
               />
             </button>
           </div>
@@ -145,7 +164,6 @@ const NavigationBar: React.FC<NavigationProps> = ({
                         )}
                       </button>
 
-                      {/* Generic dropdown for any menu item with children */}
                       {isDropdownOpen && (
                         <div
                           className="absolute top-full left-0 w-80 bg-white border border-gray-200 shadow-xl z-[100] dropdown-container mt-2"
@@ -160,7 +178,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                                     e.preventDefault();
                                     handleChildItemClick(child);
                                   }}
-                                  className="group block w-full text-left py-3 text-sm text-gray-600 hover:bg-gray-100 transition-all duration-200 flex items-center justify-start rounded-md cursor-pointer"
+                                  className="group block w-full text-left py-3 text-sm text-gray-600 hover:bg-gray-100 transition-all duration-200 flex items-center justify-start rounded-md cursor-pointer uppercase"
                                 >
                                   <span>{child.title}</span>
                                   <HiArrowRight className="w-4 h-4 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200 ml-auto" />
@@ -175,7 +193,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                 }
 
                 return (
-                  <li key={item.id} className="relative">
+                  <li key={item.id} className="relative uppercase">
                     <a
                       href="#"
                       onClick={(e) => {
@@ -183,7 +201,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                         onItemClick(item.label);
                       }}
                       className={`
-                      px-3 py-2 text-sm leading-6 tracking-normal text-center font-semibold uppercase
+                      px-3 py-2 text-sm leading-6 tracking-normal text-center font-semibold
                       transition-all duration-300 inline-block relative
                       hover:scale-105 whitespace-nowrap
                       ${
@@ -193,7 +211,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                       }
                     `}
                     >
-                      <span className="whitespace-nowrap">{item.label}</span>
+                      <span>{item.label}</span>
                       {activeItem === item.label && (
                         <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-0.5 bg-vietsov-green hidden lg:block"></span>
                       )}
@@ -203,7 +221,6 @@ const NavigationBar: React.FC<NavigationProps> = ({
               })}
             </ul>
 
-            {/* Desktop Icons - Search and Menu */}
             <div className="hidden lg:flex items-center space-x-2 mt-2 lg:mt-0">
               <button
                 onClick={() => onUrlNavigation && onUrlNavigation("/tim-kiem")}
@@ -239,7 +256,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
       </div>
 
       {isMenuOpen && (
-        <div className="lg:hidden border-t border-gray-200">
+        <div className="lg:hidden border-t border-gray-200 uppercase">
           <ul className="flex flex-col items-center py-2">
             {menuItems.map((item) => {
               const hasChildren = item.children && item.children.length > 0;
@@ -276,7 +293,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
                             handleChildItemClick(child);
                             setIsMenuOpen(false);
                           }}
-                          className="group block w-full text-center py-2 text-xs text-gray-500 hover:text-vietsov-green hover:scale-105 transition-all duration-200 flex items-center justify-between px-2 hover:m-4"
+                          className="group block w-full text-center text-xs text-gray-500 hover:text-vietsov-green hover:scale-105 transition-all duration-200 flex items-center justify-between px-2 hover:m-4 uppercase"
                         >
                           <span>{child.title}</span>
                           <HiArrowRight className="w-3 h-3 text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
@@ -295,3 +312,4 @@ const NavigationBar: React.FC<NavigationProps> = ({
 };
 
 export default NavigationBar;
+

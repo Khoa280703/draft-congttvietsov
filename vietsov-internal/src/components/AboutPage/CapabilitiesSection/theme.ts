@@ -8,8 +8,8 @@ export const CAPABILITIES_THEME_COLORS = {
     background: "bg-white",
     sectionBackground: "bg-white",
     title: "text-vietsov-green",
-    titlePrefix: "text-vietsov-green", // "LĨNH VỰC"
-    titleSuffix: "text-gray-700", // "HOẠT ĐỘNG"
+    titlePrefix: "text-pvn-blue", // "LĨNH VỰC" - pvn-blue
+    titleSuffix: "text-vietsov-green", // "HOẠT ĐỘNG" - pvn-green
     description: "text-gray-700",
     link: "text-vietsov-green",
     button: {
@@ -44,4 +44,3 @@ export const getCapabilitiesThemeColors = (isLight: boolean) => {
     ? CAPABILITIES_THEME_COLORS.light
     : CAPABILITIES_THEME_COLORS.dark;
 };
-

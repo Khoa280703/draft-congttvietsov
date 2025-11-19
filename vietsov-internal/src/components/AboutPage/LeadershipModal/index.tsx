@@ -26,7 +26,7 @@ const LeadershipModal: React.FC<LeadershipModalProps> = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[60] p-4 overflow-hidden"
           onClick={onClose}
           role="dialog"
           aria-modal="true"
@@ -34,24 +34,36 @@ const LeadershipModal: React.FC<LeadershipModalProps> = ({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
+          onWheel={(e) => {
+            // Prevent scroll on backdrop
+            e.stopPropagation();
+          }}
         >
           {/* Close Button - Outside the card */}
 
           <motion.div
-            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden"
+            className="relative bg-white rounded-2xl shadow-2xl w-full max-w-6xl max-h-[60vh] overflow-visible flex flex-col"
             onClick={(e) => e.stopPropagation()}
+            onWheel={(e) => {
+              // Allow scroll inside modal
+              e.stopPropagation();
+            }}
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 h-[70vh] lg:h-[80vh] relative overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 h-[65vh] lg:h-[75vh] relative overflow-visible flex-1 min-h-0">
               {/* Left Panel - Text Information */}
               <div
                 className="p-8 lg:p-12 flex flex-col overflow-y-auto custom-scrollbar min-h-0"
                 style={{
                   scrollbarWidth: "thin",
                   scrollbarColor: "#9CA3AFrgb(16, 248, 117)",
+                }}
+                onWheel={(e) => {
+                  // Ensure scroll works inside this div
+                  e.stopPropagation();
                 }}
               >
                 {/* Title Badge */}
@@ -120,8 +132,8 @@ const LeadershipModal: React.FC<LeadershipModalProps> = ({
                 </div>
               </div>
 
-              <div className="relative bg-gray-50 flex items-center justify-center p-8">
-                <div className="absolute -top-12 w-128 h-96 lg:h-[100%] z-10">
+              <div className="relative bg-gray-50 flex items-center justify-center p-8 overflow-visible">
+                <div className="absolute -top-12 -bottom-12 w-128 h-[calc(100%+6rem)] lg:h-[calc(100%+8rem)] z-10">
                   <img
                     src={leader.image}
                     alt={leader.name}

@@ -160,49 +160,102 @@ const HistorySection: React.FC<HistorySectionProps> = ({
         </motion.div>
         {/* Content Overlay */}
         {data && (
-          <div className="relative z-10 h-full flex items-center w-full">
-            {/* Left: Timeline and Content */}
-            <div className="mx-auto px-4 lg:px-6 laptop:px-8 fhd:px-16 qhd:px-24 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
-              <motion.div
-                className="text-center mb-6 md:mb-8 lg:mb-12 laptop:mb-14 fhd:mb-24 qhd:mb-18 flex justify-start"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl laptop:text-6xl fhd:text-7xl qhd:text-8xl font-bold uppercase leading-tight text-white">
-                  LỊCH SỬ HÌNH THÀNH
-                </h2>
-              </motion.div>
-              <div className="grid grid-cols-12 gap-4 md:gap-6 lg:gap-8 laptop:gap-10 fhd:gap-12 qhd:gap-14 items-start w-4/6">
-                <Timeline
-                  years={data.years}
-                  activeYearIndex={activeYearIndex}
-                  onYearClick={handleYearClick}
-                />
-                {currentEvent && (
-                  <ContentSection
-                    content={currentEvent}
-                    events={currentEvents}
-                    activeEventIndex={activeEventIndex}
-                    activeIndex={combinedIndex}
-                    onEventSelect={setActiveEventIndex}
-                    onEventNavigate={navigateEvents}
+          <>
+            {/* Desktop Layout */}
+            <div className="hidden md:relative md:z-10 md:h-full md:flex md:items-center md:w-full">
+              {/* Left: Timeline and Content */}
+              <div className="mx-auto px-4 lg:px-6 laptop:px-8 fhd:px-16 qhd:px-24 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
+                <motion.div
+                  className="text-center mb-6 md:mb-8 lg:mb-12 laptop:mb-14 fhd:mb-24 qhd:mb-18 flex justify-start"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                  <h2 className="text-2xl sm:text-2xl md:text-3xl lg:text-4xl laptop:text-5xl fhd:text-6xl qhd:text-8xl font-bold uppercase leading-tight text-white">
+                    CÁC CỘT MỐC QUAN TRỌNG
+                  </h2>
+                </motion.div>
+
+                <div className="grid grid-cols-12 gap-4 md:gap-6 lg:gap-8 laptop:gap-10 fhd:gap-12 qhd:gap-14 items-start w-4/6">
+                  <Timeline
+                    years={data.years}
+                    activeYearIndex={activeYearIndex}
+                    onYearClick={handleYearClick}
                   />
-                )}
+                  {currentEvent && (
+                    <ContentSection
+                      content={currentEvent}
+                      events={currentEvents}
+                      activeEventIndex={activeEventIndex}
+                      activeIndex={combinedIndex}
+                      onEventSelect={setActiveEventIndex}
+                      onEventNavigate={navigateEvents}
+                    />
+                  )}
+                </div>
               </div>
+
+              {/* Right: Image Grid */}
+              <ImageGrid
+                images={visibleImages}
+                currentEvents={currentEvents}
+                activeEventIndex={activeEventIndex}
+                activeYearIndex={activeYearIndex}
+                onImageClick={handleImageClick}
+                onNavigate={navigateImages}
+              />
             </div>
 
-            {/* Right: Image Grid */}
-            <ImageGrid
-              images={visibleImages}
-              currentEvents={currentEvents}
-              activeEventIndex={activeEventIndex}
-              activeYearIndex={activeYearIndex}
-              onImageClick={handleImageClick}
-              onNavigate={navigateImages}
-            />
-          </div>
+            {/* Mobile Layout - Dọc: Ảnh trên, Content dưới */}
+            <div className="block md:hidden relative z-10 w-full h-full flex flex-col">
+              {/* Top: Image - Chiếm 50% chiều cao */}
+              <div className="w-full h-1/2 flex items-end justify-center px-3 pt-2 pb-0">
+                <ImageGrid
+                  images={visibleImages}
+                  currentEvents={currentEvents}
+                  activeEventIndex={activeEventIndex}
+                  activeYearIndex={activeYearIndex}
+                  onImageClick={handleImageClick}
+                  onNavigate={navigateImages}
+                />
+              </div>
+
+              {/* Bottom: Timeline and Content - Chiếm 50% chiều cao */}
+              <div className="w-full h-1/2 flex flex-col items-start justify-start px-3 -mt-4 pb-4 overflow-y-auto">
+                <div className="w-full max-w-md">
+                  {/* Section Title - Mobile */}
+                  <motion.div
+                    className="text-center mb-6 md:mb-8 lg:mb-12 laptop:mb-14 fhd:mb-24 qhd:mb-18"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                  >
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl laptop:text-5xl fhd:text-6xl qhd:text-7xl font-bold uppercase leading-tight text-white">
+                      CÁC CỘT MỐC QUAN TRỌNG
+                    </h2>
+                  </motion.div>
+
+                  <Timeline
+                    years={data.years}
+                    activeYearIndex={activeYearIndex}
+                    onYearClick={handleYearClick}
+                  />
+                  {currentEvent && (
+                    <ContentSection
+                      content={currentEvent}
+                      events={currentEvents}
+                      activeEventIndex={activeEventIndex}
+                      activeIndex={combinedIndex}
+                      onEventSelect={setActiveEventIndex}
+                      onEventNavigate={navigateEvents}
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
+          </>
         )}
       </div>
     </div>

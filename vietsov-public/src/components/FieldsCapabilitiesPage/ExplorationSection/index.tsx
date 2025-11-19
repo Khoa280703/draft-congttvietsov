@@ -24,7 +24,7 @@ const ExplorationSection: React.FC = () => {
               path={item.href}
               categoryLabel="LĨNH VỰC HOẠT ĐỘNG"
               capabilities={item.capabilities}
-              imageHeight="h-[500px] md:h-[700px] lg:h-[850px]"
+              imageHeight="h-[400px] md:h-[300px] lg:h-[320px] laptop:h-[360px] fhd:h-[420px] qhd:h-[500px]"
               showQuoteIcon={true}
               cardIndex={index}
               totalCards={explorationData.length}
