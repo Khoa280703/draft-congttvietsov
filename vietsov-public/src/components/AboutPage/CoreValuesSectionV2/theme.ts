@@ -20,6 +20,7 @@ export const CORE_VALUES_THEME_COLORS = {
     cardBorder: "border border-vietsov-green",
     cardShadow: "0 5px 16px 0 rgba(2, 55, 102, 0.09)",
     cardShadowHover: "0 10px 32px 0 rgba(2, 55, 102, 0.15)",
+    iconColor: "#489C51",
     iconBackground: "bg-white",
     iconBorder: "border border-white",
     // Button colors

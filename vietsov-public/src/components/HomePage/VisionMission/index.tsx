@@ -1,6 +1,6 @@
 import React, { useRef, forwardRef, useImperativeHandle } from "react";
 import { motion } from "framer-motion";
-import { vision, mission } from "./data";
+import { vision } from "./data";
 import Frame1 from "@/assets/icon/Frame-1";
 import Frame2 from "@/assets/icon/Frame-2";
 
