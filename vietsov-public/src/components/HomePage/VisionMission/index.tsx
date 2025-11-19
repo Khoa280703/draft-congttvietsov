@@ -35,7 +35,7 @@ const VisionMission = forwardRef<VisionMissionRef, VisionMissionProps>(
       >
         <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-10">
           <motion.div
-            className="text-center mb-10 md:mb-12 lg:mb-16"
+            className="text-center mb-10 md:mb-12 lg:mb-16 laptop:mb-24 fhd:mb-32 qhd:mb-40"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}

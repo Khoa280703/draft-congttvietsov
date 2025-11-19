@@ -8,15 +8,26 @@
 export const CORE_VALUES_THEME_COLORS = {
   light: {
     sectionBackground: "bg-white]",
-    title: "text-vietsov-green",
-    description: "text-gray-700",
+    title: "text-white",
+    description: "text-white",
     // CardStack colors
     cardStackTitleGreen: "text-pvn-blue", // pvn-blue
     cardStackTitleBlack: "text-vietsov-green",
     cardStackGradientLine:
       "bg-gradient-to-r from-transparent via-vietsov-green to-transparent",
+    // Card colors
+    cardBackground: "bg-vietsov-green",
+    cardBorder: "border border-vietsov-green",
+    cardShadow: "0 5px 16px 0 rgba(2, 55, 102, 0.09)",
+    cardShadowHover: "0 10px 32px 0 rgba(2, 55, 102, 0.15)",
+    iconBackground: "bg-white",
+    iconBorder: "border border-white",
+    // Button colors
+    buttonBackground: "bg-white",
+    buttonText: "text-vietsov-green",
+    buttonBorder: "border border-white",
+    buttonHover: "hover:bg-gray-100",
     // CardV2 colors
-    cardBackground: "bg-white",
     cardText: "text-white",
     cardGradientOverlay: "bg-gradient-to-b from-transparent to-black/50",
     cardButtonBackground: "bg-black",
@@ -25,15 +36,27 @@ export const CORE_VALUES_THEME_COLORS = {
   },
   dark: {
     sectionBackground: "bg-vietsov-green-bold",
-    title: "text-white",
-    description: "text-gray-100",
+    title: "text-gray-900",
+    description: "text-gray-700",
     // CardStack colors
     cardStackTitleGreen: "text-vietsov-yellow",
     cardStackTitleBlack: "text-white",
     cardStackGradientLine:
       "bg-gradient-to-r from-transparent via-vietsov-yellow to-transparent",
-    // CardV2 colors
+    // Card colors
     cardBackground: "bg-white",
+    cardBorder: "border border-gray-200",
+    cardShadow: "0 5px 16px 0 rgba(0, 0, 0, 0.1)",
+    cardShadowHover: "0 10px 32px 0 rgba(0, 0, 0, 0.2)",
+    iconColor: "#ffffff",
+    iconBackground: "bg-vietsov-green",
+    iconBorder: "border border-vietsov-green",
+    // Button colors
+    buttonBackground: "bg-vietsov-green",
+    buttonText: "text-white",
+    buttonBorder: "border border-vietsov-green",
+    buttonHover: "hover:bg-vietsov-green-bold",
+    // CardV2 colors
     cardText: "text-white",
     cardGradientOverlay: "bg-gradient-to-b from-transparent to-black/50",
     cardButtonBackground: "bg-black",
