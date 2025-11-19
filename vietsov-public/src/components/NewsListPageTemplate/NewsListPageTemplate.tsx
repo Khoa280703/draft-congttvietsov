@@ -303,7 +303,7 @@ const NewsListPageTemplate: React.FC<NewsListPageTemplateProps> = ({
                     title={article.title}
                     timestamp={article.timestamp}
                     description={article.description}
-                    className="h-48"
+                    className="h-32 md:h-40 lg:h-44 laptop:h-48 fhd:h-52 qhd:h-56"
                     onClick={() => handleArticleClick(article)}
                     detail={true}
                   />

@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { CardFullDetail, CardFullDetailHori } from "@/components/Card";
+import { SeeMoreButton } from "@/components/Button";
 import { getTypicalProjectsSectionThemeColors } from "../TypicalProjectsSection/theme";
 import {
   defaultPetroMainArticle,
@@ -136,6 +137,21 @@ const PetroNewsSection: React.FC<PetroNewsSectionProps> = ({
             ))}
           </motion.div>
         </div>
+
+        {/* See More Button */}
+        <motion.div
+          className="flex justify-center mt-8 md:mt-10 lg:mt-12 laptop:mt-14 fhd:mt-16 qhd:mt-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <SeeMoreButton
+            text="Xem thêm"
+            href="/tintuc/tin-dau-khi"
+            variant="outline"
+          />
+        </motion.div>
       </div>
     </motion.section>
   );

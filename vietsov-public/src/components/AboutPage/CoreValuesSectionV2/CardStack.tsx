@@ -33,7 +33,7 @@ const CoreValueCard: React.FC<CoreValueCardProps> = ({
 
   return (
     <motion.div
-      className={`${theme.cardBackground} ${theme.cardBorder} rounded-lg flex flex-col items-center px-3 md:px-4 lg:px-5 laptop:px-6 fhd:px-8 qhd:px-10 py-3 md:py-4 lg:py-5 laptop:py-6 fhd:py-8 qhd:py-10 h-full transition-all duration-300`}
+      className={`${theme.cardBackground} rounded-lg flex flex-col items-center px-3 md:px-4 lg:px-5 laptop:px-6 fhd:px-8 qhd:px-10 py-3 md:py-4 lg:py-5 laptop:py-6 fhd:py-8 qhd:py-10 h-full transition-all duration-300`}
       style={{
         boxShadow: isHovered ? theme.cardShadowHover : theme.cardShadow,
       }}
@@ -46,14 +46,12 @@ const CoreValueCard: React.FC<CoreValueCardProps> = ({
     >
       {/* Icon - Top, Centered with circular background */}
       <div className="mb-3 md:mb-4 lg:mb-5 laptop:mb-6 fhd:mb-8 qhd:mb-10 flex justify-center">
-        <div
-          className={`${theme.iconBackground} ${theme.iconBorder} rounded-full p-2 md:p-3 lg:p-4 laptop:p-5 fhd:p-6 qhd:p-7 flex items-center justify-center shadow-lg`}
-        >
+        <div className={`flex items-center justify-center`}>
           <CoreValueIcon
             width="240"
             height="240"
             color={theme.iconColor}
-            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 laptop:w-28 laptop:h-28 fhd:w-32 fhd:h-32 qhd:w-36 qhd:h-36"
+            className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 laptop:w-28 laptop:h-28 fhd:w-36 fhd:h-36 qhd:w-42 qhd:h-42"
           />
         </div>
       </div>
@@ -67,9 +65,9 @@ const CoreValueCard: React.FC<CoreValueCardProps> = ({
 
       {/* Description - Left-aligned text in centered block */}
       {value.description && (
-        <div className="w-full mb-3 md:mb-4 lg:mb-5 laptop:mb-6 fhd:mb-8 qhd:mb-10 flex-1">
+        <div className="w-3/4 mb-4 md:mb-6 lg:mb-8 laptop:mb-10 fhd:mb-12 qhd:mb-14 flex-1">
           <p
-            className={`text-[10px]  md:text-xs lg:text-sm laptop:text-sm fhd:text-base qhd:text-lg leading-relaxed text-center transition-colors duration-300 font-medium ${theme.description} opacity-70`}
+            className={`text-[10px] md:text-xs lg:text-sm laptop:text-sm fhd:text-base qhd:text-lg leading-relaxed text-center transition-colors duration-300 font-medium ${theme.description} opacity-70 laptop:line-clamp-2 fhd:line-clamp-3 qhd:line-clamp-4`}
           >
             {value.description}
           </p>
@@ -78,7 +76,7 @@ const CoreValueCard: React.FC<CoreValueCardProps> = ({
 
       {/* Button - Theme-based colors, pill-shaped, centered */}
       <button
-        className={`w-full ${theme.buttonBackground} ${theme.buttonText} ${theme.buttonBorder} font-bold uppercase py-1.5 md:py-2 lg:py-2.5 laptop:py-3 fhd:py-3.5 qhd:py-4 px-3 md:px-4 lg:px-5 laptop:px-6 fhd:px-8 qhd:px-10 rounded-full text-[9px] md:text-[10px] lg:text-xs laptop:text-sm fhd:text-base qhd:text-lg transition-all duration-300 ${theme.buttonHover} hover:scale-105`}
+        className={`${theme.buttonBackground} ${theme.buttonText} ${theme.buttonBorder} font-bold uppercase py-1.5 md:py-2 lg:py-2.5 laptop:py-3 fhd:py-3.5 qhd:py-4 px-3 md:px-4 lg:px-5 laptop:px-6 fhd:px-8 qhd:px-10 rounded-sm text-[9px] md:text-[8px] lg:text-[9px] laptop:text-[11px] fhd:text-xs qhd:text-sm transition-all duration-300 ${theme.buttonHover} hover:scale-105`}
       >
         Xem thêm
       </button>
@@ -127,7 +125,7 @@ const CardStack: React.FC<CardStackProps> = ({
           )}
         </h2>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 laptop:gap-8 fhd:gap-10 qhd:gap-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 lg:gap-6 laptop:gap-12 fhd:gap-10 qhd:gap-12">
         {values.map((value, index) => {
           const CoreValueIcon = [
             CoreValue1,

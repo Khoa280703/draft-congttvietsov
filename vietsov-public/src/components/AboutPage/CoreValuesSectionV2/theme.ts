@@ -7,29 +7,29 @@
 
 export const CORE_VALUES_THEME_COLORS = {
   light: {
-    sectionBackground: "bg-white]",
-    title: "text-white",
-    description: "text-white",
+    sectionBackground: "bg-white",
+    title: "text-vietsov-black",
+    description: "text-vietsov-black",
     // CardStack colors
     cardStackTitleGreen: "text-pvn-blue", // pvn-blue
     cardStackTitleBlack: "text-vietsov-green",
     cardStackGradientLine:
       "bg-gradient-to-r from-transparent via-vietsov-green to-transparent",
     // Card colors
-    cardBackground: "bg-vietsov-green",
+    cardBackground: "bg-white",
     cardBorder: "border border-vietsov-green",
-    cardShadow: "0 5px 16px 0 rgba(2, 55, 102, 0.09)",
+    cardShadow: "0 10px 32px 0 rgba(2, 55, 102, 0.15)",
     cardShadowHover: "0 10px 32px 0 rgba(2, 55, 102, 0.15)",
     iconColor: "#489C51",
     iconBackground: "bg-white",
     iconBorder: "border border-white",
     // Button colors
-    buttonBackground: "bg-white",
-    buttonText: "text-vietsov-green",
+    buttonBackground: "bg-vietsov-green",
+    buttonText: "text-white",
     buttonBorder: "border border-white",
     buttonHover: "hover:bg-gray-100",
     // CardV2 colors
-    cardText: "text-white",
+    cardText: "text-vietsov-black",
     cardGradientOverlay: "bg-gradient-to-b from-transparent to-black/50",
     cardButtonBackground: "bg-black",
     cardButtonHover: "hover:bg-[#0d0d0d]",
@@ -49,7 +49,7 @@ export const CORE_VALUES_THEME_COLORS = {
     cardBorder: "border border-gray-200",
     cardShadow: "0 5px 16px 0 rgba(0, 0, 0, 0.1)",
     cardShadowHover: "0 10px 32px 0 rgba(0, 0, 0, 0.2)",
-    iconColor: "#ffffff",
+    iconColor: "#489C51",
     iconBackground: "bg-vietsov-green",
     iconBorder: "border border-vietsov-green",
     // Button colors
