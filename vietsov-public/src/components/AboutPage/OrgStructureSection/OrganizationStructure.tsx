@@ -106,6 +106,21 @@ const NodeModal: React.FC<NodeModalProps> = ({
     isDonViTrucThuoc ||
     (hasChildren && node.children!.length > 10);
 
+  // Helper function to handle child node click with URL
+  const handleChildClick = (child: OrgNodeData, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (child.url) {
+      let url = child.url.trim();
+      // Add protocol if not present
+      if (!url.startsWith("http://") && !url.startsWith("https://")) {
+        url = `https://${url}`;
+      }
+      // Remove trailing semicolon if present
+      url = url.replace(/;$/, "");
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm bg-black/20 overflow-hidden"
@@ -399,7 +414,10 @@ const NodeModal: React.FC<NodeModalProps> = ({
                           {node.children.map((child) => (
                             <div
                               key={child.id}
-                              className="flex items-center space-x-2 p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-green-300 hover:bg-green-50 transition-all duration-200"
+                              onClick={(e) => handleChildClick(child, e)}
+                              className={`flex items-center space-x-2 p-3 bg-gray-50 rounded-lg border border-gray-200 hover:border-green-300 hover:bg-green-50 transition-all duration-200 ${
+                                child.url ? "cursor-pointer" : ""
+                              }`}
                             >
                               <div className="w-2 h-2 bg-vietsov-green rounded-full flex-shrink-0"></div>
                               <span className="text-sm text-gray-700 font-medium">
@@ -413,7 +431,10 @@ const NodeModal: React.FC<NodeModalProps> = ({
                           {node.children.map((child) => (
                             <div
                               key={child.id}
-                              className="flex items-center space-x-2 p-2 bg-white rounded-lg border border-gray-100 hover:border-green-200 transition-colors"
+                              onClick={(e) => handleChildClick(child, e)}
+                              className={`flex items-center space-x-2 p-2 bg-white rounded-lg border border-gray-100 hover:border-green-200 transition-colors ${
+                                child.url ? "cursor-pointer" : ""
+                              }`}
                             >
                               <div className="w-2 h-2 bg-vietsov-green rounded-full"></div>
                               <span className="text-sm text-gray-700">
@@ -541,54 +562,30 @@ const orgChartData: OrgNodeData = {
           variant: "blue",
           children: [
             {
-              id: "phong-ky-thuat-san-xuat-dv",
-              label: "Phòng Kỹ thuật sản xuất",
-            },
-            { id: "phong-to-chuc-nhan-su-dv", label: "Phòng Tổ chức nhân sự" },
-            {
-              id: "phong-dia-chat-khai-thac-mo-dv",
-              label: "Phòng Địa chất khai thác mỏ",
+              id: "xi-nghiep-khai-thac-dau-khi",
+              label: "Xí nghiệp khai thác dầu khí",
+              url: "gas.vietsov.com.vn/Pages/Home.aspx",
             },
             {
-              id: "phong-tai-chinh-ke-toan-dv",
-              label: "Phòng Tài chính kế toán",
+              id: "xi-nghiep-xay-lap",
+              label: "Xí nghiệp xây lắp",
+              url: "vietsov.com.vn;",
             },
             {
-              id: "phong-khoan-va-sua-chua-gieng-khoan-dv",
-              label: "Phòng Khoan và sửa chữa lớn giếng khoan",
+              id: "xi-nghiep-van-tai-bien",
+              label: "Xí nghiệp vận tải biển",
+              url: "vantaibien.com.vn",
             },
             {
-              id: "phong-kinh-te-ke-hoach-dv",
-              label: "Phòng Kinh tế kế hoạch",
-            },
-            { id: "phong-thuong-mai-dv", label: "Phòng Thương mại" },
-            {
-              id: "phong-khai-thac-tau-bien-van-tai-cong-nghe-dv",
-              label: "Phòng Khai thác tàu biển và vận tải công nghệ",
-            },
-            { id: "van-phong-dv", label: "Văn phòng" },
-            {
-              id: "ban-dieu-do-san-xuat-trung-tam-dv",
-              label: "Ban Điều độ sản xuất trung tâm",
+              id: "xi-nghiep-dia-vat-ly-gieng-khoan",
+              label: "Xí nghiệp địa vật lý giếng khoan",
+              url: "diavatly.com.vn",
             },
             {
-              id: "phong-thanh-tra-bao-ve-dv",
-              label: "Phòng Thanh tra & Bảo vệ",
+              id: "xi-nghiep-co-dien",
+              label: "Xí nghiệp điện",
+              url: "codienvsp.com.vn",
             },
-            {
-              id: "phong-tiep-thi-dich-vu-dv",
-              label: "Phòng Tiếp thị dịch vụ",
-            },
-            { id: "phong-phap-che-dv", label: "Phòng Pháp chế" },
-            {
-              id: "phong-an-toan-suc-khoe-moi-truong-dv",
-              label: "Phòng An toàn sức khỏe và môi trường",
-            },
-            {
-              id: "phong-quan-ly-rui-ro-bao-hiem-dv",
-              label: "Phòng Quản lý rủi ro và Bảo hiểm",
-            },
-            { id: "ban-thanh-tra-dv", label: "Ban Thanh tra" },
           ],
         },
       ],
@@ -862,6 +859,19 @@ const OrganizationStructure = () => {
     // Find the node data
     const nodeData = findNodeById(orgChartData, nodeId);
     if (!nodeData) return;
+
+    // If node has URL, navigate to it instead of opening modal
+    if (nodeData.url) {
+      let url = nodeData.url.trim();
+      // Add protocol if not present
+      if (!url.startsWith("http://") && !url.startsWith("https://")) {
+        url = `https://${url}`;
+      }
+      // Remove trailing semicolon if present
+      url = url.replace(/;$/, "");
+      window.open(url, "_blank", "noopener,noreferrer");
+      return;
+    }
 
     const isBoMayDieuHanh = nodeId === "bo-may-dieu-hanh";
     const isDonViTrucThuoc = nodeId === "don-vi-truc-thuoc";
