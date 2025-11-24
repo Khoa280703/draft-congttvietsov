@@ -1,22 +1,7 @@
 import React from "react";
 
-import ButtonSideBar from "./NewsPage/ButtonSideBar";
-import StatisticCard from "./StatisticCard";
-import StatisticCardWithBg from "./StatisticCardWithBg";
 import SafetyInfoCard from "./NewsPage/SafetyInfoCard";
 import TrainingScheduleWidget from "./NewsPage/TrainingScheduleWidget";
-
-const statisticCardData1: StatisticCardData[] = [
-  { period: "Ngày", plan: 8422.4, actual: 8275.0 },
-  { period: "Tháng", plan: 16844.8, actual: 16446.0 },
-  { period: "Năm", plan: 1471709.8, actual: 1467777.0 },
-];
-
-const statisticCardData2: StatisticCardData[] = [
-  { period: "Ngày", plan: 8422.4, actual: 8275.0 },
-  { period: "Tháng", plan: 16844.8, actual: 16446.0 },
-  { period: "Năm", plan: 1471709.8, actual: 1467777.0 },
-];
 
 const trainingData: TrainingItemData[] = [
   {
