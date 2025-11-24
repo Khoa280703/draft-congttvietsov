@@ -6,6 +6,7 @@ import {
   ProductionNews,
   BreakingNewsSlider,
 } from "@/components/HomePage";
+import { LinkCenter } from "@/components";
 
 const statisticCardData: StatisticCardData[] = [
   { period: "Ngày", plan: 8422.4, actual: 8275.0 },
@@ -18,7 +19,7 @@ const HomePage: React.FC = () => {
     <div>
       <SliderHome />
       <BreakingNewsSlider />
-      <div className="bg-vietsov-background py-8 md:py-12 lg:py-10 laptop:py-16 fhd:py-20 qhd:py-24">
+      <div className="bg-vietsov-background pt-8 md:pt-12 lg:pt-10 laptop:pt-16 fhd:pt-20 qhd:pt-24">
         <div className="py-8 md:py-12 lg:py-10 laptop:py-16 fhd:py-20 qhd:py-24">
           <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
             <h2 className="text-3xl md:text-4xl lg:text-4xl laptop:text-5xl fhd:text-6xl qhd:text-7xl font-bold text-gray-900 text-center mb-8 md:mb-12 lg:mb-16 laptop:mb-20 fhd:mb-24 qhd:mb-28">
@@ -46,22 +47,17 @@ const HomePage: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="pb-8 md:pb-12 lg:pb-10 laptop:pb-16 fhd:pb-20 qhd:pb-24">
+        <div className="py-8 md:py-12 lg:py-10 laptop:py-16 fhd:py-20 qhd:py-24">
           <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
             <ProductionNews />
           </div>
         </div>
-      </div>
-      {/* 
-      <FeaturedProjects />
-      <div className="bg-gray-100">
-        <ActivitySlider />
-      </div>
-      <div className="bg-white">
-        <div className="px-4 md:px-12 lg:px-60 inch32:px-80 py-8 md:py-12 lg:py-10 inch32:py-12">
-          <SpotlightNews />
+        <div className="py-8 md:py-12 lg:py-10 laptop:py-16 fhd:py-20 qhd:py-24">
+          <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
+            <LinkCenter />
+          </div>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 };

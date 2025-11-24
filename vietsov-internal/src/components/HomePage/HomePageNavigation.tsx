@@ -158,10 +158,13 @@ const HomePageNavigation: React.FC<HomePageNavigationProps> = ({
 
               {/* Tooltip on hover */}
               <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                <div className="bg-gray-900 text-white text-xs px-3 py-1.5 rounded shadow-lg">
+                <div className="bg-vietsov-green text-white text-xs px-3 py-1.5 rounded shadow-lg">
                   {section.label}
                 </div>
-                <div className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent border-l-gray-900" />
+                <div
+                  className="absolute left-full top-1/2 -translate-y-1/2 border-4 border-transparent"
+                  style={{ borderLeftColor: "#10954f" }}
+                />
               </div>
             </button>
           );
@@ -172,4 +175,3 @@ const HomePageNavigation: React.FC<HomePageNavigationProps> = ({
 };
 
 export default HomePageNavigation;
-

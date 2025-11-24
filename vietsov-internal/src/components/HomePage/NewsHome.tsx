@@ -53,7 +53,7 @@ const NewsHome: React.FC = () => {
                 : "text-gray-500 hover:text-gray-800"
             }`}
           >
-            Tin nội bộ
+            Tin SXKD
           </button>
           <button
             onClick={() => setActiveTab("technical")}
@@ -63,7 +63,7 @@ const NewsHome: React.FC = () => {
                 : "text-gray-500 hover:text-gray-800"
             }`}
           >
-            Báo cáo kỹ thuật
+            Tin Đảng - Đoàn thể
           </button>
           <button
             onClick={() => setActiveTab("safety")}
@@ -73,14 +73,15 @@ const NewsHome: React.FC = () => {
                 : "text-gray-500 hover:text-gray-800"
             }`}
           >
-            An toàn lao động
+            Tin dầu khí
           </button>
         </div>
         <a
           href="#"
           className="flex items-center text-xs md:text-xs lg:text-xs laptop:text-sm fhd:text-sm qhd:text-base text-green-600 hover:text-green-700 font-medium shrink-0"
         >
-          Xem thêm <FiChevronRight className="w-3 h-3 md:w-3 md:h-3 lg:w-3 lg:h-3 laptop:w-3.5 laptop:h-3.5 fhd:w-4 fhd:h-4 qhd:w-4 qhd:h-4 ml-1" />
+          Xem thêm{" "}
+          <FiChevronRight className="w-3 h-3 md:w-3 md:h-3 lg:w-3 lg:h-3 laptop:w-3.5 laptop:h-3.5 fhd:w-4 fhd:h-4 qhd:w-4 qhd:h-4 ml-1" />
         </a>
       </div>
 
