@@ -8,10 +8,6 @@ import {
   HistorySectionV2,
   defaultDevelopmentHistoryData,
 } from "@/components/AboutPage";
-import {
-  FeaturedProjectSlider,
-  defaultFeaturedProjects,
-} from "@/components/Shared";
 import LeaderPage from "./LeaderPage";
 import { Routes, Route } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -31,7 +27,6 @@ const InternalAboutPage: React.FC = () => {
   const orgStructureSectionRef = useRef<HTMLDivElement>(null);
   const achievementsSectionRef = useRef<HTMLDivElement>(null);
   const capabilitiesSectionRef = useRef<HTMLDivElement>(null);
-  const archivePhotosSectionRef = useRef<HTMLDivElement>(null);
 
   // Theme management for AboutPage
   // Detect khi scroll đến CardStack thứ 2 (Giá trị Con người) để chuyển sang dark mode
@@ -39,8 +34,7 @@ const InternalAboutPage: React.FC = () => {
     coreValuesSectionRef,
     humanValuesRef,
     orgStructureSectionRef,
-    capabilitiesSectionRef,
-    archivePhotosSectionRef
+    capabilitiesSectionRef
   );
 
   useEffect(() => {
@@ -89,11 +83,6 @@ const InternalAboutPage: React.FC = () => {
       label: "Lĩnh vực hoạt động",
       ref: capabilitiesSectionRef,
     },
-    {
-      id: "archive-photos",
-      label: "Hình ảnh tư liệu",
-      ref: archivePhotosSectionRef,
-    },
   ];
 
   return (
@@ -103,24 +92,24 @@ const InternalAboutPage: React.FC = () => {
           path="/"
           element={
             <div>
-              <div ref={aboutSectionRef}>
+              <div id="introdution" ref={aboutSectionRef}>
                 <AboutSection />
               </div>
-              <div ref={historySectionRef}>
+              <div id="history" ref={historySectionRef}>
                 <HistorySectionV2
                   data={defaultDevelopmentHistoryData}
                   isLightMode={isLightMode}
                 />
               </div>
               {/* Core Values Section */}
-              <div ref={coreValuesSectionRef}>
+              <div id="vision-mission" ref={coreValuesSectionRef}>
                 <CoreValuesSectionV2
                   isLightMode={isLightMode}
                   humanValuesRef={humanValuesRef}
                 />
               </div>
               {/* Organization Structure */}
-              <div ref={orgStructureSectionRef}>
+              <div id="organization-structure" ref={orgStructureSectionRef}>
                 <OrgStructureSection isLightMode={isLightMode} />
               </div>
               {/* Achievements */}
@@ -135,15 +124,6 @@ const InternalAboutPage: React.FC = () => {
                   <CapabilitiesSectionParallax isLightMode={isLightMode} />
                 </div>
               </AnimatedSection>
-              {/* Archive Photos */}
-              <div ref={archivePhotosSectionRef}>
-                <FeaturedProjectSlider
-                  projects={defaultFeaturedProjects}
-                  title="Hình ảnh tư liệu"
-                  seeMoreLink="/internal/tintuc/thu-vien-anh-video"
-                  isLightMode={isLightMode}
-                />
-              </div>
 
               {/* Navigation */}
               <HomePageNavigation sections={navigationSections} />

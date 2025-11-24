@@ -11,21 +11,11 @@ const unitWebsiteOptions = [
   { url: "https://www.pvn.com.vn", label: "PVN" },
 ];
 
-// Liên kết options
-const linkOptions = [
-  { url: "https://www.gov.vn", label: "Cổng Thông tin Điện tử Chính phủ" },
-  { url: "https://www.most.gov.vn", label: "Bộ Khoa học và Công nghệ" },
-  { url: "https://www.monre.gov.vn", label: "Bộ Tài nguyên và Môi trường" },
-  { url: "https://www.pvn.vn", label: "Tập đoàn Dầu khí Việt Nam" },
-];
-
 const PreFooter: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isUnitWebsiteOpen, setIsUnitWebsiteOpen] = useState(false);
-  const [isLinkOpen, setIsLinkOpen] = useState(false);
   const unitWebsiteRef = useRef<HTMLDivElement>(null);
-  const linkRef = useRef<HTMLDivElement>(null);
 
   const homePath = location.pathname.startsWith("/internal")
     ? "/internal"
@@ -43,9 +33,6 @@ const PreFooter: React.FC = () => {
         !unitWebsiteRef.current.contains(event.target as Node)
       ) {
         setIsUnitWebsiteOpen(false);
-      }
-      if (linkRef.current && !linkRef.current.contains(event.target as Node)) {
-        setIsLinkOpen(false);
       }
     };
 
@@ -110,39 +97,6 @@ const PreFooter: React.FC = () => {
                         rel="noopener noreferrer"
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-vietsov-green transition-colors"
                         onClick={() => setIsUnitWebsiteOpen(false)}
-                      >
-                        {option.label}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Liên kết Dropdown */}
-            <div ref={linkRef} className="relative">
-              <button
-                onClick={() => setIsLinkOpen(!isLinkOpen)}
-                className="flex items-center text-sm text-gray-700 font-medium px-4 py-2 rounded-md bg-gray-100 hover:bg-gray-200 transition-colors cursor-pointer"
-              >
-                Liên kết
-                <HiChevronDown
-                  className={`w-5 h-5 ml-2 text-gray-600 transition-transform ${
-                    isLinkOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {isLinkOpen && (
-                <div className="absolute bottom-full right-0 mb-2 w-64 bg-white border border-gray-300 rounded-lg shadow-lg z-50">
-                  <div className="py-1">
-                    {linkOptions.map((option, index) => (
-                      <a
-                        key={index}
-                        href={option.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-vietsov-green transition-colors"
-                        onClick={() => setIsLinkOpen(false)}
                       >
                         {option.label}
                       </a>

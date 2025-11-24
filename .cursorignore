@@ -1,0 +1,95 @@
+# --- Dependencies & System ---
+
+node_modules/
+
+.git/
+
+.vscode/
+
+.idea/
+
+
+
+# --- Build Outputs (Rất quan trọng để chặn AI đọc file rác) ---
+
+dist/
+
+build/
+
+coverage/
+
+.next/
+
+out/
+
+
+
+# --- Lock Files (AI đọc cái này rất tốn token mà không có giá trị) ---
+
+package-lock.json
+
+yarn.lock
+
+pnpm-lock.yaml
+
+Podfile.lock
+
+pubspec.lock
+
+
+
+# --- Assets (AI không cần đọc ảnh/video) ---
+
+*.png
+
+*.jpg
+
+*.jpeg
+
+*.gif
+
+*.svg
+
+*.mp4
+
+*.webp
+
+*.ico
+
+assets/
+
+public/
+
+images/
+
+fonts/
+
+
+
+# --- Logs & Temp ---
+
+*.log
+
+npm-debug.log*
+
+yarn-debug.log*
+
+yarn-error.log*
+
+.DS_Store
+
+*.swp
+
+*.swo
+
+*~
+
+
+
+# --- Config Files (Optional - có thể giữ lại nếu cần) ---
+
+# .env
+
+# .env.local
+
+# .env.*.local

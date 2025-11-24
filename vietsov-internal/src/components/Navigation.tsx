@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { HiMenu, HiX, HiArrowRight, HiSearch } from "react-icons/hi";
 import VietsopetroLogo from "@/assets/logo/vsp_logo.png";
 import { INTERNAL_MENU_ITEMS } from "@/config/navigation";
+// import SmartTextWithAmpersand from "@/components/SmartTextWithAmpersand";
 
 interface NavigationProps {
   activeItem: string;
@@ -22,30 +23,30 @@ const NavigationBar: React.FC<NavigationProps> = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdownId, setOpenDropdownId] = useState<string | null>(null);
   const [hoverTimeout, setHoverTimeout] = useState<number | null>(null);
-  const [headerHeight, setHeaderHeight] = useState(48);
+  const [headerHeight, setHeaderHeight] = useState(48); // Default 3rem
   const menuItems = INTERNAL_MENU_ITEMS;
 
+  // Measure header height dynamically
   useEffect(() => {
     const header = document.querySelector("header");
-    if (!header) return;
-
-    const updateHeaderHeight = () => {
-      setHeaderHeight(header.offsetHeight);
-    };
-
-    updateHeaderHeight();
-    window.addEventListener("resize", updateHeaderHeight);
-    const observer = new MutationObserver(updateHeaderHeight);
-    observer.observe(header, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-    });
-
-    return () => {
-      window.removeEventListener("resize", updateHeaderHeight);
-      observer.disconnect();
-    };
+    if (header) {
+      const updateHeaderHeight = () => {
+        setHeaderHeight(header.offsetHeight);
+      };
+      updateHeaderHeight();
+      window.addEventListener("resize", updateHeaderHeight);
+      // Use MutationObserver to watch for header content changes
+      const observer = new MutationObserver(updateHeaderHeight);
+      observer.observe(header, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+      });
+      return () => {
+        window.removeEventListener("resize", updateHeaderHeight);
+        observer.disconnect();
+      };
+    }
   }, []);
 
   const handleDropdownMouseEnter = (itemId: string) => {
@@ -57,27 +58,35 @@ const NavigationBar: React.FC<NavigationProps> = ({
   };
 
   const handleDropdownMouseLeave = () => {
-    const timeout = window.setTimeout(() => {
+    const timeout = setTimeout(() => {
       setOpenDropdownId(null);
-    }, 300);
+    }, 300); // 300ms delay before closing for easier interaction
     setHoverTimeout(timeout);
   };
 
   const handleChildItemClick = (child: { title: string; href: string }) => {
+    // Check if href contains a hash (section ID)
     if (child.href.includes("#")) {
+      // Extract section ID from href (e.g., "/gioithieu#history" -> "history")
       const sectionId = child.href.split("#")[1];
       if (sectionId) {
+        // Check if it's an About page section
         if (child.href.startsWith("/gioithieu") && onAboutSectionClick) {
           onAboutSectionClick(sectionId);
-        } else if (
+        }
+        // Check if it's a Fields page section
+        else if (
           child.href.startsWith("/linhvuc-nangluc") &&
           onFieldsSectionClick
         ) {
           onFieldsSectionClick(sectionId);
         }
       }
-    } else if (onUrlNavigation) {
-      onUrlNavigation(child.href);
+    } else {
+      // It's a regular URL, navigate to it
+      if (onUrlNavigation) {
+        onUrlNavigation(child.href);
+      }
     }
   };
 
@@ -90,9 +99,12 @@ const NavigationBar: React.FC<NavigationProps> = ({
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, [openDropdownId]);
 
+  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
       if (hoverTimeout) {
@@ -113,6 +125,7 @@ const NavigationBar: React.FC<NavigationProps> = ({
               onClick={() => {
                 if (onUrlNavigation) {
                   onUrlNavigation("/");
+                  // Scroll to top after navigation
                   setTimeout(() => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }, 100);

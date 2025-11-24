@@ -9,6 +9,10 @@ export { default as PageWithSidebar } from "./PageWithSidebar";
 export { default as SidebarNavigation } from "./SidebarNavigation";
 export { default as SectionWithTitle } from "./SectionWithTitle";
 export { default as Header } from "./Header";
+export { useSidebarState } from "./PageWithSidebarContext";
+export { default as Pagination } from "./Pagination";
+export { Select } from "./Form";
+export type { SelectOption, SelectProps } from "./Form";
 
 // AboutPage exports
 export { default as OrgStructureSection } from "./AboutPage/OrgStructureSection";

@@ -49,7 +49,7 @@ const Pagination: React.FC<PaginationProps> = ({
       {currentPage > 1 && (
         <button
           onClick={() => onPageChange(1)}
-          className="px-1 py-2 text-sm font-medium text-gray-500 hover:text-green-600"
+          className="px-1 py-2 text-sm font-medium text-gray-500 hover:text-green-600 cursor-pointer"
         >
           Về trang đầu
         </button>
@@ -59,7 +59,7 @@ const Pagination: React.FC<PaginationProps> = ({
           <button
             key={index}
             onClick={() => onPageChange(page)}
-            className={`relative px-1 py-2 text-sm font-medium transition-colors ${
+            className={`relative px-1 py-2 text-sm font-medium transition-colors cursor-pointer ${
               currentPage === page
                 ? "text-green-600"
                 : "text-gray-500 hover:text-green-600"
@@ -79,7 +79,7 @@ const Pagination: React.FC<PaginationProps> = ({
       {currentPage < totalPages && (
         <button
           onClick={() => onPageChange(currentPage + 1)}
-          className="px-1 py-2 text-sm font-medium text-gray-500 hover:text-green-600"
+          className="px-1 py-2 text-sm font-medium text-gray-500 hover:text-green-600 cursor-pointer"
         >
           Trang kế tiếp
         </button>

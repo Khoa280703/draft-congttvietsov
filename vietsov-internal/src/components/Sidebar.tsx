@@ -49,23 +49,7 @@ const trainingData: TrainingItemData[] = [
 const Sidebar: React.FC = () => {
   return (
     <div className="space-y-6">
-      <ButtonSideBar />
-      <StatisticCard
-        data={statisticCardData1}
-        title="SẢN LƯỢNG DẦU KHAI THÁC VSP"
-      />
-      <StatisticCard
-        data={statisticCardData2}
-        title="SẢN LƯỢNG ĐẦU MỎ CÁ TẦM"
-      />
-
-      <StatisticCardWithBg
-        data={statisticCardData2}
-        note="Giá điều chỉnh Ngày 31/07/2025"
-      />
-
       <SafetyInfoCard />
-
       <TrainingScheduleWidget
         title="LỊCH ĐÀO TẠO NỘI BỘ"
         items={trainingData}

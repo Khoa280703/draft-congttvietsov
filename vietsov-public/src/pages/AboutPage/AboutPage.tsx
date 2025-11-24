@@ -103,24 +103,24 @@ const AboutPage: React.FC = () => {
           path="/"
           element={
             <div>
-              <div ref={aboutSectionRef}>
+              <div id="introdution" ref={aboutSectionRef}>
                 <AboutSection />
               </div>
-              <div ref={historySectionRef}>
+              <div id="history" ref={historySectionRef}>
                 <HistorySectionV2
                   data={defaultDevelopmentHistoryData}
                   isLightMode={isLightMode}
                 />
               </div>
               {/* Core Values Section */}
-              <div ref={coreValuesSectionRef}>
+              <div id="vision-mission" ref={coreValuesSectionRef}>
                 <CoreValuesSectionV2
                   isLightMode={isLightMode}
                   humanValuesRef={humanValuesRef}
                 />
               </div>
               {/* Organization Structure */}
-              <div ref={orgStructureSectionRef}>
+              <div id="organization-structure" ref={orgStructureSectionRef}>
                 <OrgStructureSection isLightMode={isLightMode} />
               </div>
               {/* Achievements */}

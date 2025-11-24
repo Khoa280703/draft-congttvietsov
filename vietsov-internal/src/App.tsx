@@ -104,7 +104,7 @@ const InternalInterface: React.FC = () => {
         <Route path="/" element={<InternalHomePage />} />
         <Route path="/gioithieu/*" element={<InternalAboutPage />} />
         <Route path="/tintuc/*" element={<InternalNewsPage />} />
-        <Route path="/phattrien" element={<InternalDevelopmentPage />} />
+        <Route path="/phattrien/*" element={<InternalDevelopmentPage />} />
         <Route path="/baocao" element={<InternalReportsPage />} />
         <Route path="/ungdung" element={<InternalApplicationsPage />} />
         <Route path="/tracuu" element={<InternalSearchPage />} />

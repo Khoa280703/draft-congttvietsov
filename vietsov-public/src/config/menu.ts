@@ -56,7 +56,7 @@ export const MAIN_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     children: [
       { title: "An toàn sức khoẻ môi trường", href: "/phattrien/atskmt" },
       {
-        title: "Truyền thông VHDN - DNXH",
+        title: "Truyền thông VHDN - HĐXH",
         href: "/phattrien/truyen-thong-vhdn-hdxh",
       },
       { title: "Chuyển đổi số", href: "/phattrien/chuyen-doi-so" },
@@ -156,7 +156,7 @@ export const SIDEBAR_NAVIGATION_ITEMS: MenuItemWithChildren[] = [
     children: [
       { title: "An toàn sức khoẻ môi trường", href: "/phattrien/atskmt" },
       {
-        title: "Truyền thông VHDN - DNXH",
+        title: "Truyền thông VHDN - HĐXH",
         href: "/phattrien/truyen-thong-vhdn-hdxh",
       },
       { title: "Chuyển đổi số", href: "/phattrien/chuyen-doi-so" },

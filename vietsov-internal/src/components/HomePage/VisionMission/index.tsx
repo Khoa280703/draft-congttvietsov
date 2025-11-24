@@ -31,7 +31,7 @@ const VisionMission = forwardRef<VisionMissionRef, VisionMissionProps>(
         className="w-full bg-white py-12 md:py-16 lg:py-20"
         id="vision-mission"
       >
-        <div className="max-w-screen-xl mx-auto px-4 md:px-6 lg:px-10">
+        <div className="mx-auto px-4 md:px-8 lg:px-16 laptop:px-24 fhd:px-32 qhd:px-40 w-full sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl laptop:max-w-[85.375rem] fhd:max-w-[120rem] qhd:max-w-[160rem]">
           <motion.div
             className="text-center mb-10 md:mb-12 lg:mb-16 laptop:mb-24 fhd:mb-32 qhd:mb-40"
             initial={{ opacity: 0, y: 20 }}

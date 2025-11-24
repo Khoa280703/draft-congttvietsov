@@ -74,14 +74,14 @@ const VideoNewsSection: React.FC = () => {
   return (
     <div className="">
       {/* Header */}
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-4 md:mb-5 lg:mb-5 laptop:mb-6 fhd:mb-7 qhd:mb-8">
         <div className="flex items-center">
-          <span className="w-1 h-6 bg-green-500 mr-3 rounded"></span>
-          <h2 className="font-bold text-gray-800 uppercase tracking-wide text-lg">
+          <span className="w-1 h-4 md:h-5 lg:h-5 laptop:h-6 fhd:h-6 qhd:h-7 bg-green-500 mr-2 md:mr-3 rounded"></span>
+          <h2 className="font-medium text-gray-800 uppercase tracking-wide text-lg md:text-xl lg:text-xl laptop:text-2xl fhd:text-3xl qhd:text-4xl">
             VIDEO
           </h2>
         </div>
-        <div className="hidden md:flex items-center space-x-4 text-sm font-medium text-gray-500">
+        <div className="hidden md:flex items-center space-x-3 md:space-x-4 text-xs md:text-xs lg:text-xs laptop:text-sm fhd:text-sm qhd:text-base font-medium text-gray-500">
           <a href="#" className="hover:text-green-600">
             Văn hóa doanh nghiệp
           </a>
@@ -97,7 +97,7 @@ const VideoNewsSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-6 lg:h-80">
+      <div className="bg-white rounded-lg shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-5 lg:gap-5 laptop:gap-6 fhd:gap-7 qhd:gap-8 lg:h-64 md:h-72 lg:h-80 laptop:h-88 fhd:h-96 qhd:h-[28rem]">
         {/* Video Player */}
         <div className="relative rounded-md overflow-hidden group cursor-pointer">
           <img
@@ -106,53 +106,53 @@ const VideoNewsSection: React.FC = () => {
             className="w-full h-full object-cover"
           />
           <PlayButton />
-          <span className="absolute bottom-2 left-2 bg-black/60 text-white text-xs px-2 py-1 rounded">
+          <span className="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] md:text-[10px] lg:text-xs laptop:text-xs fhd:text-sm qhd:text-sm px-2 py-1 rounded">
             {mainVideo.duration}
           </span>
         </div>
         {/* Video Info */}
-        <div className="flex flex-col p-4">
-          <p className="text-xs text-gray-400 mb-2">{mainVideo.timestamp}</p>
-          <h3 className="text-xl font-bold text-gray-800 mb-2 hover:text-green-600 cursor-pointer">
+        <div className="flex flex-col p-3 md:p-4 lg:p-4 laptop:p-5 fhd:p-6 qhd:p-7">
+          <p className="text-xs md:text-xs lg:text-xs laptop:text-xs fhd:text-sm qhd:text-base text-gray-400 mb-1.5 md:mb-2 lg:mb-2 laptop:mb-2.5 fhd:mb-3 qhd:mb-3">{mainVideo.timestamp}</p>
+          <h3 className="font-semibold text-base md:text-base lg:text-base laptop:text-lg fhd:text-xl qhd:text-xl text-gray-800 mb-2 md:mb-2.5 lg:mb-2.5 laptop:mb-3 fhd:mb-3.5 qhd:mb-4 hover:text-green-600 cursor-pointer leading-tight">
             {mainVideo.title}
           </h3>
-          <p className="text-sm text-gray-600 flex-grow">
+          <p className="text-xs md:text-xs lg:text-xs laptop:text-sm fhd:text-sm qhd:text-base text-gray-600 flex-grow leading-relaxed">
             {mainVideo.description}
           </p>
-          <div className="flex items-center space-x-3 text-gray-400">
+          <div className="flex items-center space-x-2 md:space-x-3 text-gray-400 mt-2 md:mt-2.5 lg:mt-2.5 laptop:mt-3 fhd:mt-3.5 qhd:mt-4">
             <a href="#" className="hover:text-green-600">
-              <FiLink />
+              <FiLink className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-4 lg:h-4 laptop:w-4 laptop:h-4 fhd:w-5 fhd:h-5 qhd:w-5 qhd:h-5" />
             </a>
             <a href="#" className="hover:text-green-600">
-              <FiTwitter />
+              <FiTwitter className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-4 lg:h-4 laptop:w-4 laptop:h-4 fhd:w-5 fhd:h-5 qhd:w-5 qhd:h-5" />
             </a>
             <a href="#" className="hover:text-green-600">
-              <FiFacebook />
+              <FiFacebook className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-4 lg:h-4 laptop:w-4 laptop:h-4 fhd:w-5 fhd:h-5 qhd:w-5 qhd:h-5" />
             </a>
             <a href="#" className="hover:text-green-600">
-              <FiBookmark />
+              <FiBookmark className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-4 lg:h-4 laptop:w-4 laptop:h-4 fhd:w-5 fhd:h-5 qhd:w-5 qhd:h-5" />
             </a>
           </div>
         </div>
       </div>
 
       {/* Thumbnails Grid */}
-      <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="mt-4 md:mt-5 lg:mt-5 laptop:mt-6 fhd:mt-7 qhd:mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 lg:gap-4 laptop:gap-5 fhd:gap-6 qhd:gap-7">
         {videoThumbnails.map((video) => (
           <div key={video.id} className="group cursor-pointer">
-            <div className="relative rounded-md overflow-hidden mb-2">
+            <div className="relative rounded-md overflow-hidden mb-1.5 md:mb-2 lg:mb-2 laptop:mb-2.5 fhd:mb-3 qhd:mb-3">
               <img
                 src={video.image}
                 alt={video.title}
-                className="w-full h-32 object-cover"
+                className="w-full h-24 md:h-28 lg:h-32 laptop:h-36 fhd:h-40 qhd:h-44 object-cover"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
-                <div className="w-8 h-8 rounded-full bg-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="w-6 h-6 md:w-7 md:h-7 lg:w-7 lg:h-7 laptop:w-8 laptop:h-8 fhd:w-9 fhd:h-9 qhd:w-10 qhd:h-10 rounded-full bg-white/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     fill="currentColor"
-                    className="w-4 h-4 text-white ml-0.5"
+                    className="w-3 h-3 md:w-3.5 md:h-3.5 lg:w-3.5 lg:h-3.5 laptop:w-4 laptop:h-4 fhd:w-4.5 fhd:h-4.5 qhd:w-5 qhd:h-5 text-white ml-0.5"
                   >
                     <path
                       fillRule="evenodd"
@@ -163,8 +163,8 @@ const VideoNewsSection: React.FC = () => {
                 </div>
               </div>
             </div>
-            <p className="text-xs text-gray-400">{video.timestamp}</p>
-            <h4 className="text-sm font-semibold text-gray-700 group-hover:text-green-600">
+            <p className="text-[10px] md:text-[10px] lg:text-xs laptop:text-xs fhd:text-sm qhd:text-sm text-gray-400 mb-1">{video.timestamp}</p>
+            <h4 className="font-semibold text-xs md:text-xs lg:text-sm laptop:text-sm fhd:text-base qhd:text-base text-gray-700 group-hover:text-green-600 leading-tight">
               {video.title}
             </h4>
           </div>

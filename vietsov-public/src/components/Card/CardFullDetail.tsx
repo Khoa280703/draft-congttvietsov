@@ -91,21 +91,23 @@ const CardFullDetail: React.FC<CardFullDetailProps> = ({
         )}
 
         {description && (
-          <p
-            className={`leading-relaxed flex-1 text-vietsov-black/80 ${
-              compact
-                ? "text-sm md:text-xs lg:text-xs laptop:text-sm fhd:text-base qhd:text-lg"
-                : "text-base md:text-sm lg:text-sm laptop:text-base fhd:text-lg qhd:text-xl"
-            }`}
-            style={{
-              display: "-webkit-box",
-              WebkitLineClamp: maxDescriptionLines,
-              WebkitBoxOrient: "vertical",
-              overflow: "hidden",
-            }}
-          >
-            {description}
-          </p>
+          <div className="flex-1 min-h-0">
+            <p
+              className={`text-vietsov-black/80 ${
+                compact
+                  ? "text-sm md:text-xs lg:text-xs laptop:text-sm fhd:text-base qhd:text-lg"
+                  : "text-base md:text-sm lg:text-sm laptop:text-base fhd:text-lg qhd:text-xl"
+              }`}
+              style={{
+                display: "-webkit-box",
+                WebkitLineClamp: maxDescriptionLines,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }}
+            >
+              {description}
+            </p>
+          </div>
         )}
 
         {detail && (
